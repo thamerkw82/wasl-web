@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title data-translate-key-suffix="sidebarHome" data-translate-key-titlebase="pageTitleSuffixAdmin">لوحة تحكم المدير | الرئيسية</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/responsive.css" rel="stylesheet"/>
+    <link href="../assets/css/accessibility.css" rel="stylesheet"/>
+    <link href="../assets/css/bem.css" rel="stylesheet"/>
+    <link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+    <link href="../assets/css/unified-design.css" rel="stylesheet"/>
+    <link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+    <style>
+        .dashboard-section {
+            margin-bottom: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .dashboard-section__header {
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .dashboard-section__title {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #495057;
+            display: flex;
+            align-items: center;
+        }
+        
+        .dashboard-section__title i {
+            margin-left: 10px;
+            color: #6c757d;
+        }
+        
+        .dashboard-section__actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .dashboard-section__body {
+            padding: 20px;
+        }
+        
+        .dashboard-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .dashboard-table th {
+            background-color: #f8f9fa;
+            color: #495057;
+            font-weight: 600;
+            text-align: right;
+            padding: 12px 15px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .dashboard-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+            color: #212529;
+        }
+        
+        .dashboard-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .dashboard-table tr:hover td {
+            background-color: #f8f9fa;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .status-badge--success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-badge--warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-badge--danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-badge--info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .status-badge--primary {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+        
+        .status-badge--secondary {
+            background-color: #e2e3e5;
+            color: #383d41;
+        }
+        
+        .rating {
+            color: #ffc107;
+            font-size: 1rem;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body class="admin-page">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">تخطي إلى المحتوى الرئيسي</a>
+    
+    <header class="header" role="banner">
+        <div class="header__brand">
+            <img alt="شعار موقع الدعوات الإلكترونية" src="../assets/img/logo.png">
+            <span data-translate-key="headerBrandText">لوحة المستخدم</span>
+        </div>
+        <div class="header__actions">
+            <button aria-label="تبديل اللغة بين العربية والإنجليزية" id="langSwitcher" title="تبديل اللغة">
+                <span>EN</span>
+            </button>
+            <!-- User profile dropdown -->
+            <div class="profile-dropdown">
+                <div class="profile-dropdown__toggle" id="profileToggle" aria-haspopup="true" aria-expanded="false">
+                    <span>اسم المستخدم</span>
+                    <img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+                </div>
+                <div class="profile-dropdown__menu" id="profileMenu" role="menu" aria-labelledby="profileToggle">
+                    <div class="user-profile">
+                        <img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+                        <div class="user-info">
+                            <div class="user-name">اسم المستخدم</div>
+                            <div class="user-email">user@example.com</div>
+                        </div>
+                    </div>
+                    <div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+                    <a class="profile-dropdown__item" data-translate-key="profileLinkText" href="#" role="menuitem">
+                        <i class="fas fa-user-circle ml-1" aria-hidden="true"></i> الملف الشخصي
+                    </a>
+                    <a class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#" role="menuitem">
+                        <i class="fas fa-cog ml-1" aria-hidden="true"></i> الإعدادات
+                    </a>
+                    <a class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#" role="menuitem">
+                        <i class="fas fa-history ml-1" aria-hidden="true"></i> سجل النشاط
+                    </a>
+                    <a class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#" role="menuitem">
+                        <i class="fas fa-question-circle ml-1" aria-hidden="true"></i> المساعدة والدعم
+                    </a>
+                    <a class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink" role="menuitem">
+                        <i class="fas fa-sign-out-alt ml-1" aria-hidden="true"></i> تسجيل الخروج
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="layout">
+        <aside class="sidebar" role="navigation" aria-label="القائمة الرئيسية">
+            <div class="sidebar__content">
+                <!-- Sidebar Menu -->
+                <nav class="sidebar__nav mt-2">
+                    <ul class="sidebar__nav-list" role="menu">
+                        <li class="sidebar__nav-item sidebar__nav-item--active">
+                            <a class="sidebar__nav-link" href="index.html" aria-current="page">
+                                <i class="sidebar__nav-icon fas fa-tachometer-alt" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">الرئيسية</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="users.html">
+                                <i class="sidebar__nav-icon fas fa-users" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">إدارة المستخدمين</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="supervisors.html">
+                                <i class="sidebar__nav-icon fas fa-user-shield" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">إدارة المشرفين</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="events.html">
+                                <i class="sidebar__nav-icon fas fa-calendar-alt" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">إدارة المناسبات</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="invitations.html">
+                                <i class="sidebar__nav-icon fas fa-envelope-open-text" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">إدارة الدعوات</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="guests.html">
+                                <i class="sidebar__nav-icon fas fa-user-friends" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">إدارة الضيوف</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="orders.html">
+                                <i class="sidebar__nav-icon fas fa-file-invoice-dollar" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">إدارة الطلبات</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="packages.html">
+                                <i class="sidebar__nav-icon fas fa-box-open" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">إدارة الباقات</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="reports.html">
+                                <i class="sidebar__nav-icon fas fa-chart-line" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">التقارير والإحصائيات</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="content_management.html">
+                                <i class="sidebar__nav-icon fas fa-file-alt" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">إدارة المحتوى</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="customers.html">
+                                <i class="sidebar__nav-icon fas fa-user-tie" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">إدارة العملاء</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="design_gallery.html">
+                                <i class="sidebar__nav-icon fas fa-palette" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">معرض التصاميم</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="faq_management.html">
+                                <i class="sidebar__nav-icon fas fa-question-circle" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">إدارة الأسئلة الشائعة</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="support.html">
+                                <i class="sidebar__nav-icon fas fa-life-ring" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">الدعم الفني</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="help_center.html">
+                                <i class="sidebar__nav-icon fas fa-info-circle" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">مركز المساعدة</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="roles.html">
+                                <i class="sidebar__nav-icon fas fa-user-tag" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">إدارة الأدوار والصلاحيات</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="files.html">
+                                <i class="sidebar__nav-icon fas fa-folder-open" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">إدارة الملفات</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="integrations.html">
+                                <i class="sidebar__nav-icon fas fa-cogs" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">التكاملات الخارجية</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="backup.html">
+                                <i class="sidebar__nav-icon fas fa-database" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">النسخ الاحتياطي</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="tasks.html">
+                                <i class="sidebar__nav-icon fas fa-tasks" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">جدولة المهام</span>
+                            </a>
+                        </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link" href="settings.html">
+                                <i class="sidebar__nav-icon fas fa-cog" aria-hidden="true"></i>
+                                <span class="sidebar__nav-label">الإعدادات العامة</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        
+        <main id="main-content" class="main-content" role="main">
+            <div class="main-content__header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="main-content__title">لوحة التحكم الرئيسية للمشرف العام</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-content__body">
+                <div class="container-fluid">
+                    <!-- Welcome Message -->
+                    <div class="dashboard-section mb-4">
+                        <div class="dashboard-section__body">
+                            <h2>مرحبًا بك في لوحة تحكم المشرف العام</h2>
+                            <p>هنا يمكنك إدارة جميع أقسام النظام.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Stats Boxes -->
+                    <div class="stats mb-4">
+                        <div class="info-box info-box--turquoise">
+                            <div class="info-box__icon">
+                                <i class="fas fa-users" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-box__content">
+                                <h2>1,250</h2>
+                                <p data-translate-key="totalUsersStat">إجمالي المستخدمين</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-box info-box--green">
+                            <div class="info-box__icon">
+                                <i class="fas fa-user-shield" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-box__content">
+                                <h2>75</h2>
+                                <p data-translate-key="totalSupervisorsStat">إجمالي المشرفين</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-box info-box--yellow">
+                            <div class="info-box__icon">
+                                <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-box__content">
+                                <h2>340</h2>
+                                <p data-translate-key="totalEventsStat">إجمالي المناسبات</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-box info-box--red">
+                            <div class="info-box__icon">
+                                <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-box__content">
+                                <h2>5,600</h2>
+                                <p data-translate-key="totalInvitationsStat">إجمالي الدعوات</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-box info-box--turquoise">
+                            <div class="info-box__icon">
+                                <i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-box__content">
+                                <h2>820</h2>
+                                <p data-translate-key="totalOrdersStat">إجمالي الطلبات</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-box info-box--white-bg">
+                            <div class="info-box__icon">
+                                <i class="fas fa-box-open" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-box__content">
+                                <h2>15</h2>
+                                <p data-translate-key="activePackagesStat">الباقات النشطة</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dashboard Grid -->
+                    <div class="dashboard-grid">
+                        <!-- New Customers Section -->
+                        <div class="dashboard-section">
+                            <div class="dashboard-section__header">
+                                <h3 class="dashboard-section__title">
+                                    <i class="fas fa-user-plus" aria-hidden="true"></i>
+                                    العملاء الجدد
+                                </h3>
+                                <div class="dashboard-section__actions">
+                                    <a href="customers.html" class="btn btn-sm btn-outline-primary">عرض الكل</a>
+                                </div>
+                            </div>
+                            <div class="dashboard-section__body">
+                                <table class="dashboard-table">
+                                    <thead>
+                                        <tr>
+                                            <th>اسم العميل</th>
+                                            <th>البريد الإلكتروني</th>
+                                            <th>رقم الهاتف</th>
+                                            <th>تاريخ التسجيل</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>أحمد محمد</td>
+                                            <td>ahmed@example.com</td>
+                                            <td>0512345678</td>
+                                            <td>2025-05-15</td>
+                                        </tr>
+                                        <tr>
+                                            <td>سارة علي</td>
+                                            <td>sara@example.com</td>
+                                            <td>0598765432</td>
+                                            <td>2025-05-14</td>
+                                        </tr>
+                                        <tr>
+                                            <td>خالد عبدالله</td>
+                                            <td>khalid@example.com</td>
+                                            <td>0554321678</td>
+                                            <td>2025-05-13</td>
+                                        </tr>
+                                        <tr>
+                                            <td>نورة سعد</td>
+                                            <td>noura@example.com</td>
+                                            <td>0567891234</td>
+                                            <td>2025-05-12</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- New Orders Section -->
+                        <div class="dashboard-section">
+                            <div class="dashboard-section__header">
+                                <h3 class="dashboard-section__title">
+                                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                                    الطلبات الجديدة
+                                </h3>
+                                <div class="dashboard-section__actions">
+                                    <a href="orders.html" class="btn btn-sm btn-outline-primary">عرض الكل</a>
+                                </div>
+                            </div>
+                            <div class="dashboard-section__body">
+                                <table class="dashboard-table">
+                                    <thead>
+                                        <tr>
+                                            <th>رقم الطلب</th>
+                                            <th>اسم العميل</th>
+                                            <th>رقم الهاتف</th>
+                                            <th>التاريخ</th>
+                                            <th>الحالة</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#ORD-1234</td>
+                                            <td>محمد أحمد</td>
+                                            <td>0512345678</td>
+                                            <td>2025-05-16</td>
+                                            <td><span class="status-badge status-badge--warning">قيد المعالجة</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#ORD-1233</td>
+                                            <td>فاطمة علي</td>
+                                            <td>0598765432</td>
+                                            <td>2025-05-15</td>
+                                            <td><span class="status-badge status-badge--success">مكتمل</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#ORD-1232</td>
+                                            <td>عبدالله محمد</td>
+                                            <td>0554321678</td>
+                                            <td>2025-05-15</td>
+                                            <td><span class="status-badge status-badge--danger">ملغي</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#ORD-1231</td>
+                                            <td>سارة خالد</td>
+                                            <td>0567891234</td>
+                                            <td>2025-05-14</td>
+                                            <td><span class="status-badge status-badge--info">قيد الشحن</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-grid mt-4">
+                        <!-- Upcoming Tasks Section -->
+                        <div class="dashboard-section">
+                            <div class="dashboard-section__header">
+                                <h3 class="dashboard-section__title">
+                                    <i class="fas fa-tasks" aria-hidden="true"></i>
+                                    جدول المهام للأسبوع القادم
+                                </h3>
+                                <div class="dashboard-section__actions">
+                                    <a href="tasks.html" class="btn btn-sm btn-outline-primary">عرض الكل</a>
+                                </div>
+                            </div>
+                            <div class="dashboard-section__body">
+                                <table class="dashboard-table">
+                                    <thead>
+                                        <tr>
+                                            <th>المهمة</th>
+                                            <th>التاريخ</th>
+                                            <th>الحالة</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>تحديث قوالب الدعوات</td>
+                                            <td>2025-05-20</td>
+                                            <td><span class="status-badge status-badge--warning">قيد التنفيذ</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>مراجعة طلبات الدعم الفني</td>
+                                            <td>2025-05-21</td>
+                                            <td><span class="status-badge status-badge--secondary">مجدولة</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>اجتماع مع فريق التطوير</td>
+                                            <td>2025-05-22</td>
+                                            <td><span class="status-badge status-badge--secondary">مجدولة</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>إطلاق الباقة الجديدة</td>
+                                            <td>2025-05-25</td>
+                                            <td><span class="status-badge status-badge--primary">قريباً</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Customer Reviews Section -->
+                        <div class="dashboard-section">
+                            <div class="dashboard-section__header">
+                                <h3 class="dashboard-section__title">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    آراء العملاء
+                                </h3>
+                                <div class="dashboard-section__actions">
+                                    <a href="reports.html#reviews" class="btn btn-sm btn-outline-primary">عرض الكل</a>
+                                </div>
+                            </div>
+                            <div class="dashboard-section__body">
+                                <table class="dashboard-table">
+                                    <thead>
+                                        <tr>
+                                            <th>اسم العميل</th>
+                                            <th>التقييم</th>
+                                            <th>التعليق</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>محمد سعيد</td>
+                                            <td>
+                                                <div class="rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </td>
+                                            <td>خدمة ممتازة وسريعة، شكراً لكم!</td>
+                                        </tr>
+                                        <tr>
+                                            <td>نورة أحمد</td>
+                                            <td>
+                                                <div class="rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                            </td>
+                                            <td>تصاميم رائعة وسهولة في الاستخدام</td>
+                                        </tr>
+                                        <tr>
+                                            <td>خالد عبدالرحمن</td>
+                                            <td>
+                                                <div class="rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                            </td>
+                                            <td>خدمة جيدة ولكن أتمنى إضافة المزيد من القوالب</td>
+                                        </tr>
+                                        <tr>
+                                            <td>سارة محمد</td>
+                                            <td>
+                                                <div class="rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                </div>
+                                            </td>
+                                            <td>تجربة رائعة، سأوصي أصدقائي بالموقع</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-grid mt-4">
+                        <!-- Support Tickets Section -->
+                        <div class="dashboard-section">
+                            <div class="dashboard-section__header">
+                                <h3 class="dashboard-section__title">
+                                    <i class="fas fa-ticket-alt" aria-hidden="true"></i>
+                                    رسائل الدعم الفني
+                                </h3>
+                                <div class="dashboard-section__actions">
+                                    <a href="support.html" class="btn btn-sm btn-outline-primary">عرض الكل</a>
+                                </div>
+                            </div>
+                            <div class="dashboard-section__body">
+                                <table class="dashboard-table">
+                                    <thead>
+                                        <tr>
+                                            <th>رقم التذكرة</th>
+                                            <th>المستخدم</th>
+                                            <th>الحالة</th>
+                                            <th>تاريخ الإنشاء</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#TKT-5678</td>
+                                            <td>أحمد خالد</td>
+                                            <td><span class="status-badge status-badge--danger">عاجل</span></td>
+                                            <td>2025-05-16</td>
+                                        </tr>
+                                        <tr>
+                                            <td>#TKT-5677</td>
+                                            <td>فاطمة علي</td>
+                                            <td><span class="status-badge status-badge--warning">قيد المعالجة</span></td>
+                                            <td>2025-05-15</td>
+                                        </tr>
+                                        <tr>
+                                            <td>#TKT-5676</td>
+                                            <td>محمد سعد</td>
+                                            <td><span class="status-badge status-badge--info">بانتظار الرد</span></td>
+                                            <td>2025-05-15</td>
+                                        </tr>
+                                        <tr>
+                                            <td>#TKT-5675</td>
+                                            <td>نورة أحمد</td>
+                                            <td><span class="status-badge status-badge--success">مغلقة</span></td>
+                                            <td>2025-05-14</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Trial Invitations Section -->
+                        <div class="dashboard-section">
+                            <div class="dashboard-section__header">
+                                <h3 class="dashboard-section__title">
+                                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                                    الدعوات التجريبية
+                                </h3>
+                                <div class="dashboard-section__actions">
+                                    <a href="invitations.html?type=trial" class="btn btn-sm btn-outline-primary">عرض الكل</a>
+                                </div>
+                            </div>
+                            <div class="dashboard-section__body">
+                                <table class="dashboard-table">
+                                    <thead>
+                                        <tr>
+                                            <th>اسم المرسل</th>
+                                            <th>رقم الهاتف</th>
+                                            <th>تاريخ الإرسال</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>عبدالله محمد</td>
+                                            <td>0512345678</td>
+                                            <td>2025-05-16</td>
+                                        </tr>
+                                        <tr>
+                                            <td>سارة أحمد</td>
+                                            <td>0598765432</td>
+                                            <td>2025-05-15</td>
+                                        </tr>
+                                        <tr>
+                                            <td>خالد عبدالرحمن</td>
+                                            <td>0554321678</td>
+                                            <td>2025-05-15</td>
+                                        </tr>
+                                        <tr>
+                                            <td>نورة سعد</td>
+                                            <td>0567891234</td>
+                                            <td>2025-05-14</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <footer class="footer" role="contentinfo">
+                <div class="footer__content">
+                    <div class="footer__copyright">
+                        <strong>حقوق النشر © 2024-2025 <a href="#" aria-label="الانتقال إلى موقع الشركة">اسم الشركة</a>.</strong>
+                    </div>
+                    <div class="footer__info">
+                        كل الحقوق محفوظة.
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+    
+    <!-- Mobile overlay for responsive design -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    
+    <!-- Scripts -->
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+    <script src="../assets/js/dropdown.js"></script>
+</body>
+</html>

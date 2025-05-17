@@ -1,0 +1,377 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="profileLinkText" data-translate-key-titlebase="pageTitleBase_لوحة_تحكم_">لوحة تحكم المستخدم | الملف الشخصي</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/logo.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-home"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="create_invitation.html"><i class="nav-icon fas fa-plus-circle"></i><p>إنشاء دعوة جديدة</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="my_events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>مناسباتي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="my_invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>دعواتي المرسلة</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guest_management.html"><i class="nav-icon fas fa-users-cog"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="templates.html"><i class="nav-icon fas fa-palette"></i><p>قوالب الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="responses.html"><i class="nav-icon fas fa-reply-all"></i><p>تتبع الردود</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="profile.html"><i class="nav-icon fas fa-user-edit"></i><p>الملف الشخصي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="subscription.html"><i class="nav-icon fas fa-credit-card"></i><p>الباقة والاشتراك</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="profile.html"><i class="nav-icon fas fa-user"></i>الملف الشخصي</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1 id="page-main-title"><i class="fas fa-user-cog mr-2"></i>الملف الشخصي</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="row">
+<!-- Account Info Card -->
+<div class="col-md-6">
+<div class="card card-primary card-outline">
+<div class="card-header">
+<h3 class="card-title" id="account-info-title"><i class="fas fa-id-card mr-1"></i> معلومات الحساب</h3>
+</div>
+<form id="account-info-form">
+<div class="card-body">
+<div class="form-group">
+<label for="fullName" id="label-fullname">الاسم الكامل</label>
+<input class="form-control" id="fullName" required="" type="text" value="عبدالله محمد">
+</div>
+<div class="form-group">
+<label for="email" id="label-email">البريد الإلكتروني</label>
+<input class="form-control" id="email" readonly="" type="email" value="user@example.com">
+</div>
+<div class="form-group">
+<label for="phoneNumber" id="label-phone">رقم الهاتف</label>
+<input class="form-control" id="phoneNumber" type="tel" value="0501234567">
+</div>
+<div class="form-group">
+<label for="profilePictureUpload" id="label-profile-pic">الصورة الشخصية</label>
+<div class="input-group">
+<div class="custom-file">
+<input accept="image/*" class="custom-file-input" id="profilePictureUpload" type="file">
+<label class="custom-file-label" for="profilePictureUpload" id="label-choose-file">اختر ملفًا...</label>
+</div>
+</div>
+<img alt="Profile Preview" id="profile-pic-preview" src="../assets/img/user-avatar.jpg">
+<small class="form-text text-muted" id="pic-upload-note">الأبعاد المفضلة 200x200 بكسل.</small>
+</div>
+</div>
+<div class="card-footer">
+<div class="mb-3 mt-4"><button aria-label="زر" class="btn btn-danger" data-translate="profile_delete_account_button" type="button">حذف الحساب (نموذج)</button></div><div class="mb-3 mt-4"><h5 class="mb-3" data-translate="profile_privacy_settings_label">إعدادات الخصوصية (نموذج)</h5><p data-translate="profile_privacy_mock_text">هنا يمكنك إدارة إعدادات الخصوصية الخاصة بك. (هذه ميزة صورية حالياً).</p><a aria-label="رابط" class="btn btn-outline-secondary btn-sm" data-translate="profile_manage_privacy_button" href="#">إدارة الخصوصية</a></div><div class="mb-3"><label class="form-label" data-translate="profile_confirm_password_label" for="confirmPassword">تأكيد كلمة المرور الجديدة</label><input class="form-control" id="confirmPassword" name="confirmPassword" type="password"></div><div class="mb-3"><label class="form-label" data-translate="profile_new_password_label" for="newPassword">كلمة المرور الجديدة</label><input class="form-control" id="newPassword" name="newPassword" type="password"></div><div class="mb-3"><label class="form-label" data-translate="profile_current_password_label" for="currentPassword">كلمة المرور الحالية</label><input class="form-control" id="currentPassword" name="currentPassword" type="password"></div><h5 class="mt-4 mb-3" data-translate="profile_change_password_title">تغيير كلمة المرور</h5><div class="mb-3"><label class="form-label" data-translate="profile_picture_label" for="profilePicture">صورة الملف الشخصي</label><input accept="image/*" class="form-control" id="profilePicture" name="profilePicture" type="file"></div><div class="mb-3"><label class="form-label" data-translate="profile_phone_label" for="profilePhone">رقم الهاتف</label><input class="form-control" id="profilePhone" name="profilePhone" type="tel"></div><button class="btn btn-primary" id="save-account-info-btn" type="submit"><i class="fas fa-save mr-1"></i> حفظ معلومات الحساب</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Change Password Card -->
+<div class="col-md-6">
+<div class="card card-warning card-outline">
+<div class="card-header">
+<h3 class="card-title" id="change-password-title"><i class="fas fa-key mr-1"></i> تغيير كلمة المرور</h3>
+</div>
+<form id="change-password-form">
+<div class="card-body">
+<div class="form-group">
+<label for="currentPassword" id="label-current-password">كلمة المرور الحالية</label>
+<input class="form-control" id="currentPassword" required="" type="password">
+</div>
+<div class="form-group">
+<label for="newPassword" id="label-new-password">كلمة المرور الجديدة</label>
+<input class="form-control" id="newPassword" required="" type="password">
+</div>
+<div class="form-group">
+<label for="confirmNewPassword" id="label-confirm-password">تأكيد كلمة المرور الجديدة</label>
+<input class="form-control" id="confirmNewPassword" required="" type="password">
+</div>
+</div>
+<div class="card-footer">
+<button aria-label="زر" class="btn btn-warning" id="change-password-btn" type="submit"><i class="fas fa-exchange-alt mr-1"></i> تغيير كلمة المرور</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Logout Modal -->
+
+<!-- Main Footer -->
+<footer class="main-footer">
+<div class="float-right d-none d-sm-inline">كل الحقوق محفوظة.</div>
+<strong>حقوق النشر © 2024-2025 <a aria-label="رابط" href="#">اسم الشركة</a>.</strong>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<!-- AdminLTE App -->
+<!-- bs-custom-file-input -->
+<!-- Custom JS -->
+<script>
+  const currentUserNameAr = "عبدالله محمد"; // Placeholder, should match initial form value
+  const currentUserNameEn = "Abdullah Mohammed"; // Placeholder
+  let currentProfilePic = "../../assets/AdminLTE-master/dist/img/user2-160x160.jpg"; // Default
+  const langTextsProfile = {
+    ar: {
+        pageTitle: "لوحة تحكم المستخدم | الملف الشخصي",
+        pageMainTitle: "<i class=\"fas fa-user-cog mr-2\"></i>الملف الشخصي",
+        breadcrumbHome: "الرئيسية",
+        breadcrumbProfile: "الملف الشخصي",
+        accountInfoTitle: "<i class=\"fas fa-id-card mr-1\"></i> معلومات الحساب",
+        labelFullname: "الاسم الكامل",
+        labelEmail: "البريد الإلكتروني",
+        labelPhone: "رقم الهاتف",
+        labelProfilePic: "الصورة الشخصية",
+        labelChooseFile: "اختر ملفًا...",
+        picUploadNote: "الأبعاد المفضلة 200x200 بكسل.",
+        saveAccountInfoBtn: "<i class=\"fas fa-save mr-1\"></i> حفظ معلومات الحساب",
+        changePasswordTitle: "<i class=\"fas fa-key mr-1\"></i> تغيير كلمة المرور",
+        labelCurrentPassword: "كلمة المرور الحالية",
+        labelNewPassword: "كلمة المرور الجديدة",
+        labelConfirmPassword: "تأكيد كلمة المرور الجديدة",
+        changePasswordBtn: "<i class=\"fas fa-exchange-alt mr-1\"></i> تغيير كلمة المرور",
+        saveSuccess: "تم حفظ المعلومات بنجاح!",
+        passwordChangeSuccess: "تم تغيير كلمة المرور بنجاح!",
+        passwordMismatch: "كلمتا المرور الجديدتان غير متطابقتين.",
+        langSwitchTo: "EN",
+        logoutConfirmTitle: "تأكيد تسجيل الخروج",
+        logoutConfirmBody: "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+        cancel: "إلغاء",
+        logout: "تسجيل الخروج",
+        sidebarHome: "الرئيسية",
+        sidebarCreateInvitation: "إنشاء دعوة جديدة",
+        sidebarMyEvents: "مناسباتي",
+        sidebarMyInvitations: "دعواتي المرسلة",
+        sidebarGuestManagement: "إدارة الضيوف",
+        sidebarTemplates: "قوالب الدعوات",
+        sidebarResponses: "تتبع الردود",
+        sidebarProfile: "الملف الشخصي",
+        sidebarSubscription: "الباقة والاشتراك",
+        sidebarUsername: currentUserNameAr
+    },
+    en: {
+        pageTitle: "User Dashboard | Profile",
+        pageMainTitle: "<i class=\"fas fa-user-cog mr-2\"></i>Profile",
+        breadcrumbHome: "Home",
+        breadcrumbProfile: "Profile",
+        accountInfoTitle: "<i class=\"fas fa-id-card mr-1\"></i> Account Information",
+        labelFullname: "Full Name",
+        labelEmail: "Email Address",
+        labelPhone: "Phone Number",
+        labelProfilePic: "Profile Picture",
+        labelChooseFile: "Choose file...",
+        picUploadNote: "Preferred dimensions 200x200 pixels.",
+        saveAccountInfoBtn: "<i class=\"fas fa-save mr-1\"></i> Save Account Info",
+        changePasswordTitle: "<i class=\"fas fa-key mr-1\"></i> Change Password",
+        labelCurrentPassword: "Current Password",
+        labelNewPassword: "New Password",
+        labelConfirmPassword: "Confirm New Password",
+        changePasswordBtn: "<i class=\"fas fa-exchange-alt mr-1\"></i> Change Password",
+        saveSuccess: "Information saved successfully!",
+        passwordChangeSuccess: "Password changed successfully!",
+        passwordMismatch: "New passwords do not match.",
+        langSwitchTo: "ع",
+        logoutConfirmTitle: "Confirm Logout",
+        logoutConfirmBody: "Are you sure you want to log out?",
+        cancel: "Cancel",
+        logout: "Logout",
+        sidebarHome: "Home",
+        sidebarCreateInvitation: "Create New Invitation",
+        sidebarMyEvents: "My Events",
+        sidebarMyInvitations: "My Sent Invitations",
+        sidebarGuestManagement: "Guest Management",
+        sidebarTemplates: "Invitation Templates",
+        sidebarResponses: "Track Responses",
+        sidebarProfile: "Profile",
+        sidebarSubscription: "Package & Subscription",
+        sidebarUsername: currentUserNameEn
+    }
+  };
+  let currentProfileLang = "ar";
+  function updateTextsProfile() {
+    const texts = langTextsProfile[currentProfileLang];
+    document.title = texts.pageTitle;
+    $("#page-main-title").html(texts.pageMainTitle);
+    $("#breadcrumb-home").text(texts.breadcrumbHome);
+    $("#breadcrumb-profile").text(texts.breadcrumbProfile);
+    $("#account-info-title").html(texts.accountInfoTitle);
+    $("#label-fullname").text(texts.labelFullname);
+    $("#label-email").text(texts.labelEmail);
+    $("#label-phone").text(texts.labelPhone);
+    $("#label-profile-pic").text(texts.labelProfilePic);
+    $(".custom-file-label[for=\"profilePictureUpload\"]").text(texts.labelChooseFile);
+    $("#pic-upload-note").text(texts.picUploadNote);
+    $("#save-account-info-btn").html(texts.saveAccountInfoBtn);
+    $("#change-password-title").html(texts.changePasswordTitle);
+    $("#label-current-password").text(texts.labelCurrentPassword);
+    $("#label-new-password").text(texts.labelNewPassword);
+    $("#label-confirm-password").text(texts.labelConfirmPassword);
+    $("#change-password-btn").html(texts.changePasswordBtn);
+    $("#lang-switcher-btn").text(texts.langSwitchTo);
+    $("#sidebar-username").text(texts.sidebarUsername);
+    // Sidebar
+    const sidebarLinks = document.querySelectorAll(".nav-sidebar .nav-link p");
+    sidebarLinks[0].textContent = texts.sidebarHome;
+    sidebarLinks[1].textContent = texts.sidebarCreateInvitation;
+    sidebarLinks[2].textContent = texts.sidebarMyEvents;
+    sidebarLinks[3].textContent = texts.sidebarMyInvitations;
+    sidebarLinks[4].textContent = texts.sidebarGuestManagement;
+    sidebarLinks[5].textContent = texts.sidebarTemplates;
+    sidebarLinks[6].textContent = texts.sidebarResponses;
+    sidebarLinks[7].textContent = texts.sidebarProfile;
+    sidebarLinks[8].textContent = texts.sidebarSubscription;
+    // Logout Modal specific IDs
+    document.getElementById("logoutModalLabel-main").textContent = texts.logoutConfirmTitle;
+    document.getElementById("logoutModalBody-main").textContent = texts.logoutConfirmBody;
+    document.getElementById("logoutCancelBtn-main").textContent = texts.cancel;
+    document.getElementById("logoutConfirmBtn-main").textContent = texts.logout;
+  }
+  $(function () {
+    bsCustomFileInput.init(); // Initialize bs-custom-file-input
+    updateTextsProfile(); // Initial text setup
+    $("#lang-switcher-btn").on("click", function(e){
+        e.preventDefault();
+        currentProfileLang = currentProfileLang === "ar" ? "en" : "ar";
+        document.documentElement.lang = currentProfileLang;
+        document.documentElement.dir = currentProfileLang === "ar" ? "rtl" : "ltr";
+        langTextsProfile.ar.sidebarUsername = $("#fullName").val() || currentUserNameAr; // Update with current name
+        langTextsProfile.en.sidebarUsername = $("#fullName").val() || currentUserNameEn;
+        updateTextsProfile();
+    });
+    $('#profilePictureUpload').on('change', function(event) {
+        const [file] = event.target.files;
+        if (file) {
+            currentProfilePic = URL.createObjectURL(file);
+            $('#profile-pic-preview').attr('src', currentProfilePic);
+            $('#sidebar-profile-pic').attr('src', currentProfilePic); // Update sidebar pic too
+        }
+    });
+    $('#account-info-form').on('submit', function(e) {
+        e.preventDefault();
+        const newName = $("#fullName").val();
+        // Update sidebar username if name changed
+        if (currentProfileLang === 'ar') langTextsProfile.ar.sidebarUsername = newName;
+        else langTextsProfile.en.sidebarUsername = newName;
+        $("#sidebar-username").text(currentProfileLang === 'ar' ? newName : newName); 
+        // In a real app, send data to the server
+        alert(langTextsProfile[currentProfileLang].saveSuccess);
+    });
+    $('#change-password-form').on('submit', function(e) {
+        e.preventDefault();
+        const newPassword = $('#newPassword').val();
+        const confirmNewPassword = $('#confirmNewPassword').val();
+        if (newPassword !== confirmNewPassword) {
+            alert(langTextsProfile[currentProfileLang].passwordMismatch);
+            return;
+        }
+        // In a real app, send data to the server (including currentPassword for verification)
+        alert(langTextsProfile[currentProfileLang].passwordChangeSuccess);
+        $('#change-password-form')[0].reset();
+    });
+    // Set initial sidebar username and picture
+    $("#sidebar-username").text(langTextsProfile[currentProfileLang].sidebarUsername);
+    $('#sidebar-profile-pic').attr('src', currentProfilePic);
+  });
+</script>
+</main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

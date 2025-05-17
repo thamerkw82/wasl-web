@@ -1,0 +1,232 @@
+/* ==== Accessibility Enhancements ==== */
+
+/* Focus Styles */
+:focus {
+    outline: 3px solid var(--info-color);
+    outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--info-color);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* Keyboard Navigation Indicators */
+button:focus, 
+a:focus, 
+input:focus, 
+select:focus, 
+textarea:focus {
+    box-shadow: 0 0 0 3px rgba(23, 162, 184, 0.5);
+}
+
+/* Improved Color Contrast */
+.text-muted {
+    color: #6c757d !important;
+}
+
+[data-theme="dark"] .text-muted {
+    color: #a0a0a0 !important;
+}
+
+/* ARIA Support */
+.sidebar__nav-item[aria-current="page"] {
+    background: #5c636a;
+    color: #fff;
+}
+
+/* Screen Reader Only Text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Improved Form Accessibility */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+/* Required Field Indicator */
+.required-field::after {
+    content: "*";
+    color: var(--danger-color);
+    margin-right: 0.25rem;
+}
+
+/* Error Messages */
+.form-error {
+    color: var(--danger-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Improved Button Accessibility */
+button, 
+.btn {
+    position: relative;
+}
+
+button:active,
+.btn:active {
+    top: 1px;
+}
+
+/* Improved Table Accessibility */
+th {
+    font-weight: bold;
+}
+
+caption {
+    padding: 0.5rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Improved Dropdown Accessibility */
+.dropdown-menu {
+    min-width: 10rem;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+}
+
+/* Improved Modal Accessibility */
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 0.5rem;
+    pointer-events: none;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: var(--card-bg);
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    outline: 0;
+}
+
+/* Improved Tooltip Accessibility */
+.tooltip {
+    position: absolute;
+    z-index: 1070;
+    display: block;
+    margin: 0;
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: right;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    white-space: normal;
+    line-break: auto;
+    font-size: 0.875rem;
+    word-wrap: break-word;
+    opacity: 0;
+}
+
+.tooltip.show {
+    opacity: 0.9;
+}
+
+/* Improved Notification Accessibility */
+.toast {
+    max-width: 350px;
+    overflow: hidden;
+    font-size: 0.875rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    border-radius: 0.25rem;
+}
+
+.toast:not(:last-child) {
+    margin-bottom: 0.75rem;
+}
+
+.toast.showing {
+    opacity: 1;
+}
+
+.toast.show {
+    display: block;
+    opacity: 1;
+}
+
+.toast.hide {
+    display: none;
+}
+
+/* RTL Support for Accessibility */
+html[dir="rtl"] .required-field::after {
+    margin-right: 0;
+    margin-left: 0.25rem;
+}
+
+html[dir="rtl"] caption {
+    text-align: right;
+}
+
+html[dir="rtl"] .tooltip {
+    text-align: right;
+}
+
+/* High Contrast Mode Support */
+@media (forced-colors: active) {
+    .btn-primary,
+    .btn-success,
+    .btn-danger,
+    .btn-warning,
+    .btn-info {
+        border: 2px solid transparent;
+    }
+    
+    .btn:focus,
+    button:focus,
+    a:focus,
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: 2px solid;
+    }
+}

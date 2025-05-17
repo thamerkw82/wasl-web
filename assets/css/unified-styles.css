@@ -1,0 +1,494 @@
+/* 
+ * unified-styles.css
+ * ملف توحيد التنسيقات والستايلات عبر جميع صفحات المشروع
+ * هذا الملف يجمع ويوحد جميع التنسيقات من الإصدارات المختلفة
+ */
+
+/* استيراد جميع ملفات CSS الأساسية */
+@import url('style.css');
+@import url('responsive.css');
+@import url('accessibility.css');
+@import url('bem.css');
+@import url('optimized.css');
+@import url('rtl-fixes.css');
+@import url('dropdown-fixes.css');
+@import url('dark-mode.css');
+@import url('hover-effects.css');
+@import url('design-system.css');
+@import url('enhanced-sidebar.css');
+@import url('unified-design.css');
+
+/* متغيرات CSS الموحدة */
+:root {
+  /* الألوان الأساسية */
+  --primary-color: #3c8dbc;
+  --secondary-color: #f39c12;
+  --success-color: #00a65a;
+  --info-color: #00c0ef;
+  --warning-color: #f39c12;
+  --danger-color: #dd4b39;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  
+  /* ألوان الخلفية */
+  --body-bg: #f4f6f9;
+  --sidebar-bg: #343a40;
+  --header-bg: #ffffff;
+  --footer-bg: #ffffff;
+  --card-bg: #ffffff;
+  
+  /* ألوان النص */
+  --text-color: #212529;
+  --text-muted: #6c757d;
+  --link-color: #007bff;
+  --link-hover-color: #0056b3;
+  
+  /* الخطوط */
+  --font-family-sans-serif: 'Cairo', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-sm: 0.875rem;
+  
+  /* المسافات */
+  --spacer: 1rem;
+  --spacer-1: 0.25rem;
+  --spacer-2: 0.5rem;
+  --spacer-3: 1rem;
+  --spacer-4: 1.5rem;
+  --spacer-5: 3rem;
+  
+  /* الحدود */
+  --border-width: 1px;
+  --border-color: #dee2e6;
+  --border-radius: 0.25rem;
+  --border-radius-lg: 0.3rem;
+  --border-radius-sm: 0.2rem;
+  
+  /* الظلال */
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  
+  /* الانتقالات */
+  --transition-base: all 0.2s ease-in-out;
+  --transition-fade: opacity 0.15s linear;
+  --transition-collapse: height 0.35s ease;
+}
+
+/* توحيد تنسيقات الجسم */
+body {
+  font-family: var(--font-family-sans-serif);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--body-bg);
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  text-align: right;
+}
+
+/* توحيد تنسيقات العناوين */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: var(--spacer-2);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+/* توحيد تنسيقات الروابط */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  background-color: transparent;
+  transition: var(--transition-base);
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* توحيد تنسيقات البطاقات */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: var(--card-bg);
+  background-clip: border-box;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-sm);
+  margin-bottom: var(--spacer);
+  transition: var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--box-shadow);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  padding: var(--spacer-3);
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: var(--spacer-3);
+}
+
+.card-footer {
+  padding: var(--spacer-3);
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: var(--border-width) solid var(--border-color);
+}
+
+/* توحيد تنسيقات الأزرار */
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: var(--border-width) solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  border-radius: var(--border-radius);
+  transition: var(--transition-base);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--box-shadow-sm);
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-success {
+  color: #fff;
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.btn-warning {
+  color: #212529;
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+}
+
+.btn-info {
+  color: #fff;
+  background-color: var(--info-color);
+  border-color: var(--info-color);
+}
+
+/* توحيد تنسيقات الجداول */
+.table {
+  width: 100%;
+  margin-bottom: var(--spacer);
+  color: var(--text-color);
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: var(--border-width) solid var(--border-color);
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: calc(var(--border-width) * 2) solid var(--border-color);
+}
+
+.table tbody + tbody {
+  border-top: calc(var(--border-width) * 2) solid var(--border-color);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+/* توحيد تنسيقات النماذج */
+.form-group {
+  margin-bottom: var(--spacer);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: #fff;
+  background-clip: padding-box;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: var(--transition-base);
+}
+
+.form-control:focus {
+  color: var(--text-color);
+  background-color: #fff;
+  border-color: var(--primary-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(60, 141, 188, 0.25);
+}
+
+/* توحيد تنسيقات التنبيهات */
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: var(--spacer);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--border-radius);
+}
+
+.alert-primary {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+}
+
+.alert-secondary {
+  color: #383d41;
+  background-color: #e2e3e5;
+  border-color: #d6d8db;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+/* توحيد تنسيقات الشارات */
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--border-radius);
+  transition: var(--transition-base);
+}
+
+.badge-primary {
+  color: #fff;
+  background-color: var(--primary-color);
+}
+
+.badge-secondary {
+  color: #fff;
+  background-color: var(--secondary-color);
+}
+
+.badge-success {
+  color: #fff;
+  background-color: var(--success-color);
+}
+
+.badge-danger {
+  color: #fff;
+  background-color: var(--danger-color);
+}
+
+.badge-warning {
+  color: #212529;
+  background-color: var(--warning-color);
+}
+
+.badge-info {
+  color: #fff;
+  background-color: var(--info-color);
+}
+
+/* توحيد تنسيقات الشبكة */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12,
+.col-sm, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12,
+.col-md, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
+.col-lg, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12,
+.col-xl, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* توحيد تنسيقات الوضع الليلي */
+.dark-mode {
+  --body-bg: #222;
+  --text-color: #f8f9fa;
+  --card-bg: #2d3035;
+  --border-color: #444;
+  --header-bg: #2d3035;
+  --footer-bg: #2d3035;
+}
+
+.dark-mode .card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.dark-mode .table {
+  color: var(--text-color);
+}
+
+.dark-mode .table th,
+.dark-mode .table td {
+  border-color: var(--border-color);
+}
+
+.dark-mode .form-control {
+  background-color: #333;
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+/* توحيد تنسيقات التوافق مع الأجهزة المختلفة */
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 100%;
+  }
+  
+  .card {
+    margin-bottom: var(--spacer-2);
+  }
+  
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .d-sm-none {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+  
+  .d-md-none {
+    display: none !important;
+  }
+  
+  .d-md-block {
+    display: block !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+  
+  .d-lg-none {
+    display: none !important;
+  }
+  
+  .d-lg-block {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* ضمان عدم تأثير أي تعديلات على العناصر الدستورية */
+/* القائمة الجانبية - لا تعديل على البنية الأساسية */
+.main-sidebar {
+  /* الحفاظ على الخصائص الأصلية */
+}
+
+/* الهيدر - لا تعديل على البنية الأساسية */
+.main-header {
+  /* الحفاظ على الخصائص الأصلية */
+}
+
+/* الفوتر - لا تعديل على البنية الأساسية */
+.main-footer {
+  /* الحفاظ على الخصائص الأصلية */
+}
+
+/* القائمة المنسدلة - لا تعديل على البنية الأساسية */
+.profile-dropdown {
+  /* الحفاظ على الخصائص الأصلية */
+}

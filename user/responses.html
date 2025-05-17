@@ -1,0 +1,546 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_تتبع_الردو" data-translate-key-titlebase="pageTitleBase_لوحة_تحكم_">لوحة تحكم المستخدم | تتبع الردود</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/logo.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-home"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="create_invitation.html"><i class="nav-icon fas fa-plus-circle"></i><p>إنشاء دعوة جديدة</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="my_events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>مناسباتي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="my_invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>دعواتي المرسلة</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guest_management.html"><i class="nav-icon fas fa-users-cog"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="templates.html"><i class="nav-icon fas fa-palette"></i><p>قوالب الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="responses.html"><i class="nav-icon fas fa-reply-all"></i><p>تتبع الردود</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="profile.html"><i class="nav-icon fas fa-user-edit"></i><p>الملف الشخصي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="subscription.html"><i class="nav-icon fas fa-credit-card"></i><p>الباقة والاشتراك</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="responses.html"><i class="nav-icon fas fa-reply-all"></i>تتبع الردود</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1 id="page-main-title"><i class="fas fa-chart-pie mr-2"></i>تتبع ردود الضيوف</h1><div class="invitation-stats-area mt-4 mb-4 p-3 border rounded"><h4 class="mb-3" data-translate="resp_stats_summary_title">ملخص الردود على الدعوات</h4><div class="row g-3"><div class="col-md-6 col-lg-3"><div class="card shadow-sm"><div class="card-body text-center"><i class="bi bi-check-circle-fill text-success fs-2 mb-2"></i><h5 class="card-title mb-1">75</h5><p class="card-text text-muted" data-translate="stats_confirmed">مؤكدة</p></div></div></div><div class="col-md-6 col-lg-3"><div class="card shadow-sm"><div class="card-body text-center"><i class="bi bi-x-circle-fill text-danger fs-2 mb-2"></i><h5 class="card-title mb-1">15</h5><p class="card-text text-muted" data-translate="stats_declined">معتذرة</p></div></div></div><div class="col-md-6 col-lg-3"><div class="card shadow-sm"><div class="card-body text-center"><i class="bi bi-question-circle-fill text-warning fs-2 mb-2"></i><h5 class="card-title mb-1">30</h5><p class="card-text text-muted" data-translate="stats_pending">لم يتم الرد</p></div></div></div><div class="col-md-6 col-lg-3"><div class="card shadow-sm"><div class="card-body text-center"><i class="bi bi-envelope-slash-fill text-muted fs-2 mb-2"></i><h5 class="card-title mb-1">10</h5><p class="card-text text-muted" data-translate="stats_not_opened">غير مفتوحة</p></div></div></div></div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<!-- Action Bar -->
+<div class="card card-primary card-outline">
+<div class="card-header">
+<h3 class="card-title" id="action-bar-title">فلترة وتصدير الردود</h3>
+</div>
+<div class="card-body">
+<div class="row">
+<div class="col-md-8">
+<div class="form-group">
+<label for="event-filter-responses" id="label-select-event">اختر المناسبة:</label>
+<select class="form-control" id="event-filter-responses">
+<!-- Options will be populated by JavaScript -->
+</select>
+</div>
+</div>
+<div class="col-md-4 align-self-end">
+<button aria-label="زر" class="btn btn-success btn-block" id="btn-export-responses" type="button">
+<i class="fas fa-file-excel"></i> <span id="export-btn-text">تصدير الردود (Excel)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Cards -->
+<div class="row">
+<div class="col-lg-3 col-6">
+<div class="small-box bg-info">
+<div class="inner">
+<h3 id="total-invited">0</h3>
+<p id="stat-total-invited">إجمالي المدعوين</p>
+</div>
+<div class="icon">
+<i class="fas fa-users stat-card-icon"></i>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-6">
+<div class="small-box bg-success">
+<div class="inner">
+<h3 id="total-confirmed">0</h3>
+<p id="stat-total-confirmed">المؤكدون</p>
+</div>
+<div class="icon">
+<i class="fas fa-user-check stat-card-icon"></i>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-6">
+<div class="small-box bg-danger">
+<div class="inner">
+<h3 id="total-declined">0</h3>
+<p id="stat-total-declined">المعتذرون</p>
+</div>
+<div class="icon">
+<i class="fas fa-user-times stat-card-icon"></i>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-6">
+<div class="small-box bg-warning">
+<div class="inner">
+<h3 id="total-no-response">0</h3>
+<p id="stat-total-no-response">لم يتم الرد</p>
+</div>
+<div class="icon">
+<i class="fas fa-user-clock stat-card-icon"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Response Status Chart -->
+<div class="card card-success card-outline">
+<div class="card-header">
+<h3 class="card-title" id="response-chart-title">ملخص حالة الردود</h3>
+</div>
+<div class="card-body">
+<div class="chart-container">
+<canvas id="responseStatusChart"></canvas>
+</div>
+</div>
+</div>
+<!-- Responses Table -->
+<div class="card card-info card-outline">
+<div class="card-header">
+<h3 class="card-title" id="responses-table-title">قائمة الردود التفصيلية لمناسبة: <span id="selected-event-name"></span></h3>
+</div>
+<div class="card-body table-responsive">
+<table class="table table-hover table-bordered" id="responses-table">
+<thead>
+<tr>
+<th id="th-guest-name">اسم المدعو</th>
+<th id="th-contact">البريد/الهاتف</th>
+<th id="th-status">حالة الرد</th>
+<th id="th-date">تاريخ الرد</th>
+<th id="th-companions">عدد المرافقين</th>
+<th id="th-notes">ملاحظات</th>
+<th id="th-actions">إجراءات</th>
+</tr>
+</thead>
+<tbody>
+<!-- Table rows will be injected by JavaScript -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Logout Modal -->
+
+<!-- Main Footer -->
+<footer class="main-footer">
+<div class="float-right d-none d-sm-inline">كل الحقوق محفوظة.</div>
+<strong>حقوق النشر © 2024-2025 <a aria-label="رابط" href="#">اسم الشركة</a>.</strong>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<!-- DataTables  & Plugins -->
+<!-- AdminLTE App -->
+<!-- Custom JS -->
+<script>
+  const currentUserNameAr = "عبدالله"; // Placeholder
+  const currentUserNameEn = "Abdullah"; // Placeholder
+  const langTextsResponses = {
+    ar: {
+        pageTitle: "لوحة تحكم المستخدم | تتبع الردود",
+        pageMainTitle: "<i class=\"fas fa-chart-pie mr-2\"></i>تتبع ردود الضيوف",
+        breadcrumbHome: "الرئيسية",
+        breadcrumbResponses: "تتبع الردود",
+        actionBarTitle: "فلترة وتصدير الردود",
+        labelSelectEvent: "اختر المناسبة:",
+        exportBtnText: "تصدير الردود (Excel)",
+        statTotalInvited: "إجمالي المدعوين",
+        statTotalConfirmed: "المؤكدون",
+        statTotalDeclined: "المعتذرون",
+        statTotalNoResponse: "لم يتم الرد",
+        responseChartTitle: "ملخص حالة الردود",
+        responsesTableTitle: "قائمة الردود التفصيلية لمناسبة: ",
+        thGuestName: "اسم المدعو",
+        thContact: "البريد/الهاتف",
+        thStatus: "حالة الرد",
+        thDate: "تاريخ الرد",
+        thCompanions: "عدد المرافقين",
+        thNotes: "ملاحظات",
+        thActions: "إجراءات",
+        statusConfirmed: "مؤكد",
+        statusDeclined: "معتذر",
+        statusNoResponse: "لم يرد",
+        actionRemind: "تذكير",
+        actionRecordResponse: "تسجيل رد",
+        actionEditResponse: "تعديل الرد",
+        noEventSelected: "الرجاء اختيار مناسبة لعرض الردود.",
+        noDataForChart: "لا توجد بيانات كافية لعرض الرسم البياني.",
+        exportSuccess: "تم تصدير البيانات بنجاح (محاكاة).",
+        exportError: "حدث خطأ أثناء التصدير (محاكاة).",
+        langSwitchTo: "EN",
+        logoutConfirmTitle: "تأكيد تسجيل الخروج",
+        logoutConfirmBody: "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+        cancel: "إلغاء",
+        logout: "تسجيل الخروج",
+        sidebarHome: "الرئيسية",
+        sidebarCreateInvitation: "إنشاء دعوة جديدة",
+        sidebarMyEvents: "مناسباتي",
+        sidebarMyInvitations: "دعواتي المرسلة",
+        sidebarGuestManagement: "إدارة الضيوف",
+        sidebarTemplates: "قوالب الدعوات",
+        sidebarResponses: "تتبع الردود",
+        sidebarProfile: "الملف الشخصي",
+        sidebarSubscription: "الباقة والاشتراك",
+        sidebarUsername: currentUserNameAr
+    },
+    en: {
+        pageTitle: "User Dashboard | Track Responses",
+        pageMainTitle: "<i class=\"fas fa-chart-pie mr-2\"></i>Track Guest Responses",
+        breadcrumbHome: "Home",
+        breadcrumbResponses: "Track Responses",
+        actionBarTitle: "Filter & Export Responses",
+        labelSelectEvent: "Select Event:",
+        exportBtnText: "Export Responses (Excel)",
+        statTotalInvited: "Total Invited",
+        statTotalConfirmed: "Confirmed",
+        statTotalDeclined: "Declined",
+        statTotalNoResponse: "No Response",
+        responseChartTitle: "Response Status Summary",
+        responsesTableTitle: "Detailed Responses for Event: ",
+        thGuestName: "Guest Name",
+        thContact: "Email/Phone",
+        thStatus: "Status",
+        thDate: "Response Date",
+        thCompanions: "Companions",
+        thNotes: "Notes",
+        thActions: "Actions",
+        statusConfirmed: "Confirmed",
+        statusDeclined: "Declined",
+        statusNoResponse: "No Response",
+        actionRemind: "Remind",
+        actionRecordResponse: "Record Response",
+        actionEditResponse: "Edit Response",
+        noEventSelected: "Please select an event to display responses.",
+        noDataForChart: "Not enough data to display chart.",
+        exportSuccess: "Data exported successfully (simulation).",
+        exportError: "Error during export (simulation).",
+        langSwitchTo: "ع",
+        logoutConfirmTitle: "Confirm Logout",
+        logoutConfirmBody: "Are you sure you want to log out?",
+        cancel: "Cancel",
+        logout: "Logout",
+        sidebarHome: "Home",
+        sidebarCreateInvitation: "Create New Invitation",
+        sidebarMyEvents: "My Events",
+        sidebarMyInvitations: "My Sent Invitations",
+        sidebarGuestManagement: "Guest Management",
+        sidebarTemplates: "Invitation Templates",
+        sidebarResponses: "Track Responses",
+        sidebarProfile: "Profile",
+        sidebarSubscription: "Package & Subscription",
+        sidebarUsername: currentUserNameEn
+    }
+  };
+  let currentResponsesLang = "ar";
+  let responsesDataTable = null;
+  let responseStatusChartInstance = null;
+  // Sample data (replace with actual data fetching)
+  const eventData = {
+    "event1": {
+        nameAr: "حفل زفاف أحمد وفاطمة", nameEn: "Ahmed & Fatima's Wedding",
+        totalInvited: 150, confirmed: 95, declined: 20, noResponse: 35,
+        guests: [
+            { id:1, nameAr: "خالد محمود", nameEn: "Khalid Mahmoud", contact: "khalid@example.com", status: "confirmed", date: "2024-04-10", companions: 1, notesAr: "سيحضر مع زوجته", notesEn: "Will attend with wife" },
+            { id:2, nameAr: "سارة علي", nameEn: "Sara Ali", contact: "0501234567", status: "declined", date: "2024-04-12", companions: 0, notesAr: "اعتذار بسبب السفر", notesEn: "Apologies due to travel" },
+            { id:3, nameAr: "محمد حسن", nameEn: "Mohammed Hassan", contact: "mo@example.com", status: "no-response", date: "", companions: 0, notesAr: "", notesEn: "" },
+            { id:4, nameAr: "نور عبدالله", nameEn: "Nour Abdullah", contact: "nour@example.com", status: "confirmed", date: "2024-04-11", companions: 0, notesAr: "", notesEn: "" },
+            { id:5, nameAr: "يوسف إبراهيم", nameEn: "Yusuf Ibrahim", contact: "0559876543", status: "no-response", date: "", companions: 2, notesAr: "مع الأطفال", notesEn: "With children" }
+        ]
+    },
+    "event2": {
+        nameAr: "مؤتمر المطورين السنوي", nameEn: "Annual Developer Conference",
+        totalInvited: 300, confirmed: 180, declined: 40, noResponse: 80,
+        guests: [
+            { id:6, nameAr: "علياء منصور", nameEn: "Alia Mansour", contact: "alia@example.dev", status: "confirmed", date: "2024-05-01", companions: 0, notesAr: "متحدثة رئيسية", notesEn: "Keynote speaker" },
+            { id:7, nameAr: "عمر خالد", nameEn: "Omar Khaled", contact: "omar.k@example.dev", status: "confirmed", date: "2024-05-03", companions: 0, notesAr: "", notesEn: "" },
+            { id:8, nameAr: "ليلى أحمد", nameEn: "Layla Ahmed", contact: "layla@example.dev", status: "declined", date: "2024-05-02", companions: 0, notesAr: "التزام آخر", notesEn: "Another commitment" }
+        ]
+    },
+    "no-event": {
+        nameAr: "", nameEn: "",
+        totalInvited: 0, confirmed: 0, declined: 0, noResponse: 0,
+        guests: []
+    }
+  };
+  function updateResponseTexts() {
+    const texts = langTextsResponses[currentResponsesLang];
+    document.title = texts.pageTitle;
+    $("#page-main-title").html(texts.pageMainTitle);
+    $("#breadcrumb-home").text(texts.breadcrumbHome);
+    $("#breadcrumb-responses").text(texts.breadcrumbResponses);
+    $("#action-bar-title").text(texts.actionBarTitle);
+    $("#label-select-event").text(texts.labelSelectEvent);
+    $("#export-btn-text").text(texts.exportBtnText);
+    $("#stat-total-invited").text(texts.statTotalInvited);
+    $("#stat-total-confirmed").text(texts.statTotalConfirmed);
+    $("#stat-total-declined").text(texts.statTotalDeclined);
+    $("#stat-total-no-response").text(texts.statTotalNoResponse);
+    $("#response-chart-title").text(texts.responseChartTitle);
+    $("#responses-table-title").contents().first()[0].textContent = texts.responsesTableTitle; 
+    $("#th-guest-name").text(texts.thGuestName);
+    $("#th-contact").text(texts.thContact);
+    $("#th-status").text(texts.thStatus);
+    $("#th-date").text(texts.thDate);
+    $("#th-companions").text(texts.thCompanions);
+    $("#th-notes").text(texts.thNotes);
+    $("#th-actions").text(texts.thActions);
+    $("#lang-switcher-btn").text(texts.langSwitchTo);
+    $("#logoutModalLabel-main").text(texts.logoutConfirmTitle);
+    $("#logoutModalBody-main").text(texts.logoutConfirmBody);
+    $("#logoutCancelBtn-main").text(texts.cancel);
+    $("#logoutConfirmBtn-main").text(texts.logout);
+    $("#sidebar-username").text(texts.sidebarUsername);
+    $("a[href=\"index.html\"] > p").eq(0).text(texts.sidebarHome); // Ensure correct sidebar item
+    $("a[href=\"create_invitation.html\"] > p").text(texts.sidebarCreateInvitation);
+    $("a[href=\"my_events.html\"] > p").text(texts.sidebarMyEvents);
+    $("a[href=\"my_invitations.html\"] > p").text(texts.sidebarMyInvitations);
+    $("a[href=\"guest_management.html\"] > p").text(texts.sidebarGuestManagement);
+    $("a[href=\"templates.html\"] > p").text(texts.sidebarTemplates);
+    $("a[href=\"responses.html\"] > p").text(texts.sidebarResponses);
+    $("a[href=\"profile.html\"] > p").eq(1).text(texts.sidebarProfile); // Ensure correct sidebar item
+    $("a[href=\"subscription.html\"] > p").text(texts.sidebarSubscription);
+    populateEventFilter();
+    loadEventData($("#event-filter-responses").val()); 
+  }
+  function populateEventFilter() {
+    const texts = langTextsResponses[currentResponsesLang];
+    const $eventFilter = $("#event-filter-responses");
+    const currentVal = $eventFilter.val();
+    $eventFilter.empty(); 
+    $eventFilter.append(`<option value="no-event">${texts.noEventSelected}</option>`);
+    for (const eventId in eventData) {
+        if (eventId !== "no-event") {
+            const name = currentResponsesLang === "ar" ? eventData[eventId].nameAr : eventData[eventId].nameEn;
+            $eventFilter.append(`<option value="${eventId}">${name}</option>`);
+        }
+    }
+    if (currentVal && eventData[currentVal]) {
+         $eventFilter.val(currentVal);
+    } else {
+        $eventFilter.val("no-event");
+    }
+  }
+  function loadEventData(eventId) {
+    const texts = langTextsResponses[currentResponsesLang];
+    const data = eventData[eventId] || eventData["no-event"];
+    $("#total-invited").text(data.totalInvited);
+    $("#total-confirmed").text(data.confirmed);
+    $("#total-declined").text(data.declined);
+    $("#total-no-response").text(data.noResponse);
+    $("#selected-event-name").text(currentResponsesLang === "ar" ? data.nameAr : data.nameEn);
+    updateResponseStatusChart(data, texts);
+    populateResponsesTable(data.guests, texts);
+  }
+  function updateResponseStatusChart(data, texts) {
+    if (responseStatusChartInstance) {
+        responseStatusChartInstance.destroy();
+    }
+    if (data.totalInvited === 0) {
+        $("#responseStatusChart").hide();
+        $("#responseStatusChart").parent().append(`<p class=\"text-muted text-center\" id=\"no-chart-data-msg\">${texts.noDataForChart}</p>`);
+        return;
+    }
+    $("#responseStatusChart").show();
+    $("#no-chart-data-msg").remove();
+    const chartData = {
+        labels: [texts.statTotalConfirmed, texts.statTotalDeclined, texts.statTotalNoResponse],
+        datasets: [{
+            data: [data.confirmed, data.declined, data.noResponse],
+            backgroundColor: ["#28a745", "#dc3545", "#ffc107"],
+        }]
+    };
+    const ctx = document.getElementById("responseStatusChart").getContext("2d");
+    responseStatusChartInstance = new Chart(ctx, {
+        type: "pie",
+        data: chartData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: { position: "bottom" }
+        }
+    });
+  }
+  function populateResponsesTable(guests, texts) {
+    if (responsesDataTable) {
+        responsesDataTable.destroy();
+        $("#responses-table tbody").empty(); 
+    }
+    if (!guests || guests.length === 0) {
+        $("#responses-table tbody").html(`<tr><td colspan="7" class="text-center">${texts.noEventSelected}</td></tr>`);
+        return;
+    }
+    let rowsHtml = "";
+    guests.forEach(guest => {
+        let statusText, statusClass;
+        switch(guest.status) {
+            case "confirmed": statusText = texts.statusConfirmed; statusClass = "badge-success"; break;
+            case "declined": statusText = texts.statusDeclined; statusClass = "badge-danger"; break;
+            default: statusText = texts.statusNoResponse; statusClass = "badge-warning";
+        }
+        rowsHtml += `
+            <tr>
+                <td>${currentResponsesLang === "ar" ? guest.nameAr : guest.nameEn}</td>
+                <td>${guest.contact}</td>
+                <td><span class="badge ${statusClass}">${statusText}</span></td>
+                <td>${guest.date || "-"}</td>
+                <td>${guest.companions}</td>
+                <td>${currentResponsesLang === "ar" ? guest.notesAr : guest.notesEn || "-"}</td>
+                <td class="table-actions">
+                    <button aria-label="زر" class="btn btn-xs btn-info" title="${texts.actionRemind}"><i class="fas fa-bell"></i></button>
+                    <button aria-label="زر" class="btn btn-xs btn-primary" title="${guest.status === 'no-response' ? texts.actionRecordResponse : texts.actionEditResponse}"><i class="fas fa-edit"></i></button>
+                </td>
+            </tr>
+        `;
+    });
+    $("#responses-table tbody").html(rowsHtml);
+    responsesDataTable = $("#responses-table").DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "pageLength": 5,
+        "buttons": [
+            { extend: "excelHtml5", text: `<i class="fas fa-file-excel"></i> ${texts.exportBtnText.split("(")[0].trim()}` , titleAttr: "Excel" }
+        ],
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/" + (currentResponsesLang === "ar" ? "Arabic.json" : "English.json")
+        }
+    });
+    // responsesDataTable.buttons().container().appendTo("#responses-table_wrapper .col-md-6:eq(0)"); // If you want buttons in table header
+  }
+  $(document).ready(function() {
+    updateResponseTexts(); // Initial load
+    $("#event-filter-responses").on("change", function() {
+        loadEventData($(this).val());
+    });
+    $("#btn-export-responses").on("click", function() {
+        // This is a placeholder for actual export functionality
+        // For DataTables, you can trigger the excel button if configured:
+        if(responsesDataTable) {
+            responsesDataTable.button(".buttons-excel").trigger();
+             // alert(langTextsResponses[currentResponsesLang].exportSuccess);
+        } else {
+            alert(langTextsResponses[currentResponsesLang].exportError);
+        }
+    });
+    $("#lang-switcher-btn").on("click", function(e) {
+        e.preventDefault();
+        currentResponsesLang = (currentResponsesLang === "ar") ? "en" : "ar";
+        updateResponseTexts();
+    });
+  });
+</script>
+</main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

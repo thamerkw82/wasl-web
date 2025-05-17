@@ -1,0 +1,90 @@
+/* 
+ * RTL Fixes for Sidebar Alignment
+ * هذا الملف يحتوي على تصحيحات لاتجاه اللوحات الجانبية لتكون من اليمين إلى اليسار
+ */
+
+/* إصلاح تخطيط الصفحة الرئيسي */
+.layout {
+    display: flex;
+    flex-direction: row-reverse !important; /* تغيير اتجاه التخطيط ليكون من اليمين إلى اليسار */
+}
+
+/* إصلاح موضع الشريط الجانبي */
+.sidebar {
+    right: 0 !important;
+    left: auto !important;
+    border-left: 1px solid #e9ecef !important;
+    border-right: none !important;
+}
+
+/* إصلاح المحتوى الرئيسي */
+.main-content {
+    margin-right: 250px !important; /* تعديل الهامش ليناسب وجود الشريط الجانبي على اليمين */
+    margin-left: 0 !important;
+}
+
+/* إصلاح أيقونات القائمة الجانبية */
+.sidebar__nav-icon {
+    margin-left: 10px !important;
+    margin-right: 0 !important;
+}
+
+/* إصلاح القوائم المنسدلة */
+.dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+    text-align: right !important;
+}
+
+/* إصلاح الأيقونات في القوائم المنسدلة */
+.dropdown-item i {
+    margin-left: 10px !important;
+    margin-right: 0 !important;
+}
+
+/* إصلاحات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .main-content {
+        margin-right: 0 !important;
+    }
+    
+    .sidebar {
+        right: -250px !important;
+        transition: right 0.3s ease-in-out;
+    }
+    
+    .sidebar.active {
+        right: 0 !important;
+    }
+}
+
+/* إصلاح اتجاه الأيقونات في الهيدر */
+.header__actions {
+    display: flex;
+    flex-direction: row-reverse !important;
+}
+
+/* إصلاح اتجاه عناصر الملف الشخصي */
+.profile-dropdown__menu {
+    right: auto !important;
+    left: 0 !important;
+}
+
+/* إصلاح اتجاه النص في جميع العناصر */
+.sidebar__nav-label, 
+.info-box__content, 
+.main-content__title,
+.footer__content {
+    text-align: right !important;
+}
+
+/* إصلاح اتجاه الأيقونات في صناديق المعلومات */
+.info-box {
+    display: flex;
+    flex-direction: row-reverse !important;
+}
+
+.info-box__icon {
+    margin-left: 10px !important;
+    margin-right: 0 !important;
+}

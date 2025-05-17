@@ -1,0 +1,462 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_الإعدادات_" data-translate-key-titlebase="pageTitleSuffixAdmin">لوحة تحكم المدير | الإعدادات العامة</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="users.html"><i class="nav-icon fas fa-users"></i><p>إدارة المستخدمين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="supervisors.html"><i class="nav-icon fas fa-user-shield"></i><p>إدارة المشرفين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>إدارة المناسبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>إدارة الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guests.html"><i class="nav-icon fas fa-user-friends"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="orders.html"><i class="nav-icon fas fa-file-invoice-dollar"></i><p>إدارة الطلبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="packages.html"><i class="nav-icon fas fa-box-open"></i><p>إدارة الباقات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="reports.html"><i class="nav-icon fas fa-chart-line"></i><p>التقارير والإحصائيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="content_management.html"><i class="nav-icon fas fa-file-alt"></i><p>إدارة المحتوى</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="customers.html"><i class="nav-icon fas fa-user-tie"></i><p>إدارة العملاء</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="support.html"><i class="nav-icon fas fa-life-ring"></i><p>الدعم الفني</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="roles.html"><i class="nav-icon fas fa-user-tag"></i><p>إدارة الأدوار والصلاحيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="files.html"><i class="nav-icon fas fa-folder-open"></i><p>إدارة الملفات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="integrations.html"><i class="nav-icon fas fa-cogs"></i><p>التكاملات الخارجية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="backup.html"><i class="nav-icon fas fa-database"></i><p>النسخ الاحتياطي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="tasks.html"><i class="nav-icon fas fa-tasks"></i><p>جدولة المهام</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="settings.html"><i class="nav-icon fas fa-cog"></i><p>الإعدادات العامة</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="settings.html"><i class="nav-icon fas fa-cog"></i>الإعدادات العامة</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1>الإعدادات العامة للنظام</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="card card-primary card-tabs">
+<div class="card-header p-0 pt-1">
+<ul class="nav nav-tabs" id="settingsTabs" role="tablist">
+<li class="nav-item"><a aria-label="رابط" aria-controls="general-settings-tab" aria-selected="true" class="nav-link active" data-toggle="pill" href="#general-settings-tab" id="general-settings-tab-link" role="tab"><i class="nav-icon fas fa-circle"></i>إعدادات عامة</a></li>
+<li class="nav-item"><a aria-label="رابط" aria-controls="email-settings-tab" aria-selected="false" class="nav-link" data-toggle="pill" href="#email-settings-tab" id="email-settings-tab-link" role="tab"><i class="nav-icon fas fa-circle"></i>إعدادات البريد</a></li>
+<li class="nav-item"><a aria-label="رابط" aria-controls="payment-settings-tab" aria-selected="false" class="nav-link" data-toggle="pill" href="#payment-settings-tab" id="payment-settings-tab-link" role="tab"><i class="nav-icon fas fa-circle"></i>إعدادات الدفع</a></li>
+<li class="nav-item"><a aria-label="رابط" aria-controls="notification-settings-tab" aria-selected="false" class="nav-link" data-toggle="pill" href="#notification-settings-tab" id="notification-settings-tab-link" role="tab"><i class="nav-icon fas fa-circle"></i>إعدادات الإشعارات</a></li>
+<li class="nav-item"><a aria-label="رابط" aria-controls="api-keys-tab" aria-selected="false" class="nav-link" data-toggle="pill" href="#api-keys-tab" id="api-keys-tab-link" role="tab"><i class="nav-icon fas fa-circle"></i>مفاتيح API</a></li>
+<li class="nav-item"><a aria-label="رابط" aria-controls="social-media-tab" aria-selected="false" class="nav-link" data-toggle="pill" href="#social-media-tab" id="social-media-tab-link" role="tab"><i class="nav-icon fas fa-circle"></i>روابط التواصل</a></li>
+</ul>
+</div>
+<div class="card-body">
+<div class="tab-content" id="settingsTabsContent">
+<!-- General Settings Tab -->
+<div aria-labelledby="general-settings-tab-link" class="tab-pane fade show active" id="general-settings-tab" role="tabpanel">
+<form id="generalSettingsForm">
+<div class="form-group">
+<label for="siteName">اسم الموقع/التطبيق</label>
+<input class="form-control" id="siteName" type="text" value="نظام إدارة الدعوات">
+</div>
+<div class="form-group">
+<label for="siteTagline">الشعار النصي (Tagline)</label>
+<input class="form-control" id="siteTagline" type="text" value="أفضل حل لإدارة دعوات مناسباتك">
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label for="siteLogoLight">شعار الموقع (الوضع الفاتح)</label>
+<div class="input-group">
+<div class="custom-file">
+<input class="custom-file-input" id="siteLogoLight" type="file">
+<label class="custom-file-label" for="siteLogoLight">اختر ملف الشعار</label>
+</div>
+</div>
+<img alt="شعار فاتح" class="img-thumbnail mt-2" src="../assets/img/.png" style="max-height: 50px;">
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label for="siteLogoDark">شعار الموقع (الوضع الداكن)</label>
+<div class="input-group">
+<div class="custom-file">
+<input class="custom-file-input" id="siteLogoDark" type="file">
+<label class="custom-file-label" for="siteLogoDark">اختر ملف الشعار</label>
+</div>
+</div>
+<img alt="شعار داكن" class="img-thumbnail mt-2 bg-dark" src="../assets/img/.png" style="max-height: 50px;"> <!-- Placeholder -->
+</div>
+</div>
+</div>
+<div class="form-group">
+<label for="defaultLanguage">اللغة الافتراضية</label>
+<select class="form-control select2" id="defaultLanguage" style="width: 100%;">
+<option selected="selected" value="ar">العربية</option>
+<option value="en">English</option>
+</select>
+</div>
+<div class="form-group">
+<label for="timezone">المنطقة الزمنية</label>
+<select class="form-control select2" id="timezone" style="width: 100%;">
+<option selected="selected" value="Asia/Riyadh">Asia/Riyadh (GMT+3)</option>
+<option value="Africa/Cairo">Africa/Cairo (GMT+2)</option>
+<!-- Add more timezones -->
+</select>
+</div>
+<div class="form-group">
+<label for="maintenanceMode">وضع الصيانة</label>
+<select class="form-control select2" id="maintenanceMode" style="width: 100%;">
+<option selected="selected" value="disabled">معطل</option>
+<option value="enabled">مفعل</option>
+</select>
+</div>
+<div class="form-group" id="maintenanceMessageGroup" style="display:none;">
+<label for="maintenanceMessage">رسالة وضع الصيانة</label>
+<textarea class="form-control" id="maintenanceMessage" placeholder="الموقع تحت الصيانة حاليًا، سنعود قريبًا..." rows="3"></textarea>
+</div>
+<button aria-label="زر" class="btn btn-primary" type="submit">حفظ الإعدادات العامة</button>
+</form>
+</div>
+<!-- Email Settings Tab -->
+<div aria-labelledby="email-settings-tab-link" class="tab-pane fade" id="email-settings-tab" role="tabpanel">
+<h4>إعدادات خادم البريد (SMTP)</h4>
+<form id="emailSettingsForm">
+<div class="form-group">
+<label for="smtpHost">مضيف SMTP</label>
+<input class="form-control" id="smtpHost" placeholder="smtp.example.com" type="text">
+</div>
+<div class="form-group">
+<label for="smtpPort">منفذ SMTP</label>
+<input class="form-control" id="smtpPort" placeholder="587" type="number">
+</div>
+<div class="form-group">
+<label for="smtpEncryption">التشفير</label>
+<select class="form-control select2" id="smtpEncryption" style="width: 100%;">
+<option value="tls">TLS</option>
+<option value="ssl">SSL</option>
+<option value="none">بدون</option>
+</select>
+</div>
+<div class="form-group">
+<label for="smtpUsername">اسم مستخدم SMTP</label>
+<input class="form-control" id="smtpUsername" placeholder="user@example.com" type="text">
+</div>
+<div class="form-group">
+<label for="smtpPassword">كلمة مرور SMTP</label>
+<input class="form-control" id="smtpPassword" type="password">
+</div>
+<div class="form-group">
+<label for="fromEmail">البريد المرسل</label>
+<input class="form-control" id="fromEmail" placeholder="noreply@example.com" type="email">
+</div>
+<div class="form-group">
+<label for="fromName">اسم المرسل</label>
+<input class="form-control" id="fromName" placeholder="اسم نظامك" type="text">
+</div>
+<button aria-label="زر" class="btn btn-primary mr-2" type="submit">حفظ إعدادات البريد</button>
+<button aria-label="زر" class="btn btn-info" id="sendTestEmail" type="button">إرسال بريد تجريبي</button>
+</form>
+</div>
+<!-- Payment Settings Tab -->
+<div aria-labelledby="payment-settings-tab-link" class="tab-pane fade" id="payment-settings-tab" role="tabpanel">
+<h4>إعدادات بوابات الدفع</h4>
+<p>هنا يمكنك تكوين بوابات الدفع المختلفة مثل PayPal, Stripe, إلخ.</p>
+<!-- Example for Stripe -->
+<h5>Stripe</h5>
+<form id="stripeSettingsForm">
+<div class="form-group">
+<label for="stripePublishableKey">مفتاح النشر (Publishable Key)</label>
+<input class="form-control" id="stripePublishableKey" type="text">
+</div>
+<div class="form-group">
+<label for="stripeSecretKey">المفتاح السري (Secret Key)</label>
+<input class="form-control" id="stripeSecretKey" type="text">
+</div>
+<div class="form-group">
+<label for="stripeWebhookSecret">سر Webhook (Webhook Secret)</label>
+<input class="form-control" id="stripeWebhookSecret" type="text">
+</div>
+<div class="form-group">
+<label for="stripeCurrency">العملة</label>
+<select class="form-control select2" id="stripeCurrency" style="width: 100%;">
+<option value="SAR">ريال سعودي (SAR)</option>
+<option value="USD">دولار أمريكي (USD)</option>
+<option value="EUR">يورو (EUR)</option>
+</select>
+</div>
+<div class="custom-control custom-switch">
+<input class="custom-control-input" id="stripeTestMode" type="checkbox">
+<label class="custom-control-label" for="stripeTestMode">وضع الاختبار</label>
+</div>
+<button aria-label="زر" class="btn btn-primary mt-3" type="submit">حفظ إعدادات Stripe</button>
+</form>
+<hr>
+<!-- Add other payment gateways here -->
+</div>
+<!-- Notification Settings Tab -->
+<div aria-labelledby="notification-settings-tab-link" class="tab-pane fade" id="notification-settings-tab" role="tabpanel">
+<h4>إعدادات الإشعارات</h4>
+<p>قم بتخصيص الإشعارات التي يتم إرسالها للمستخدمين والمدراء.</p>
+<form id="notificationSettingsForm">
+<div class="card card-secondary">
+<div class="card-header">
+<h3 class="card-title">إشعارات المستخدمين</h3>
+</div>
+<div class="card-body">
+<div class="form-group">
+<label>تسجيل مستخدم جديد:</label>
+<div class="custom-control custom-switch">
+<input checked="" class="custom-control-input" id="userNotifyNewRegistrationEmail" type="checkbox">
+<label class="custom-control-label" for="userNotifyNewRegistrationEmail">إرسال بريد ترحيبي</label>
+</div>
+</div>
+<div class="form-group">
+<label>تأكيد حضور دعوة:</label>
+<div class="custom-control custom-switch">
+<input checked="" class="custom-control-input" id="userNotifyInvitationRsvpEmail" type="checkbox">
+<label class="custom-control-label" for="userNotifyInvitationRsvpEmail">إشعار بريدي للمستخدم الداعي</label>
+</div>
+</div>
+<!-- More user notifications -->
+</div>
+</div>
+<div class="card card-secondary">
+<div class="card-header">
+<h3 class="card-title">إشعارات المدراء</h3>
+</div>
+<div class="card-body">
+<div class="form-group">
+<label>تسجيل مستخدم جديد في النظام:</label>
+<div class="custom-control custom-switch">
+<input checked="" class="custom-control-input" id="adminNotifyNewUserEmail" type="checkbox">
+<label class="custom-control-label" for="adminNotifyNewUserEmail">إشعار بريدي للمدير</label>
+</div>
+</div>
+<!-- More admin notifications -->
+</div>
+</div>
+<button aria-label="زر" class="btn btn-primary" type="submit">حفظ إعدادات الإشعارات</button>
+</form>
+</div>
+<!-- API Keys Tab -->
+<div aria-labelledby="api-keys-tab-link" class="tab-pane fade" id="api-keys-tab" role="tabpanel">
+<h4>إدارة مفاتيح API للخدمات الخارجية</h4>
+<form id="apiKeysForm">
+<div class="form-group">
+<label for="googleMapsApiKey">مفتاح Google Maps API</label>
+<input class="form-control" id="googleMapsApiKey" placeholder="AIzaSy..." type="text">
+</div>
+<div class="form-group">
+<label for="whatsappApiToken">رمز WhatsApp API</label>
+<input class="form-control" id="whatsappApiToken" placeholder="EAA..." type="text">
+</div>
+<!-- Add more API key fields here -->
+<button aria-label="زر" class="btn btn-primary" type="submit">حفظ مفاتيح API</button>
+</form>
+</div>
+<!-- Social Media Tab -->
+<div aria-labelledby="social-media-tab-link" class="tab-pane fade" id="social-media-tab" role="tabpanel">
+<h4>روابط التواصل الاجتماعي</h4>
+<form id="socialMediaForm">
+<div class="form-group">
+<label for="facebookLink"><i class="fab fa-facebook-square mr-1"></i> Facebook</label>
+<input class="form-control" id="facebookLink" placeholder="https://facebook.com/yourpage" type="url">
+</div>
+<div class="form-group">
+<label for="twitterLink"><i class="fab fa-twitter-square mr-1"></i> Twitter</label>
+<input class="form-control" id="twitterLink" placeholder="https://twitter.com/yourprofile" type="url">
+</div>
+<div class="form-group">
+<label for="instagramLink"><i class="fab fa-instagram-square mr-1"></i> Instagram</label>
+<input class="form-control" id="instagramLink" placeholder="https://instagram.com/yourprofile" type="url">
+</div>
+<div class="form-group">
+<label for="linkedinLink"><i class="fab fa-linkedin mr-1"></i> LinkedIn</label>
+<input class="form-control" id="linkedinLink" placeholder="https://linkedin.com/company/yourcompany" type="url">
+</div>
+<button aria-label="زر" class="btn btn-primary" type="submit">حفظ روابط التواصل</button>
+</form>
+</div>
+</div>
+</div>
+<!-- /.card -->
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Main Footer -->
+<footer class="main-footer">
+<div class="float-right d-none d-sm-inline">كل الحقوق محفوظة.</div>
+<strong>حقوق النشر © 2024-2025 <a aria-label="رابط" href="#">اسم الشركة</a>.</strong>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- Select2 -->
+<script src="../assets/js/scripts.js"></script>
+<!-- bs-custom-file-input -->
+<script src="../assets/js/scripts.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/js/scripts.js"></script>
+<!-- Custom JS -->
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2({
+      theme: "bootstrap4"
+    });
+
+    //Initialize bs-custom-file-input
+    bsCustomFileInput.init();
+
+    // Toggle maintenance message based on maintenance mode selection
+    $('#maintenanceMode').on('change', function() {
+      if ($(this).val() === 'enabled') {
+        $('#maintenanceMessageGroup').show();
+      } else {
+        $('#maintenanceMessageGroup').hide();
+      }
+    }).trigger('change'); // Trigger on page load
+
+    // Form submission handlers (placeholders - implement actual saving logic)
+    $('#generalSettingsForm').on('submit', function(e){ e.preventDefault(); alert('تم حفظ الإعدادات العامة (محاكاة)'); });
+    $('#emailSettingsForm').on('submit', function(e){ e.preventDefault(); alert('تم حفظ إعدادات البريد (محاكاة)'); });
+    $('#paymentSettingsForm').on('submit', function(e){ e.preventDefault(); alert('تم حفظ إعدادات الدفع (محاكاة)'); });
+    $('#stripeSettingsForm').on('submit', function(e){ e.preventDefault(); alert('تم حفظ إعدادات Stripe (محاكاة)'); });
+    $('#notificationSettingsForm').on('submit', function(e){ e.preventDefault(); alert('تم حفظ إعدادات الإشعارات (محاكاة)'); });
+    $('#apiKeysForm').on('submit', function(e){ e.preventDefault(); alert('تم حفظ مفاتيح API (محاكاة)'); });
+    $('#socialMediaForm').on('submit', function(e){ e.preventDefault(); alert('تم حفظ روابط التواصل (محاكاة)'); });
+
+    $('#sendTestEmail').on('click', function(){ alert('سيتم إرسال بريد تجريبي (محاكاة)'); });
+
+  });
+
+  // Language switcher logic
+  document.addEventListener("DOMContentLoaded", function() {
+    const langSwitcherBtn = document.getElementById("lang-switcher-btn");
+    const htmlEl = document.documentElement;
+    if (langSwitcherBtn) {
+      langSwitcherBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        const currentLang = htmlEl.getAttribute("lang") || "ar";
+        const newLang = currentLang === "ar" ? "en" : "ar";
+        htmlEl.setAttribute("lang", newLang);
+        htmlEl.setAttribute("dir", newLang === "ar" ? "rtl" : "ltr");
+        langSwitcherBtn.textContent = newLang === "ar" ? "EN" : "ع";
+        if (newLang === "ar") {
+            document.title = "لوحة تحكم المدير | الإعدادات العامة";
+            document.querySelector(".content-header h1").textContent = "الإعدادات العامة للنظام";
+            // Update tab names and other static texts if needed
+            $('#general-settings-tab-link').text('إعدادات عامة');
+            $('#email-settings-tab-link').text('إعدادات البريد');
+            // ... and so on for all tabs and relevant static text
+        } else {
+            document.title = "Admin Dashboard | General Settings";
+            document.querySelector(".content-header h1").textContent = "System General Settings";
+            $('#general-settings-tab-link').text('General Settings');
+            $('#email-settings-tab-link').text('Email Settings');
+            // ... and so on
+        }
+      });
+    }
+  });
+</script>
+</main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

@@ -1,0 +1,492 @@
+/* 
+ * design-system.css
+ * نظام تصميم موحد لمشروع منصة الدعوات الإلكترونية
+ * هذا الملف يحدد جميع المتغيرات والقيم المستخدمة في التصميم
+ */
+
+:root {
+  /* ألوان الهوية الأساسية */
+  --primary-color: #3c8dbc;
+  --primary-light: #5da8d4;
+  --primary-dark: #2c6a8c;
+  --secondary-color: #f39c12;
+  --secondary-light: #f7b54a;
+  --secondary-dark: #c87f0a;
+  
+  /* ألوان الحالة */
+  --success-color: #00a65a;
+  --info-color: #00c0ef;
+  --warning-color: #f39c12;
+  --danger-color: #dd4b39;
+  
+  /* ألوان محايدة */
+  --white: #ffffff;
+  --light-gray: #f4f6f9;
+  --medium-gray: #d2d6de;
+  --dark-gray: #6c757d;
+  --black: #343a40;
+  
+  /* ألوان الخلفية */
+  --body-bg: var(--light-gray);
+  --sidebar-bg: var(--black);
+  --header-bg: var(--white);
+  --footer-bg: var(--white);
+  --card-bg: var(--white);
+  
+  /* ألوان النص */
+  --text-color: #212529;
+  --text-muted: var(--dark-gray);
+  --link-color: var(--primary-color);
+  --link-hover-color: var(--primary-dark);
+  
+  /* الخطوط */
+  --font-family-base: 'Cairo', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-heading: 'Cairo', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  
+  /* أحجام الخطوط */
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.75rem;
+  --font-size-h4: 1.5rem;
+  --font-size-h5: 1.25rem;
+  --font-size-h6: 1rem;
+  
+  /* أوزان الخطوط */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  
+  /* المسافات */
+  --spacer: 1rem;
+  --spacer-1: 0.25rem;
+  --spacer-2: 0.5rem;
+  --spacer-3: 1rem;
+  --spacer-4: 1.5rem;
+  --spacer-5: 3rem;
+  
+  /* الحدود */
+  --border-width: 1px;
+  --border-color: var(--medium-gray);
+  --border-radius: 0.25rem;
+  --border-radius-lg: 0.3rem;
+  --border-radius-sm: 0.2rem;
+  --border-radius-pill: 50rem;
+  
+  /* الظلال */
+  --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  
+  /* الانتقالات */
+  --transition-base: all 0.2s ease-in-out;
+  --transition-fade: opacity 0.15s linear;
+  --transition-collapse: height 0.35s ease;
+  
+  /* الشفافية */
+  --opacity-disabled: 0.65;
+  
+  /* الوضع الليلي */
+  --dark-mode-bg: #222;
+  --dark-mode-card-bg: #2d3035;
+  --dark-mode-text: #f8f9fa;
+  --dark-mode-border: #444;
+}
+
+/* تطبيق الخطوط والألوان الأساسية */
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--body-bg);
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  text-align: right;
+}
+
+/* العناوين */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: var(--spacer-2);
+  color: var(--text-color);
+}
+
+h1, .h1 { font-size: var(--font-size-h1); }
+h2, .h2 { font-size: var(--font-size-h2); }
+h3, .h3 { font-size: var(--font-size-h3); }
+h4, .h4 { font-size: var(--font-size-h4); }
+h5, .h5 { font-size: var(--font-size-h5); }
+h6, .h6 { font-size: var(--font-size-h6); }
+
+/* الروابط */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  background-color: transparent;
+  transition: var(--transition-base);
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* النص */
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacer);
+}
+
+.text-primary { color: var(--primary-color) !important; }
+.text-secondary { color: var(--secondary-color) !important; }
+.text-success { color: var(--success-color) !important; }
+.text-info { color: var(--info-color) !important; }
+.text-warning { color: var(--warning-color) !important; }
+.text-danger { color: var(--danger-color) !important; }
+.text-light { color: var(--light-gray) !important; }
+.text-dark { color: var(--black) !important; }
+.text-muted { color: var(--text-muted) !important; }
+
+/* الخلفيات */
+.bg-primary { background-color: var(--primary-color) !important; }
+.bg-secondary { background-color: var(--secondary-color) !important; }
+.bg-success { background-color: var(--success-color) !important; }
+.bg-info { background-color: var(--info-color) !important; }
+.bg-warning { background-color: var(--warning-color) !important; }
+.bg-danger { background-color: var(--danger-color) !important; }
+.bg-light { background-color: var(--light-gray) !important; }
+.bg-dark { background-color: var(--black) !important; }
+.bg-white { background-color: var(--white) !important; }
+
+/* البطاقات */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: var(--card-bg);
+  background-clip: border-box;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-sm);
+  margin-bottom: var(--spacer);
+  transition: var(--transition-base);
+}
+
+.card-header {
+  padding: var(--spacer-3);
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: var(--spacer-3);
+}
+
+.card-footer {
+  padding: var(--spacer-3);
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: var(--border-width) solid var(--border-color);
+}
+
+/* الأزرار */
+.btn {
+  display: inline-block;
+  font-weight: var(--font-weight-normal);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: var(--border-width) solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  border-radius: var(--border-radius);
+  transition: var(--transition-base);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--box-shadow-sm);
+}
+
+.btn-primary {
+  color: var(--white);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  color: var(--white);
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  color: var(--white);
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  color: var(--white);
+  background-color: var(--secondary-dark);
+  border-color: var(--secondary-dark);
+}
+
+.btn-success {
+  color: var(--white);
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.btn-info {
+  color: var(--white);
+  background-color: var(--info-color);
+  border-color: var(--info-color);
+}
+
+.btn-warning {
+  color: var(--text-color);
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+}
+
+.btn-danger {
+  color: var(--white);
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.btn-light {
+  color: var(--text-color);
+  background-color: var(--light-gray);
+  border-color: var(--light-gray);
+}
+
+.btn-dark {
+  color: var(--white);
+  background-color: var(--black);
+  border-color: var(--black);
+}
+
+/* الجداول */
+.table {
+  width: 100%;
+  margin-bottom: var(--spacer);
+  color: var(--text-color);
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: var(--border-width) solid var(--border-color);
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: calc(var(--border-width) * 2) solid var(--border-color);
+}
+
+.table tbody + tbody {
+  border-top: calc(var(--border-width) * 2) solid var(--border-color);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+/* النماذج */
+.form-group {
+  margin-bottom: var(--spacer);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--white);
+  background-clip: padding-box;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: var(--transition-base);
+}
+
+.form-control:focus {
+  color: var(--text-color);
+  background-color: var(--white);
+  border-color: var(--primary-light);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(60, 141, 188, 0.25);
+}
+
+/* التنبيهات */
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: var(--spacer);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--border-radius);
+}
+
+.alert-primary {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+}
+
+.alert-secondary {
+  color: #383d41;
+  background-color: #e2e3e5;
+  border-color: #d6d8db;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/* الشارات */
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--border-radius-pill);
+  transition: var(--transition-base);
+}
+
+.badge-primary {
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+
+.badge-secondary {
+  color: var(--white);
+  background-color: var(--secondary-color);
+}
+
+.badge-success {
+  color: var(--white);
+  background-color: var(--success-color);
+}
+
+.badge-info {
+  color: var(--white);
+  background-color: var(--info-color);
+}
+
+.badge-warning {
+  color: var(--text-color);
+  background-color: var(--warning-color);
+}
+
+.badge-danger {
+  color: var(--white);
+  background-color: var(--danger-color);
+}
+
+.badge-light {
+  color: var(--text-color);
+  background-color: var(--light-gray);
+}
+
+.badge-dark {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+/* الوضع الليلي */
+.dark-mode {
+  --body-bg: var(--dark-mode-bg);
+  --text-color: var(--dark-mode-text);
+  --card-bg: var(--dark-mode-card-bg);
+  --border-color: var(--dark-mode-border);
+  --header-bg: var(--dark-mode-card-bg);
+  --footer-bg: var(--dark-mode-card-bg);
+}
+
+.dark-mode .card {
+  background-color: var(--dark-mode-card-bg);
+  border-color: var(--dark-mode-border);
+}
+
+.dark-mode .table {
+  color: var(--dark-mode-text);
+}
+
+.dark-mode .table th,
+.dark-mode .table td {
+  border-color: var(--dark-mode-border);
+}
+
+.dark-mode .form-control {
+  background-color: #333;
+  border-color: var(--dark-mode-border);
+  color: var(--dark-mode-text);
+}
+
+/* القائمة الجانبية - لا تعديل على البنية الأساسية */
+.main-sidebar {
+  /* الحفاظ على الخصائص الأصلية */
+}
+
+/* الهيدر - لا تعديل على البنية الأساسية */
+.main-header {
+  /* الحفاظ على الخصائص الأصلية */
+}
+
+/* الفوتر - لا تعديل على البنية الأساسية */
+.main-footer {
+  /* الحفاظ على الخصائص الأصلية */
+}
+
+/* القائمة المنسدلة - لا تعديل على البنية الأساسية */
+.profile-dropdown {
+  /* الحفاظ على الخصائص الأصلية */
+}

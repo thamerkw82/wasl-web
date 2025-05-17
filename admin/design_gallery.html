@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title data-translate-key-suffix="pageTitleSuffix_معرض_التصاميم" data-translate-key-titlebase="pageTitleSuffixAdmin">لوحة تحكم المدير | معرض التصاميم</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/responsive.css" rel="stylesheet"/>
+    <link href="../assets/css/accessibility.css" rel="stylesheet"/>
+    <link href="../assets/css/bem.css" rel="stylesheet"/>
+    <link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+    <link href="../assets/css/unified-design.css" rel="stylesheet"/>
+    <link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- Custom Gallery Styles -->
+    <style>
+        .design-card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .filter-section {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .rating-stars {
+            color: #ffc107;
+        }
+        .designer-card {
+            transition: transform 0.3s;
+        }
+        .designer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .designer-avatar {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: block;
+        }
+        .category-badge {
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .preview-image {
+            max-width: 100%;
+            max-height: 500px;
+        }
+        .select2-container--default .select2-selection--multiple {
+            border-color: #ced4da;
+        }
+        .tab-pane {
+            padding-top: 20px;
+        }
+        .stats-card {
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stats-card i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .stats-card .stats-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .stats-card .stats-title {
+            color: #6c757d;
+        }
+    </style>
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+    <header class="header">
+        <div class="header__brand">
+            <img alt="شعار الموقع" src="../assets/img/.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span>
+        </div>
+        <div class="header__actions">
+            <button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+            <!-- User profile dropdown -->
+            <div class="profile-dropdown">
+                <div class="profile-dropdown__toggle" id="profileToggle">
+                    <span>اسم المستخدم</span>
+                    <img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+                </div>
+                <div class="profile-dropdown__menu" id="profileMenu">
+                    <div class="user-profile">
+                        <img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+                        <div class="user-info">
+                            <div class="user-name">اسم المستخدم</div>
+                            <div class="user-email">user@example.com</div>
+                        </div>
+                    </div>
+                    <div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+                    <a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+                    <a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+                    <a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+                    <a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+                    <a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="layout">
+        <aside class="sidebar">
+            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                <div class="sidebar">
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i><p>الرئيسية</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="users.html"><i class="nav-icon fas fa-users"></i><p>إدارة المستخدمين</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="supervisors.html"><i class="nav-icon fas fa-user-shield"></i><p>إدارة المشرفين</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>إدارة المناسبات</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>إدارة الدعوات</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="guests.html"><i class="nav-icon fas fa-user-friends"></i><p>إدارة الضيوف</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="orders.html"><i class="nav-icon fas fa-file-invoice-dollar"></i><p>إدارة الطلبات</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="packages.html"><i class="nav-icon fas fa-box-open"></i><p>إدارة الباقات</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="reports.html"><i class="nav-icon fas fa-chart-line"></i><p>التقارير والإحصائيات</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="content_management.html"><i class="nav-icon fas fa-file-alt"></i><p>إدارة المحتوى</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link active" href="design_gallery.html"><i class="nav-icon fas fa-palette"></i><p>معرض التصاميم</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="customers.html"><i class="nav-icon fas fa-user-tie"></i><p>إدارة العملاء</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="support.html"><i class="nav-icon fas fa-life-ring"></i><p>الدعم الفني</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="roles.html"><i class="nav-icon fas fa-user-tag"></i><p>إدارة الأدوار والصلاحيات</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="files.html"><i class="nav-icon fas fa-folder-open"></i><p>إدارة الملفات</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="integrations.html"><i class="nav-icon fas fa-cogs"></i><p>التكاملات الخارجية</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="backup.html"><i class="nav-icon fas fa-database"></i><p>النسخ الاحتياطي</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="tasks.html"><i class="nav-icon fas fa-tasks"></i><p>جدولة المهام</p></a></li>
+                            <li class="nav-item"><a aria-label="رابط" class="nav-link" href="settings.html"><i class="nav-icon fas fa-cog"></i><p>الإعدادات العامة</p></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+        </aside>
+        <main class="main">
+            <div class="wrapper">
+                <!-- Navbar -->
+                <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                    <ul class="navbar-nav">
+                        <li class="nav-item d-none d-sm-inline-block">
+                            <a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+                        </li>
+                        <li class="nav-item d-none d-sm-inline-block">
+                            <a aria-label="رابط" class="nav-link active" href="design_gallery.html"><i class="nav-icon fas fa-palette"></i>معرض التصاميم</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                    </ul>
+                </nav>
+                <!-- /.navbar -->
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-sm-6">
+                                    <h1>معرض التصاميم</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Main content -->
+                    <section class="content">
+                        <div class="container-fluid">
+                            <!-- Dashboard Stats -->
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="stats-card bg-info">
+                                        <i class="fas fa-palette"></i>
+                                        <div class="stats-number">75</div>
+                                        <div class="stats-title">إجمالي التصاميم</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="stats-card bg-success">
+                                        <i class="fas fa-user-edit"></i>
+                                        <div class="stats-number">12</div>
+                                        <div class="stats-title">المصممين النشطين</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="stats-card bg-warning">
+                                        <i class="fas fa-tags"></i>
+                                        <div class="stats-number">8</div>
+                                        <div class="stats-title">الأقسام</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="stats-card bg-danger">
+                                        <i class="fas fa-download"></i>
+                                        <div class="stats-number">450</div>
+                                        <div class="stats-title">إجمالي الاستخدامات</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card card-primary card-outline card-tabs">
+                                <div class="card-header p-0 pt-1 border-bottom-0">
+                                    <ul class="nav nav-tabs" id="design-tabs" role="tablist">
+                                        <li class="nav-item"><a aria-label="رابط" aria-controls="designs-tab" aria-selected="true" class="nav-link active" data-toggle="pill" href="#designs" id="designs-tab" role="tab"><i class="nav-icon fas fa-palette"></i>التصاميم</a></li>
+                                        <li class="nav-item"><a aria-label="رابط" aria-controls="designers-tab" aria-selected="false" class="nav-link" data-toggle="pill" href="#designers" id="designers-tab" role="tab"><i class="nav-icon fas fa-user-edit"></i>المصممين</a></li>
+                                        <li class="nav-item"><a aria-label="رابط" aria-controls="categories-tab" aria-selected="false" class="nav-link" data-toggle="pill" href="#categories" id="categories-tab" role="tab"><i class="nav-icon fas fa-tags"></i>الأقسام</a></li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content" id="design-tabs-content">
+                                        <!-- Designs Tab -->
+                                        <div aria-labelledby="designs-tab" class="tab-pane fade show active" id="designs" role="tabpanel">
+                                            <!-- Advanced Search and Filters -->
+                                            <div class="filter-section mb-4">
+                                                <div class="row">
+                                                    <div class="col-md-12 mb-3">
+                                                        <h5><i class="fas fa-filter"></i> البحث والتصفية المتقدمة</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3 mb-2">
+                                                        <input class="form-control" id="designSearchInput" placeholder="بحث عن تصميم..." type="text">
+                                                    </div>
+                                                    <div class="col-md-3 mb-2">
+                                                        <select class="form-control" id="designCategoryFilter">
+                                                            <option value="">جميع الأقسام</option>
+                                                            <option value="زفاف">زفاف</option>
+                                                            <option value="مواليد">مواليد</option>
+                                                            <option value="تخرج">تخرج</option>
+                                                            <option value="أعياد ميلاد">أعياد ميلاد</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3 mb-2">
+                                                        <select class="form-control" id="designDesignerFilter">
+                                                            <option value="">جميع المصممين</option>
+                                                            <option value="أحمد محمد">أحمد محمد</option>
+                                                            <option value="سارة أحمد">سارة أحمد</option>
+                                                            <option value="محمد علي">محمد علي</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3 mb-2">
+                                                        <select class="form-control" id="designSortFilter">
+                                                            <option value="newest">الأحدث</option>
+                                                            <option value="popular">الأكثر استخداماً</option>
+                                                            <option value="rating">الأعلى تقييماً</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-12">
+                                                        <button aria-label="زر" class="btn btn-primary btn-sm" id="applyFiltersBtn"><i class="fas fa-filter"></i> تطبيق الفلتر</button>
+                                                        <button aria-label="زر" class="btn btn-secondary btn-sm" id="resetFiltersBtn"><i class="fas fa-redo"></i> إعادة ضبط</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <button aria-label="زر" class="btn btn-primary" data-target="#addDesignModal" data-toggle="modal"><i class="fas fa-plus mr-1"></i> إضافة تصميم جديد</button>
+                                                <div class="btn-group">
+                                                    <button aria-label="زر" class="btn btn-outline-secondary" id="gridViewBtn" title="عرض شبكي"><i class="fas fa-th-large"></i></button>
+                                                    <button aria-label="زر" class="btn btn-outline-secondary" id="listViewBtn" title="عرض قائمة"><i class="fas fa-list"></i></button>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Grid View (Default) -->
+                                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="designsGridView">
+                                                <!-- Sample Design Card -->
+                                                <div class="col mb-4">
+                                                    <div class="card h-100">
+                                                        <img alt="صورة التصميم" class="card-img-top design-card-img-top" src="https://via.placeholder.com/300x200.png?text=تصميم+زفاف">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">تصميم زفاف فاخر</h5>
+                                                            <p class="card-text">تصميم راقي لبطاقات دعوة الزفاف بألوان ذهبية وأسود.</p>
+                                                            <div class="mb-2">
+                                                                <span class="badge badge-info category-badge">زفاف</span>
+                                                            </div>
+                                                            <p class="card-text"><small class="text-muted">المصمم: أحمد محمد</small></p>
+                                                            <p class="card-text">
+                                                                <small class="text-muted">الاستخدامات: 45 | التقييم: 
+                                                                    <span class="rating-stars">
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star-half-alt"></i>
+                                                                    </span> 4.5
+                                                                </small>
+                                                            </p>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                            <button aria-label="زر" class="btn btn-sm btn-info mr-1" data-target="#previewDesignModal" data-toggle="modal" title="معاينة"><i class="fas fa-eye"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editDesignModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Sample Design Card 2 -->
+                                                <div class="col mb-4">
+                                                    <div class="card h-100">
+                                                        <img alt="صورة التصميم" class="card-img-top design-card-img-top" src="https://via.placeholder.com/300x200.png?text=تصميم+مولود">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">تصميم مولود جديد</h5>
+                                                            <p class="card-text">تصميم مميز لبطاقات تهنئة بالمولود الجديد بألوان زرقاء وردية.</p>
+                                                            <div class="mb-2">
+                                                                <span class="badge badge-info category-badge">مواليد</span>
+                                                            </div>
+                                                            <p class="card-text"><small class="text-muted">المصمم: سارة أحمد</small></p>
+                                                            <p class="card-text">
+                                                                <small class="text-muted">الاستخدامات: 32 | التقييم: 
+                                                                    <span class="rating-stars">
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="far fa-star"></i>
+                                                                    </span> 4.0
+                                                                </small>
+                                                            </p>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                            <button aria-label="زر" class="btn btn-sm btn-info mr-1" data-target="#previewDesignModal" data-toggle="modal" title="معاينة"><i class="fas fa-eye"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editDesignModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Sample Design Card 3 -->
+                                                <div class="col mb-4">
+                                                    <div class="card h-100">
+                                                        <img alt="صورة التصميم" class="card-img-top design-card-img-top" src="https://via.placeholder.com/300x200.png?text=تصميم+تخرج">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">تصميم حفل تخرج</h5>
+                                                            <p class="card-text">تصميم احترافي لدعوات حفلات التخرج بألوان مميزة.</p>
+                                                            <div class="mb-2">
+                                                                <span class="badge badge-info category-badge">تخرج</span>
+                                                            </div>
+                                                            <p class="card-text"><small class="text-muted">المصمم: محمد علي</small></p>
+                                                            <p class="card-text">
+                                                                <small class="text-muted">الاستخدامات: 28 | التقييم: 
+                                                                    <span class="rating-stars">
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                    </span> 5.0
+                                                                </small>
+                                                            </p>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                            <button aria-label="زر" class="btn btn-sm btn-info mr-1" data-target="#previewDesignModal" data-toggle="modal" title="معاينة"><i class="fas fa-eye"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editDesignModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- List View (Hidden by default) -->
+                                            <div class="table-responsive" id="designsListView" style="display: none;">
+                                                <table class="table table-bordered table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>الصورة</th>
+                                                            <th>اسم التصميم</th>
+                                                            <th>القسم</th>
+                                                            <th>المصمم</th>
+                                                            <th>الاستخدامات</th>
+                                                            <th>التقييم</th>
+                                                            <th>إجراءات</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><img alt="صورة التصميم" src="https://via.placeholder.com/300x200.png?text=تصميم+زفاف" style="width: 80px; height: 50px; object-fit: cover;"></td>
+                                                            <td>تصميم زفاف فاخر</td>
+                                                            <td>زفاف</td>
+                                                            <td>أحمد محمد</td>
+                                                            <td>45</td>
+                                                            <td><span class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span> 4.5</td>
+                                                            <td>
+                                                                <button aria-label="زر" class="btn btn-sm btn-info mr-1" data-target="#previewDesignModal" data-toggle="modal" title="معاينة"><i class="fas fa-eye"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editDesignModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img alt="صورة التصميم" src="https://via.placeholder.com/300x200.png?text=تصميم+مولود" style="width: 80px; height: 50px; object-fit: cover;"></td>
+                                                            <td>تصميم مولود جديد</td>
+                                                            <td>مواليد</td>
+                                                            <td>سارة أحمد</td>
+                                                            <td>32</td>
+                                                            <td><span class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span> 4.0</td>
+                                                            <td>
+                                                                <button aria-label="زر" class="btn btn-sm btn-info mr-1" data-target="#previewDesignModal" data-toggle="modal" title="معاينة"><i class="fas fa-eye"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editDesignModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img alt="صورة التصميم" src="https://via.placeholder.com/300x200.png?text=تصميم+تخرج" style="width: 80px; height: 50px; object-fit: cover;"></td>
+                                                            <td>تصميم حفل تخرج</td>
+                                                            <td>تخرج</td>
+                                                            <td>محمد علي</td>
+                                                            <td>28</td>
+                                                            <td><span class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span> 5.0</td>
+                                                            <td>
+                                                                <button aria-label="زر" class="btn btn-sm btn-info mr-1" data-target="#previewDesignModal" data-toggle="modal" title="معاينة"><i class="fas fa-eye"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editDesignModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            
+                                            <!-- Pagination -->
+                                            <div class="d-flex justify-content-center mt-4">
+                                                <nav aria-label="صفحات التصاميم">
+                                                    <ul class="pagination">
+                                                        <li class="page-item disabled">
+                                                            <a aria-label="رابط" class="page-link" href="#" tabindex="-1" aria-disabled="true">السابق</a>
+                                                        </li>
+                                                        <li class="page-item active"><a aria-label="رابط" class="page-link" href="#">1</a></li>
+                                                        <li class="page-item"><a aria-label="رابط" class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a aria-label="رابط" class="page-link" href="#">3</a></li>
+                                                        <li class="page-item">
+                                                            <a aria-label="رابط" class="page-link" href="#">التالي</a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Designers Tab -->
+                                        <div aria-labelledby="designers-tab" class="tab-pane fade" id="designers" role="tabpanel">
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <button aria-label="زر" class="btn btn-primary" data-target="#addDesignerModal" data-toggle="modal"><i class="fas fa-plus mr-1"></i> إضافة مصمم جديد</button>
+                                                <div class="input-group" style="width: 300px;">
+                                                    <input class="form-control" id="designerSearchInput" placeholder="بحث عن مصمم..." type="text">
+                                                    <div class="input-group-append">
+                                                        <button aria-label="زر" class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Designers Grid View -->
+                                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4" id="designersGridView">
+                                                <!-- Designer Card 1 -->
+                                                <div class="col mb-4">
+                                                    <div class="card h-100 designer-card">
+                                                        <div class="card-body text-center">
+                                                            <img alt="صورة المصمم" class="designer-avatar mb-3" src="https://via.placeholder.com/150.png?text=أحمد">
+                                                            <h5 class="card-title">أحمد محمد</h5>
+                                                            <p class="card-text">مصمم متخصص في تصاميم الزفاف والمناسبات الخاصة</p>
+                                                            <div class="mb-2">
+                                                                <span class="badge badge-info category-badge">زفاف</span>
+                                                                <span class="badge badge-info category-badge">مناسبات خاصة</span>
+                                                            </div>
+                                                            <p class="card-text">
+                                                                <small class="text-muted">عدد التصاميم: 15 | التقييم: 
+                                                                    <span class="rating-stars">
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star-half-alt"></i>
+                                                                    </span> 4.8
+                                                                </small>
+                                                            </p>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                            <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editDesignerModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Designer Card 2 -->
+                                                <div class="col mb-4">
+                                                    <div class="card h-100 designer-card">
+                                                        <div class="card-body text-center">
+                                                            <img alt="صورة المصمم" class="designer-avatar mb-3" src="https://via.placeholder.com/150.png?text=سارة">
+                                                            <h5 class="card-title">سارة أحمد</h5>
+                                                            <p class="card-text">مصممة متخصصة في تصاميم المواليد والأطفال</p>
+                                                            <div class="mb-2">
+                                                                <span class="badge badge-info category-badge">مواليد</span>
+                                                                <span class="badge badge-info category-badge">أطفال</span>
+                                                            </div>
+                                                            <p class="card-text">
+                                                                <small class="text-muted">عدد التصاميم: 12 | التقييم: 
+                                                                    <span class="rating-stars">
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star-half-alt"></i>
+                                                                    </span> 4.5
+                                                                </small>
+                                                            </p>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                            <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editDesignerModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Designer Card 3 -->
+                                                <div class="col mb-4">
+                                                    <div class="card h-100 designer-card">
+                                                        <div class="card-body text-center">
+                                                            <img alt="صورة المصمم" class="designer-avatar mb-3" src="https://via.placeholder.com/150.png?text=محمد">
+                                                            <h5 class="card-title">محمد علي</h5>
+                                                            <p class="card-text">مصمم متخصص في تصاميم التخرج والمناسبات الأكاديمية</p>
+                                                            <div class="mb-2">
+                                                                <span class="badge badge-info category-badge">تخرج</span>
+                                                                <span class="badge badge-info category-badge">مناسبات أكاديمية</span>
+                                                            </div>
+                                                            <p class="card-text">
+                                                                <small class="text-muted">عدد التصاميم: 8 | التقييم: 
+                                                                    <span class="rating-stars">
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star"></i>
+                                                                        <i class="fas fa-star-half-alt"></i>
+                                                                    </span> 4.2
+                                                                </small>
+                                                            </p>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                            <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editDesignerModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Designers List View -->
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-striped" id="designersTable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>الصورة</th>
+                                                            <th>اسم المصمم</th>
+                                                            <th>التخصص</th>
+                                                            <th>عدد التصاميم</th>
+                                                            <th>التقييم</th>
+                                                            <th>الحالة</th>
+                                                            <th>إجراءات</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><img alt="صورة المصمم" class="img-circle" src="https://via.placeholder.com/40.png?text=أحمد" style="width: 40px; height: 40px;"></td>
+                                                            <td>أحمد محمد</td>
+                                                            <td>تصاميم زفاف</td>
+                                                            <td>15</td>
+                                                            <td><i class="fas fa-star text-warning"></i> 4.8</td>
+                                                            <td><span class="badge badge-success">نشط</span></td>
+                                                            <td>
+                                                                <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editDesignerModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img alt="صورة المصمم" class="img-circle" src="https://via.placeholder.com/40.png?text=سارة" style="width: 40px; height: 40px;"></td>
+                                                            <td>سارة أحمد</td>
+                                                            <td>تصاميم مواليد</td>
+                                                            <td>12</td>
+                                                            <td><i class="fas fa-star text-warning"></i> 4.5</td>
+                                                            <td><span class="badge badge-success">نشط</span></td>
+                                                            <td>
+                                                                <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editDesignerModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img alt="صورة المصمم" class="img-circle" src="https://via.placeholder.com/40.png?text=محمد" style="width: 40px; height: 40px;"></td>
+                                                            <td>محمد علي</td>
+                                                            <td>تصاميم تخرج</td>
+                                                            <td>8</td>
+                                                            <td><i class="fas fa-star text-warning"></i> 4.2</td>
+                                                            <td><span class="badge badge-success">نشط</span></td>
+                                                            <td>
+                                                                <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editDesignerModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Categories Tab -->
+                                        <div aria-labelledby="categories-tab" class="tab-pane fade" id="categories" role="tabpanel">
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <button aria-label="زر" class="btn btn-primary" data-target="#addCategoryModal" data-toggle="modal"><i class="fas fa-plus mr-1"></i> إضافة قسم جديد</button>
+                                                <div class="input-group" style="width: 300px;">
+                                                    <input class="form-control" id="categorySearchInput" placeholder="بحث عن قسم..." type="text">
+                                                    <div class="input-group-append">
+                                                        <button aria-label="زر" class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Categories Grid View -->
+                                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
+                                                <!-- Category Card 1 -->
+                                                <div class="col mb-4">
+                                                    <div class="card h-100">
+                                                        <div class="card-body text-center">
+                                                            <i class="fas fa-heart fa-3x mb-3 text-danger"></i>
+                                                            <h5 class="card-title">زفاف</h5>
+                                                            <p class="card-text">تصاميم خاصة بمناسبات الزفاف والخطوبة</p>
+                                                            <p class="card-text"><small class="text-muted">عدد التصاميم: 25</small></p>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                            <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editCategoryModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Category Card 2 -->
+                                                <div class="col mb-4">
+                                                    <div class="card h-100">
+                                                        <div class="card-body text-center">
+                                                            <i class="fas fa-baby fa-3x mb-3 text-primary"></i>
+                                                            <h5 class="card-title">مواليد</h5>
+                                                            <p class="card-text">تصاميم خاصة بالمواليد الجدد والمناسبات المتعلقة بهم</p>
+                                                            <p class="card-text"><small class="text-muted">عدد التصاميم: 18</small></p>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                            <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editCategoryModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Category Card 3 -->
+                                                <div class="col mb-4">
+                                                    <div class="card h-100">
+                                                        <div class="card-body text-center">
+                                                            <i class="fas fa-graduation-cap fa-3x mb-3 text-success"></i>
+                                                            <h5 class="card-title">تخرج</h5>
+                                                            <p class="card-text">تصاميم خاصة بحفلات التخرج والنجاح</p>
+                                                            <p class="card-text"><small class="text-muted">عدد التصاميم: 15</small></p>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                            <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editCategoryModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Category Card 4 -->
+                                                <div class="col mb-4">
+                                                    <div class="card h-100">
+                                                        <div class="card-body text-center">
+                                                            <i class="fas fa-birthday-cake fa-3x mb-3 text-warning"></i>
+                                                            <h5 class="card-title">أعياد ميلاد</h5>
+                                                            <p class="card-text">تصاميم خاصة بأعياد الميلاد والاحتفالات</p>
+                                                            <p class="card-text"><small class="text-muted">عدد التصاميم: 12</small></p>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                            <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editCategoryModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                            <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Categories Table View -->
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-striped" id="categoriesTable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>اسم القسم</th>
+                                                            <th>الوصف</th>
+                                                            <th>عدد التصاميم</th>
+                                                            <th>الحالة</th>
+                                                            <th>إجراءات</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>زفاف</td>
+                                                            <td>تصاميم خاصة بمناسبات الزفاف والخطوبة</td>
+                                                            <td>25</td>
+                                                            <td><span class="badge badge-success">نشط</span></td>
+                                                            <td>
+                                                                <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editCategoryModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>مواليد</td>
+                                                            <td>تصاميم خاصة بالمواليد الجدد والمناسبات المتعلقة بهم</td>
+                                                            <td>18</td>
+                                                            <td><span class="badge badge-success">نشط</span></td>
+                                                            <td>
+                                                                <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editCategoryModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>تخرج</td>
+                                                            <td>تصاميم خاصة بحفلات التخرج والنجاح</td>
+                                                            <td>15</td>
+                                                            <td><span class="badge badge-success">نشط</span></td>
+                                                            <td>
+                                                                <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editCategoryModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>أعياد ميلاد</td>
+                                                            <td>تصاميم خاصة بأعياد الميلاد والاحتفالات</td>
+                                                            <td>12</td>
+                                                            <td><span class="badge badge-success">نشط</span></td>
+                                                            <td>
+                                                                <button aria-label="زر" class="btn btn-sm btn-info mr-1" title="عرض التصاميم"><i class="fas fa-images"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-warning mr-1" data-target="#editCategoryModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+                                                                <button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- /.content -->
+                </div>
+                <!-- /.content-wrapper -->
+                
+                <!-- Modals -->
+                <!-- Add Design Modal -->
+                <div aria-hidden="true" class="modal fade" id="addDesignModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">إضافة تصميم جديد</h5>
+                                <button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="addDesignForm">
+                                    <div class="form-group">
+                                        <label for="designName">اسم التصميم</label>
+                                        <input class="form-control" id="designName" placeholder="أدخل اسم التصميم" required type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designDescription">وصف التصميم</label>
+                                        <textarea class="form-control" id="designDescription" placeholder="أدخل وصف التصميم" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="designCategory">القسم</label>
+                                            <select class="form-control select2" id="designCategory" required>
+                                                <option value="">اختر القسم</option>
+                                                <option value="1">زفاف</option>
+                                                <option value="2">مواليد</option>
+                                                <option value="3">تخرج</option>
+                                                <option value="4">أعياد ميلاد</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="designDesigner">المصمم</label>
+                                            <select class="form-control select2" id="designDesigner" required>
+                                                <option value="">اختر المصمم</option>
+                                                <option value="1">أحمد محمد</option>
+                                                <option value="2">سارة أحمد</option>
+                                                <option value="3">محمد علي</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designTags">الكلمات المفتاحية</label>
+                                        <select class="form-control select2" id="designTags" multiple="multiple">
+                                            <option value="زفاف">زفاف</option>
+                                            <option value="خطوبة">خطوبة</option>
+                                            <option value="مولود">مولود</option>
+                                            <option value="تخرج">تخرج</option>
+                                            <option value="عيد ميلاد">عيد ميلاد</option>
+                                            <option value="احتفال">احتفال</option>
+                                            <option value="مناسبة خاصة">مناسبة خاصة</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designMainImage">صورة التصميم الرئيسية</label>
+                                        <div class="custom-file">
+                                            <input class="custom-file-input" id="designMainImage" type="file" required>
+                                            <label class="custom-file-label" for="designMainImage">اختر صورة</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designAdditionalImages">صور إضافية (اختياري)</label>
+                                        <div class="custom-file">
+                                            <input class="custom-file-input" id="designAdditionalImages" multiple type="file">
+                                            <label class="custom-file-label" for="designAdditionalImages">اختر صور</label>
+                                        </div>
+                                        <small class="form-text text-muted">يمكنك اختيار أكثر من صورة</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designSourceFiles">ملفات المصدر (اختياري)</label>
+                                        <div class="custom-file">
+                                            <input class="custom-file-input" id="designSourceFiles" multiple type="file">
+                                            <label class="custom-file-label" for="designSourceFiles">اختر ملفات</label>
+                                        </div>
+                                        <small class="form-text text-muted">يمكنك اختيار أكثر من ملف</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch">
+                                            <input class="custom-control-input" id="designActive" type="checkbox" checked>
+                                            <label class="custom-control-label" for="designActive">نشط</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+                                <button class="btn btn-primary" form="addDesignForm" type="submit">حفظ التصميم</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Edit Design Modal -->
+                <div aria-hidden="true" class="modal fade" id="editDesignModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">تعديل التصميم</h5>
+                                <button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="editDesignForm">
+                                    <input id="editDesignId" type="hidden" value="1">
+                                    <div class="form-group">
+                                        <label for="editDesignName">اسم التصميم</label>
+                                        <input class="form-control" id="editDesignName" placeholder="أدخل اسم التصميم" required type="text" value="تصميم زفاف فاخر">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editDesignDescription">وصف التصميم</label>
+                                        <textarea class="form-control" id="editDesignDescription" placeholder="أدخل وصف التصميم" rows="3">تصميم راقي لبطاقات دعوة الزفاف بألوان ذهبية وأسود.</textarea>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="editDesignCategory">القسم</label>
+                                            <select class="form-control select2" id="editDesignCategory" required>
+                                                <option value="">اختر القسم</option>
+                                                <option value="1" selected>زفاف</option>
+                                                <option value="2">مواليد</option>
+                                                <option value="3">تخرج</option>
+                                                <option value="4">أعياد ميلاد</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="editDesignDesigner">المصمم</label>
+                                            <select class="form-control select2" id="editDesignDesigner" required>
+                                                <option value="">اختر المصمم</option>
+                                                <option value="1" selected>أحمد محمد</option>
+                                                <option value="2">سارة أحمد</option>
+                                                <option value="3">محمد علي</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editDesignTags">الكلمات المفتاحية</label>
+                                        <select class="form-control select2" id="editDesignTags" multiple="multiple">
+                                            <option value="زفاف" selected>زفاف</option>
+                                            <option value="خطوبة" selected>خطوبة</option>
+                                            <option value="مولود">مولود</option>
+                                            <option value="تخرج">تخرج</option>
+                                            <option value="عيد ميلاد">عيد ميلاد</option>
+                                            <option value="احتفال">احتفال</option>
+                                            <option value="مناسبة خاصة" selected>مناسبة خاصة</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>الصورة الحالية</label>
+                                        <div class="mb-2">
+                                            <img alt="صورة التصميم الحالية" class="img-fluid" src="https://via.placeholder.com/300x200.png?text=تصميم+زفاف" style="max-height: 150px;">
+                                        </div>
+                                        <label for="editDesignMainImage">تغيير الصورة الرئيسية (اختياري)</label>
+                                        <div class="custom-file">
+                                            <input class="custom-file-input" id="editDesignMainImage" type="file">
+                                            <label class="custom-file-label" for="editDesignMainImage">اختر صورة</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editDesignAdditionalImages">صور إضافية (اختياري)</label>
+                                        <div class="custom-file">
+                                            <input class="custom-file-input" id="editDesignAdditionalImages" multiple type="file">
+                                            <label class="custom-file-label" for="editDesignAdditionalImages">اختر صور</label>
+                                        </div>
+                                        <small class="form-text text-muted">يمكنك اختيار أكثر من صورة</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch">
+                                            <input class="custom-control-input" id="editDesignActive" type="checkbox" checked>
+                                            <label class="custom-control-label" for="editDesignActive">نشط</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+                                <button class="btn btn-primary" form="editDesignForm" type="submit">حفظ التعديلات</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Preview Design Modal -->
+                <div aria-hidden="true" class="modal fade" id="previewDesignModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">معاينة التصميم</h5>
+                                <button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="text-center mb-4">
+                                    <img alt="معاينة التصميم" class="preview-image" src="https://via.placeholder.com/800x600.png?text=تصميم+زفاف+فاخر">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>تصميم زفاف فاخر</h5>
+                                        <p>تصميم راقي لبطاقات دعوة الزفاف بألوان ذهبية وأسود.</p>
+                                        <p><strong>القسم:</strong> زفاف</p>
+                                        <p><strong>المصمم:</strong> أحمد محمد</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong>الاستخدامات:</strong> 45</p>
+                                        <p><strong>التقييم:</strong> <span class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span> 4.5</p>
+                                        <p><strong>تاريخ الإضافة:</strong> 15/05/2025</p>
+                                        <p><strong>الكلمات المفتاحية:</strong> <span class="badge badge-info category-badge">زفاف</span> <span class="badge badge-info category-badge">خطوبة</span> <span class="badge badge-info category-badge">مناسبة خاصة</span></p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <h6>صور إضافية</h6>
+                                <div class="row">
+                                    <div class="col-md-4 mb-2">
+                                        <img alt="صورة إضافية" class="img-fluid" src="https://via.placeholder.com/300x200.png?text=صورة+إضافية+1">
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <img alt="صورة إضافية" class="img-fluid" src="https://via.placeholder.com/300x200.png?text=صورة+إضافية+2">
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <img alt="صورة إضافية" class="img-fluid" src="https://via.placeholder.com/300x200.png?text=صورة+إضافية+3">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+                                <button class="btn btn-primary" data-target="#editDesignModal" data-toggle="modal" onclick="$('#previewDesignModal').modal('hide');">تعديل التصميم</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add Designer Modal -->
+                <div aria-hidden="true" class="modal fade" id="addDesignerModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">إضافة مصمم جديد</h5>
+                                <button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="addDesignerForm">
+                                    <div class="form-group">
+                                        <label for="designerName">اسم المصمم</label>
+                                        <input class="form-control" id="designerName" placeholder="أدخل اسم المصمم" required type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designerSpecialty">التخصص</label>
+                                        <input class="form-control" id="designerSpecialty" placeholder="أدخل تخصص المصمم" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designerBio">نبذة عن المصمم</label>
+                                        <textarea class="form-control" id="designerBio" placeholder="أدخل نبذة عن المصمم" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designerCategories">الأقسام المتخصص فيها</label>
+                                        <select class="form-control select2" id="designerCategories" multiple="multiple">
+                                            <option value="1">زفاف</option>
+                                            <option value="2">مواليد</option>
+                                            <option value="3">تخرج</option>
+                                            <option value="4">أعياد ميلاد</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designerImage">صورة المصمم</label>
+                                        <div class="custom-file">
+                                            <input class="custom-file-input" id="designerImage" type="file">
+                                            <label class="custom-file-label" for="designerImage">اختر صورة</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designerContact">معلومات التواصل</label>
+                                        <input class="form-control" id="designerContact" placeholder="أدخل معلومات التواصل" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designerWebsite">الموقع الشخصي (اختياري)</label>
+                                        <input class="form-control" id="designerWebsite" placeholder="أدخل رابط الموقع الشخصي" type="url">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch">
+                                            <input class="custom-control-input" id="designerActive" type="checkbox" checked>
+                                            <label class="custom-control-label" for="designerActive">نشط</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+                                <button class="btn btn-primary" form="addDesignerForm" type="submit">حفظ المصمم</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Edit Designer Modal -->
+                <div aria-hidden="true" class="modal fade" id="editDesignerModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">تعديل بيانات المصمم</h5>
+                                <button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="editDesignerForm">
+                                    <input id="editDesignerId" type="hidden" value="1">
+                                    <div class="form-group">
+                                        <label for="editDesignerName">اسم المصمم</label>
+                                        <input class="form-control" id="editDesignerName" placeholder="أدخل اسم المصمم" required type="text" value="أحمد محمد">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editDesignerSpecialty">التخصص</label>
+                                        <input class="form-control" id="editDesignerSpecialty" placeholder="أدخل تخصص المصمم" type="text" value="تصاميم زفاف">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editDesignerBio">نبذة عن المصمم</label>
+                                        <textarea class="form-control" id="editDesignerBio" placeholder="أدخل نبذة عن المصمم" rows="3">مصمم متخصص في تصاميم الزفاف والمناسبات الخاصة</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editDesignerCategories">الأقسام المتخصص فيها</label>
+                                        <select class="form-control select2" id="editDesignerCategories" multiple="multiple">
+                                            <option value="1" selected>زفاف</option>
+                                            <option value="2">مواليد</option>
+                                            <option value="3">تخرج</option>
+                                            <option value="4">أعياد ميلاد</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>الصورة الحالية</label>
+                                        <div class="mb-2">
+                                            <img alt="صورة المصمم الحالية" class="img-fluid" src="https://via.placeholder.com/150.png?text=أحمد" style="max-height: 100px;">
+                                        </div>
+                                        <label for="editDesignerImage">تغيير الصورة (اختياري)</label>
+                                        <div class="custom-file">
+                                            <input class="custom-file-input" id="editDesignerImage" type="file">
+                                            <label class="custom-file-label" for="editDesignerImage">اختر صورة</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editDesignerContact">معلومات التواصل</label>
+                                        <input class="form-control" id="editDesignerContact" placeholder="أدخل معلومات التواصل" type="text" value="ahmed@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editDesignerWebsite">الموقع الشخصي (اختياري)</label>
+                                        <input class="form-control" id="editDesignerWebsite" placeholder="أدخل رابط الموقع الشخصي" type="url" value="https://ahmed-portfolio.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch">
+                                            <input class="custom-control-input" id="editDesignerActive" type="checkbox" checked>
+                                            <label class="custom-control-label" for="editDesignerActive">نشط</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+                                <button class="btn btn-primary" form="editDesignerForm" type="submit">حفظ التعديلات</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add Category Modal -->
+                <div aria-hidden="true" class="modal fade" id="addCategoryModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">إضافة قسم جديد</h5>
+                                <button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="addCategoryForm">
+                                    <div class="form-group">
+                                        <label for="categoryName">اسم القسم</label>
+                                        <input class="form-control" id="categoryName" placeholder="أدخل اسم القسم" required type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="categoryDescription">وصف القسم</label>
+                                        <textarea class="form-control" id="categoryDescription" placeholder="أدخل وصف القسم" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="categoryIcon">أيقونة القسم</label>
+                                        <select class="form-control" id="categoryIcon">
+                                            <option value="fa-heart">قلب</option>
+                                            <option value="fa-baby">طفل</option>
+                                            <option value="fa-graduation-cap">تخرج</option>
+                                            <option value="fa-birthday-cake">كعكة عيد ميلاد</option>
+                                            <option value="fa-gift">هدية</option>
+                                            <option value="fa-star">نجمة</option>
+                                            <option value="fa-certificate">شهادة</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="categoryParent">القسم الأب (اختياري)</label>
+                                        <select class="form-control" id="categoryParent">
+                                            <option value="">بدون قسم أب</option>
+                                            <option value="1">زفاف</option>
+                                            <option value="2">مواليد</option>
+                                            <option value="3">تخرج</option>
+                                            <option value="4">أعياد ميلاد</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch">
+                                            <input class="custom-control-input" id="categoryActive" type="checkbox" checked>
+                                            <label class="custom-control-label" for="categoryActive">نشط</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+                                <button class="btn btn-primary" form="addCategoryForm" type="submit">حفظ القسم</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Edit Category Modal -->
+                <div aria-hidden="true" class="modal fade" id="editCategoryModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">تعديل القسم</h5>
+                                <button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="editCategoryForm">
+                                    <input id="editCategoryId" type="hidden" value="1">
+                                    <div class="form-group">
+                                        <label for="editCategoryName">اسم القسم</label>
+                                        <input class="form-control" id="editCategoryName" placeholder="أدخل اسم القسم" required type="text" value="زفاف">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editCategoryDescription">وصف القسم</label>
+                                        <textarea class="form-control" id="editCategoryDescription" placeholder="أدخل وصف القسم" rows="3">تصاميم خاصة بمناسبات الزفاف والخطوبة</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editCategoryIcon">أيقونة القسم</label>
+                                        <select class="form-control" id="editCategoryIcon">
+                                            <option value="fa-heart" selected>قلب</option>
+                                            <option value="fa-baby">طفل</option>
+                                            <option value="fa-graduation-cap">تخرج</option>
+                                            <option value="fa-birthday-cake">كعكة عيد ميلاد</option>
+                                            <option value="fa-gift">هدية</option>
+                                            <option value="fa-star">نجمة</option>
+                                            <option value="fa-certificate">شهادة</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editCategoryParent">القسم الأب (اختياري)</label>
+                                        <select class="form-control" id="editCategoryParent">
+                                            <option value="" selected>بدون قسم أب</option>
+                                            <option value="1">زفاف</option>
+                                            <option value="2">مواليد</option>
+                                            <option value="3">تخرج</option>
+                                            <option value="4">أعياد ميلاد</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch">
+                                            <input class="custom-control-input" id="editCategoryActive" type="checkbox" checked>
+                                            <label class="custom-control-label" for="editCategoryActive">نشط</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+                                <button class="btn btn-primary" form="editCategoryForm" type="submit">حفظ التعديلات</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="../assets/js/scripts.js"></script>
+    <script src="../assets/js/dropdown.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Initialize Select2
+            $('.select2').select2({
+                dir: "rtl",
+                language: "ar"
+            });
+            
+            // Initialize file input display
+            $('.custom-file-input').on('change', function() {
+                var fileName = $(this).val().split('\\').pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+            
+            // Toggle between grid and list view
+            $('#gridViewBtn').on('click', function() {
+                $('#designsGridView').show();
+                $('#designsListView').hide();
+                $(this).addClass('active').removeClass('btn-outline-secondary').addClass('btn-secondary');
+                $('#listViewBtn').removeClass('active').removeClass('btn-secondary').addClass('btn-outline-secondary');
+            });
+            
+            $('#listViewBtn').on('click', function() {
+                $('#designsGridView').hide();
+                $('#designsListView').show();
+                $(this).addClass('active').removeClass('btn-outline-secondary').addClass('btn-secondary');
+                $('#gridViewBtn').removeClass('active').removeClass('btn-secondary').addClass('btn-outline-secondary');
+            });
+            
+            // Search functionality
+            $('#designSearchInput').on('keyup', function() {
+                var value = $(this).val().toLowerCase();
+                $("#designsGridView .col").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+                $("#designsListView tbody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            
+            $('#designerSearchInput').on('keyup', function() {
+                var value = $(this).val().toLowerCase();
+                $("#designersGridView .col").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+                $("#designersTable tbody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            
+            $('#categorySearchInput').on('keyup', function() {
+                var value = $(this).val().toLowerCase();
+                $("#categoriesTable tbody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            
+            // Reset filters
+            $('#resetFiltersBtn').on('click', function() {
+                $('#designSearchInput').val('');
+                $('#designCategoryFilter').val('');
+                $('#designDesignerFilter').val('');
+                $('#designSortFilter').val('newest');
+                $("#designsGridView .col").show();
+                $("#designsListView tbody tr").show();
+            });
+            
+            // Form submission handlers
+            $('#addDesignForm').on('submit', function(e) {
+                e.preventDefault();
+                // Add AJAX submission logic here
+                $('#addDesignModal').modal('hide');
+                // Show success message
+                alert('تم إضافة التصميم بنجاح');
+            });
+            
+            $('#editDesignForm').on('submit', function(e) {
+                e.preventDefault();
+                // Add AJAX submission logic here
+                $('#editDesignModal').modal('hide');
+                // Show success message
+                alert('تم تعديل التصميم بنجاح');
+            });
+            
+            $('#addDesignerForm').on('submit', function(e) {
+                e.preventDefault();
+                // Add AJAX submission logic here
+                $('#addDesignerModal').modal('hide');
+                // Show success message
+                alert('تم إضافة المصمم بنجاح');
+            });
+            
+            $('#editDesignerForm').on('submit', function(e) {
+                e.preventDefault();
+                // Add AJAX submission logic here
+                $('#editDesignerModal').modal('hide');
+                // Show success message
+                alert('تم تعديل بيانات المصمم بنجاح');
+            });
+            
+            $('#addCategoryForm').on('submit', function(e) {
+                e.preventDefault();
+                // Add AJAX submission logic here
+                $('#addCategoryModal').modal('hide');
+                // Show success message
+                alert('تم إضافة القسم بنجاح');
+            });
+            
+            $('#editCategoryForm').on('submit', function(e) {
+                e.preventDefault();
+                // Add AJAX submission logic here
+                $('#editCategoryModal').modal('hide');
+                // Show success message
+                alert('تم تعديل القسم بنجاح');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+/**
+ * نظام الوضع الليلي (Dark Mode) لمنصة الدعوات الإلكترونية
+ * يحتوي على متغيرات CSS وتعريفات الألوان للوضع الليلي
+ */
+
+:root {
+    /* متغيرات الألوان للوضع العادي (Light Mode) */
+    --primary-color: #007bff;
+    --primary-hover: #0069d9;
+    --secondary-color: #6c757d;
+    --secondary-hover: #5a6268;
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    
+    --body-bg: #f4f6f9;
+    --card-bg: #ffffff;
+    --sidebar-bg: #ffffff;
+    --header-bg: #ffffff;
+    --text-color: #212529;
+    --text-muted: #6c757d;
+    --border-color: #dee2e6;
+    --input-bg: #ffffff;
+    --input-border: #ced4da;
+    --dropdown-bg: #ffffff;
+    --dropdown-hover: #f8f9fa;
+    --modal-bg: #ffffff;
+    --table-bg: #ffffff;
+    --table-hover: #f8f9fa;
+    --table-border: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* تعريفات الوضع الليلي */
+[data-theme="dark"] {
+    --primary-color: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --secondary-color: #6c757d;
+    --secondary-hover: #5a6268;
+    --success-color: #198754;
+    --info-color: #0dcaf0;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #212529;
+    --dark-color: #f8f9fa;
+    
+    --body-bg: #121212;
+    --card-bg: #1e1e1e;
+    --sidebar-bg: #1e1e1e;
+    --header-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --text-muted: #adb5bd;
+    --border-color: #2d2d2d;
+    --input-bg: #2d2d2d;
+    --input-border: #444444;
+    --dropdown-bg: #2d2d2d;
+    --dropdown-hover: #3d3d3d;
+    --modal-bg: #1e1e1e;
+    --table-bg: #1e1e1e;
+    --table-hover: #2d2d2d;
+    --table-border: #444444;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* تطبيق المتغيرات على عناصر الصفحة */
+body {
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card, .dashboard-stat {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    box-shadow: 0 0 10px var(--shadow-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header, .navbar {
+    background-color: var(--header-bg);
+    border-color: var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.sidebar {
+    background-color: var(--sidebar-bg);
+    border-color: var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-link, .navbar-brand {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .navbar-brand:hover {
+    color: var(--primary-color);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+}
+
+.dropdown-menu {
+    background-color: var(--dropdown-bg);
+    border-color: var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dropdown-item {
+    color: var(--text-color);
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--dropdown-hover);
+}
+
+.table {
+    color: var(--text-color);
+    background-color: var(--table-bg);
+    border-color: var(--table-border);
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.table-hover tbody tr:hover {
+    background-color: var(--table-hover);
+}
+
+.modal-content {
+    background-color: var(--modal-bg);
+    border-color: var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.form-control, .form-select {
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: var(--input-bg);
+    border-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.btn-outline-secondary {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    color: var(--light-color);
+    background-color: var(--secondary-color);
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.border {
+    border-color: var(--border-color) !important;
+}
+
+/* زر تبديل الوضع الليلي */
+.dark-mode-toggle {
+    cursor: pointer;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.dark-mode-toggle i {
+    font-size: 1.25rem;
+}
+
+/* تأثيرات إضافية للوضع الليلي */
+[data-theme="dark"] .card:hover, 
+[data-theme="dark"] .dashboard-stat:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+/* تعديلات خاصة بالمخططات البيانية */
+[data-theme="dark"] .chart-container canvas {
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* تعديلات خاصة بالصور */
+[data-theme="dark"] img:not(.no-dark-filter) {
+    filter: brightness(0.9);
+}
+
+/* تعديلات خاصة بمحرر النصوص */
+[data-theme="dark"] .note-editor.note-frame {
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .note-editor.note-frame .note-editing-area,
+[data-theme="dark"] .note-editor.note-frame .note-statusbar {
+    background-color: var(--input-bg);
+}
+
+[data-theme="dark"] .note-editor.note-frame .note-toolbar {
+    background-color: var(--dropdown-bg);
+    border-color: var(--border-color);
+}
+
+/* تعديلات خاصة بالتنبيهات */
+[data-theme="dark"] .alert {
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .alert-light {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}

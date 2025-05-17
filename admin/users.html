@@ -1,0 +1,541 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_إدارة_المس" data-translate-key-titlebase="pageTitleSuffixAdmin">لوحة تحكم المدير | إدارة المستخدمين</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="users.html"><i class="nav-icon fas fa-users"></i><p>إدارة المستخدمين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="supervisors.html"><i class="nav-icon fas fa-user-shield"></i><p>إدارة المشرفين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>إدارة المناسبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>إدارة الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guests.html"><i class="nav-icon fas fa-user-friends"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="orders.html"><i class="nav-icon fas fa-file-invoice-dollar"></i><p>إدارة الطلبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="packages.html"><i class="nav-icon fas fa-box-open"></i><p>إدارة الباقات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="reports.html"><i class="nav-icon fas fa-chart-line"></i><p>التقارير والإحصائيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="content_management.html"><i class="nav-icon fas fa-file-alt"></i><p>إدارة المحتوى</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="customers.html"><i class="nav-icon fas fa-user-tie"></i><p>إدارة العملاء</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="support.html"><i class="nav-icon fas fa-life-ring"></i><p>الدعم الفني</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="roles.html"><i class="nav-icon fas fa-user-tag"></i><p>إدارة الأدوار والصلاحيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="files.html"><i class="nav-icon fas fa-folder-open"></i><p>إدارة الملفات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="integrations.html"><i class="nav-icon fas fa-cogs"></i><p>التكاملات الخارجية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="backup.html"><i class="nav-icon fas fa-database"></i><p>النسخ الاحتياطي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="tasks.html"><i class="nav-icon fas fa-tasks"></i><p>جدولة المهام</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="settings.html"><i class="nav-icon fas fa-cog"></i><p>الإعدادات العامة</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="users.html"><i class="nav-icon fas fa-users"></i>إدارة المستخدمين</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1>إدارة المستخدمين (العملاء)</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="card card-primary card-outline">
+<div class="card-header">
+<div class="d-flex justify-content-between align-items-center flex-wrap">
+<h3 class="card-title mb-2 mb-md-0">قائمة المستخدمين</h3>
+<div>
+<button aria-label="زر" class="btn btn-primary btn-sm mr-1" data-target="#addUserModal" data-toggle="modal" type="button">
+<i class="fas fa-plus mr-1"></i> إضافة مستخدم جديد
+                    </button>
+<button aria-label="زر" class="btn btn-success btn-sm" id="exportUsersCsv" type="button">
+<i class="fas fa-file-csv mr-1"></i> تصدير CSV
+                    </button>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-3">
+<div class="form-group">
+<label>بحث:</label>
+<input class="form-control form-control-sm" placeholder="اسم، بريد إلكتروني..." type="text">
+</div>
+</div>
+<div class="col-md-2">
+<div class="form-group">
+<label>الدور:</label>
+<select class="form-control form-control-sm select2" id="role-filter" style="width: 100%;">
+<option selected="selected" value="all">الكل</option>
+<option value="inviter">مستخدم داعي</option>
+<option value="client">عميل</option>
+</select>
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<label>الباقة:</label>
+<select class="form-control form-control-sm select2" id="package-filter" style="width: 100%;">
+<option selected="selected" value="all">الكل</option>
+<option value="free">مجانية</option>
+<option value="silver">فضية</option>
+<option value="gold">ذهبية</option>
+<option value="platinum">بلاتينية</option>
+</select>
+</div>
+</div>
+<div class="col-md-2">
+<div class="form-group">
+<label>الحالة:</label>
+<select class="form-control form-control-sm select2" id="status-filter" style="width: 100%;">
+<option selected="selected" value="all">الكل</option>
+<option value="active">نشط</option>
+<option value="inactive">غير نشط</option>
+<option value="pending">معلق</option>
+</select>
+</div>
+</div>
+<div class="col-md-2">
+<div class="form-group">
+<label>&nbsp;</label>
+<button aria-label="زر" class="btn btn-sm btn-default btn-block" type="button">بحث/فلترة</button>
+</div>
+</div>
+</div>
+</div>
+<div class="card-body">
+<table class="table table-bordered table-striped" id="usersTable">
+<thead>
+<tr>
+<th><input id="selectAllUsers" type="checkbox"></th>
+<th>اسم المستخدم</th>
+<th>البريد الإلكتروني</th>
+<th>الدور الأساسي</th>
+<th>الباقة الحالية</th>
+<th>تاريخ التسجيل</th>
+<th>الحالة</th>
+<th>إجراءات</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><input type="checkbox"></td>
+<td>عبدالله السالم</td>
+<td>abdullah.salem@example.com</td>
+<td><span class="badge badge-primary">عميل</span></td>
+<td><span class="badge badge-warning">ذهبية</span></td>
+<td>2023-11-20</td>
+<td><span class="badge badge-success">نشط</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-info" data-target="#viewUserModal" data-toggle="modal" title="عرض التفاصيل"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-warning" data-target="#editUserModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-secondary" title="تعليق الحساب"><i class="fas fa-user-lock"></i></button>
+</td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>نورة خالد</td>
+<td>noura.khaled@example.com</td>
+<td><span class="badge badge-info">مستخدم داعي</span></td>
+<td><span class="badge badge-secondary">مجانية</span></td>
+<td>2024-02-10</td>
+<td><span class="badge badge-danger">غير نشط</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-info" data-target="#viewUserModal" data-toggle="modal" title="عرض التفاصيل"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-warning" data-target="#editUserModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-success" title="تفعيل الحساب"><i class="fas fa-user-check"></i></button>
+</td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>محمد الفهد</td>
+<td>mohammed.fahad@example.com</td>
+<td><span class="badge badge-primary">عميل</span></td>
+<td><span class="badge badge-info">فضية</span></td>
+<td>2024-01-05</td>
+<td><span class="badge badge-warning">معلق</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-info" data-target="#viewUserModal" data-toggle="modal" title="عرض التفاصيل"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-warning" data-target="#editUserModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-success" title="تفعيل الحساب"><i class="fas fa-user-check"></i></button>
+</td>
+</tr>
+<!-- Add more user rows here -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Add User Modal -->
+<div aria-hidden="true" aria-labelledby="addUserModalLabel" class="modal fade" id="addUserModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="addUserModalLabel">إضافة مستخدم جديد</h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<form id="addUserForm">
+<div class="modal-body">
+<div class="form-group">
+<label for="userName">الاسم الكامل</label>
+<input class="form-control" id="userName" required="" type="text">
+</div>
+<div class="form-group">
+<label for="userEmail">البريد الإلكتروني</label>
+<input class="form-control" id="userEmail" required="" type="email">
+</div>
+<div class="form-group">
+<label for="userPassword">كلمة المرور</label>
+<input class="form-control" id="userPassword" required="" type="password">
+</div>
+<div class="form-group">
+<label for="userRole">الدور</label>
+<select class="form-control select2" id="userRole" style="width: 100%;">
+<option value="inviter">مستخدم داعي</option>
+<option selected="" value="client">عميل</option>
+</select>
+</div>
+<div class="form-group">
+<label for="userPackage">الباقة</label>
+<select class="form-control select2" id="userPackage" style="width: 100%;">
+<option value="free">مجانية</option>
+<option value="silver">فضية</option>
+<option value="gold">ذهبية</option>
+<option value="platinum">بلاتينية</option>
+</select>
+</div>
+<div class="form-group">
+<label for="userStatus">حالة الحساب</label>
+<select class="form-control select2" id="userStatus" style="width: 100%;">
+<option selected="" value="active">نشط</option>
+<option value="inactive">غير نشط</option>
+<option value="pending">معلق</option>
+</select>
+</div>
+<div class="form-group">
+<label for="userPhone">رقم الهاتف (اختياري)</label>
+<input class="form-control" id="userPhone" type="tel">
+</div>
+</div>
+<div class="modal-footer">
+<button aria-label="زر" class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+<button aria-label="زر" class="btn btn-primary" type="submit">إضافة المستخدم</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Edit User Modal -->
+<div aria-hidden="true" aria-labelledby="editUserModalLabel" class="modal fade" id="editUserModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="editUserModalLabel">تعديل بيانات المستخدم</h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<form id="editUserForm">
+<input id="editUserId" type="hidden">
+<div class="modal-body">
+<div class="form-group">
+<label for="editUserName">الاسم الكامل</label>
+<input class="form-control" id="editUserName" required="" type="text">
+</div>
+<div class="form-group">
+<label for="editUserEmail">البريد الإلكتروني</label>
+<input class="form-control" id="editUserEmail" required="" type="email">
+</div>
+<div class="form-group">
+<label for="editUserPassword">كلمة المرور (اتركه فارغًا لعدم التغيير)</label>
+<input class="form-control" id="editUserPassword" type="password">
+</div>
+<div class="form-group">
+<label for="editUserRole">الدور</label>
+<select class="form-control select2" id="editUserRole" style="width: 100%;">
+<option value="inviter">مستخدم داعي</option>
+<option value="client">عميل</option>
+</select>
+</div>
+<div class="form-group">
+<label for="editUserPackage">الباقة</label>
+<select class="form-control select2" id="editUserPackage" style="width: 100%;">
+<option value="free">مجانية</option>
+<option value="silver">فضية</option>
+<option value="gold">ذهبية</option>
+<option value="platinum">بلاتينية</option>
+</select>
+</div>
+<div class="form-group">
+<label for="editUserStatus">حالة الحساب</label>
+<select class="form-control select2" id="editUserStatus" style="width: 100%;">
+<option value="active">نشط</option>
+<option value="inactive">غير نشط</option>
+<option value="pending">معلق</option>
+</select>
+</div>
+<div class="form-group">
+<label for="editUserPhone">رقم الهاتف (اختياري)</label>
+<input class="form-control" id="editUserPhone" type="tel">
+</div>
+</div>
+<div class="modal-footer">
+<button aria-label="زر" class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+<button aria-label="زر" class="btn btn-primary" type="submit">حفظ التعديلات</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- View User Modal -->
+<div aria-hidden="true" aria-labelledby="viewUserModalLabel" class="modal fade" id="viewUserModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="viewUserModalLabel">تفاصيل المستخدم</h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<div class="modal-body">
+<p><strong>الاسم:</strong> <span id="viewName"></span></p>
+<p><strong>البريد الإلكتروني:</strong> <span id="viewEmail"></span></p>
+<p><strong>الدور:</strong> <span id="viewRole"></span></p>
+<p><strong>الباقة:</strong> <span id="viewPackage"></span></p>
+<p><strong>تاريخ التسجيل:</strong> <span id="viewRegDate"></span></p>
+<p><strong>الحالة:</strong> <span id="viewStatus"></span></p>
+<p><strong>الهاتف:</strong> <span id="viewPhone"></span></p>
+<!-- Add more details as needed -->
+</div>
+<div class="modal-footer">
+<button aria-label="زر" class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Footer -->
+<footer class="main-footer">
+<div class="float-right d-none d-sm-inline">كل الحقوق محفوظة.</div>
+<strong>حقوق النشر © 2024-2025 <a aria-label="رابط" href="#">اسم الشركة</a>.</strong>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- Select2 -->
+<script src="../assets/js/scripts.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/js/scripts.js"></script>
+<!-- Custom JS -->
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2({
+      theme: "bootstrap4",
+      dropdownParent: $(".modal").length ? $(".modal") : $(document.body) 
+    });
+    $(".card-header .select2").select2({
+        theme: "bootstrap4"
+    });
+
+    var usersTable = $("#usersTable").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": [
+        { extend: "copy", text: "نسخ" },
+        { extend: "csv", text: "CSV", exportOptions: { columns: ":visible" } },
+        { extend: "excel", text: "إكسل", exportOptions: { columns: ":visible" } },
+        { extend: "pdf", text: "PDF", exportOptions: { columns: ":visible" } },
+        { extend: "print", text: "طباعة", exportOptions: { columns: ":visible" } },
+        { extend: "colvis", text: "إظهار الأعمدة" }
+      ],
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json"
+      },
+      "columnDefs": [
+            { "orderable": false, "targets": 0 } // Disable sorting on checkbox column
+       ]
+    });
+    usersTable.buttons().container().appendTo("#usersTable_wrapper .col-md-6:eq(0)");
+
+    $("#exportUsersCsv").on("click", function() {
+        usersTable.button(".buttons-csv").trigger();
+    });
+
+    // Select all checkbox
+    $("#selectAllUsers").on("click", function(){
+      var rows = usersTable.rows({ "search": "applied" }).nodes();
+      $("input[type=\"checkbox\"]", rows).prop("checked", this.checked);
+    });
+
+    $("#usersTable tbody").on("change", "input[type=\"checkbox\"]", function(){
+      if(!this.checked){
+        var el = $("#selectAllUsers").get(0);
+        if(el && el.checked && ("indeterminate" in el)){
+          el.indeterminate = true;
+        }
+      }
+    });
+
+    // Populate edit modal (example - replace with actual data retrieval and population)
+    $("#editUserModal").on("show.bs.modal", function (event) {
+      var button = $(event.relatedTarget); 
+      var modal = $(this);
+      // Dummy data for example
+      modal.find("#editUserId").val("user123"); 
+      modal.find("#editUserName").val(button.closest("tr").find("td:eq(1)").text());
+      modal.find("#editUserEmail").val(button.closest("tr").find("td:eq(2)").text());
+      // Extract role, package, status from badges or data attributes if available
+      // For simplicity, setting some defaults
+      modal.find("#editUserRole").val("client").trigger("change");
+      modal.find("#editUserPackage").val("gold").trigger("change");
+      modal.find("#editUserStatus").val("active").trigger("change");
+      modal.find("#editUserPhone").val("0501234567");
+    });
+
+    // Populate view modal
+    $("#viewUserModal").on("show.bs.modal", function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
+      modal.find("#viewName").text(button.closest("tr").find("td:eq(1)").text());
+      modal.find("#viewEmail").text(button.closest("tr").find("td:eq(2)").text());
+      modal.find("#viewRole").html(button.closest("tr").find("td:eq(3)").html()); 
+      modal.find("#viewPackage").html(button.closest("tr").find("td:eq(4)").html());
+      modal.find("#viewRegDate").text(button.closest("tr").find("td:eq(5)").text());
+      modal.find("#viewStatus").html(button.closest("tr").find("td:eq(6)").html());
+      // modal.find("#viewPhone").text("..."); // Add if phone is in table or fetched
+    });
+
+  });
+
+  // Language switcher logic
+  document.addEventListener("DOMContentLoaded", function() {
+    const langSwitcherBtn = document.getElementById("lang-switcher-btn");
+    const htmlEl = document.documentElement;
+    if (langSwitcherBtn) {
+      langSwitcherBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        const currentLang = htmlEl.getAttribute("lang") || "ar";
+        const newLang = currentLang === "ar" ? "en" : "ar";
+        htmlEl.setAttribute("lang", newLang);
+        htmlEl.setAttribute("dir", newLang === "ar" ? "rtl" : "ltr");
+        langSwitcherBtn.textContent = newLang === "ar" ? "EN" : "ع";
+        if (newLang === "ar") {
+            document.title = "لوحة تحكم المدير | إدارة المستخدمين";
+            document.querySelector(".content-header h1").textContent = "إدارة المستخدمين (العملاء)";
+        } else {
+            document.title = "Admin Dashboard | Users Management";
+            document.querySelector(".content-header h1").textContent = "Users Management (Clients)";
+        }
+      });
+    }
+  });
+</script>
+</main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

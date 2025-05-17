@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>لوحة التحكم | نظام الدعوات الإلكترونية</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+    <!-- Optimized CSS -->
+    <link href="../assets/css/optimized.css" rel="stylesheet">
+    <!-- Page-specific meta tags for SEO and performance -->
+    <meta name="description" content="لوحة تحكم المستخدم في نظام الدعوات الإلكترونية - إدارة الدعوات والمناسبات بكل سهولة">
+    <meta name="theme-color" content="#4a6da7">
+    <!-- Preload critical assets -->
+    <link rel="preload" href="../assets/img/logo.png" as="image">
+    <!-- Cache control -->
+    <meta http-equiv="Cache-Control" content="max-age=86400">
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body class="dashboard-page">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">تخطي إلى المحتوى الرئيسي</a>
+    
+    <header class="header">
+        <button class="mobile-menu-toggle" aria-label="فتح/إغلاق القائمة الجانبية" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        
+        <div class="header__brand">
+            <img data-src="../assets/img/logo.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="شعار نظام الدعوات الإلكترونية" class="lazy-image">
+            <span>نظام الدعوات الإلكترونية</span>
+        </div>
+        
+        <div class="header__actions">
+            <button id="langSwitcher" aria-label="تبديل اللغة بين العربية والإنجليزية" title="تبديل اللغة">EN</button>
+            
+            <div class="profile-dropdown">
+                <div class="profile-dropdown__toggle" id="profileToggle" aria-expanded="false" aria-haspopup="true">
+                    <img data-src="../assets/img/user-avatar.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="صورة المستخدم" class="lazy-image">
+                    <span>أحمد محمد</span>
+                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                
+                <div class="profile-dropdown__menu" id="profileMenu" aria-labelledby="profileToggle">
+                    <div class="user-profile">
+                        <img data-src="../assets/img/user-avatar.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="صورة المستخدم" class="lazy-image">
+                        <div class="user-info">
+                            <div class="user-name">أحمد محمد</div>
+                            <div class="user-email">ahmed@example.com</div>
+                        </div>
+                    </div>
+                    
+                    <a href="profile.html" class="profile-dropdown__item">
+                        <i class="fas fa-user" aria-hidden="true"></i> الملف الشخصي
+                    </a>
+                    
+                    <a href="settings.html" class="profile-dropdown__item">
+                        <i class="fas fa-cog" aria-hidden="true"></i> الإعدادات
+                    </a>
+                    
+                    <a href="#" id="logoutLink" class="profile-dropdown__item">
+                        <i class="fas fa-sign-out-alt" aria-hidden="true"></i> تسجيل الخروج
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar__content">
+                <nav class="sidebar__nav" aria-label="القائمة الرئيسية">
+                    <ul class="sidebar__nav-list">
+                        <li class="sidebar__nav-item sidebar__nav-item--active">
+                            <a href="index.html" class="sidebar__nav-link" aria-current="page">
+                                <i class="fas fa-home sidebar__nav-icon" aria-hidden="true"></i>
+                                <span>الرئيسية</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar__nav-item">
+                            <a href="my_events.html" class="sidebar__nav-link">
+                                <i class="fas fa-calendar-alt sidebar__nav-icon" aria-hidden="true"></i>
+                                <span>المناسبات</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar__nav-item">
+                            <a href="create_invitation.html" class="sidebar__nav-link">
+                                <i class="fas fa-envelope sidebar__nav-icon" aria-hidden="true"></i>
+                                <span>إنشاء دعوة</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar__nav-item">
+                            <a href="my_invitations.html" class="sidebar__nav-link">
+                                <i class="fas fa-paper-plane sidebar__nav-icon" aria-hidden="true"></i>
+                                <span>دعواتي</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar__nav-item">
+                            <a href="guest_management.html" class="sidebar__nav-link">
+                                <i class="fas fa-users sidebar__nav-icon" aria-hidden="true"></i>
+                                <span>إدارة المدعوين</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar__nav-item">
+                            <a href="templates.html" class="sidebar__nav-link">
+                                <i class="fas fa-palette sidebar__nav-icon" aria-hidden="true"></i>
+                                <span>القوالب</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar__nav-item">
+                            <a href="responses.html" class="sidebar__nav-link">
+                                <i class="fas fa-reply-all sidebar__nav-icon" aria-hidden="true"></i>
+                                <span>الردود</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar__nav-item">
+                            <a href="reports.html" class="sidebar__nav-link">
+                                <i class="fas fa-chart-bar sidebar__nav-icon" aria-hidden="true"></i>
+                                <span>التقارير</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar__nav-item">
+                            <a href="subscription.html" class="sidebar__nav-link">
+                                <i class="fas fa-credit-card sidebar__nav-icon" aria-hidden="true"></i>
+                                <span>الاشتراك</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar__nav-item">
+                            <a href="support.html" class="sidebar__nav-link">
+                                <i class="fas fa-headset sidebar__nav-icon" aria-hidden="true"></i>
+                                <span>الدعم</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        
+        <div class="mobile-overlay"></div>
+        
+        <main class="main-content" id="main-content">
+            <div class="main-content__header">
+                <h1 class="main-content__title">لوحة التحكم</h1>
+                <p class="main-content__subtitle">مرحباً بك، أحمد! هذه نظرة عامة على حسابك</p>
+            </div>
+            
+            <div class="main-content__body">
+                <section class="stats">
+                    <div class="info-box info-box--turquoise">
+                        <div class="info-box__icon">
+                            <i class="fas fa-envelope-open" aria-hidden="true"></i>
+                        </div>
+                        <div class="info-box__content">
+                            <h2>12</h2>
+                            <p>دعوة نشطة</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box info-box--green">
+                        <div class="info-box__icon">
+                            <i class="fas fa-users" aria-hidden="true"></i>
+                        </div>
+                        <div class="info-box__content">
+                            <h2>48</h2>
+                            <p>مدعو</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box info-box--yellow">
+                        <div class="info-box__icon">
+                            <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                        </div>
+                        <div class="info-box__content">
+                            <h2>5</h2>
+                            <p>مناسبة قادمة</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box info-box--red">
+                        <div class="info-box__icon">
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        </div>
+                        <div class="info-box__content">
+                            <h2>75%</h2>
+                            <p>نسبة الردود</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="upcoming-events">
+                    <div class="card">
+                        <div class="card__header">
+                            <h2>المناسبات القادمة</h2>
+                        </div>
+                        <div class="card__body">
+                            <div class="event-list">
+                                <div class="event-item">
+                                    <div class="event-date">
+                                        <div class="event-date__day">15</div>
+                                        <div class="event-date__month">مايو</div>
+                                    </div>
+                                    <div class="event-details">
+                                        <h3 class="event-title">حفل زفاف محمد وسارة</h3>
+                                        <div class="event-meta">
+                                            <span><i class="fas fa-clock" aria-hidden="true"></i> 7:00 مساءً</span>
+                                            <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> قاعة الأميرات</span>
+                                        </div>
+                                        <div class="event-stats">
+                                            <span class="event-stat">
+                                                <i class="fas fa-paper-plane" aria-hidden="true"></i> 120 دعوة
+                                            </span>
+                                            <span class="event-stat">
+                                                <i class="fas fa-check" aria-hidden="true"></i> 85 تأكيد
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="event-actions">
+                                        <a href="event_details.html" class="btn btn--primary btn--sm">التفاصيل</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="event-item">
+                                    <div class="event-date">
+                                        <div class="event-date__day">22</div>
+                                        <div class="event-date__month">مايو</div>
+                                    </div>
+                                    <div class="event-details">
+                                        <h3 class="event-title">مؤتمر التكنولوجيا السنوي</h3>
+                                        <div class="event-meta">
+                                            <span><i class="fas fa-clock" aria-hidden="true"></i> 9:00 صباحاً</span>
+                                            <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> فندق الريتز</span>
+                                        </div>
+                                        <div class="event-stats">
+                                            <span class="event-stat">
+                                                <i class="fas fa-paper-plane" aria-hidden="true"></i> 200 دعوة
+                                            </span>
+                                            <span class="event-stat">
+                                                <i class="fas fa-check" aria-hidden="true"></i> 145 تأكيد
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="event-actions">
+                                        <a href="event_details.html" class="btn btn--primary btn--sm">التفاصيل</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="event-item">
+                                    <div class="event-date">
+                                        <div class="event-date__day">30</div>
+                                        <div class="event-date__month">مايو</div>
+                                    </div>
+                                    <div class="event-details">
+                                        <h3 class="event-title">حفل تخرج كلية الهندسة</h3>
+                                        <div class="event-meta">
+                                            <span><i class="fas fa-clock" aria-hidden="true"></i> 5:00 مساءً</span>
+                                            <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> قاعة الجامعة الكبرى</span>
+                                        </div>
+                                        <div class="event-stats">
+                                            <span class="event-stat">
+                                                <i class="fas fa-paper-plane" aria-hidden="true"></i> 300 دعوة
+                                            </span>
+                                            <span class="event-stat">
+                                                <i class="fas fa-check" aria-hidden="true"></i> 210 تأكيد
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="event-actions">
+                                        <a href="event_details.html" class="btn btn--primary btn--sm">التفاصيل</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card__footer">
+                            <a href="my_events.html" class="btn btn--secondary">عرض جميع المناسبات</a>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="recent-invitations">
+                    <div class="card">
+                        <div class="card__header">
+                            <h2>آخر الدعوات</h2>
+                        </div>
+                        <div class="card__body">
+                            <div class="invitation-list">
+                                <div class="invitation-item">
+                                    <div class="invitation-preview">
+                                        <img data-src="../assets/img/invitation-preview-1.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="معاينة الدعوة" class="lazy-image">
+                                    </div>
+                                    <div class="invitation-details">
+                                        <h3 class="invitation-title">دعوة حفل زفاف</h3>
+                                        <div class="invitation-meta">
+                                            <span><i class="fas fa-calendar-alt" aria-hidden="true"></i> 15 مايو 2025</span>
+                                            <span><i class="fas fa-paper-plane" aria-hidden="true"></i> 120 مرسلة</span>
+                                        </div>
+                                        <div class="invitation-stats">
+                                            <div class="progress-bar">
+                                                <div class="progress-bar__fill" style="width: 70%"></div>
+                                            </div>
+                                            <div class="progress-text">70% نسبة الردود</div>
+                                        </div>
+                                    </div>
+                                    <div class="invitation-actions">
+                                        <a href="invitation_details.html" class="btn btn--primary btn--sm">التفاصيل</a>
+                                        <button class="btn btn--secondary btn--sm preview-btn" data-invitation-id="1">معاينة</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="invitation-item">
+                                    <div class="invitation-preview">
+                                        <img data-src="../assets/img/invitation-preview-2.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="معاينة الدعوة" class="lazy-image">
+                                    </div>
+                                    <div class="invitation-details">
+                                        <h3 class="invitation-title">دعوة مؤتمر تكنولوجي</h3>
+                                        <div class="invitation-meta">
+                                            <span><i class="fas fa-calendar-alt" aria-hidden="true"></i> 22 مايو 2025</span>
+                                            <span><i class="fas fa-paper-plane" aria-hidden="true"></i> 200 مرسلة</span>
+                                        </div>
+                                        <div class="invitation-stats">
+                                            <div class="progress-bar">
+                                                <div class="progress-bar__fill" style="width: 85%"></div>
+                                            </div>
+                                            <div class="progress-text">85% نسبة الردود</div>
+                                        </div>
+                                    </div>
+                                    <div class="invitation-actions">
+                                        <a href="invitation_details.html" class="btn btn--primary btn--sm">التفاصيل</a>
+                                        <button class="btn btn--secondary btn--sm preview-btn" data-invitation-id="2">معاينة</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card__footer">
+                            <a href="my_invitations.html" class="btn btn--secondary">عرض جميع الدعوات</a>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="quick-actions">
+                    <div class="card">
+                        <div class="card__header">
+                            <h2>إجراءات سريعة</h2>
+                        </div>
+                        <div class="card__body">
+                            <div class="quick-actions-grid">
+                                <a href="create_invitation.html" class="quick-action-item">
+                                    <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
+                                    <span>إنشاء دعوة جديدة</span>
+                                </a>
+                                
+                                <a href="guest_management.html" class="quick-action-item">
+                                    <i class="fas fa-user-plus" aria-hidden="true"></i>
+                                    <span>إضافة مدعوين</span>
+                                </a>
+                                
+                                <a href="templates.html" class="quick-action-item">
+                                    <i class="fas fa-palette" aria-hidden="true"></i>
+                                    <span>تصفح القوالب</span>
+                                </a>
+                                
+                                <a href="reports.html" class="quick-action-item">
+                                    <i class="fas fa-chart-pie" aria-hidden="true"></i>
+                                    <span>عرض التقارير</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer__content">
+            <p>&copy; 2025 نظام الدعوات الإلكترونية. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    
+    <!-- Invitation Preview Modal -->
+    <div class="modal" id="previewModal" aria-hidden="true" role="dialog" aria-labelledby="previewModalTitle">
+        <div class="modal__overlay"></div>
+        <div class="modal__container">
+            <div class="modal__header">
+                <h2 id="previewModalTitle">معاينة الدعوة</h2>
+                <button class="modal__close" aria-label="إغلاق">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal__body">
+                <div class="preview-container">
+                    <div class="preview-loading">
+                        <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
+                        <span>جاري تحميل المعاينة...</span>
+                    </div>
+                    <div class="preview-content"></div>
+                </div>
+                <div class="preview-controls">
+                    <div class="preview-device-selector">
+                        <button class="preview-device-btn active" data-device="desktop" aria-label="معاينة على الحاسوب">
+                            <i class="fas fa-desktop" aria-hidden="true"></i>
+                        </button>
+                        <button class="preview-device-btn" data-device="tablet" aria-label="معاينة على الجهاز اللوحي">
+                            <i class="fas fa-tablet-alt" aria-hidden="true"></i>
+                        </button>
+                        <button class="preview-device-btn" data-device="mobile" aria-label="معاينة على الجوال">
+                            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--secondary modal__close">إغلاق</button>
+                <a href="#" class="btn btn--primary edit-invitation-btn">تعديل الدعوة</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Optimized JavaScript -->
+    <script src="../assets/js/image-optimizer.js"></script>
+    <script src="../assets/js/optimized.js" defer></script>
+    
+    <!-- Inline critical JavaScript for faster page load -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize preview modal functionality
+            const previewBtns = document.querySelectorAll('.preview-btn');
+            const previewModal = document.getElementById('previewModal');
+            const previewContent = document.querySelector('.preview-content');
+            const previewLoading = document.querySelector('.preview-loading');
+            const modalCloseButtons = document.querySelectorAll('.modal__close');
+            const editInvitationBtn = document.querySelector('.edit-invitation-btn');
+            
+            if (previewBtns.length && previewModal) {
+                // Open preview modal
+                previewBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const invitationId = this.getAttribute('data-invitation-id');
+                        openPreviewModal(invitationId);
+                    });
+                });
+                
+                // Close preview modal
+                modalCloseButtons.forEach(btn => {
+                    btn.addEventListener('click', closePreviewModal);
+                });
+                
+                // Close modal when clicking on overlay
+                const modalOverlay = document.querySelector('.modal__overlay');
+                if (modalOverlay) {
+                    modalOverlay.addEventListener('click', closePreviewModal);
+                }
+                
+                // Device preview selector
+                const deviceButtons = document.querySelectorAll('.preview-device-btn');
+                deviceButtons.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        // Remove active class from all buttons
+                        deviceButtons.forEach(b => b.classList.remove('active'));
+                        
+                        // Add active class to clicked button
+                        this.classList.add('active');
+                        
+                        // Get device type
+                        const device = this.getAttribute('data-device');
+                        
+                        // Update preview container class
+                        const previewContainer = document.querySelector('.preview-container');
+                        previewContainer.className = 'preview-container';
+                        previewContainer.classList.add(`preview-${device}`);
+                    });
+                });
+            }
+            
+            // Function to open preview modal
+            function openPreviewModal(invitationId) {
+                // Show modal
+                previewModal.classList.add('show');
+                previewModal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('modal-open');
+                
+                // Show loading state
+                previewLoading.style.display = 'flex';
+                previewContent.style.display = 'none';
+                
+                // Set edit button link
+                editInvitationBtn.href = `edit_invitation.html?id=${invitationId}`;
+                
+                // Simulate loading invitation preview
+                setTimeout(() => {
+                    // Hide loading state
+                    previewLoading.style.display = 'none';
+                    previewContent.style.display = 'block';
+                    
+                    // Load preview content based on invitation ID
+                    if (invitationId === '1') {
+                        previewContent.innerHTML = `
+                            <div class="invitation-preview-template wedding-template">
+                                <div class="invitation-header">
+                                    <div class="invitation-ornament"></div>
+                                    <h1>دعوة حفل زفاف</h1>
+                                    <div class="invitation-ornament"></div>
+                                </div>
+                                <div class="invitation-couple">
+                                    <h2>محمد & سارة</h2>
+                                </div>
+                                <div class="invitation-text">
+                                    <p>يتشرفان بدعوتكم لحضور حفل زفافهما</p>
+                                    <div class="invitation-details">
+                                        <div class="detail-item">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <span>الخميس 15 مايو 2025</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>7:00 مساءً</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <span>قاعة الأميرات - الرياض</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="invitation-footer">
+                                    <div class="rsvp-buttons">
+                                        <button class="rsvp-btn rsvp-yes">سأحضر</button>
+                                        <button class="rsvp-btn rsvp-no">أعتذر عن الحضور</button>
+                                    </div>
+                                    <div class="invitation-map">
+                                        <img src="../assets/img/map-placeholder.jpg" alt="خريطة الموقع">
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    } else if (invitationId === '2') {
+                        previewContent.innerHTML = `
+                            <div class="invitation-preview-template conference-template">
+                                <div class="invitation-header">
+                                    <div class="conference-logo">
+                                        <img src="../assets/img/tech-conference-logo.jpg" alt="شعار المؤتمر">
+                                    </div>
+                                    <h1>دعوة لحضور</h1>
+                                    <h2>مؤتمر التكنولوجيا السنوي 2025</h2>
+                                </div>
+                                <div class="invitation-text">
+                                    <p>يسرنا دعوتكم لحضور مؤتمر التكنولوجيا السنوي الذي يجمع نخبة من الخبراء والمختصين في مجال التكنولوجيا والابتكار</p>
+                                    <div class="invitation-details">
+                                        <div class="detail-item">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <span>الأربعاء 22 مايو 2025</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>9:00 صباحاً - 5:00 مساءً</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <span>فندق الريتز - الرياض</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="invitation-agenda">
+                                    <h3>البرنامج</h3>
+                                    <ul>
+                                        <li><strong>9:00 - 10:00</strong>: التسجيل والإفطار</li>
+                                        <li><strong>10:00 - 12:00</strong>: الجلسات الصباحية</li>
+                                        <li><strong>12:00 - 1:00</strong>: استراحة الغداء</li>
+                                        <li><strong>1:00 - 4:00</strong>: الجلسات المسائية</li>
+                                        <li><strong>4:00 - 5:00</strong>: الختام والتواصل</li>
+                                    </ul>
+                                </div>
+                                <div class="invitation-footer">
+                                    <div class="rsvp-buttons">
+                                        <button class="rsvp-btn rsvp-yes">تأكيد الحضور</button>
+                                        <button class="rsvp-btn rsvp-no">الاعتذار</button>
+                                    </div>
+                                    <div class="invitation-contact">
+                                        <p>للاستفسار: info@techconference.com | +966 12 345 6789</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }, 1000);
+            }
+            
+            // Function to close preview modal
+            function closePreviewModal() {
+                previewModal.classList.remove('show');
+                previewModal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('modal-open');
+            }
+            
+            // Initialize lazy loading for images
+            const lazyImages = document.querySelectorAll('.lazy-image');
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy-image');
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            } else {
+                // Fallback for browsers that don't support IntersectionObserver
+                lazyImages.forEach(img => {
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy-image');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

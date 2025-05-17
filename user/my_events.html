@@ -1,0 +1,204 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_مناسباتي" data-translate-key-titlebase="pageTitleBase_لوحة_تحكم_">لوحة تحكم المستخدم | مناسباتي</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/logo.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-home"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="create_invitation.html"><i class="nav-icon fas fa-plus-circle"></i><p>إنشاء دعوة جديدة</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="my_events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>مناسباتي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="my_invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>دعواتي المرسلة</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guest_management.html"><i class="nav-icon fas fa-users-cog"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="templates.html"><i class="nav-icon fas fa-palette"></i><p>قوالب الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="responses.html"><i class="nav-icon fas fa-reply-all"></i><p>تتبع الردود</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="profile.html"><i class="nav-icon fas fa-user-edit"></i><p>الملف الشخصي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="subscription.html"><i class="nav-icon fas fa-credit-card"></i><p>الباقة والاشتراك</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="my_events.html"><i class="nav-icon fas fa-calendar"></i>مناسباتي</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1 id="page-main-title"><i class="fas fa-calendar-alt mr-2"></i>مناسباتي</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-12">
+<div class="card card-primary card-outline">
+<div class="card-header">
+<h3 class="card-title" id="events-list-title">قائمة المناسبات</h3>
+<div class="card-tools">
+<a aria-label="رابط" class="btn btn-success btn-sm" href="create_invitation.html" id="create-event-btn">
+<i class="fas fa-plus"></i> <span id="create-event-btn-text">إنشاء مناسبة جديدة</span>
+</a>
+</div>
+</div>
+<div class="card-body">
+<table class="table table-bordered table-hover" id="events-table">
+<thead>
+<tr>
+<th id="col-event-name">اسم المناسبة</th>
+<th id="col-date">التاريخ</th>
+<th id="col-time">الوقت</th>
+<th id="col-location">الموقع</th>
+<th id="col-invitees">المدعوون</th>
+<th id="col-status">حالة الدعوات</th>
+<th id="col-actions">إجراءات</th>
+</tr>
+</thead>
+<tbody>
+<!-- Sample Data - Will be populated by JS -->
+<tr>
+<td>زفاف خالد ونورة</td>
+<td>2024-12-15</td>
+<td>07:00 PM</td>
+<td>قاعة المملكة</td>
+<td>150</td>
+<td><span class="badge badge-success">مرسلة</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-info view-event-btn" title="عرض"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-warning edit-event-btn" title="تعديل"><i class="fas fa-edit"></i></button>
+<a aria-label="رابط" class="btn btn-xs btn-primary manage-guests-btn" href="guest_management.html?event_id=1" title="إدارة الضيوف"><i class="fas fa-users"></i></a>
+<a aria-label="رابط" class="btn btn-xs btn-secondary responses-btn" href="responses.html?event_id=1" title="الردود"><i class="fas fa-envelope-open-text"></i></a>
+</td>
+</tr>
+<tr>
+<td>تخرج سارة</td>
+<td>2025-01-20</td>
+<td>06:00 PM</td>
+<td>فندق الفيصلية</td>
+<td>50</td>
+<td><span class="badge badge-info">مسودة</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-info view-event-btn" title="عرض"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-warning edit-event-btn" title="تعديل"><i class="fas fa-edit"></i></button>
+<a aria-label="رابط" class="btn btn-xs btn-primary manage-guests-btn" href="guest_management.html?event_id=2" title="إدارة الضيوف"><i class="fas fa-users"></i></a>
+<button aria-label="زر" class="btn btn-xs btn-success send-invitations-btn" title="إرسال الدعوات"><i class="fas fa-paper-plane"></i></button>
+</td>
+</tr>
+<tr>
+<td>اجتماع الشركة السنوي</td>
+<td>2023-11-10</td>
+<td>09:00 AM</td>
+<td>مقر الشركة</td>
+<td>75</td>
+<td><span class="badge badge-secondary">منتهية</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-info view-event-btn" title="عرض"><i class="fas fa-eye"></i></button>
+<a aria-label="رابط" class="btn btn-xs btn-secondary responses-btn" href="responses.html?event_id=3" title="الردود"><i class="fas fa-envelope-open-text"></i></a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Logout Modal -->
+</div></main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

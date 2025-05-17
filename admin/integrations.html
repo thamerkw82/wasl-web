@@ -1,0 +1,418 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_التكاملات_" data-translate-key-titlebase="pageTitleSuffixAdmin">لوحة تحكم المدير | التكاملات الخارجية</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="users.html"><i class="nav-icon fas fa-users"></i><p>إدارة المستخدمين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="supervisors.html"><i class="nav-icon fas fa-user-shield"></i><p>إدارة المشرفين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>إدارة المناسبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>إدارة الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guests.html"><i class="nav-icon fas fa-user-friends"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="orders.html"><i class="nav-icon fas fa-file-invoice-dollar"></i><p>إدارة الطلبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="packages.html"><i class="nav-icon fas fa-box-open"></i><p>إدارة الباقات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="reports.html"><i class="nav-icon fas fa-chart-line"></i><p>التقارير والإحصائيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="content_management.html"><i class="nav-icon fas fa-file-alt"></i><p>إدارة المحتوى</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="customers.html"><i class="nav-icon fas fa-user-tie"></i><p>إدارة العملاء</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="support.html"><i class="nav-icon fas fa-life-ring"></i><p>الدعم الفني</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="roles.html"><i class="nav-icon fas fa-user-tag"></i><p>إدارة الأدوار والصلاحيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="files.html"><i class="nav-icon fas fa-folder-open"></i><p>إدارة الملفات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="integrations.html"><i class="nav-icon fas fa-cogs"></i><p>التكاملات الخارجية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="backup.html"><i class="nav-icon fas fa-database"></i><p>النسخ الاحتياطي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="tasks.html"><i class="nav-icon fas fa-tasks"></i><p>جدولة المهام</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="settings.html"><i class="nav-icon fas fa-cog"></i><p>الإعدادات العامة</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="integrations.html"><i class="nav-icon fas fa-plug"></i>التكاملات الخارجية</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1>التكاملات الخارجية</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<p class="mb-3">إدارة وربط النظام مع الخدمات الخارجية مثل بوابات الدفع والرسائل ووسائل التواصل الاجتماعي.</p>
+<div class="row">
+<!-- WhatsApp API Card -->
+<div class="col-md-4">
+<div class="card integration-card">
+<div class="card-body">
+<i class="fab fa-whatsapp icon-xl text-success"></i>
+<h5 class="card-title font-weight-bold">WhatsApp API</h5>
+<p class="card-text">ربط النظام لإرسال إشعارات ودعوات عبر الواتساب.</p>
+<span class="badge badge-success mb-2">نشط</span><br>
+<button aria-label="زر" class="btn btn-sm btn-info" data-service="WhatsApp" data-target="#integrationSettingsModal" data-toggle="modal">إعدادات</button>
+<button aria-label="زر" class="btn btn-sm btn-danger">تعطيل</button>
+</div>
+</div>
+</div>
+<!-- SMS Gateway Card -->
+<div class="col-md-4">
+<div class="card integration-card">
+<div class="card-body">
+<i class="fas fa-sms icon-xl text-primary"></i>
+<h5 class="card-title font-weight-bold">بوابة الرسائل القصيرة (SMS)</h5>
+<p class="card-text">إرسال رسائل نصية قصيرة للمستخدمين والضيوف.</p>
+<span class="badge badge-success mb-2">نشط</span><br>
+<button aria-label="زر" class="btn btn-sm btn-info" data-service="SMS" data-target="#integrationSettingsModal" data-toggle="modal">إعدادات</button>
+<button aria-label="زر" class="btn btn-sm btn-danger">تعطيل</button>
+</div>
+</div>
+</div>
+<!-- Payment Gateway Card -->
+<div class="col-md-4">
+<div class="card integration-card">
+<div class="card-body">
+<i class="fas fa-credit-card icon-xl text-warning"></i>
+<h5 class="card-title font-weight-bold">بوابة الدفع الإلكتروني</h5>
+<p class="card-text">تفعيل استقبال المدفوعات عبر الإنترنت للباقات والخدمات.</p>
+<span class="badge badge-secondary mb-2">غير مفعّل</span><br>
+<button aria-label="زر" class="btn btn-sm btn-primary" data-service="Payment" data-target="#integrationSettingsModal" data-toggle="modal">تفعيل وإعداد</button>
+</div>
+</div>
+</div>
+<!-- Google Calendar Card -->
+<div class="col-md-4">
+<div class="card integration-card">
+<div class="card-body">
+<i class="fab fa-google icon-xl" style="color: #DB4437;"></i>
+<h5 class="card-title font-weight-bold">تقويم جوجل (Google Calendar)</h5>
+<p class="card-text">مزامنة المناسبات مع تقويم جوجل الخاص بالمستخدمين.</p>
+<span class="badge badge-secondary mb-2">غير مفعّل</span><br>
+<button aria-label="زر" class="btn btn-sm btn-primary" data-service="GoogleCalendar" data-target="#integrationSettingsModal" data-toggle="modal">تفعيل وإعداد</button>
+</div>
+</div>
+</div>
+<!-- Analytics Card -->
+<div class="col-md-4">
+<div class="card integration-card">
+<div class="card-body">
+<i class="fas fa-chart-pie icon-xl text-info"></i>
+<h5 class="card-title font-weight-bold">أدوات التحليل (Analytics)</h5>
+<p class="card-text">ربط النظام مع أدوات تحليل الويب لتتبع الزوار والسلوك.</p>
+<span class="badge badge-secondary mb-2">غير مفعّل</span><br>
+<button aria-label="زر" class="btn btn-sm btn-primary" data-service="Analytics" data-target="#integrationSettingsModal" data-toggle="modal">تفعيل وإعداد</button>
+</div>
+</div>
+</div>
+<!-- SMTP Service Card -->
+<div class="col-md-4">
+<div class="card integration-card">
+<div class="card-body">
+<i class="fas fa-envelope-open-text icon-xl text-danger"></i>
+<h5 class="card-title font-weight-bold">خدمة البريد الإلكتروني (SMTP)</h5>
+<p class="card-text">إعدادات خادم البريد لإرسال الإيميلات من النظام.</p>
+<span class="badge badge-success mb-2">نشط</span><br>
+<button aria-label="زر" class="btn btn-sm btn-info" data-service="SMTP" data-target="#integrationSettingsModal" data-toggle="modal">إعدادات</button>
+<button aria-label="زر" class="btn btn-sm btn-danger">تعطيل</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Integration Settings Modal (Generic Placeholder) -->
+<div aria-hidden="true" aria-labelledby="integrationSettingsModalLabel" class="modal fade" id="integrationSettingsModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="integrationSettingsModalLabel">إعدادات التكامل: <span id="serviceName"></span></h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<form id="integrationSettingsForm">
+<div class="modal-body">
+<!-- Dynamic content based on service -->
+<div class="integration-settings-fields" id="whatsappSettings" style="display:none;">
+<div class="form-group">
+<label for="whatsappApiToken">API Token</label>
+<input class="form-control" id="whatsappApiToken" placeholder="أدخل توكن API الخاص بـ WhatsApp" type="text">
+</div>
+<div class="form-group">
+<label for="whatsappPhoneNumberId">Phone Number ID</label>
+<input class="form-control" id="whatsappPhoneNumberId" placeholder="أدخل معرف رقم الهاتف" type="text">
+</div>
+</div>
+<div class="integration-settings-fields" id="smsSettings" style="display:none;">
+<div class="form-group">
+<label for="smsApiUrl">API URL</label>
+<input class="form-control" id="smsApiUrl" placeholder="أدخل رابط API الخاص ببوابة SMS" type="text">
+</div>
+<div class="form-group">
+<label for="smsApiKey">API Key</label>
+<input class="form-control" id="smsApiKey" placeholder="أدخل مفتاح API" type="text">
+</div>
+<div class="form-group">
+<label for="smsSenderName">اسم المرسل</label>
+<input class="form-control" id="smsSenderName" placeholder="أدخل اسم المرسل المعتمد" type="text">
+</div>
+</div>
+<div class="integration-settings-fields" id="paymentSettings" style="display:none;">
+<div class="form-group">
+<label for="paymentGateway">اختر بوابة الدفع</label>
+<select class="form-control" id="paymentGateway">
+<option value="stripe">Stripe</option>
+<option value="paypal">PayPal</option>
+<option value="other">أخرى</option>
+</select>
+</div>
+<div class="form-group">
+<label for="paymentApiKey">مفتاح API العام</label>
+<input class="form-control" id="paymentApiKey" placeholder="Public API Key" type="text">
+</div>
+<div class="form-group">
+<label for="paymentApiSecret">مفتاح API السري</label>
+<input class="form-control" id="paymentApiSecret" placeholder="Secret API Key" type="password">
+</div>
+</div>
+<div class="integration-settings-fields" id="googleCalendarSettings" style="display:none;">
+<p>لربط تقويم جوجل، يرجى اتباع الخطوات التالية:</p>
+<ol>
+<li>اذهب إلى <a aria-label="رابط" href="https://console.developers.google.com/" target="_blank">Google API Console</a>.</li>
+<li>أنشئ مشروعًا جديدًا أو اختر مشروعًا قائمًا.</li>
+<li>قم بتمكين Google Calendar API.</li>
+<li>أنشئ بيانات اعتماد (OAuth 2.0 client IDs).</li>
+<li>أدخل Client ID و Client Secret أدناه.</li>
+</ol>
+<div class="form-group">
+<label for="googleClientId">Client ID</label>
+<input class="form-control" id="googleClientId" type="text">
+</div>
+<div class="form-group">
+<label for="googleClientSecret">Client Secret</label>
+<input class="form-control" id="googleClientSecret" type="password">
+</div>
+<button aria-label="زر" class="btn btn-success" type="button">ربط حساب جوجل</button>
+</div>
+<div class="integration-settings-fields" id="analyticsSettings" style="display:none;">
+<div class="form-group">
+<label for="analyticsProvider">اختر مزود التحليل</label>
+<select class="form-control" id="analyticsProvider">
+<option value="ga4">Google Analytics 4</option>
+<option value="matomo">Matomo</option>
+<option value="other">أخرى</option>
+</select>
+</div>
+<div class="form-group">
+<label for="analyticsTrackingId">معرف التتبع (Tracking ID / Measurement ID)</label>
+<input class="form-control" id="analyticsTrackingId" placeholder="G-XXXXXXXXXX أو ما شابه" type="text">
+</div>
+</div>
+<div class="integration-settings-fields" id="smtpSettings" style="display:none;">
+<div class="form-group">
+<label for="smtpHost">خادم SMTP</label>
+<input class="form-control" id="smtpHost" placeholder="smtp.example.com" type="text">
+</div>
+<div class="form-group">
+<label for="smtpPort">المنفذ</label>
+<input class="form-control" id="smtpPort" placeholder="587" type="number">
+</div>
+<div class="form-group">
+<label for="smtpUsername">اسم المستخدم</label>
+<input class="form-control" id="smtpUsername" type="text">
+</div>
+<div class="form-group">
+<label for="smtpPassword">كلمة المرور</label>
+<input class="form-control" id="smtpPassword" type="password">
+</div>
+<div class="form-group">
+<label for="smtpEncryption">التشفير</label>
+<select class="form-control" id="smtpEncryption">
+<option value="tls">TLS</option>
+<option value="ssl">SSL</option>
+<option value="none">بدون</option>
+</select>
+</div>
+<div class="form-group">
+<label for="smtpFromName">اسم المرسل</label>
+<input class="form-control" id="smtpFromName" placeholder="اسم شركتك" type="text">
+</div>
+<div class="form-group">
+<label for="smtpFromEmail">البريد الإلكتروني للمرسل</label>
+<input class="form-control" id="smtpFromEmail" placeholder="noreply@example.com" type="email">
+</div>
+</div>
+<div class="integration-settings-fields" id="defaultSettings">
+<p>لا توجد إعدادات محددة لهذا التكامل حاليًا.</p>
+</div>
+</div>
+<div class="modal-footer">
+<button aria-label="زر" class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+<button aria-label="زر" class="btn btn-primary" type="submit">حفظ الإعدادات</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Main Footer -->
+<footer class="main-footer">
+<div class="float-right d-none d-sm-inline">كل الحقوق محفوظة.</div>
+<strong>حقوق النشر © 2024-2025 <a aria-label="رابط" href="#">اسم الشركة</a>.</strong>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/js/scripts.js"></script>
+<!-- Custom JS -->
+<script>
+  $(function () {
+    $('#integrationSettingsModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget); // Button that triggered the modal
+      var service = button.data('service'); // Extract info from data-* attributes
+      var modal = $(this);
+      modal.find('.modal-title #serviceName').text(service);
+      
+      // Hide all settings fields first
+      $('.integration-settings-fields').hide();
+      
+      // Show specific fields based on service
+      if (service === 'WhatsApp') {
+        $('#whatsappSettings').show();
+      } else if (service === 'SMS') {
+        $('#smsSettings').show();
+      } else if (service === 'Payment') {
+        $('#paymentSettings').show();
+      } else if (service === 'GoogleCalendar') {
+        $('#googleCalendarSettings').show();
+      } else if (service === 'Analytics') {
+        $('#analyticsSettings').show();
+      } else if (service === 'SMTP') {
+        $('#smtpSettings').show();
+      } else {
+        $('#defaultSettings').show();
+      }
+    });
+  });
+
+  // Language switcher logic
+  document.addEventListener("DOMContentLoaded", function() {
+    const langSwitcherBtn = document.getElementById("lang-switcher-btn");
+    const htmlEl = document.documentElement;
+    if (langSwitcherBtn) {
+      langSwitcherBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        const currentLang = htmlEl.getAttribute("lang") || "ar";
+        const newLang = currentLang === "ar" ? "en" : "ar";
+        htmlEl.setAttribute("lang", newLang);
+        htmlEl.setAttribute("dir", newLang === "ar" ? "rtl" : "ltr");
+        langSwitcherBtn.textContent = newLang === "ar" ? "EN" : "ع";
+        if (newLang === 'ar') {
+            document.title = "لوحة تحكم المدير | التكاملات الخارجية";
+            document.querySelector('.content-header h1').textContent = "التكاملات الخارجية";
+            document.querySelector('.content-wrapper .container-fluid > p.mb-3').textContent = "إدارة وربط النظام مع الخدمات الخارجية مثل بوابات الدفع والرسائل ووسائل التواصل الاجتماعي.";
+        } else {
+            document.title = "Admin Dashboard | External Integrations";
+            document.querySelector('.content-header h1').textContent = "External Integrations";
+            document.querySelector('.content-wrapper .container-fluid > p.mb-3').textContent = "Manage and connect the system with external services such as payment gateways, messaging, and social media.";
+        }
+      });
+    }
+  });
+</script>
+</main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

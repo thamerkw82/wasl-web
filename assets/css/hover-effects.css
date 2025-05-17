@@ -1,0 +1,335 @@
+/**
+ * تحسينات تأثيرات التحويم والانتقالات السلسة
+ * يتضمن تأثيرات CSS للعناصر المختلفة في المشروع
+ */
+
+/* تأثيرات التحويم للبطاقات */
+.hover-effect {
+    transition: all 0.3s ease;
+}
+
+.hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* تأثيرات التحويم للأزرار */
+.btn-hover-effect {
+    transition: all 0.3s ease;
+}
+
+.btn-hover-effect:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* تأثيرات التحويم لعناصر القائمة */
+.nav-link-hover-effect {
+    transition: all 0.3s ease;
+    border-right: 3px solid transparent;
+}
+
+.nav-link-hover-effect:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    border-right: 3px solid var(--primary-color);
+    padding-right: 15px;
+}
+
+/* تأثيرات التحويم لصفوف الجداول */
+.table-row-hover-effect {
+    transition: all 0.3s ease;
+}
+
+.table-row-hover-effect:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+    transform: translateX(-5px);
+}
+
+/* تأثيرات الانتقال للصفحات */
+.page-transition {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تأثيرات للقوائم الفرعية */
+.submenu {
+    padding-right: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.has-submenu > .nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submenu-toggle {
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+    margin-right: 5px;
+}
+
+.submenu-open > .nav-link .submenu-toggle {
+    transform: rotate(180deg);
+}
+
+/* تأثيرات لحقل البحث في القائمة الجانبية */
+.sidebar-search {
+    margin: 15px;
+}
+
+.sidebar-search .form-control {
+    border-radius: 20px;
+    padding-right: 40px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-search .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.sidebar-search .input-group-text {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    z-index: 10;
+    right: 10px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* تمييز نتائج البحث */
+.highlight {
+    background-color: rgba(255, 193, 7, 0.3);
+    padding: 2px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/* تأثيرات للإشعارات */
+.notification-badge {
+    transition: all 0.3s ease;
+}
+
+.notification-badge:hover {
+    transform: scale(1.1);
+}
+
+/* تأثيرات للمخططات البيانية */
+.chart-container {
+    transition: all 0.3s ease;
+}
+
+.chart-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* تأثيرات للنماذج */
+.modal-content {
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تأثيرات للتنبيهات */
+.alert {
+    animation: alertSlideIn 0.5s ease;
+}
+
+@keyframes alertSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* تأثيرات للأزرار العائمة */
+.floating-button {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.floating-button:hover {
+    transform: translateY(-5px) rotate(45deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* تأثيرات للقوائم المنسدلة */
+.dropdown-menu {
+    animation: dropdownFadeIn 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-item {
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    transform: translateX(-5px);
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* تأثيرات للبطاقات في معرض التصاميم */
+.design-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.design-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.design-card:hover img {
+    transform: scale(1.05);
+}
+
+.design-card img {
+    transition: all 0.5s ease;
+}
+
+/* تأثيرات للأيقونات */
+.icon-hover-effect {
+    transition: all 0.3s ease;
+}
+
+.icon-hover-effect:hover {
+    transform: scale(1.2);
+    color: var(--primary-color);
+}
+
+/* تأثيرات للتبويبات */
+.nav-tabs .nav-link {
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-tabs .nav-link:hover {
+    border-bottom: 3px solid rgba(0, 123, 255, 0.5);
+}
+
+.nav-tabs .nav-link.active {
+    border-bottom: 3px solid var(--primary-color);
+    font-weight: bold;
+}
+
+/* تأثيرات للصفحات المتعددة الخطوات */
+.step-progress {
+    transition: all 0.5s ease;
+}
+
+.step-content {
+    animation: stepFadeIn 0.5s ease;
+}
+
+@keyframes stepFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* تأثيرات لعناصر التحميل */
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* تأثيرات للشريط العلوي عند التمرير */
+.header.scrolled {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* تأثيرات للزر العائم للعودة للأعلى */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}

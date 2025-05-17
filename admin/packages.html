@@ -1,0 +1,512 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_إدارة_البا" data-translate-key-titlebase="pageTitleSuffixAdmin">لوحة تحكم المدير | إدارة الباقات</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="users.html"><i class="nav-icon fas fa-users"></i><p>إدارة المستخدمين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="supervisors.html"><i class="nav-icon fas fa-user-shield"></i><p>إدارة المشرفين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>إدارة المناسبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>إدارة الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guests.html"><i class="nav-icon fas fa-user-friends"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="orders.html"><i class="nav-icon fas fa-file-invoice-dollar"></i><p>إدارة الطلبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="packages.html"><i class="nav-icon fas fa-box-open"></i><p>إدارة الباقات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="reports.html"><i class="nav-icon fas fa-chart-line"></i><p>التقارير والإحصائيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="content_management.html"><i class="nav-icon fas fa-file-alt"></i><p>إدارة المحتوى</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="customers.html"><i class="nav-icon fas fa-user-tie"></i><p>إدارة العملاء</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="support.html"><i class="nav-icon fas fa-life-ring"></i><p>الدعم الفني</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="roles.html"><i class="nav-icon fas fa-user-tag"></i><p>إدارة الأدوار والصلاحيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="files.html"><i class="nav-icon fas fa-folder-open"></i><p>إدارة الملفات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="integrations.html"><i class="nav-icon fas fa-cogs"></i><p>التكاملات الخارجية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="backup.html"><i class="nav-icon fas fa-database"></i><p>النسخ الاحتياطي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="tasks.html"><i class="nav-icon fas fa-tasks"></i><p>جدولة المهام</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="settings.html"><i class="nav-icon fas fa-cog"></i><p>الإعدادات العامة</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="packages.html"><i class="nav-icon fas fa-box"></i>إدارة الباقات</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1>إدارة الباقات والاشتراكات</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="card">
+<div class="card-header">
+<div class="d-flex justify-content-between align-items-center">
+<h3 class="card-title mb-0">قائمة جميع الباقات</h3>
+<button aria-label="زر" class="btn btn-primary btn-sm" data-target="#createPackageModal" data-toggle="modal" type="button">
+<i class="fas fa-plus mr-1"></i> إضافة باقة جديدة
+                </button>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-10">
+<div class="form-group">
+<input class="form-control form-control-sm" placeholder="بحث باسم الباقة..." type="text">
+</div>
+</div>
+<div class="col-md-2">
+<button aria-label="زر" class="btn btn-sm btn-default btn-block" type="button">بحث</button>
+</div>
+</div>
+</div>
+<div class="card-body">
+<table class="table table-bordered table-striped" id="packagesTable">
+<thead>
+<tr>
+<th><input id="selectAllPackages" type="checkbox"></th>
+<th>اسم الباقة</th>
+<th>السعر</th>
+<th>المدة</th>
+<th>الميزات الرئيسية</th>
+<th>عدد المشتركين</th>
+<th>الحالة</th>
+<th>إجراءات</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><input type="checkbox"></td>
+<td>الباقة الأساسية</td>
+<td>99 ر.س</td>
+<td>شهرياً</td>
+<td>5 مناسبات, 100 دعوة/مناسبة, دعم فني</td>
+<td>120</td>
+<td><span class="badge badge-success">نشطة</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-warning" data-target="#editPackageModal" data-toggle="modal" title="تعديل الباقة"><i class="fas fa-edit"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-info" title="عرض المشتركين"><i class="fas fa-users"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-danger" title="إلغاء التنشيط"><i class="fas fa-toggle-off"></i></button>
+</td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>الباقة المتقدمة</td>
+<td>299 ر.س</td>
+<td>شهرياً</td>
+<td>20 مناسبة, 500 دعوة/مناسبة, قوالب خاصة, دعم متقدم</td>
+<td>45</td>
+<td><span class="badge badge-success">نشطة</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-warning" data-target="#editPackageModal" data-toggle="modal" title="تعديل الباقة"><i class="fas fa-edit"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-info" title="عرض المشتركين"><i class="fas fa-users"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-danger" title="إلغاء التنشيط"><i class="fas fa-toggle-off"></i></button>
+</td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>الباقة السنوية المميزة</td>
+<td>999 ر.س</td>
+<td>سنوياً</td>
+<td>غير محدود مناسبات ودعوات, كل الميزات, مدير حساب</td>
+<td>15</td>
+<td><span class="badge badge-secondary">غير نشطة</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-warning" data-target="#editPackageModal" data-toggle="modal" title="تعديل الباقة"><i class="fas fa-edit"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-info" title="عرض المشتركين"><i class="fas fa-users"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-success" title="تنشيط"><i class="fas fa-toggle-on"></i></button>
+</td>
+</tr>
+<!-- Add more package rows here -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Create/Edit Package Modal -->
+<div aria-hidden="true" aria-labelledby="createPackageModalLabel" class="modal fade" id="createPackageModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="createPackageModalLabel">إضافة باقة جديدة</h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<form id="createPackageForm">
+<div class="modal-body">
+<div class="form-group">
+<label for="packageName">اسم الباقة</label>
+<input class="form-control" id="packageName" placeholder="مثال: الباقة الذهبية" required="" type="text">
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label for="packagePrice">السعر</label>
+<input class="form-control" id="packagePrice" placeholder="مثال: 199" required="" type="number">
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label for="packageCurrency">العملة</label>
+<select class="form-control select2" id="packageCurrency" required="" style="width: 100%;">
+<option selected="" value="SAR">ر.س (ريال سعودي)</option>
+<option value="USD">$ (دولار أمريكي)</option>
+<option value="EUR">€ (يورو)</option>
+</select>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label for="packageDurationType">نوع المدة</label>
+<select class="form-control select2" id="packageDurationType" required="" style="width: 100%;">
+<option value="monthly">شهرياً</option>
+<option value="yearly">سنوياً</option>
+<option value="onetime">مرة واحدة (دائمة)</option>
+</select>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group" id="packageDurationValueGroup">
+<label for="packageDurationValue">قيمة المدة (إذا لم تكن دائمة)</label>
+<input class="form-control" id="packageDurationValue" placeholder="مثال: 1 (للشهري/السنوي)" type="number">
+</div>
+</div>
+</div>
+<div class="form-group">
+<label for="packageFeatures">الميزات (كل ميزة في سطر جديد)</label>
+<textarea class="form-control" id="packageFeatures" placeholder="- عدد مناسبات غير محدود
+- عدد دعوات غير محدود
+- قوالب دعوات مخصصة" rows="4"></textarea>
+</div>
+<div class="form-group">
+<label for="packageDescription">وصف الباقة (اختياري)</label>
+<textarea class="form-control" id="packageDescription" rows="2"></textarea>
+</div>
+<div class="form-group">
+<div class="custom-control custom-switch">
+<input checked="" class="custom-control-input" id="packageActiveStatus" type="checkbox">
+<label class="custom-control-label" for="packageActiveStatus">تفعيل الباقة فور الإنشاء</label>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button aria-label="زر" class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+<button aria-label="زر" class="btn btn-primary" type="submit">حفظ الباقة</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Edit Package Modal (Similar to Create, pre-filled) -->
+<div aria-hidden="true" aria-labelledby="editPackageModalLabel" class="modal fade" id="editPackageModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="editPackageModalLabel">تعديل الباقة</h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<form id="editPackageForm">
+<div class="modal-body">
+<!-- Form fields will be pre-filled with package data via JS -->
+<input id="editPackageId" type="hidden">
+<div class="form-group">
+<label for="editPackageName">اسم الباقة</label>
+<input class="form-control" id="editPackageName" required="" type="text">
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label for="editPackagePrice">السعر</label>
+<input class="form-control" id="editPackagePrice" required="" type="number">
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label for="editPackageCurrency">العملة</label>
+<select class="form-control select2" id="editPackageCurrency" required="" style="width: 100%;">
+<option value="SAR">ر.س (ريال سعودي)</option>
+<option value="USD">$ (دولار أمريكي)</option>
+<option value="EUR">€ (يورو)</option>
+</select>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label for="editPackageDurationType">نوع المدة</label>
+<select class="form-control select2" id="editPackageDurationType" required="" style="width: 100%;">
+<option value="monthly">شهرياً</option>
+<option value="yearly">سنوياً</option>
+<option value="onetime">مرة واحدة (دائمة)</option>
+</select>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group" id="editPackageDurationValueGroup">
+<label for="editPackageDurationValue">قيمة المدة</label>
+<input class="form-control" id="editPackageDurationValue" type="number">
+</div>
+</div>
+</div>
+<div class="form-group">
+<label for="editPackageFeatures">الميزات (كل ميزة في سطر جديد)</label>
+<textarea class="form-control" id="editPackageFeatures" rows="4"></textarea>
+</div>
+<div class="form-group">
+<label for="editPackageDescription">وصف الباقة (اختياري)</label>
+<textarea class="form-control" id="editPackageDescription" rows="2"></textarea>
+</div>
+<div class="form-group">
+<div class="custom-control custom-switch">
+<input class="custom-control-input" id="editPackageActiveStatus" type="checkbox">
+<label class="custom-control-label" for="editPackageActiveStatus">الباقة نشطة</label>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button aria-label="زر" class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+<button aria-label="زر" class="btn btn-primary" type="submit">حفظ التعديلات</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Main Footer -->
+<footer class="main-footer">
+<div class="float-right d-none d-sm-inline">كل الحقوق محفوظة.</div>
+<strong>حقوق النشر © 2024-2025 <a aria-label="رابط" href="#">اسم الشركة</a>.</strong>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- Select2 -->
+<script src="../assets/js/scripts.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/js/scripts.js"></script>
+<!-- Custom JS -->
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2({
+      theme: "bootstrap4",
+      dropdownParent: $(".modal") // Fix for select2 search in modal
+    });
+
+    $("#packagesTable").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": [
+        { extend: "copy", text: "نسخ" },
+        { extend: "csv", text: "CSV" },
+        { extend: "excel", text: "إكسل" },
+        { extend: "pdf", text: "PDF" },
+        { extend: "print", text: "طباعة" },
+        { extend: "colvis", text: "إظهار الأعمدة" }
+      ],
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json"
+      }
+    }).buttons().container().appendTo("#packagesTable_wrapper .col-md-6:eq(0)");
+
+    // Select all checkbox
+    $("#selectAllPackages").on("click", function(){
+      var rows = $("#packagesTable").DataTable().rows({ "search": "applied" }).nodes();
+      $("input[type=\"checkbox\"]", rows).prop("checked", this.checked);
+    });
+
+    $("#packagesTable tbody").on("change", "input[type=\"checkbox\"]", function(){
+      if(!this.checked){
+        var el = $("#selectAllPackages").get(0);
+        if(el && el.checked && ("indeterminate" in el)){
+          el.indeterminate = true;
+        }
+      }
+    });
+
+    // Handle duration value field visibility
+    function toggleDurationValue(typeSelector, valueGroup) {
+        if ($(typeSelector).val() === 'onetime') {
+            $(valueGroup).hide();
+            $(valueGroup).find('input').prop('required', false);
+        } else {
+            $(valueGroup).show();
+            $(valueGroup).find('input').prop('required', true);
+        }
+    }
+
+    $('#packageDurationType').on('change', function() {
+        toggleDurationValue('#packageDurationType', '#packageDurationValueGroup');
+    });
+    toggleDurationValue('#packageDurationType', '#packageDurationValueGroup'); // Initial check
+
+    $('#editPackageDurationType').on('change', function() {
+        toggleDurationValue('#editPackageDurationType', '#editPackageDurationValueGroup');
+    });
+
+    // Populate edit modal (example)
+    $('#editPackageModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget); // Button that triggered the modal
+      // Dummy data for example - replace with actual data retrieval
+      var packageId = "PKG123"; 
+      var packageName = "الباقة الأساسية";
+      var price = 99;
+      var currency = "SAR";
+      var durationType = "monthly";
+      var durationValue = 1;
+      var features = "5 مناسبات, 100 دعوة/مناسبة, دعم فني";
+      var description = "وصف تجريبي للباقة الأساسية";
+      var isActive = true;
+
+      var modal = $(this);
+      modal.find('#editPackageId').val(packageId);
+      modal.find('#editPackageName').val(packageName);
+      modal.find('#editPackagePrice').val(price);
+      modal.find('#editPackageCurrency').val(currency).trigger('change');
+      modal.find('#editPackageDurationType').val(durationType).trigger('change');
+      if(durationType !== 'onetime'){
+        modal.find('#editPackageDurationValue').val(durationValue);
+      }
+      toggleDurationValue('#editPackageDurationType', '#editPackageDurationValueGroup');
+      modal.find('#editPackageFeatures').val(features);
+      modal.find('#editPackageDescription').val(description);
+      modal.find('#editPackageActiveStatus').prop('checked', isActive);
+    });
+
+  });
+
+  // Language switcher logic
+  document.addEventListener("DOMContentLoaded", function() {
+    const langSwitcherBtn = document.getElementById("lang-switcher-btn");
+    const htmlEl = document.documentElement;
+    if (langSwitcherBtn) {
+      langSwitcherBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        const currentLang = htmlEl.getAttribute("lang") || "ar";
+        const newLang = currentLang === "ar" ? "en" : "ar";
+        htmlEl.setAttribute("lang", newLang);
+        htmlEl.setAttribute("dir", newLang === "ar" ? "rtl" : "ltr");
+        langSwitcherBtn.textContent = newLang === "ar" ? "EN" : "ع";
+        if (newLang === "ar") {
+            document.title = "لوحة تحكم المدير | إدارة الباقات";
+            document.querySelector(".content-header h1").textContent = "إدارة الباقات والاشتراكات";
+        } else {
+            document.title = "Admin Dashboard | Package Management";
+            document.querySelector(".content-header h1").textContent = "Package & Subscription Management";
+        }
+      });
+    }
+  });
+</script>
+</main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

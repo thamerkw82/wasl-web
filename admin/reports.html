@@ -1,0 +1,475 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_التقارير_و" data-translate-key-titlebase="pageTitleSuffixAdmin">لوحة تحكم المدير | التقارير والإحصائيات</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="users.html"><i class="nav-icon fas fa-users"></i><p>إدارة المستخدمين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="supervisors.html"><i class="nav-icon fas fa-user-shield"></i><p>إدارة المشرفين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>إدارة المناسبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>إدارة الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guests.html"><i class="nav-icon fas fa-user-friends"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="orders.html"><i class="nav-icon fas fa-file-invoice-dollar"></i><p>إدارة الطلبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="packages.html"><i class="nav-icon fas fa-box-open"></i><p>إدارة الباقات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="reports.html"><i class="nav-icon fas fa-chart-line"></i><p>التقارير والإحصائيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="content_management.html"><i class="nav-icon fas fa-file-alt"></i><p>إدارة المحتوى</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="customers.html"><i class="nav-icon fas fa-user-tie"></i><p>إدارة العملاء</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="support.html"><i class="nav-icon fas fa-life-ring"></i><p>الدعم الفني</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="roles.html"><i class="nav-icon fas fa-user-tag"></i><p>إدارة الأدوار والصلاحيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="files.html"><i class="nav-icon fas fa-folder-open"></i><p>إدارة الملفات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="integrations.html"><i class="nav-icon fas fa-cogs"></i><p>التكاملات الخارجية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="backup.html"><i class="nav-icon fas fa-database"></i><p>النسخ الاحتياطي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="tasks.html"><i class="nav-icon fas fa-tasks"></i><p>جدولة المهام</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="settings.html"><i class="nav-icon fas fa-cog"></i><p>الإعدادات العامة</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="reports.html"><i class="nav-icon fas fa-chart-bar"></i>التقارير والإحصائيات</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1>التقارير والإحصائيات</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="card card-primary card-outline">
+<div class="card-header">
+<h3 class="card-title">خيارات التقرير</h3>
+</div>
+<div class="card-body">
+<div class="row">
+<div class="col-md-4">
+<div class="form-group">
+<label>نوع التقرير:</label>
+<select class="form-control select2" id="report-type" style="width: 100%;">
+<option selected="selected" value="users_overview">نظرة عامة على المستخدمين</option>
+<option value="events_summary">ملخص المناسبات</option>
+<option value="invitations_status">حالة الدعوات</option>
+<option value="financial_reports">التقارير المالية</option>
+<option value="guest_attendance">حضور الضيوف</option>
+<option value="system_activity_log">سجل نشاط النظام</option>
+</select>
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+<label>النطاق الزمني:</label>
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+</div>
+<input class="form-control float-right" id="report-daterange" type="text">
+</div>
+</div>
+</div>
+<div class="col-md-2">
+<div class="form-group">
+<label>&nbsp;</label>
+<button aria-label="زر" class="btn btn-primary btn-block" id="apply-report-filters" type="button">تطبيق</button>
+</div>
+</div>
+<div class="col-md-2">
+<div class="form-group">
+<label>&nbsp;</label>
+<div class="btn-group btn-block">
+<button aria-label="زر" aria-expanded="false" class="btn btn-success dropdown-toggle" data-toggle="dropdown" type="button">
+<i class="fas fa-download"></i> تصدير
+                    </button>
+<div class="dropdown-menu" style="">
+<a aria-label="رابط" class="dropdown-item" href="#" id="export-pdf"><i class="fas fa-file-pdf mr-1"></i> PDF</a>
+<a aria-label="رابط" class="dropdown-item" href="#" id="export-excel"><i class="fas fa-file-excel mr-1"></i> Excel</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card" id="report-display-area">
+<div class="card-header">
+<h3 class="card-title" id="report-title-display">نظرة عامة على المستخدمين</h3>
+</div>
+<div class="card-body">
+<p id="report-description-display">تقرير يوضح إحصائيات المستخدمين ونموهم.</p>
+<!-- Users Overview Content -->
+<div class="report-content active" id="users_overview-content">
+<div class="row stats-cards-grid">
+<div class="col-lg-3 col-6">
+<div class="small-box bg-info">
+<div class="inner">
+<h3 id="total-users-stat">150</h3>
+<p>إجمالي المستخدمين</p>
+</div>
+<div class="icon"><i class="fas fa-users"></i></div>
+</div>
+</div>
+<div class="col-lg-3 col-6">
+<div class="small-box bg-success">
+<div class="inner">
+<h3 id="active-users-stat">130</h3>
+<p>المستخدمون النشطون</p>
+</div>
+<div class="icon"><i class="fas fa-user-check"></i></div>
+</div>
+</div>
+<div class="col-lg-3 col-6">
+<div class="small-box bg-warning">
+<div class="inner">
+<h3 id="new-users-stat">44</h3>
+<p>مستخدمون جدد (آخر 30 يوم)</p>
+</div>
+<div class="icon"><i class="fas fa-user-plus"></i></div>
+</div>
+</div>
+<div class="col-lg-3 col-6">
+<div class="small-box bg-danger">
+<div class="inner">
+<h3 id="avg-events-stat">2.5</h3>
+<p>متوسط المناسبات/مستخدم</p>
+</div>
+<div class="icon"><i class="fas fa-calendar-day"></i></div>
+</div>
+</div>
+</div>
+<div class="chart-container" style="position: relative; height:40vh; width:80vw">
+<canvas id="userGrowthChart"></canvas>
+</div>
+</div>
+<!-- Events Summary Content (Hidden by default) -->
+<div class="report-content" id="events_summary-content" style="display: none;">
+<h4>ملخص المناسبات</h4>
+<p>هنا سيتم عرض جدول بملخص المناسبات...</p>
+<table class="table table-bordered">
+<thead><tr><th>اسم المناسبة</th><th>التاريخ</th><th>عدد المدعوين</th><th>الحالة</th></tr></thead>
+<tbody><tr><td>زواج أحمد وفاطمة</td><td>2024-06-15</td><td>300</td><td>مخطط لها</td></tr></tbody>
+</table>
+</div>
+<!-- Invitations Status Content (Hidden by default) -->
+<div class="report-content" id="invitations_status-content" style="display: none;">
+<h4>حالة الدعوات</h4>
+<p>هنا سيتم عرض رسم بياني لحالة الدعوات (مرسلة، تم الرد، الخ)...</p>
+<div class="chart-container" style="position: relative; height:40vh; width:80vw">
+<canvas id="invitationsStatusChart"></canvas>
+</div>
+</div>
+<!-- Financial Reports Content (Hidden by default) -->
+<div class="report-content" id="financial_reports-content" style="display: none;">
+<h4>التقارير المالية</h4>
+<p>هنا سيتم عرض جدول بالتقارير المالية...</p>
+</div>
+<!-- Guest Attendance Content (Hidden by default) -->
+<div class="report-content" id="guest_attendance-content" style="display: none;">
+<h4>تقرير حضور الضيوف</h4>
+<p>هنا سيتم عرض إحصائيات ورسوم بيانية لحضور الضيوف...</p>
+</div>
+<!-- System Activity Log Content (Hidden by default) -->
+<div class="report-content" id="system_activity_log-content" style="display: none;">
+<h4>سجل نشاط النظام</h4>
+<p>هنا سيتم عرض جدول بسجل نشاط النظام...</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Main Footer -->
+<footer class="main-footer">
+<div class="float-right d-none d-sm-inline">كل الحقوق محفوظة.</div>
+<strong>حقوق النشر © 2024-2025 <a aria-label="رابط" href="#">اسم الشركة</a>.</strong>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- Select2 -->
+<script src="../assets/js/scripts.js"></script>
+<!-- InputMask -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- date-range-picker -->
+<script src="../assets/js/scripts.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="../assets/js/scripts.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/js/scripts.js"></script>
+<!-- Custom JS -->
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2({
+      theme: "bootstrap4"
+    });
+
+    //Date range picker
+    $('#report-daterange').daterangepicker({
+      ranges: {
+        'اليوم': [moment(), moment()],
+        'الأمس': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        'آخر 7 أيام': [moment().subtract(6, 'days'), moment()],
+        'آخر 30 يوم': [moment().subtract(29, 'days'), moment()],
+        'هذا الشهر': [moment().startOf('month'), moment().endOf('month')],
+        'الشهر الماضي': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+      },
+      startDate: moment().subtract(29, 'days'),
+      endDate: moment(),
+      locale: {
+        format: 'YYYY-MM-DD',
+        separator: ' - ',
+        applyLabel: 'تطبيق',
+        cancelLabel: 'إلغاء',
+        fromLabel: 'من',
+        toLabel: 'إلى',
+        customRangeLabel: 'نطاق مخصص',
+        weekLabel: 'أ',
+        daysOfWeek: ['ح', 'ن', 'ث', 'ر', 'خ', 'ج', 'س'],
+        monthNames: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
+        firstDay: 1
+      }
+    });
+
+    // --- Chart.js Placeholder Data & Config ---
+    var userGrowthData = {
+      labels: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو'],
+      datasets: [{
+        label: 'عدد المستخدمين',
+        backgroundColor: 'rgba(60,141,188,0.9)',
+        borderColor: 'rgba(60,141,188,0.8)',
+        pointRadius: false,
+        pointColor: '#3b8bba',
+        pointStrokeColor: 'rgba(60,141,188,1)',
+        pointHighlightFill: '#fff',
+        pointHighlightStroke: 'rgba(60,141,188,1)',
+        data: [28, 48, 40, 19, 86, 27, 90]
+      }]
+    };
+    var userGrowthOptions = {
+      maintainAspectRatio: false,
+      responsive: true,
+      legend: { display: false },
+      scales: {
+        xAxes: [{ gridLines: { display: false } }],
+        yAxes: [{ gridLines: { display: false } }]
+      }
+    };
+    var userGrowthChart = new Chart($('#userGrowthChart').get(0).getContext('2d'), {
+      type: 'line',
+      data: userGrowthData,
+      options: userGrowthOptions
+    });
+    
+    var invitationsStatusData = {
+        labels: ['مرسلة', 'تم الرد (موافقة)', 'تم الرد (رفض)', 'لم يتم الرد', 'ملغاة'],
+        datasets: [{
+            data: [300, 150, 30, 100, 20],
+            backgroundColor : ['#00c0ef', '#00a65a', '#f56954', '#f39c12', '#d2d6de'],
+        }]
+    };
+    var invitationsStatusOptions = {
+        maintainAspectRatio : false,
+        responsive : true,
+        legend: { position: 'right' }
+    };
+    var invitationsStatusChart = new Chart($('#invitationsStatusChart').get(0).getContext('2d'), {
+        type: 'doughnut', // Or 'pie'
+        data: invitationsStatusData,
+        options: invitationsStatusOptions
+    });
+
+
+    // Report type switcher
+    $('#apply-report-filters').on('click', function(){
+        var selectedReport = $('#report-type').val();
+        $('.report-content').hide().removeClass('active');
+        $('#' + selectedReport + '-content').show().addClass('active');
+        
+        // Update title and description
+        var reportTitle = $("#report-type option:selected").text();
+        $('#report-title-display').text(reportTitle);
+        // You might want to have specific descriptions for each report type
+        $('#report-description-display').text('تقرير يوضح ' + reportTitle.toLowerCase());
+
+        // Re-initialize or update charts if necessary
+        if (selectedReport === 'users_overview') {
+            userGrowthChart.update(); // Example: update if data changes
+        } else if (selectedReport === 'invitations_status'){
+            invitationsStatusChart.update();
+        }
+        // Add logic for other reports and their charts/tables
+    });
+
+    // Trigger initial display
+    $('#apply-report-filters').trigger('click');
+
+    // Export functions (placeholders - actual export requires server-side or more complex JS)
+    $('#export-pdf').on('click', function(){ alert('سيتم تصدير التقرير كملف PDF.'); });
+    $('#export-excel').on('click', function(){ alert('سيتم تصدير التقرير كملف Excel.'); });
+
+  });
+
+  // Language switcher logic
+  document.addEventListener("DOMContentLoaded", function() {
+    const langSwitcherBtn = document.getElementById("lang-switcher-btn");
+    const htmlEl = document.documentElement;
+    if (langSwitcherBtn) {
+      langSwitcherBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        const currentLang = htmlEl.getAttribute("lang") || "ar";
+        const newLang = currentLang === "ar" ? "en" : "ar";
+        htmlEl.setAttribute("lang", newLang);
+        htmlEl.setAttribute("dir", newLang === "ar" ? "rtl" : "ltr");
+        langSwitcherBtn.textContent = newLang === "ar" ? "EN" : "ع";
+        // Update translatable texts
+        if (newLang === "ar") {
+            document.title = "لوحة تحكم المدير | التقارير والإحصائيات";
+            document.querySelector(".content-header h1").textContent = "التقارير والإحصائيات";
+            // ... update other static texts if needed
+        } else {
+            document.title = "Admin Dashboard | Reports & Statistics";
+            document.querySelector(".content-header h1").textContent = "Reports & Statistics";
+            // ... update other static texts if needed
+        }
+        // Re-initialize datepicker with new locale if needed
+        $('#report-daterange').daterangepicker({
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            },
+            locale: {
+                format: 'YYYY-MM-DD',
+                separator: ' - ',
+                applyLabel: newLang === 'ar' ? 'تطبيق' : 'Apply',
+                cancelLabel: newLang === 'ar' ? 'إلغاء' : 'Cancel',
+                fromLabel: newLang === 'ar' ? 'من' : 'From',
+                toLabel: newLang === 'ar' ? 'إلى' : 'To',
+                customRangeLabel: newLang === 'ar' ? 'نطاق مخصص' : 'Custom Range',
+                weekLabel: 'W',
+                daysOfWeek: newLang === 'ar' ? ['ح', 'ن', 'ث', 'ر', 'خ', 'ج', 'س'] : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                monthNames: newLang === 'ar' ? ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'] : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                firstDay: newLang === 'ar' ? 1 : 0
+            }
+        });
+      });
+    }
+  });
+</script>
+<div class="report-section mt-4 p-3 border rounded"><h4 class="mb-3" data-translate="report_detailed_attendance_title_admin">تقرير الحضور التفصيلي</h4><div class="table-responsive"><table class="table table-striped table-hover"><thead><tr><th data-translate="report_guest_name_header">اسم الضيف</th><th data-translate="report_attendance_status_header">حالة الحضور</th><th data-translate="report_checkin_time_header">وقت تسجيل الدخول</th><th data-translate="report_notes_header">ملاحظات</th></tr></thead><tbody><tr><td data-translate="guest_name_mock_1">أحمد محمود</td><td data-translate="attendance_present">حاضر</td><td>10:05 ص</td><td data-translate="notes_none">-</td></tr><tr><td data-translate="guest_name_mock_2">فاطمة علي</td><td data-translate="attendance_absent">غائب</td><td>-</td><td data-translate="notes_apology">اعتذار مسبق</td></tr><tr><td data-translate="guest_name_mock_3">خالد عبدالله</td><td data-translate="attendance_present">حاضر</td><td>10:15 ص</td><td data-translate="notes_late">وصل متأخراً</td></tr></tbody></table></div></div><div class="report-section mt-4 p-3 border rounded"><h4 class="mb-3" data-translate="report_interaction_analytics_title_admin">تحليل تفاعل الدعوات</h4><p data-translate="report_interaction_placeholder_admin">(مساحة لعرض مخططات ورسوم بيانية حول تفاعل المدعوين مع الدعوات - مثل معدلات الفتح، النقرات، إلخ. هذه ميزة صورية حالياً.)</p><div class="chart-placeholder my-3" style="width:100%; height:200px; background-color:#f0f0f0; display:flex; align-items:center; justify-content:center; border:1px dashed #ccc;"><span class="text-muted" data-translate="report_chart_placeholder_text_admin">Chart Area (Mockup)</span></div></div></main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

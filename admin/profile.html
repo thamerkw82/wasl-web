@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي للمشرف - نظام الدعوات الإلكترونية</title>
+    <link href="../assets/css/optimized.css" rel="stylesheet"/>
+    <link href="../assets/css/responsive.css" rel="stylesheet"/>
+    <link href="../assets/css/accessibility.css" rel="stylesheet"/>
+    <link href="../assets/css/bem.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"/>
+    <style>
+        /* أنماط خاصة بصفحة الملف الشخصي للمشرف */
+        .profile-container {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        @media (max-width: 992px) {
+            .profile-container {
+                flex-direction: column;
+            }
+        }
+        
+        .profile-sidebar {
+            flex: 1;
+            max-width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        @media (max-width: 992px) {
+            .profile-sidebar {
+                max-width: 100%;
+            }
+        }
+        
+        .profile-main {
+            flex: 3;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .profile-avatar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile-avatar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #f8f9fa;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile-info h3 {
+            margin: 10px 0 5px;
+            color: #4a6da7;
+            font-size: 1.5rem;
+        }
+        
+        .profile-info p {
+            margin: 5px 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 15px 0;
+            border-top: 1px solid #e9ecef;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a6da7;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        
+        .profile-actions {
+            margin-top: 20px;
+        }
+        
+        .profile-actions .btn {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .profile-nav {
+            margin-bottom: 20px;
+        }
+        
+        .profile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .profile-nav li {
+            margin-bottom: 5px;
+        }
+        
+        .profile-nav a {
+            display: block;
+            padding: 10px 15px;
+            border-radius: 4px;
+            color: #495057;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-nav a:hover, .profile-nav a.active {
+            background-color: #4a6da7;
+            color: white;
+        }
+        
+        .profile-nav i {
+            margin-left: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .profile-section {
+            margin-bottom: 30px;
+        }
+        
+        .profile-section h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #4a6da7;
+            font-size: 1.3rem;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -10px;
+            margin-left: -10px;
+        }
+        
+        .form-group {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 0 10px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-group {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            border-color: #4a6da7;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 109, 167, 0.2);
+        }
+        
+        .form-actions {
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .activity-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            color: #4a6da7;
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-title {
+            margin: 0 0 5px;
+            font-weight: 500;
+        }
+        
+        .activity-time {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        
+        .security-section .form-group {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        
+        .notification-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+        
+        .notification-info {
+            flex: 1;
+        }
+        
+        .notification-title {
+            margin: 0 0 5px;
+            font-weight: 500;
+        }
+        
+        .notification-desc {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin: 0;
+        }
+        
+        .notification-toggle {
+            margin-right: 15px;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: #4a6da7;
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+        
+        .tabs-container {
+            margin-bottom: 20px;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            margin-right: 5px;
+            background-color: #f8f9fa;
+        }
+        
+        .tab.active {
+            background-color: #fff;
+            border-color: #ddd;
+            margin-bottom: -1px;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            background-color: #fff;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img alt="شعار الموقع" src="../assets/img/logo.png">
+                    <h1>نظام الدعوات الإلكترونية</h1>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a aria-label="رابط" href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                        <li><a aria-label="رابط" href="invitations.html"><i class="fas fa-envelope"></i> الدعوات</a></li>
+                        <li><a aria-label="رابط" href="users.html"><i class="fas fa-users"></i> المستخدمين</a></li>
+                        <li><a aria-label="رابط" href="reports.html"><i class="fas fa-chart-bar"></i> التقارير</a></li>
+                        <li><a aria-label="رابط" href="settings.html"><i class="fas fa-cog"></i> الإعدادات</a></li>
+                    </ul>
+                </nav>
+                <div class="user-menu">
+                    <div class="user-info">
+                        <img alt="صورة المستخدم" src="../assets/img/user-avatar.jpg">
+                        <span>أحمد محمد</span>
+                    </div>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li class="active"><a aria-label="رابط" href="profile.html"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+                            <li><a aria-label="رابط" href="settings.html"><i class="fas fa-cog"></i> الإعدادات</a></li>
+                            <li><a aria-label="رابط" href="../login.html"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h2><i class="fas fa-user"></i> الملف الشخصي للمشرف</h2>
+                <p>إدارة معلوماتك الشخصية وإعدادات الحساب</p>
+            </div>
+
+            <div class="profile-container">
+                <!-- الشريط الجانبي للملف الشخصي -->
+                <div class="profile-sidebar">
+                    <div class="profile-avatar">
+                        <img alt="صورة المستخدم" src="../assets/img/user-avatar.jpg">
+                    </div>
+                    
+                    <div class="profile-info">
+                        <h3>أحمد محمد</h3>
+                        <p>مشرف النظام</p>
+                        <p>ahmed@example.com</p>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">152</div>
+                            <div class="stat-label">الدعوات</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-value">48</div>
+                            <div class="stat-label">المستخدمين</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">القوالب</div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-nav">
+                        <ul>
+                            <li><a href="#personal" class="active"><i class="fas fa-user"></i> المعلومات الشخصية</a></li>
+                            <li><a href="#security"><i class="fas fa-lock"></i> الأمان</a></li>
+                            <li><a href="#notifications"><i class="fas fa-bell"></i> الإشعارات</a></li>
+                            <li><a href="#activity"><i class="fas fa-history"></i> سجل النشاط</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="profile-actions">
+                        <button aria-label="زر" class="btn btn-primary"><i class="fas fa-edit"></i> تعديل الملف الشخصي</button>
+                        <button aria-label="زر" class="btn btn-secondary"><i class="fas fa-sync-alt"></i> تحديث البيانات</button>
+                    </div>
+                </div>
+                
+                <!-- المحتوى الرئيسي للملف الشخصي -->
+                <div class="profile-main">
+                    <div class="tabs-container">
+                        <div class="tabs">
+                            <div class="tab active" data-tab="personal">المعلومات الشخصية</div>
+                            <div class="tab" data-tab="security">الأمان</div>
+                            <div class="tab" data-tab="notifications">الإشعارات</div>
+                            <div class="tab" data-tab="activity">سجل النشاط</div>
+                        </div>
+                        
+                        <!-- تبويب المعلومات الشخصية -->
+                        <div class="tab-content active" id="personalTab">
+                            <div class="profile-section">
+                                <h3>المعلومات الشخصية</h3>
+                                
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="firstName">الاسم الأول</label>
+                                            <input type="text" id="firstName" class="form-control" value="أحمد">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="lastName">الاسم الأخير</label>
+                                            <input type="text" id="lastName" class="form-control" value="محمد">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="email">البريد الإلكتروني</label>
+                                            <input type="email" id="email" class="form-control" value="ahmed@example.com">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="phone">رقم الهاتف</label>
+                                            <input type="tel" id="phone" class="form-control" value="+966 12 345 6789">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="role">الدور</label>
+                                            <input type="text" id="role" class="form-control" value="مشرف النظام" readonly>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="joinDate">تاريخ الانضمام</label>
+                                            <input type="text" id="joinDate" class="form-control" value="01/01/2023" readonly>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button aria-label="زر" type="submit" class="btn btn-primary">حفظ التغييرات</button>
+                                        <button aria-label="زر" type="reset" class="btn btn-secondary">إلغاء</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- تبويب الأمان -->
+                        <div class="tab-content" id="securityTab">
+                            <div class="profile-section security-section">
+                                <h3>إعدادات الأمان</h3>
+                                
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="currentPassword">كلمة المرور الحالية</label>
+                                            <input type="password" id="currentPassword" class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="newPassword">كلمة المرور الجديدة</label>
+                                            <input type="password" id="newPassword" class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="confirmPassword">تأكيد كلمة المرور</label>
+                                            <input type="password" id="confirmPassword" class="form-control">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button aria-label="زر" type="submit" class="btn btn-primary">تغيير كلمة المرور</button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <div class="profile-section">
+                                <h3>المصادقة الثنائية</h3>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">تفعيل المصادقة الثنائية</h4>
+                                        <p class="notification-desc">تعزيز أمان حسابك باستخدام رمز إضافي عند تسجيل الدخول</p>
+                                    </div>
+                                    
+                                    <div class="notification-toggle">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button aria-label="زر" class="btn btn-primary">إعداد المصادقة الثنائية</button>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-section">
+                                <h3>جلسات تسجيل الدخول</h3>
+                                
+                                <ul class="activity-list">
+                                    <li class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-desktop"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <h4 class="activity-title">Windows 10 - Chrome</h4>
+                                            <p>الرياض، المملكة العربية السعودية</p>
+                                            <span class="activity-time">آخر نشاط: منذ 5 دقائق</span>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <h4 class="activity-title">iPhone - Safari</h4>
+                                            <p>الرياض، المملكة العربية السعودية</p>
+                                            <span class="activity-time">آخر نشاط: منذ 3 ساعات</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                
+                                <div class="form-actions">
+                                    <button aria-label="زر" class="btn btn-danger">تسجيل الخروج من جميع الأجهزة</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- تبويب الإشعارات -->
+                        <div class="tab-content" id="notificationsTab">
+                            <div class="profile-section">
+                                <h3>إعدادات الإشعارات</h3>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">إشعارات البريد الإلكتروني</h4>
+                                        <p class="notification-desc">استلام إشعارات عبر البريد الإلكتروني</p>
+                                    </div>
+                                    
+                                    <div class="notification-toggle">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">إشعارات الدعوات الجديدة</h4>
+                                        <p class="notification-desc">إشعار عند إنشاء دعوة جديدة</p>
+                                    </div>
+                                    
+                                    <div class="notification-toggle">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">إشعارات المستخدمين الجدد</h4>
+                                        <p class="notification-desc">إشعار عند تسجيل مستخدم جديد</p>
+                                    </div>
+                                    
+                                    <div class="notification-toggle">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">تقارير أسبوعية</h4>
+                                        <p class="notification-desc">استلام تقرير أسبوعي عن نشاط النظام</p>
+                                    </div>
+                                    
+                                    <div class="notification-toggle">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">تنبيهات الأمان</h4>
+                                        <p class="notification-desc">إشعار عند تسجيل دخول جديد أو تغيير إعدادات الأمان</p>
+                                    </div>
+                                    
+                                    <div class="notification-toggle">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button aria-label="زر" class="btn btn-primary">حفظ الإعدادات</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- تبويب سجل النشاط -->
+                        <div class="tab-content" id="activityTab">
+                            <div class="profile-section">
+                                <h3>سجل النشاط</h3>
+                                
+                                <ul class="activity-list">
+                                    <li class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-user-edit"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <h4 class="activity-title">تم تحديث الملف الشخصي</h4>
+                                            <span class="activity-time">اليوم، 10:30 صباحاً</span>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <h4 class="activity-title">تم إنشاء دعوة جديدة</h4>
+                                            <span class="activity-time">أمس، 3:45 مساءً</span>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-user-plus"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <h4 class="activity-title">تمت إضافة مستخدم جديد</h4>
+                                            <span class="activity-time">15/05/2025، 11:20 صباحاً</span>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-cog"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <h4 class="activity-title">تم تغيير إعدادات النظام</h4>
+                                            <span class="activity-time">14/05/2025، 2:10 مساءً</span>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-sign-in-alt"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <h4 class="activity-title">تم تسجيل الدخول</h4>
+                                            <span class="activity-time">14/05/2025، 9:00 صباحاً</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                
+                                <div class="form-actions">
+                                    <button aria-label="زر" class="btn btn-primary">عرض المزيد</button>
+                                    <button aria-label="زر" class="btn btn-secondary">تصدير السجل</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    جميع الحقوق محفوظة &copy; 2025 نظام الدعوات الإلكترونية
+                </div>
+                <div class="footer-links">
+                    <a aria-label="رابط" href="#">سياسة الخصوصية</a>
+                    <a aria-label="رابط" href="#">شروط الاستخدام</a>
+                    <a aria-label="رابط" href="#">اتصل بنا</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/image-optimizer.js"></script>
+    <script src="../assets/js/optimized.js"></script>
+    <script>
+        // تفعيل التبويبات
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // إزالة الفئة النشطة من جميع التبويبات
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // إضافة الفئة النشطة للتبويب المحدد
+                    this.classList.add('active');
+                    
+                    // عرض محتوى التبويب المحدد
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId + 'Tab').classList.add('active');
+                });
+            });
+            
+            // تفعيل روابط القائمة الجانبية
+            const navLinks = document.querySelectorAll('.profile-nav a');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // إزالة الفئة النشطة من جميع الروابط
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // إضافة الفئة النشطة للرابط المحدد
+                    this.classList.add('active');
+                    
+                    // تفعيل التبويب المناسب
+                    const tabId = this.getAttribute('href').substring(1);
+                    const tabToActivate = document.querySelector(`.tab[data-tab="${tabId}"]`);
+                    
+                    if (tabToActivate) {
+                        tabToActivate.click();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

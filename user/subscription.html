@@ -1,0 +1,568 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_الباقة_وال" data-translate-key-titlebase="pageTitleBase_لوحة_تحكم_">لوحة تحكم المستخدم | الباقة والاشتراك</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/logo.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-home"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="create_invitation.html"><i class="nav-icon fas fa-plus-circle"></i><p>إنشاء دعوة جديدة</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="my_events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>مناسباتي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="my_invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>دعواتي المرسلة</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guest_management.html"><i class="nav-icon fas fa-users-cog"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="templates.html"><i class="nav-icon fas fa-palette"></i><p>قوالب الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="responses.html"><i class="nav-icon fas fa-reply-all"></i><p>تتبع الردود</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="profile.html"><i class="nav-icon fas fa-user-edit"></i><p>الملف الشخصي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="subscription.html"><i class="nav-icon fas fa-credit-card"></i><p>الباقة والاشتراك</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="subscription.html"><i class="nav-icon fas fa-credit-card"></i>الباقة والاشتراك</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1 id="page-main-title"><i class="fas fa-wallet mr-2"></i>الباقة الحالية والاشتراكات</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<!-- Current Plan Info -->
+<div class="row">
+<div class="col-md-12">
+<div class="card card-primary card-outline" id="current-plan-info">
+<div class="card-header">
+<h3 class="card-title" id="current-plan-title"><i class="fas fa-star mr-1"></i> باقتك الحالية</h3>
+</div>
+<div class="card-body">
+<h4 id="current-plan-name">الباقة الفضية</h4>
+<p id="renewal-date-label">تاريخ التجديد القادم: <span id="renewal-date-value">2024-12-31</span></p>
+<p id="price-label">السعر: <span id="price-value">99 ريال سعودي/شهريًا</span></p>
+<button aria-label="زر" class="btn btn-info" id="change-plan-btn" onclick="scrollToAvailablePlans()"><i class="fas fa-exchange-alt mr-1"></i> تغيير الباقة</button>
+<button aria-label="زر" class="btn btn-danger" data-target="#cancelSubscriptionModal" data-toggle="modal" id="cancel-subscription-btn"><i class="fas fa-times-circle mr-1"></i> إلغاء الاشتراك</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Billing History -->
+<div class="row">
+<div class="col-md-12">
+<div class="card card-secondary card-outline" id="billing-history">
+<div class="card-header">
+<h3 class="card-title" id="billing-history-title"><i class="fas fa-file-invoice-dollar mr-1"></i> سجل الفواتير والدفع</h3>
+</div>
+<div class="card-body table-responsive p-0">
+<table class="table table-hover text-nowrap">
+<thead>
+<tr>
+<th id="th-invoice-num">رقم الفاتورة</th>
+<th id="th-invoice-date">تاريخ الفاتورة</th>
+<th id="th-amount">المبلغ</th>
+<th id="th-status">الحالة</th>
+<th id="th-actions">إجراءات</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INV-2024-001</td>
+<td>2024-01-15</td>
+<td>99 ريال سعودي</td>
+<td><span class="badge badge-success" id="status-paid-1">مدفوعة</span></td>
+<td><a aria-label="رابط" class="btn btn-sm btn-primary view-invoice-btn" data-invoice-id="1" href="#view-invoice-1"><i class="fas fa-eye mr-1"></i> <span class="view-invoice-text">عرض</span></a></td>
+</tr>
+<tr>
+<td>INV-2023-120</td>
+<td>2023-12-15</td>
+<td>99 ريال سعودي</td>
+<td><span class="badge badge-success" id="status-paid-2">مدفوعة</span></td>
+<td><a aria-label="رابط" class="btn btn-sm btn-primary view-invoice-btn" data-invoice-id="2" href="#view-invoice-2"><i class="fas fa-eye mr-1"></i> <span class="view-invoice-text">عرض</span></a></td>
+</tr>
+<tr>
+<td>INV-2023-105</td>
+<td>2023-11-15</td>
+<td>49 ريال سعودي</td>
+<td><span class="badge badge-warning" id="status-pending-1">معلقة</span></td>
+<td><a aria-label="رابط" class="btn btn-sm btn-primary view-invoice-btn" data-invoice-id="3" href="#view-invoice-3"><i class="fas fa-eye mr-1"></i> <span class="view-invoice-text">عرض</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- Available Plans -->
+<div class="row" id="available-plans-section">
+<div class="col-12 text-center mb-4">
+<h2 id="available-plans-heading">الباقات المتاحة</h2>
+<p class="lead" id="available-plans-subheading">اختر الباقة التي تناسب احتياجاتك.</p>
+</div>
+<!-- Free Plan -->
+<div class="col-md-4">
+<div class="card plan-card">
+<div class="card-header bg-light">
+<h4 class="card-title" id="free-plan-name">الباقة المجانية</h4>
+</div>
+<div class="card-body">
+<h3 class="text-center"><span id="free-plan-price">0 ريال</span> <small class="text-muted" id="free-plan-freq">/ شهريًا</small></h3>
+<ul class="list-unstyled mt-3 mb-4 plan-features">
+<li id="free-feat1"><i class="fas fa-check mr-2"></i> ميزة أساسية 1</li>
+<li id="free-feat2"><i class="fas fa-check mr-2"></i> ميزة أساسية 2</li>
+<li class="disabled" id="free-feat3-disabled"><i class="fas fa-check mr-2"></i> ميزة متقدمة (غير متاحة)</li>
+</ul>
+<button aria-label="زر" class="btn btn-lg btn-block btn-outline-primary upgrade-plan-btn" data-plan="free" disabled="" id="btn-free-plan" type="button">الباقة الحالية</button>
+</div>
+</div>
+</div>
+<!-- Silver Plan -->
+<div class="col-md-4">
+<div class="card plan-card current-plan">
+<div class="card-header bg-primary text-white">
+<h4 class="card-title" id="silver-plan-name">الباقة الفضية</h4>
+</div>
+<div class="card-body">
+<h3 class="text-center"><span id="silver-plan-price">99 ريال</span> <small class="text-muted" id="silver-plan-freq">/ شهريًا</small></h3>
+<ul class="list-unstyled mt-3 mb-4 plan-features">
+<li id="silver-feat1"><i class="fas fa-check mr-2"></i> جميع ميزات الباقة المجانية</li>
+<li id="silver-feat2"><i class="fas fa-check mr-2"></i> ميزة إضافية 1</li>
+<li id="silver-feat3"><i class="fas fa-check mr-2"></i> ميزة إضافية 2</li>
+</ul>
+<button aria-label="زر" class="btn btn-lg btn-block btn-primary upgrade-plan-btn" data-plan="silver" disabled="" id="btn-silver-plan" type="button">الباقة الحالية</button>
+</div>
+</div>
+</div>
+<!-- Gold Plan -->
+<div class="col-md-4">
+<div class="card plan-card">
+<div class="card-header bg-warning">
+<h4 class="card-title" id="gold-plan-name">الباقة الذهبية</h4>
+</div>
+<div class="card-body">
+<h3 class="text-center"><span id="gold-plan-price">199 ريال</span> <small class="text-muted" id="gold-plan-freq">/ شهريًا</small></h3>
+<ul class="list-unstyled mt-3 mb-4 plan-features">
+<li id="gold-feat1"><i class="fas fa-check mr-2"></i> جميع ميزات الباقة الفضية</li>
+<li id="gold-feat2"><i class="fas fa-check mr-2"></i> ميزة حصرية 1</li>
+<li id="gold-feat3"><i class="fas fa-check mr-2"></i> ميزة حصرية 2</li>
+</ul>
+<button aria-label="زر" class="btn btn-lg btn-block btn-warning upgrade-plan-btn" data-plan="gold" data-plan-name-key="goldPlanName" data-target="#upgradePlanModal" data-toggle="modal" id="btn-gold-plan" type="button">
+<i class="fas fa-arrow-alt-circle-up mr-1"></i> <span class="upgrade-text">الترقية الآن</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Logout Modal -->
+
+<!-- Cancel Subscription Modal -->
+<div aria-hidden="true" aria-labelledby="cancelSubscriptionModalLabel" class="modal fade" id="cancelSubscriptionModal" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="cancelSubscriptionModalLabel">تأكيد إلغاء الاشتراك</h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body" id="cancelSubscriptionModalBody">
+          هل أنت متأكد أنك تريد إلغاء اشتراكك الحالي؟
+        </div>
+<div class="modal-footer">
+<button aria-label="زر" class="btn btn-secondary" data-dismiss="modal" id="cancelSubscriptionCancelBtn" type="button">إلغاء</button>
+<button aria-label="زر" class="btn btn-danger" id="cancelSubscriptionConfirmBtn" type="button">تأكيد الإلغاء</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Upgrade Plan Modal -->
+<div aria-hidden="true" aria-labelledby="upgradePlanModalLabel" class="modal fade" id="upgradePlanModal" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="upgradePlanModalLabel">تأكيد ترقية الباقة</h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body" id="upgradePlanModalBody">
+          هل أنت متأكد أنك تريد الترقية إلى هذه الباقة؟
+        </div>
+<div class="modal-footer">
+<button aria-label="زر" class="btn btn-secondary" data-dismiss="modal" id="upgradePlanCancelBtn" type="button">إلغاء</button>
+<button aria-label="زر" class="btn btn-success" id="upgradePlanConfirmBtn" type="button">تأكيد الترقية</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Footer -->
+<footer class="main-footer">
+<div class="float-right d-none d-sm-inline">كل الحقوق محفوظة.</div>
+<strong>حقوق النشر © 2024-2025 <a aria-label="رابط" href="#">اسم الشركة</a>.</strong>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<!-- AdminLTE App -->
+<!-- Custom JS -->
+<script>
+  const currentUserNameArSub = "اسم المستخدم"; // Placeholder
+  const currentUserNameEnSub = "User Name"; // Placeholder
+  let currentProfilePicSub = "../../assets/AdminLTE-master/dist/img/user2-160x160.jpg"; // Default
+  const langTextsSubscription = {
+    ar: {
+        pageTitle: "لوحة تحكم المستخدم | الباقة والاشتراك",
+        pageMainTitle: "<i class=\"fas fa-wallet mr-2\"></i>الباقة الحالية والاشتراكات",
+        breadcrumbHome: "الرئيسية",
+        breadcrumbSubscription: "الباقة والاشتراك",
+        currentPlanTitle: "<i class=\"fas fa-star mr-1\"></i> باقتك الحالية",
+        currentPlanName: "الباقة الفضية",
+        renewalDateLabel: "تاريخ التجديد القادم:",
+        renewalDateValue: "2024-12-31",
+        priceLabel: "السعر:",
+        priceValue: "99 ريال سعودي/شهريًا",
+        changePlanBtn: "<i class=\"fas fa-exchange-alt mr-1\"></i> تغيير الباقة",
+        cancelSubscriptionBtn: "<i class=\"fas fa-times-circle mr-1\"></i> إلغاء الاشتراك",
+        billingHistoryTitle: "<i class=\"fas fa-file-invoice-dollar mr-1\"></i> سجل الفواتير والدفع",
+        thInvoiceNum: "رقم الفاتورة",
+        thInvoiceDate: "تاريخ الفاتورة",
+        thAmount: "المبلغ",
+        thStatus: "الحالة",
+        thActions: "إجراءات",
+        statusPaid: "مدفوعة",
+        statusPending: "معلقة",
+        viewInvoiceText: "عرض",
+        availablePlansHeading: "الباقات المتاحة",
+        availablePlansSubheading: "اختر الباقة التي تناسب احتياجاتك.",
+        freePlanName: "الباقة المجانية",
+        freePlanPrice: "0 ريال",
+        planFreq: "/ شهريًا",
+        freeFeat1: "<i class=\"fas fa-check mr-2\"></i> ميزة أساسية 1",
+        freeFeat2: "<i class=\"fas fa-check mr-2\"></i> ميزة أساسية 2",
+        freeFeat3Disabled: "<i class=\"fas fa-check mr-2\"></i> ميزة متقدمة (غير متاحة)",
+        btnCurrentPlan: "الباقة الحالية",
+        silverPlanName: "الباقة الفضية",
+        silverPlanPrice: "99 ريال",
+        silverFeat1: "<i class=\"fas fa-check mr-2\"></i> جميع ميزات الباقة المجانية",
+        silverFeat2: "<i class=\"fas fa-check mr-2\"></i> ميزة إضافية 1",
+        silverFeat3: "<i class=\"fas fa-check mr-2\"></i> ميزة إضافية 2",
+        goldPlanName: "الباقة الذهبية",
+        goldPlanPrice: "199 ريال",
+        goldFeat1: "<i class=\"fas fa-check mr-2\"></i> جميع ميزات الباقة الفضية",
+        goldFeat2: "<i class=\"fas fa-check mr-2\"></i> ميزة حصرية 1",
+        goldFeat3: "<i class=\"fas fa-check mr-2\"></i> ميزة حصرية 2",
+        btnUpgrade: "<i class=\"fas fa-arrow-alt-circle-up mr-1\"></i> الترقية الآن",
+        cancelSubscriptionModalTitle: "تأكيد إلغاء الاشتراك",
+        cancelSubscriptionModalBody: "هل أنت متأكد أنك تريد إلغاء اشتراكك الحالي؟",
+        cancelSubscriptionCancelBtn: "إلغاء",
+        cancelSubscriptionConfirmBtn: "تأكيد الإلغاء",
+        upgradePlanModalTitle: "تأكيد ترقية الباقة",
+        upgradePlanModalBody: "هل أنت متأكد أنك تريد الترقية إلى باقة {planName}؟",
+        upgradePlanCancelBtn: "إلغاء",
+        upgradePlanConfirmBtn: "تأكيد الترقية",
+        cancelSuccess: "تم إلغاء الاشتراك بنجاح.",
+        upgradeSuccess: "تمت الترقية إلى باقة {planName} بنجاح!",
+        langSwitchTo: "EN",
+        logoutConfirmTitle: "تأكيد تسجيل الخروج",
+        logoutConfirmBody: "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+        cancel: "إلغاء",
+        logout: "تسجيل الخروج",
+        sidebarHome: "الرئيسية",
+        sidebarCreateInvitation: "إنشاء دعوة جديدة",
+        sidebarMyEvents: "مناسباتي",
+        sidebarMyInvitations: "دعواتي المرسلة",
+        sidebarGuestManagement: "إدارة الضيوف",
+        sidebarTemplates: "قوالب الدعوات",
+        sidebarResponses: "تتبع الردود",
+        sidebarProfile: "الملف الشخصي",
+        sidebarSubscription: "الباقة والاشتراك",
+        sidebarUsername: currentUserNameArSub
+    },
+    en: {
+        pageTitle: "User Dashboard | Subscription & Billing",
+        pageMainTitle: "<i class=\"fas fa-wallet mr-2\"></i>Current Plan & Subscriptions",
+        breadcrumbHome: "Home",
+        breadcrumbSubscription: "Subscription & Billing",
+        currentPlanTitle: "<i class=\"fas fa-star mr-1\"></i> Your Current Plan",
+        currentPlanName: "Silver Plan",
+        renewalDateLabel: "Next Renewal Date:",
+        renewalDateValue: "2024-12-31",
+        priceLabel: "Price:",
+        priceValue: "SAR 99/month",
+        changePlanBtn: "<i class=\"fas fa-exchange-alt mr-1\"></i> Change Plan",
+        cancelSubscriptionBtn: "<i class=\"fas fa-times-circle mr-1\"></i> Cancel Subscription",
+        billingHistoryTitle: "<i class=\"fas fa-file-invoice-dollar mr-1\"></i> Billing History",
+        thInvoiceNum: "Invoice #",
+        thInvoiceDate: "Invoice Date",
+        thAmount: "Amount",
+        thStatus: "Status",
+        thActions: "Actions",
+        statusPaid: "Paid",
+        statusPending: "Pending",
+        viewInvoiceText: "View",
+        availablePlansHeading: "Available Plans",
+        availablePlansSubheading: "Choose the plan that suits your needs.",
+        freePlanName: "Free Plan",
+        freePlanPrice: "SAR 0",
+        planFreq: "/ month",
+        freeFeat1: "<i class=\"fas fa-check mr-2\"></i> Basic Feature 1",
+        freeFeat2: "<i class=\"fas fa-check mr-2\"></i> Basic Feature 2",
+        freeFeat3Disabled: "<i class=\"fas fa-check mr-2\"></i> Advanced Feature (Unavailable)",
+        btnCurrentPlan: "Current Plan",
+        silverPlanName: "Silver Plan",
+        silverPlanPrice: "SAR 99",
+        silverFeat1: "<i class=\"fas fa-check mr-2\"></i> All Free Plan Features",
+        silverFeat2: "<i class=\"fas fa-check mr-2\"></i> Additional Feature 1",
+        silverFeat3: "<i class=\"fas fa-check mr-2\"></i> Additional Feature 2",
+        goldPlanName: "Gold Plan",
+        goldPlanPrice: "SAR 199",
+        goldFeat1: "<i class=\"fas fa-check mr-2\"></i> All Silver Plan Features",
+        goldFeat2: "<i class=\"fas fa-check mr-2\"></i> Exclusive Feature 1",
+        goldFeat3: "<i class=\"fas fa-check mr-2\"></i> Exclusive Feature 2",
+        btnUpgrade: "<i class=\"fas fa-arrow-alt-circle-up mr-1\"></i> Upgrade Now",
+        cancelSubscriptionModalTitle: "Confirm Subscription Cancellation",
+        cancelSubscriptionModalBody: "Are you sure you want to cancel your current subscription?",
+        cancelSubscriptionCancelBtn: "Cancel",
+        cancelSubscriptionConfirmBtn: "Confirm Cancellation",
+        upgradePlanModalTitle: "Confirm Plan Upgrade",
+        upgradePlanModalBody: "Are you sure you want to upgrade to the {planName} plan?",
+        upgradePlanCancelBtn: "Cancel",
+        upgradePlanConfirmBtn: "Confirm Upgrade",
+        cancelSuccess: "Subscription cancelled successfully.",
+        upgradeSuccess: "Successfully upgraded to {planName} plan!",
+        langSwitchTo: "ع",
+        logoutConfirmTitle: "Confirm Logout",
+        logoutConfirmBody: "Are you sure you want to log out?",
+        cancel: "Cancel",
+        logout: "Logout",
+        sidebarHome: "Home",
+        sidebarCreateInvitation: "Create New Invitation",
+        sidebarMyEvents: "My Events",
+        sidebarMyInvitations: "My Sent Invitations",
+        sidebarGuestManagement: "Guest Management",
+        sidebarTemplates: "Invitation Templates",
+        sidebarResponses: "Track Responses",
+        sidebarProfile: "Profile",
+        sidebarSubscription: "Subscription & Billing",
+        sidebarUsername: currentUserNameEnSub
+    }
+  };
+  let currentSubscriptionLang = "ar";
+  let planToUpgrade = '';
+  function updateTextsSubscription() {
+    const texts = langTextsSubscription[currentSubscriptionLang];
+    document.title = texts.pageTitle;
+    $("#page-main-title").html(texts.pageMainTitle);
+    $("#breadcrumb-home").text(texts.breadcrumbHome);
+    $("#breadcrumb-subscription").text(texts.breadcrumbSubscription);
+    $("#current-plan-title").html(texts.currentPlanTitle);
+    $("#current-plan-name").text(texts.currentPlanName);
+    $("#renewal-date-label").text(texts.renewalDateLabel);
+    $("#renewal-date-value").text(texts.renewalDateValue);
+    $("#price-label").text(texts.priceLabel);
+    $("#price-value").text(texts.priceValue);
+    $("#change-plan-btn").html(texts.changePlanBtn);
+    $("#cancel-subscription-btn").html(texts.cancelSubscriptionBtn);
+    $("#billing-history-title").html(texts.billingHistoryTitle);
+    $("#th-invoice-num").text(texts.thInvoiceNum);
+    $("#th-invoice-date").text(texts.thInvoiceDate);
+    $("#th-amount").text(texts.thAmount);
+    $("#th-status").text(texts.thStatus);
+    $("#th-actions").text(texts.thActions);
+    $("#status-paid-1").text(texts.statusPaid);
+    $("#status-paid-2").text(texts.statusPaid);
+    $("#status-pending-1").text(texts.statusPending);
+    $(".view-invoice-text").text(texts.viewInvoiceText);
+    $("#available-plans-heading").text(texts.availablePlansHeading);
+    $("#available-plans-subheading").text(texts.availablePlansSubheading);
+    $("#free-plan-name").text(texts.freePlanName);
+    $("#free-plan-price").text(texts.freePlanPrice);
+    $("#free-plan-freq").text(texts.planFreq);
+    $("#free-feat1").html(texts.freeFeat1);
+    $("#free-feat2").html(texts.freeFeat2);
+    $("#free-feat3-disabled").html(texts.freeFeat3Disabled);
+    $("#btn-free-plan").text(texts.btnCurrentPlan); // Assuming free is not current for this example
+    $("#silver-plan-name").text(texts.silverPlanName);
+    $("#silver-plan-price").text(texts.silverPlanPrice);
+    $("#silver-plan-freq").text(texts.planFreq);
+    $("#silver-feat1").html(texts.silverFeat1);
+    $("#silver-feat2").html(texts.silverFeat2);
+    $("#silver-feat3").html(texts.silverFeat3);
+    $("#btn-silver-plan").text(texts.btnCurrentPlan);
+    $("#gold-plan-name").text(texts.goldPlanName);
+    $("#gold-plan-price").text(texts.goldPlanPrice);
+    $("#gold-plan-freq").text(texts.planFreq);
+    $("#gold-feat1").html(texts.goldFeat1);
+    $("#gold-feat2").html(texts.goldFeat2);
+    $("#gold-feat3").html(texts.goldFeat3);
+    $("#btn-gold-plan .upgrade-text").text(texts.btnUpgrade.replace(/<[^>]*>/g, '')); // Remove HTML for button text
+    $("#cancelSubscriptionModalLabel").text(texts.cancelSubscriptionModalTitle);
+    $("#cancelSubscriptionModalBody").text(texts.cancelSubscriptionModalBody);
+    $("#cancelSubscriptionCancelBtn").text(texts.cancelSubscriptionCancelBtn);
+    $("#cancelSubscriptionConfirmBtn").text(texts.cancelSubscriptionConfirmBtn);
+    $("#upgradePlanModalLabel").text(texts.upgradePlanModalTitle);
+    // Dynamic body text for upgrade modal will be set when button is clicked
+    $("#upgradePlanCancelBtn").text(texts.upgradePlanCancelBtn);
+    $("#upgradePlanConfirmBtn").text(texts.upgradePlanConfirmBtn);
+    $("#lang-switcher-btn").text(texts.langSwitchTo);
+    $("#sidebar-username").text(texts.sidebarUsername);
+    // Sidebar
+    const sidebarLinks = document.querySelectorAll(".nav-sidebar .nav-link p");
+    sidebarLinks[0].textContent = texts.sidebarHome;
+    sidebarLinks[1].textContent = texts.sidebarCreateInvitation;
+    sidebarLinks[2].textContent = texts.sidebarMyEvents;
+    sidebarLinks[3].textContent = texts.sidebarMyInvitations;
+    sidebarLinks[4].textContent = texts.sidebarGuestManagement;
+    sidebarLinks[5].textContent = texts.sidebarTemplates;
+    sidebarLinks[6].textContent = texts.sidebarResponses;
+    sidebarLinks[7].textContent = texts.sidebarProfile;
+    sidebarLinks[8].textContent = texts.sidebarSubscription;
+    // Logout Modal specific IDs
+    document.getElementById("logoutModalLabel-main").textContent = texts.logoutConfirmTitle;
+    document.getElementById("logoutModalBody-main").textContent = texts.logoutConfirmBody;
+    document.getElementById("logoutCancelBtn-main").textContent = texts.cancel;
+    document.getElementById("logoutConfirmBtn-main").textContent = texts.logout;
+  }
+  function scrollToAvailablePlans() {
+      document.getElementById('available-plans-section').scrollIntoView({ behavior: 'smooth' });
+  }
+  $(function () {
+    updateTextsSubscription(); // Initial text setup
+    $("#lang-switcher-btn").on("click", function(e){
+        e.preventDefault();
+        currentSubscriptionLang = currentSubscriptionLang === "ar" ? "en" : "ar";
+        document.documentElement.lang = currentSubscriptionLang;
+        document.documentElement.dir = currentSubscriptionLang === "ar" ? "rtl" : "ltr";
+        updateTextsSubscription();
+    });
+    // Set initial sidebar username and picture (assuming these are globally available or fetched)
+    $("#sidebar-username").text(langTextsSubscription[currentSubscriptionLang].sidebarUsername);
+    $("#sidebar-profile-pic").attr("src", currentProfilePicSub);
+    // Cancel Subscription
+    $("#cancelSubscriptionConfirmBtn").on("click", function() {
+        // Add actual cancellation logic here
+        alert(langTextsSubscription[currentSubscriptionLang].cancelSuccess);
+        $('#cancelSubscriptionModal').modal('hide');
+        // Potentially update UI to reflect cancellation
+    });
+    // Upgrade Plan
+    $('.upgrade-plan-btn[data-toggle="modal"]').on('click', function() {
+        planToUpgrade = $(this).data('plan-name-key');
+        const planName = langTextsSubscription[currentSubscriptionLang][planToUpgrade] || $(this).closest('.card').find('.card-title').text();
+        const modalBodyText = langTextsSubscription[currentSubscriptionLang].upgradePlanModalBody.replace('{planName}', planName);
+        $('#upgradePlanModalBody').text(modalBodyText);
+    });
+    $("#upgradePlanConfirmBtn").on("click", function() {
+        // Add actual upgrade logic here (e.g., redirect to payment, API call)
+        const planName = langTextsSubscription[currentSubscriptionLang][planToUpgrade] || planToUpgrade;
+        alert(langTextsSubscription[currentSubscriptionLang].upgradeSuccess.replace('{planName}', planName));
+        $('#upgradePlanModal').modal('hide');
+        // Potentially update UI to reflect new plan
+    });
+    // View Invoice (simulation)
+    $('.view-invoice-btn').on('click', function(e) {
+        e.preventDefault();
+        const invoiceId = $(this).data('invoice-id');
+        alert(`(محاكاة) عرض الفاتورة رقم: ${invoiceId}. في التطبيق الحقيقي، سيتم فتح ملف PDF أو صفحة تفاصيل الفاتورة.`);
+    });
+  });
+</script>
+</main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_إدارة_المح" data-translate-key-titlebase="pageTitleSuffixAdmin">لوحة تحكم المدير | إدارة المحتوى</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="users.html"><i class="nav-icon fas fa-users"></i><p>إدارة المستخدمين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="supervisors.html"><i class="nav-icon fas fa-user-shield"></i><p>إدارة المشرفين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>إدارة المناسبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>إدارة الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guests.html"><i class="nav-icon fas fa-user-friends"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="orders.html"><i class="nav-icon fas fa-file-invoice-dollar"></i><p>إدارة الطلبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="packages.html"><i class="nav-icon fas fa-box-open"></i><p>إدارة الباقات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="reports.html"><i class="nav-icon fas fa-chart-line"></i><p>التقارير والإحصائيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="content_management.html"><i class="nav-icon fas fa-file-alt"></i><p>إدارة المحتوى</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="customers.html"><i class="nav-icon fas fa-user-tie"></i><p>إدارة العملاء</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="support.html"><i class="nav-icon fas fa-life-ring"></i><p>الدعم الفني</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="roles.html"><i class="nav-icon fas fa-user-tag"></i><p>إدارة الأدوار والصلاحيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="files.html"><i class="nav-icon fas fa-folder-open"></i><p>إدارة الملفات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="integrations.html"><i class="nav-icon fas fa-cogs"></i><p>التكاملات الخارجية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="backup.html"><i class="nav-icon fas fa-database"></i><p>النسخ الاحتياطي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="tasks.html"><i class="nav-icon fas fa-tasks"></i><p>جدولة المهام</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="settings.html"><i class="nav-icon fas fa-cog"></i><p>الإعدادات العامة</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="content_management.html"><i class="nav-icon fas fa-file-alt"></i>إدارة المحتوى</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1>إدارة المحتوى والتصاميم</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="card card-primary card-outline card-tabs">
+<div class="card-header p-0 pt-1 border-bottom-0">
+<ul class="nav nav-tabs" id="content-tabs" role="tablist">
+<li class="nav-item"><a aria-label="رابط" aria-controls="invitation-templates" aria-selected="true" class="nav-link active" data-toggle="pill" href="#invitation-templates" id="invitation-templates-tab" role="tab"><i class="nav-icon fas fa-envelope-open-text"></i>قوالب الدعوات</a></li>
+<li class="nav-item"><a aria-label="رابط" aria-controls="email-templates" aria-selected="false" class="nav-link" data-toggle="pill" href="#email-templates" id="email-templates-tab" role="tab"><i class="nav-icon fas fa-copy"></i>قوالب البريد</a></li>
+<li class="nav-item"><a aria-label="رابط" aria-controls="static-pages" aria-selected="false" class="nav-link" data-toggle="pill" href="#static-pages" id="static-pages-tab" role="tab"><i class="nav-icon fas fa-circle"></i>الصفحات الثابتة</a></li>
+<li class="nav-item"><a aria-label="رابط" aria-controls="media-library" aria-selected="false" class="nav-link" data-toggle="pill" href="#media-library" id="media-library-tab" role="tab"><i class="nav-icon fas fa-circle"></i>مكتبة الوسائط</a></li>
+</ul>
+</div>
+<div class="card-body">
+<div class="tab-content" id="content-tabs-content">
+<!-- Invitation Templates Tab -->
+<div aria-labelledby="invitation-templates-tab" class="tab-pane fade show active" id="invitation-templates" role="tabpanel">
+<div class="d-flex justify-content-between mb-3">
+<button aria-label="زر" class="btn btn-primary" data-target="#createInvitationTemplateModal" data-toggle="modal"><i class="fas fa-plus mr-1"></i> إضافة قالب دعوة</button>
+<div class="input-group" style="width: 300px;">
+<input class="form-control" placeholder="بحث عن قالب..." type="text">
+<div class="input-group-append">
+<button aria-label="زر" class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+</div>
+</div>
+</div>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+<!-- Sample Invitation Template Card -->
+<div class="col mb-4">
+<div class="card h-100">
+<img alt="صورة القالب" class="card-img-top template-card-img-top" src="https://via.placeholder.com/300x150.png?text=صورة+القالب">
+<div class="card-body">
+<h5 class="card-title">قالب دعوة زفاف أنيق</h5>
+<p class="card-text"><small class="text-muted">الاستخدامات: 120 | التقييم: <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="far fa-star text-warning"></i></small></p>
+</div>
+<div class="card-footer text-center">
+<button aria-label="زر" class="btn btn-sm btn-info mr-1" title="معاينة"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-sm btn-warning mr-1" title="تعديل"><i class="fas fa-edit"></i></button>
+<button aria-label="زر" class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+</div>
+</div>
+</div>
+<!-- Add more template cards here -->
+</div>
+<nav aria-label="Page navigation">
+<ul class="pagination justify-content-center">
+<li class="page-item disabled"><a aria-label="رابط" class="page-link" href="#">السابق</a></li>
+<li class="page-item active"><a aria-label="رابط" class="page-link" href="#">1</a></li>
+<li class="page-item"><a aria-label="رابط" class="page-link" href="#">2</a></li>
+<li class="page-item"><a aria-label="رابط" class="page-link" href="#">التالي</a></li>
+</ul>
+</nav>
+</div>
+<!-- Email Templates Tab -->
+<div aria-labelledby="email-templates-tab" class="tab-pane fade" id="email-templates" role="tabpanel">
+<button aria-label="زر" class="btn btn-primary mb-3" data-target="#createEmailTemplateModal" data-toggle="modal"><i class="fas fa-plus mr-1"></i> إضافة قالب بريد</button>
+<table class="table table-bordered table-striped" id="emailTemplatesTable">
+<thead><tr><th>اسم القالب</th><th>الموضوع</th><th>آخر تعديل</th><th>إجراءات</th></tr></thead>
+<tbody>
+<tr><td>قالب ترحيب</td><td>مرحباً بك في نظامنا!</td><td>2024-05-01</td><td><button aria-label="زر" class="btn btn-sm btn-info mr-1" title="معاينة"><i class="fas fa-eye"></i></button> <button class="btn btn-sm btn-warning mr-1" title="تعديل"><i class="fas fa-edit"></i></button> <button class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button></td></tr>
+</tbody>
+</table>
+</div>
+<!-- Static Pages Tab -->
+<div aria-labelledby="static-pages-tab" class="tab-pane fade" id="static-pages" role="tabpanel">
+<button aria-label="زر" class="btn btn-primary mb-3" data-target="#editStaticPageModal" data-toggle="modal"><i class="fas fa-plus mr-1"></i> إضافة/تعديل صفحة</button>
+<table class="table table-bordered table-striped" id="staticPagesTable">
+<thead><tr><th>عنوان الصفحة</th><th>الرابط (Slug)</th><th>آخر تعديل</th><th>الحالة</th><th>إجراءات</th></tr></thead>
+<tbody>
+<tr><td>عن الشركة</td><td>/about-us</td><td>2024-04-15</td><td><span class="badge badge-success">منشور</span></td><td><button aria-label="زر" class="btn btn-sm btn-info mr-1" title="معاينة"><i class="fas fa-eye"></i></button> <button class="btn btn-sm btn-warning mr-1" title="تعديل"><i class="fas fa-edit"></i></button> <button class="btn btn-sm btn-danger" title="حذف"><i class="fas fa-trash"></i></button></td></tr>
+</tbody>
+</table>
+</div>
+<!-- Media Library Tab -->
+<div aria-labelledby="media-library-tab" class="tab-pane fade" id="media-library" role="tabpanel">
+<div class="d-flex justify-content-between mb-3">
+<button aria-label="زر" class="btn btn-success"><i class="fas fa-upload mr-1"></i> رفع ملفات جديدة</button>
+<div>
+<select class="form-control d-inline-block" style="width: auto;"><option>الكل</option><option>صور</option><option>فيديوهات</option><option>مستندات</option></select>
+<input class="form-control d-inline-block ml-2" placeholder="بحث في الوسائط..." style="width: 200px;" type="text">
+<button aria-label="زر" class="btn btn-outline-secondary ml-1" type="button"><i class="fas fa-search"></i></button>
+</div>
+</div>
+<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+<!-- Sample Media Item -->
+<div class="col mb-3">
+<div class="card h-100 media-library-item">
+<img alt="ملف وسائط" class="card-img-top" src="https://via.placeholder.com/150.png?text=صورة">
+<div class="card-body p-2">
+<p class="card-text text-truncate" title="اسم_الملف_طويل_جدا.jpg">اسم_الملف_طويل_جدا.jpg</p>
+<small class="text-muted">1.2MB | 2024-05-01</small>
+</div>
+<div class="card-footer p-1 text-center">
+<button aria-label="زر" class="btn btn-xs btn-info" title="عرض"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-primary" title="نسخ الرابط"><i class="fas fa-link"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-danger" title="حذف"><i class="fas fa-trash"></i></button>
+</div>
+</div>
+</div>
+<!-- Add more media items here -->
+</div>
+<nav aria-label="Media pagination">
+<ul class="pagination justify-content-center">
+<li class="page-item disabled"><a aria-label="رابط" class="page-link" href="#">السابق</a></li>
+<li class="page-item active"><a aria-label="رابط" class="page-link" href="#">1</a></li>
+<li class="page-item"><a aria-label="رابط" class="page-link" href="#">التالي</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Modals (Placeholders) -->
+<div aria-hidden="true" class="modal fade" id="createInvitationTemplateModal" tabindex="-1">
+<div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">إضافة قالب دعوة جديد</h5><button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button></div><div class="modal-body"><p>نموذج إضافة قالب دعوة...</p></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button><button class="btn btn-primary" type="button">حفظ القالب</button></div></div></div>
+</div>
+<div aria-hidden="true" class="modal fade" id="createEmailTemplateModal" tabindex="-1">
+<div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">إضافة قالب بريد جديد</h5><button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button></div><div class="modal-body"><p>نموذج إضافة قالب بريد...</p></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button><button class="btn btn-primary" type="button">حفظ القالب</button></div></div></div>
+</div>
+<div aria-hidden="true" class="modal fade" id="editStaticPageModal" tabindex="-1">
+<div class="modal-dialog modal-xl"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">تعديل صفحة ثابتة</h5><button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button></div><div class="modal-body"><p>محرر الصفحة الثابتة (WYSIWYG)...</p></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button><button class="btn btn-primary" type="button">حفظ الصفحة</button></div></div></div>
+</div>
+<!-- Main Footer -->
+<footer class="main-footer">
+<div class="float-right d-none d-sm-inline">كل الحقوق محفوظة.</div>
+<strong>حقوق النشر © 2024-2025 <a aria-label="رابط" href="#">اسم الشركة</a>.</strong>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/js/scripts.js"></script>
+<!-- Custom JS -->
+<script>
+  $(function () {
+    $('#emailTemplatesTable').DataTable({
+      "paging": true, "lengthChange": false, "searching": true, "ordering": true, "info": true, "autoWidth": false, "responsive": true,
+      "language": {"url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json"}
+    });
+    $('#staticPagesTable').DataTable({
+      "paging": true, "lengthChange": false, "searching": true, "ordering": true, "info": true, "autoWidth": false, "responsive": true,
+      "language": {"url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json"}
+    });
+  });
+
+  // Language switcher logic
+  document.addEventListener("DOMContentLoaded", function() {
+    const langSwitcherBtn = document.getElementById("lang-switcher-btn");
+    const htmlEl = document.documentElement;
+    if (langSwitcherBtn) {
+      langSwitcherBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        const currentLang = htmlEl.getAttribute("lang") || "ar";
+        const newLang = currentLang === "ar" ? "en" : "ar";
+        htmlEl.setAttribute("lang", newLang);
+        htmlEl.setAttribute("dir", newLang === "ar" ? "rtl" : "ltr");
+        langSwitcherBtn.textContent = newLang === "ar" ? "EN" : "ع";
+        if (newLang === 'ar') {
+            document.title = "لوحة تحكم المدير | إدارة المحتوى";
+            document.querySelector('.content-header h1').textContent = "إدارة المحتوى والتصاميم";
+        } else {
+            document.title = "Admin Dashboard | Content Management";
+            document.querySelector('.content-header h1').textContent = "Content & Design Management";
+        }
+      });
+    }
+  });
+</script>
+</main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

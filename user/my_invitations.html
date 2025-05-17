@@ -1,0 +1,200 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_دعواتي_الم" data-translate-key-titlebase="pageTitleBase_لوحة_تحكم_">لوحة تحكم المستخدم | دعواتي المرسلة</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/logo.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-home"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="create_invitation.html"><i class="nav-icon fas fa-plus-circle"></i><p>إنشاء دعوة جديدة</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="my_events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>مناسباتي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="my_invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>دعواتي المرسلة</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guest_management.html"><i class="nav-icon fas fa-users-cog"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="templates.html"><i class="nav-icon fas fa-palette"></i><p>قوالب الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="responses.html"><i class="nav-icon fas fa-reply-all"></i><p>تتبع الردود</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="profile.html"><i class="nav-icon fas fa-user-edit"></i><p>الملف الشخصي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="subscription.html"><i class="nav-icon fas fa-credit-card"></i><p>الباقة والاشتراك</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="my_invitations.html"><i class="nav-icon fas fa-envelope"></i>دعواتي المرسلة</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1 id="page-main-title"><i class="fas fa-envelope-open-text mr-2"></i>دعواتي المرسلة</h1><div class="invitation-stats-area mt-4 mb-4 p-3 border rounded"><h4 class="mb-3" data-translate="inv_stats_summary_title">ملخص حالة الدعوات</h4><div class="row g-3"><div class="col-md-6 col-lg-3"><div class="card shadow-sm"><div class="card-body text-center"><i class="bi bi-check-circle-fill text-success fs-2 mb-2"></i><h5 class="card-title mb-1">75</h5><p class="card-text text-muted" data-translate="stats_confirmed">مؤكدة</p></div></div></div><div class="col-md-6 col-lg-3"><div class="card shadow-sm"><div class="card-body text-center"><i class="bi bi-x-circle-fill text-danger fs-2 mb-2"></i><h5 class="card-title mb-1">15</h5><p class="card-text text-muted" data-translate="stats_declined">معتذرة</p></div></div></div><div class="col-md-6 col-lg-3"><div class="card shadow-sm"><div class="card-body text-center"><i class="bi bi-question-circle-fill text-warning fs-2 mb-2"></i><h5 class="card-title mb-1">30</h5><p class="card-text text-muted" data-translate="stats_pending">لم يتم الرد</p></div></div></div><div class="col-md-6 col-lg-3"><div class="card shadow-sm"><div class="card-body text-center"><i class="bi bi-envelope-slash-fill text-muted fs-2 mb-2"></i><h5 class="card-title mb-1">10</h5><p class="card-text text-muted" data-translate="stats_not_opened">غير مفتوحة</p></div></div></div></div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-12">
+<div class="card card-primary card-outline">
+<div class="card-header">
+<h3 class="card-title" id="invitations-list-title">قائمة الدعوات المرسلة</h3>
+<div class="card-tools">
+<select class="form-control form-control-sm" id="event-filter-user" style="width: auto; display: inline-block;">
+<option id="filter-all-events" value="all">جميع المناسبات</option>
+<option value="event1">زفاف خالد ونورة</option>
+<option value="event2">تخرج سارة</option>
+<option value="event3">اجتماع الشركة السنوي</option>
+</select>
+</div>
+</div>
+<div class="card-body">
+<table class="table table-bordered table-hover" id="invitations-table">
+<thead>
+<tr>
+<th id="col-invitee-name">اسم المدعو</th>
+<th id="col-event">المناسبة</th>
+<th id="col-sent-date">تاريخ الإرسال</th>
+<th id="col-status">حالة الدعوة</th>
+<th id="col-last-response">آخر رد</th>
+<th id="col-actions">إجراءات</th>
+</tr>
+</thead>
+<tbody>
+<!-- Sample Data - Will be populated by JS -->
+<tr>
+<td>أحمد محمد</td>
+<td>زفاف خالد ونورة</td>
+<td>2024-11-20</td>
+<td><span class="badge badge-success">مؤكد</span></td>
+<td data-response-date="2024-11-22" data-response-type="confirmed">مؤكد في 22 نوفمبر 2024</td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-info view-invitation-btn" title="عرض"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-warning resend-invitation-btn" title="إعادة إرسال"><i class="fas fa-redo"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-danger cancel-invitation-btn" title="إلغاء"><i class="fas fa-times-circle"></i></button>
+</td>
+</tr>
+<tr>
+<td>فاطمة علي</td>
+<td>زفاف خالد ونورة</td>
+<td>2024-11-20</td>
+<td><span class="badge badge-warning">مرسلة</span></td>
+<td data-response-date="" data-response-type="">لم يرد بعد</td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-info view-invitation-btn" title="عرض"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-warning resend-invitation-btn" title="إعادة إرسال"><i class="fas fa-redo"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-danger cancel-invitation-btn" title="إلغاء"><i class="fas fa-times-circle"></i></button>
+</td>
+</tr>
+<tr>
+<td>يوسف حسن</td>
+<td>تخرج سارة</td>
+<td>2024-12-10</td>
+<td><span class="badge badge-danger">معتذر</span></td>
+<td data-response-date="2024-12-12" data-response-type="declined">معتذر في 12 ديسمبر 2024</td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-info view-invitation-btn" title="عرض"><i class="fas fa-eye"></i></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Logout Modal -->
+</div></main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

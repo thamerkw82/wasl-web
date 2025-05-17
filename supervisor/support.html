@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title data-translate="support_page_title">الدعم الفني</title>
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/responsive.css" rel="stylesheet"/>
+    <link href="../assets/css/accessibility.css" rel="stylesheet"/>
+    <link href="../assets/css/bem.css" rel="stylesheet"/>
+    <link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+    <link href="../assets/css/unified-design.css" rel="stylesheet"/>
+    <link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+    <!-- Bootstrap 4 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- Custom Support Styles -->
+    <style>
+        .ticket-card {
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            border-right: 5px solid #ddd;
+        }
+        .ticket-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .ticket-card.priority-high {
+            border-right-color: #dc3545;
+        }
+        .ticket-card.priority-medium {
+            border-right-color: #ffc107;
+        }
+        .ticket-card.priority-low {
+            border-right-color: #28a745;
+        }
+        .ticket-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .status-new {
+            background-color: #e3f2fd;
+            color: #0d6efd;
+        }
+        .status-open {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .status-pending {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .status-resolved {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-closed {
+            background-color: #e2e3e5;
+            color: #383d41;
+        }
+        .ticket-meta {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        .ticket-message {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .ticket-reply {
+            background-color: #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            margin-right: 20px;
+        }
+        .ticket-reply.supervisor-reply {
+            background-color: #e3f2fd;
+        }
+        .ticket-actions {
+            margin-top: 15px;
+        }
+        .dashboard-stat {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .dashboard-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+        .nav-tabs .nav-link.active {
+            font-weight: bold;
+            border-bottom: 3px solid #007bff;
+        }
+        .search-filters {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .message-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .message-info {
+            flex-grow: 1;
+        }
+        .message-author {
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+        .message-time {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        .attachment-item {
+            display: flex;
+            align-items: center;
+            background-color: #f1f3f5;
+            border-radius: 4px;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+        }
+        .attachment-icon {
+            margin-left: 8px;
+            color: #6c757d;
+        }
+        .attachment-name {
+            flex-grow: 1;
+            font-size: 0.9rem;
+        }
+        .attachment-size {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-right: 8px;
+        }
+        .chart-container {
+            height: 300px;
+            margin-bottom: 20px;
+        }
+        .supervisor-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        .response-time-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .response-time-fast {
+            background-color: #28a745;
+        }
+        .response-time-medium {
+            background-color: #ffc107;
+        }
+        .response-time-slow {
+            background-color: #dc3545;
+        }
+        .ticket-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            background-color: #e9ecef;
+            color: #495057;
+            margin-right: 5px;
+        }
+    </style>
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+    <header class="header sticky-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a aria-label="رابط" class="navbar-brand" data-translate="dashboard_title" href="index.html">لوحة التحكم</a>
+                <button aria-label="زر" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="nav_home" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link active" data-translate="support_page_title" href="#"><i class="nav-icon fas fa-headset"></i>الدعم الفني</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <div class="dropdown mr-3">
+                            <button aria-label="زر" class="btn btn-outline-secondary dropdown-toggle" id="notificationsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                                <span class="badge badge-danger">2</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationsDropdown">
+                                <h6 class="dropdown-header">الإشعارات</h6>
+                                <a aria-label="رابط" class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="mr-3">
+                                            <i class="fas fa-ticket-alt text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="mb-0">تم تعيين تذكرة جديدة لك: مشكلة في تسجيل الدخول</p>
+                                            <small class="text-muted">منذ 5 دقائق</small>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a aria-label="رابط" class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="mr-3">
+                                            <i class="fas fa-comment-alt text-warning"></i>
+                                        </div>
+                                        <div>
+                                            <p class="mb-0">رد جديد من المستخدم على التذكرة #1234</p>
+                                            <small class="text-muted">منذ 15 دقيقة</small>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a aria-label="رابط" class="dropdown-item text-center" href="#">عرض جميع الإشعارات</a>
+                            </div>
+                        </div>
+                        <button aria-label="زر" class="btn btn-outline-secondary" data-translate="toggle_language_button" id="language-toggle">E</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse" id="sidebar">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_dashboard_supervisor" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>لوحة التحكم</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_events_management" href="events_management.html"><i class="nav-icon fas fa-calendar-alt"></i>إدارة المناسبات</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_guest_checkin" href="guest_checkin.html"><i class="nav-icon fas fa-user-friends"></i>تسجيل حضور الضيوف</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_reports_supervisor" href="reports.html"><i class="nav-icon fas fa-chart-bar"></i>التقارير</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_profile_supervisor" href="profile.html"><i class="nav-icon fas fa-user"></i>الملف الشخصي</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" href="help_center.html"><i class="nav-icon fas fa-question-circle"></i>مركز المساعدة</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link active" href="support.html"><i class="nav-icon fas fa-headset"></i>الدعم الفني</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_logout" href="../login.html"><i class="nav-icon fas fa-sign-out-alt"></i>تسجيل الخروج</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2" data-translate="support_page_title">الدعم الفني</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group mr-2">
+                            <button aria-label="زر" type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#settingsModal">
+                                <i class="fas fa-cog"></i> الإعدادات
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Stats -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="dashboard-stat">
+                            <div class="stat-icon text-primary">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">التذاكر المعينة لي</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dashboard-stat">
+                            <div class="stat-icon text-warning">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">تذاكر تحتاج للرد</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dashboard-stat">
+                            <div class="stat-icon text-success">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">تذاكر تم حلها</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dashboard-stat">
+                            <div class="stat-icon text-danger">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">تذاكر عالية الأولوية</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <ul class="nav nav-tabs mb-4" id="supportTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="my-tickets-tab" data-toggle="tab" href="#my-tickets" role="tab" aria-controls="my-tickets" aria-selected="true">
+                            <i class="fas fa-clipboard-list mr-1"></i> تذاكري
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="all-tickets-tab" data-toggle="tab" href="#all-tickets" role="tab" aria-controls="all-tickets" aria-selected="false">
+                            <i class="fas fa-ticket-alt mr-1"></i> جميع التذاكر
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="performance-tab" data-toggle="tab" href="#performance" role="tab" aria-controls="performance" aria-selected="false">
+                            <i class="fas fa-chart-line mr-1"></i> أدائي
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content" id="supportTabsContent">
+                    <!-- My Tickets Tab -->
+                    <div class="tab-pane fade show active" id="my-tickets" role="tabpanel" aria-labelledby="my-tickets-tab">
+                        <!-- Search and Filters -->
+                        <div class="search-filters">
+                            <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <input type="text" class="form-control" id="ticketSearch" placeholder="البحث في التذاكر...">
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <select class="form-control" id="statusFilter">
+                                        <option value="">جميع الحالات</option>
+                                        <option value="new">جديدة</option>
+                                        <option value="open">مفتوحة</option>
+                                        <option value="pending">معلقة</option>
+                                        <option value="resolved">تم الحل</option>
+                                        <option value="closed">مغلقة</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <select class="form-control" id="priorityFilter">
+                                        <option value="">جميع الأولويات</option>
+                                        <option value="high">عالية</option>
+                                        <option value="medium">متوسطة</option>
+                                        <option value="low">منخفضة</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 mb-2">
+                                    <button aria-label="زر" type="button" class="btn btn-primary btn-block" id="applyFilters">
+                                        <i class="fas fa-filter"></i> تطبيق
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tickets List -->
+                        <div class="tickets-list">
+                            <!-- Ticket Card 1 -->
+                            <div class="card ticket-card priority-high">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title mb-0">
+                                            <a href="#" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1001">
+                                                #1001: مشكلة في تسجيل الدخول
+                                            </a>
+                                        </h5>
+                                        <span class="ticket-status status-open">مفتوحة</span>
+                                    </div>
+                                    <p class="card-text">لا أستطيع تسجيل الدخول إلى حسابي، تظهر رسالة خطأ غير واضحة.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ticket-meta">
+                                            <span><i class="fas fa-user"></i> أحمد محمد</span>
+                                            <span class="mr-2"><i class="fas fa-calendar"></i> 15/05/2025</span>
+                                            <span class="mr-2"><i class="fas fa-tag"></i> تسجيل الدخول</span>
+                                            <span class="mr-2"><i class="fas fa-clock"></i> منذ 2 ساعة</span>
+                                        </div>
+                                        <div>
+                                            <span class="badge badge-danger">عالية</span>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-primary ml-1" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1001">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ticket Card 2 -->
+                            <div class="card ticket-card priority-medium">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title mb-0">
+                                            <a href="#" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1002">
+                                                #1002: خطأ في إنشاء دعوة جديدة
+                                            </a>
+                                        </h5>
+                                        <span class="ticket-status status-pending">معلقة</span>
+                                    </div>
+                                    <p class="card-text">عند محاولة إنشاء دعوة جديدة، تظهر رسالة خطأ "لا يمكن حفظ البيانات".</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ticket-meta">
+                                            <span><i class="fas fa-user"></i> سارة أحمد</span>
+                                            <span class="mr-2"><i class="fas fa-calendar"></i> 14/05/2025</span>
+                                            <span class="mr-2"><i class="fas fa-tag"></i> إنشاء دعوة</span>
+                                            <span class="mr-2"><i class="fas fa-clock"></i> منذ يوم</span>
+                                        </div>
+                                        <div>
+                                            <span class="badge badge-warning">متوسطة</span>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-primary ml-1" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1002">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ticket Card 3 -->
+                            <div class="card ticket-card priority-low">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title mb-0">
+                                            <a href="#" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1003">
+                                                #1003: استفسار عن الباقات المتاحة
+                                            </a>
+                                        </h5>
+                                        <span class="ticket-status status-new">جديدة</span>
+                                    </div>
+                                    <p class="card-text">أرغب في معرفة المزيد عن الباقات المتاحة وميزات كل باقة.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ticket-meta">
+                                            <span><i class="fas fa-user"></i> محمد علي</span>
+                                            <span class="mr-2"><i class="fas fa-calendar"></i> 13/05/2025</span>
+                                            <span class="mr-2"><i class="fas fa-tag"></i> استفسار</span>
+                                            <span class="mr-2"><i class="fas fa-clock"></i> منذ 3 أيام</span>
+                                        </div>
+                                        <div>
+                                            <span class="badge badge-success">منخفضة</span>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-primary ml-1" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1003">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pagination -->
+                            <nav aria-label="Page navigation" class="mt-4">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">السابق</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">التالي</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- All Tickets Tab -->
+                    <div class="tab-pane fade" id="all-tickets" role="tabpanel" aria-labelledby="all-tickets-tab">
+                        <!-- Search and Filters -->
+                        <div class="search-filters">
+                            <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <input type="text" class="form-control" id="allTicketSearch" placeholder="البحث في جميع التذاكر...">
+                                </div>
+                                <div class="col-md-2 mb-2">
+                                    <select class="form-control" id="allStatusFilter">
+                                        <option value="">جميع الحالات</option>
+                                        <option value="new">جديدة</option>
+                                        <option value="open">مفتوحة</option>
+                                        <option value="pending">معلقة</option>
+                                        <option value="resolved">تم الحل</option>
+                                        <option value="closed">مغلقة</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 mb-2">
+                                    <select class="form-control" id="allPriorityFilter">
+                                        <option value="">جميع الأولويات</option>
+                                        <option value="high">عالية</option>
+                                        <option value="medium">متوسطة</option>
+                                        <option value="low">منخفضة</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 mb-2">
+                                    <select class="form-control" id="assignmentFilter">
+                                        <option value="">الكل</option>
+                                        <option value="assigned">المعينة</option>
+                                        <option value="unassigned">غير المعينة</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 mb-2">
+                                    <button aria-label="زر" type="button" class="btn btn-primary btn-block" id="applyAllFilters">
+                                        <i class="fas fa-filter"></i> تطبيق
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tickets List -->
+                        <div class="tickets-list">
+                            <!-- Ticket Card 1 -->
+                            <div class="card ticket-card priority-high">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title mb-0">
+                                            <a href="#" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1001">
+                                                #1001: مشكلة في تسجيل الدخول
+                                            </a>
+                                            <span class="badge badge-info ml-2">معينة لي</span>
+                                        </h5>
+                                        <span class="ticket-status status-open">مفتوحة</span>
+                                    </div>
+                                    <p class="card-text">لا أستطيع تسجيل الدخول إلى حسابي، تظهر رسالة خطأ غير واضحة.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ticket-meta">
+                                            <span><i class="fas fa-user"></i> أحمد محمد</span>
+                                            <span class="mr-2"><i class="fas fa-calendar"></i> 15/05/2025</span>
+                                            <span class="mr-2"><i class="fas fa-tag"></i> تسجيل الدخول</span>
+                                        </div>
+                                        <div>
+                                            <span class="badge badge-danger">عالية</span>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-primary ml-1" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1001">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-success ml-1" data-toggle="modal" data-target="#claimTicketModal" data-ticket-id="1001">
+                                                <i class="fas fa-hand-paper"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ticket Card 2 -->
+                            <div class="card ticket-card priority-medium">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title mb-0">
+                                            <a href="#" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1002">
+                                                #1002: خطأ في إنشاء دعوة جديدة
+                                            </a>
+                                            <span class="badge badge-info ml-2">معينة لي</span>
+                                        </h5>
+                                        <span class="ticket-status status-pending">معلقة</span>
+                                    </div>
+                                    <p class="card-text">عند محاولة إنشاء دعوة جديدة، تظهر رسالة خطأ "لا يمكن حفظ البيانات".</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ticket-meta">
+                                            <span><i class="fas fa-user"></i> سارة أحمد</span>
+                                            <span class="mr-2"><i class="fas fa-calendar"></i> 14/05/2025</span>
+                                            <span class="mr-2"><i class="fas fa-tag"></i> إنشاء دعوة</span>
+                                        </div>
+                                        <div>
+                                            <span class="badge badge-warning">متوسطة</span>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-primary ml-1" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1002">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-success ml-1" data-toggle="modal" data-target="#claimTicketModal" data-ticket-id="1002">
+                                                <i class="fas fa-hand-paper"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ticket Card 3 -->
+                            <div class="card ticket-card priority-low">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title mb-0">
+                                            <a href="#" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1003">
+                                                #1003: استفسار عن الباقات المتاحة
+                                            </a>
+                                            <span class="badge badge-info ml-2">معينة لي</span>
+                                        </h5>
+                                        <span class="ticket-status status-new">جديدة</span>
+                                    </div>
+                                    <p class="card-text">أرغب في معرفة المزيد عن الباقات المتاحة وميزات كل باقة.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ticket-meta">
+                                            <span><i class="fas fa-user"></i> محمد علي</span>
+                                            <span class="mr-2"><i class="fas fa-calendar"></i> 13/05/2025</span>
+                                            <span class="mr-2"><i class="fas fa-tag"></i> استفسار</span>
+                                        </div>
+                                        <div>
+                                            <span class="badge badge-success">منخفضة</span>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-primary ml-1" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1003">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-success ml-1" data-toggle="modal" data-target="#claimTicketModal" data-ticket-id="1003">
+                                                <i class="fas fa-hand-paper"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ticket Card 4 -->
+                            <div class="card ticket-card priority-high">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title mb-0">
+                                            <a href="#" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1004">
+                                                #1004: مشكلة في عرض قائمة الضيوف
+                                            </a>
+                                        </h5>
+                                        <span class="ticket-status status-open">مفتوحة</span>
+                                    </div>
+                                    <p class="card-text">لا تظهر قائمة الضيوف بشكل صحيح، وبعض الأسماء مفقودة.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ticket-meta">
+                                            <span><i class="fas fa-user"></i> خالد عبدالله</span>
+                                            <span class="mr-2"><i class="fas fa-calendar"></i> 12/05/2025</span>
+                                            <span class="mr-2"><i class="fas fa-tag"></i> قائمة الضيوف</span>
+                                            <span class="mr-2"><i class="fas fa-user-shield"></i> معينة لـ: محمد علي</span>
+                                        </div>
+                                        <div>
+                                            <span class="badge badge-danger">عالية</span>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-primary ml-1" data-toggle="modal" data-target="#ticketDetailModal" data-ticket-id="1004">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pagination -->
+                            <nav aria-label="Page navigation" class="mt-4">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">السابق</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">التالي</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- Performance Tab -->
+                    <div class="tab-pane fade" id="performance" role="tabpanel" aria-labelledby="performance-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">أدائي خلال الشهر الحالي</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-container">
+                                            <canvas id="performanceChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">متوسط وقت الاستجابة</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-container">
+                                            <canvas id="responseTimeChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">ملخص الأداء</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>المؤشر</th>
+                                                        <th>القيمة</th>
+                                                        <th>المتوسط العام</th>
+                                                        <th>التقييم</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>عدد التذاكر المعالجة</td>
+                                                        <td>15</td>
+                                                        <td>12</td>
+                                                        <td><i class="fas fa-arrow-up text-success"></i> فوق المتوسط</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>متوسط وقت الاستجابة</td>
+                                                        <td>3.2 ساعة</td>
+                                                        <td>4.5 ساعة</td>
+                                                        <td><i class="fas fa-arrow-up text-success"></i> فوق المتوسط</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>متوسط وقت الحل</td>
+                                                        <td>8.5 ساعة</td>
+                                                        <td>10.2 ساعة</td>
+                                                        <td><i class="fas fa-arrow-up text-success"></i> فوق المتوسط</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>نسبة رضا العملاء</td>
+                                                        <td>92%</td>
+                                                        <td>85%</td>
+                                                        <td><i class="fas fa-arrow-up text-success"></i> فوق المتوسط</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>نسبة التذاكر المحلولة من أول رد</td>
+                                                        <td>65%</td>
+                                                        <td>60%</td>
+                                                        <td><i class="fas fa-arrow-up text-success"></i> فوق المتوسط</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">توزيع التذاكر حسب النوع</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-container">
+                                            <canvas id="ticketTypeChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">تقييمات المستخدمين</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>التذكرة</th>
+                                                        <th>المستخدم</th>
+                                                        <th>التقييم</th>
+                                                        <th>التعليق</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>#1001</td>
+                                                        <td>أحمد محمد</td>
+                                                        <td>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                        </td>
+                                                        <td>خدمة ممتازة وسريعة، شكراً جزيلاً!</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>#998</td>
+                                                        <td>سارة أحمد</td>
+                                                        <td>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="far fa-star text-warning"></i>
+                                                        </td>
+                                                        <td>استجابة سريعة وحل فعال للمشكلة.</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>#982</td>
+                                                        <td>محمد علي</td>
+                                                        <td>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                            <i class="fas fa-star text-warning"></i>
+                                                        </td>
+                                                        <td>شرح واضح وحل سريع، شكراً لكم.</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Ticket Detail Modal -->
+    <div class="modal fade" id="ticketDetailModal" tabindex="-1" aria-labelledby="ticketDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ticketDetailModalLabel">تفاصيل التذكرة #1001</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="ticket-header mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h4>مشكلة في تسجيل الدخول</h4>
+                            <span class="ticket-status status-open">مفتوحة</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="ticket-meta">
+                                <span><i class="fas fa-user"></i> أحمد محمد</span>
+                                <span class="mr-2"><i class="fas fa-calendar"></i> 15/05/2025</span>
+                                <span class="mr-2"><i class="fas fa-tag"></i> تسجيل الدخول</span>
+                                <span class="mr-2"><i class="fas fa-user-shield"></i> معين لي</span>
+                            </div>
+                            <span class="badge badge-danger">عالية</span>
+                        </div>
+                    </div>
+
+                    <div class="ticket-conversation">
+                        <!-- Original Message -->
+                        <div class="ticket-message">
+                            <div class="message-header">
+                                <img src="https://via.placeholder.com/40" alt="صورة المستخدم" class="message-avatar">
+                                <div class="message-info">
+                                    <h6 class="message-author">أحمد محمد</h6>
+                                    <small class="message-time">15/05/2025 10:30 ص</small>
+                                </div>
+                            </div>
+                            <div class="message-content mt-2">
+                                <p>لا أستطيع تسجيل الدخول إلى حسابي، تظهر رسالة خطأ غير واضحة. حاولت إعادة تعيين كلمة المرور ولكن لم أتلق أي بريد إلكتروني للتأكيد. هذه المشكلة مستمرة منذ أمس.</p>
+                                <div class="attachments mt-3">
+                                    <h6>المرفقات:</h6>
+                                    <div class="attachment-item">
+                                        <i class="fas fa-file-image attachment-icon"></i>
+                                        <span class="attachment-name">صورة الخطأ.jpg</span>
+                                        <span class="attachment-size">250 KB</span>
+                                        <a href="#" class="btn btn-sm btn-link"><i class="fas fa-download"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reply Form -->
+                        <div class="reply-form mt-4">
+                            <h5>إضافة رد</h5>
+                            <form id="ticketReplyForm">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="replyContent" rows="4" placeholder="اكتب ردك هنا..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="replyAttachment">إضافة مرفقات</label>
+                                    <input type="file" class="form-control-file" id="replyAttachment" multiple>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ticketStatus">تحديث حالة التذكرة</label>
+                                    <select class="form-control" id="ticketStatus">
+                                        <option value="open" selected>مفتوحة</option>
+                                        <option value="pending">معلقة</option>
+                                        <option value="resolved">تم الحل</option>
+                                        <option value="closed">مغلقة</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="notifyUser" checked>
+                                        <label class="custom-control-label" for="notifyUser">إرسال إشعار للمستخدم</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="escalateToAdmin">
+                                        <label class="custom-control-label" for="escalateToAdmin">تصعيد للمدير</label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">إرسال الرد</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="ticketActionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            إجراءات إضافية
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="ticketActionsDropdown">
+                            <a class="dropdown-item" href="#"><i class="fas fa-tag mr-2"></i>تغيير التصنيف</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-exclamation-circle mr-2"></i>تغيير الأولوية</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-external-link-alt mr-2"></i>تصعيد للمدير</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-times-circle mr-2"></i>التخلي عن التذكرة</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Claim Ticket Modal -->
+    <div class="modal fade" id="claimTicketModal" tabindex="-1" aria-labelledby="claimTicketModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="claimTicketModalLabel">استلام التذكرة #1001</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>هل أنت متأكد من رغبتك في استلام هذه التذكرة؟ سيتم تعيينها لك وستكون مسؤولاً عن متابعتها وحلها.</p>
+                    <form id="claimTicketForm">
+                        <div class="form-group">
+                            <label for="claimNote">ملاحظات (اختياري)</label>
+                            <textarea class="form-control" id="claimNote" rows="3" placeholder="أضف ملاحظات حول سبب استلام التذكرة..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="notifyUserClaim" checked>
+                                <label class="custom-control-label" for="notifyUserClaim">إرسال إشعار للمستخدم</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-primary" id="confirmClaim">تأكيد الاستلام</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="settingsModalLabel">إعدادات عرض التذاكر</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="ticketDisplaySettingsForm">
+                        <div class="form-group">
+                            <label for="ticketsPerPage">عدد التذاكر في الصفحة</label>
+                            <select class="form-control" id="ticketsPerPage">
+                                <option value="5">5</option>
+                                <option value="10" selected>10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="defaultSortBy">الترتيب الافتراضي</label>
+                            <select class="form-control" id="defaultSortBy">
+                                <option value="date_desc" selected>الأحدث أولاً</option>
+                                <option value="date_asc">الأقدم أولاً</option>
+                                <option value="priority_desc">الأولوية (من الأعلى)</option>
+                                <option value="priority_asc">الأولوية (من الأدنى)</option>
+                                <option value="status">الحالة</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>عرض الأعمدة</label>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="showTicketID" checked>
+                                <label class="custom-control-label" for="showTicketID">رقم التذكرة</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="showSubject" checked>
+                                <label class="custom-control-label" for="showSubject">الموضوع</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="showStatus" checked>
+                                <label class="custom-control-label" for="showStatus">الحالة</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="showPriority" checked>
+                                <label class="custom-control-label" for="showPriority">الأولوية</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="showCreatedDate" checked>
+                                <label class="custom-control-label" for="showCreatedDate">تاريخ الإنشاء</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="showLastUpdate">
+                                <label class="custom-control-label" for="showLastUpdate">آخر تحديث</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="notificationSettings">إعدادات الإشعارات</label>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="notifyNewAssignment" checked>
+                                <label class="custom-control-label" for="notifyNewAssignment">إشعار عند تعيين تذكرة جديدة لي</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="notifyUserReply" checked>
+                                <label class="custom-control-label" for="notifyUserReply">إشعار عند رد المستخدم على تذكرة</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="notifyTicketEscalation">
+                                <label class="custom-control-label" for="notifyTicketEscalation">إشعار عند تصعيد تذكرة</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-primary" id="saveDisplaySettings">حفظ الإعدادات</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="../assets/js/scripts.js"></script>
+    <script src="../assets/js/dropdown.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Initialize Select2
+            $('.select2').select2({
+                dir: "rtl",
+                language: "ar"
+            });
+            
+            // Initialize tooltips
+            $('[data-toggle="tooltip"]').tooltip();
+            
+            // Ticket Detail Modal
+            $('#ticketDetailModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var ticketId = button.data('ticket-id');
+                var modal = $(this);
+                modal.find('.modal-title').text('تفاصيل التذكرة #' + ticketId);
+                // Here you would typically load ticket details via AJAX
+            });
+            
+            // Claim Ticket Modal
+            $('#claimTicketModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var ticketId = button.data('ticket-id');
+                var modal = $(this);
+                modal.find('.modal-title').text('استلام التذكرة #' + ticketId);
+                // Here you would typically load ticket details via AJAX
+            });
+            
+            // Handle ticket claim
+            $('#confirmClaim').on('click', function() {
+                // Here you would handle the claim via AJAX
+                alert('تم استلام التذكرة بنجاح!');
+                $('#claimTicketModal').modal('hide');
+            });
+            
+            // Handle saving display settings
+            $('#saveDisplaySettings').on('click', function() {
+                // Here you would save the settings
+                alert('تم حفظ إعدادات العرض بنجاح!');
+                $('#settingsModal').modal('hide');
+            });
+            
+            // Handle ticket reply form submission
+            $('#ticketReplyForm').on('submit', function(e) {
+                e.preventDefault();
+                // Here you would handle the reply submission via AJAX
+                alert('تم إرسال الرد بنجاح!');
+                $('#ticketDetailModal').modal('hide');
+            });
+            
+            // Initialize charts
+            initCharts();
+        });
+        
+        // Function to initialize charts
+        function initCharts() {
+            // Performance Chart
+            var performanceCtx = document.getElementById('performanceChart').getContext('2d');
+            var performanceChart = new Chart(performanceCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['الأسبوع 1', 'الأسبوع 2', 'الأسبوع 3', 'الأسبوع 4'],
+                    datasets: [{
+                        label: 'التذاكر المعالجة',
+                        data: [4, 6, 3, 5],
+                        backgroundColor: '#007bff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            
+            // Response Time Chart
+            var responseTimeCtx = document.getElementById('responseTimeChart').getContext('2d');
+            var responseTimeChart = new Chart(responseTimeCtx, {
+                type: 'line',
+                data: {
+                    labels: ['الأسبوع 1', 'الأسبوع 2', 'الأسبوع 3', 'الأسبوع 4'],
+                    datasets: [{
+                        label: 'متوسط وقت الاستجابة (ساعات)',
+                        data: [4.5, 3.8, 3.2, 2.9],
+                        borderColor: '#28a745',
+                        backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            
+            // Ticket Type Chart
+            var ticketTypeCtx = document.getElementById('ticketTypeChart').getContext('2d');
+            var ticketTypeChart = new Chart(ticketTypeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['مشاكل تسجيل الدخول', 'مشاكل إنشاء الدعوات', 'استفسارات', 'مشاكل قائمة الضيوف', 'أخرى'],
+                    datasets: [{
+                        data: [4, 3, 5, 2, 1],
+                        backgroundColor: [
+                            '#007bff',
+                            '#dc3545',
+                            '#ffc107',
+                            '#28a745',
+                            '#6c757d'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+    </script>
+</body>
+</html>

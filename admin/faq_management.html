@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title data-translate="faq_management_title">إدارة الأسئلة الشائعة</title>
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/responsive.css" rel="stylesheet"/>
+    <link href="../assets/css/accessibility.css" rel="stylesheet"/>
+    <link href="../assets/css/bem.css" rel="stylesheet"/>
+    <link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+    <link href="../assets/css/unified-design.css" rel="stylesheet"/>
+    <link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+    <!-- Bootstrap 4 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- Summernote -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        .faq-card {
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            border-right: 5px solid #007bff;
+        }
+        .faq-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .category-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .category-badge.general {
+            background-color: #e3f2fd;
+            color: #0d6efd;
+        }
+        .category-badge.account {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .category-badge.invitations {
+            background-color: #d1e7dd;
+            color: #0f5132;
+        }
+        .category-badge.guests {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .category-badge.billing {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .category-badge.technical {
+            background-color: #e2e3e5;
+            color: #383d41;
+        }
+        .faq-meta {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        .search-filters {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .dashboard-stat {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .dashboard-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+        .category-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .category-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .category-card .card-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .category-card .card-title h5 {
+            margin-bottom: 0;
+        }
+        .category-card .card-body {
+            padding: 10px 0 0 0;
+        }
+        .category-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .drag-handle {
+            cursor: move;
+            color: #6c757d;
+        }
+        .faq-item-row {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item-row:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .faq-item-row .faq-content {
+            flex-grow: 1;
+        }
+        .faq-item-row .faq-actions {
+            white-space: nowrap;
+        }
+        .note-editor .dropdown-toggle::after {
+            display: none;
+        }
+    </style>
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+    <header class="header sticky-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a aria-label="رابط" class="navbar-brand" data-translate="dashboard_title" href="index.html">لوحة التحكم</a>
+                <button aria-label="زر" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="nav_home" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link active" data-translate="faq_management_title" href="#"><i class="nav-icon fas fa-question-circle"></i>إدارة الأسئلة الشائعة</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <div class="dropdown mr-3">
+                            <button aria-label="زر" class="btn btn-outline-secondary dropdown-toggle" id="notificationsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                                <span class="badge badge-danger">3</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationsDropdown">
+                                <h6 class="dropdown-header">الإشعارات</h6>
+                                <a aria-label="رابط" class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="mr-3">
+                                            <i class="fas fa-question-circle text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="mb-0">تم إضافة سؤال شائع جديد</p>
+                                            <small class="text-muted">منذ 5 دقائق</small>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a aria-label="رابط" class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="mr-3">
+                                            <i class="fas fa-edit text-warning"></i>
+                                        </div>
+                                        <div>
+                                            <p class="mb-0">تم تعديل فئة الأسئلة الشائعة</p>
+                                            <small class="text-muted">منذ ساعة</small>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a aria-label="رابط" class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="mr-3">
+                                            <i class="fas fa-chart-line text-success"></i>
+                                        </div>
+                                        <div>
+                                            <p class="mb-0">تقرير جديد: أكثر الأسئلة مشاهدة</p>
+                                            <small class="text-muted">منذ يوم</small>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a aria-label="رابط" class="dropdown-item text-center" href="#">عرض جميع الإشعارات</a>
+                            </div>
+                        </div>
+                        <button aria-label="زر" class="btn btn-outline-secondary" data-translate="toggle_language_button" id="language-toggle">E</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse" id="sidebar">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_dashboard_admin" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>لوحة التحكم</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_users_admin" href="users.html"><i class="nav-icon fas fa-users"></i>إدارة المستخدمين</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_packages_admin" href="packages.html"><i class="nav-icon fas fa-box"></i>إدارة الباقات</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_supervisor_monitoring_admin" href="supervisors.html"><i class="nav-icon fas fa-user-shield"></i>إدارة المشرفين</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_reports_admin" href="reports.html"><i class="nav-icon fas fa-chart-bar"></i>التقارير</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_design_gallery" href="design_gallery.html"><i class="nav-icon fas fa-palette"></i>معرض التصاميم</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link active" data-translate="sidebar_faq_management" href="faq_management.html"><i class="nav-icon fas fa-question-circle"></i>إدارة الأسئلة الشائعة</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_help_center" href="help_center.html"><i class="nav-icon fas fa-info-circle"></i>مركز المساعدة</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_support" href="support.html"><i class="nav-icon fas fa-headset"></i>الدعم الفني</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_settings" href="settings.html"><i class="nav-icon fas fa-cog"></i>الإعدادات</a></li>
+                        <li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_logout" href="../login.html"><i class="nav-icon fas fa-sign-out-alt"></i>تسجيل الخروج</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2" data-translate="faq_management_title">إدارة الأسئلة الشائعة</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <button aria-label="زر" type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#addFaqModal">
+                            <i class="fas fa-plus-circle"></i> إضافة سؤال جديد
+                        </button>
+                        <button aria-label="زر" type="button" class="btn btn-outline-secondary mr-2" data-toggle="modal" data-target="#manageCategoriesModal">
+                            <i class="fas fa-tags"></i> إدارة الفئات
+                        </button>
+                        <div class="btn-group">
+                            <button aria-label="زر" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-file-export"></i> تصدير
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#" id="exportPDF"><i class="fas fa-file-pdf mr-2"></i>PDF</a>
+                                <a class="dropdown-item" href="#" id="exportExcel"><i class="fas fa-file-excel mr-2"></i>Excel</a>
+                                <a class="dropdown-item" href="#" id="exportJSON"><i class="fas fa-file-code mr-2"></i>JSON</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Stats -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="dashboard-stat">
+                            <div class="stat-icon text-primary">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="stat-number" id="totalFaqCount">48</div>
+                            <div class="stat-label">إجمالي الأسئلة</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dashboard-stat">
+                            <div class="stat-icon text-success">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <div class="stat-number" id="totalCategoriesCount">6</div>
+                            <div class="stat-label">الفئات</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dashboard-stat">
+                            <div class="stat-icon text-info">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="stat-number" id="totalViewsCount">1,245</div>
+                            <div class="stat-label">المشاهدات</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dashboard-stat">
+                            <div class="stat-icon text-warning">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-number" id="helpfulRating">92%</div>
+                            <div class="stat-label">نسبة الفائدة</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="search-filters">
+                    <div class="row">
+                        <div class="col-md-5 mb-2">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="faqSearch" placeholder="البحث في الأسئلة الشائعة...">
+                                <div class="input-group-append">
+                                    <button aria-label="زر" class="btn btn-primary" type="button" id="searchBtn">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <select class="form-control" id="categoryFilter">
+                                <option value="">جميع الفئات</option>
+                                <option value="general">عام</option>
+                                <option value="account">الحساب والتسجيل</option>
+                                <option value="invitations">الدعوات</option>
+                                <option value="guests">إدارة الضيوف</option>
+                                <option value="billing">الفواتير والاشتراكات</option>
+                                <option value="technical">مشاكل تقنية</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <select class="form-control" id="statusFilter">
+                                <option value="">جميع الحالات</option>
+                                <option value="published">منشور</option>
+                                <option value="draft">مسودة</option>
+                                <option value="archived">مؤرشف</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <select class="form-control" id="sortFilter">
+                                <option value="newest">الأحدث</option>
+                                <option value="oldest">الأقدم</option>
+                                <option value="popular">الأكثر مشاهدة</option>
+                                <option value="helpful">الأكثر فائدة</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <ul class="nav nav-tabs mb-4" id="faqTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">
+                            <i class="fas fa-list mr-1"></i> جميع الأسئلة
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="categories-tab" data-toggle="tab" href="#categories" role="tab" aria-controls="categories" aria-selected="false">
+                            <i class="fas fa-folder mr-1"></i> حسب الفئة
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="analytics-tab" data-toggle="tab" href="#analytics" role="tab" aria-controls="analytics" aria-selected="false">
+                            <i class="fas fa-chart-bar mr-1"></i> التحليلات
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">
+                            <i class="fas fa-cog mr-1"></i> الإعدادات
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content" id="faqTabsContent">
+                    <!-- All FAQs Tab -->
+                    <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                        <div class="faq-list">
+                            <!-- FAQ Item 1 -->
+                            <div class="faq-item-row" data-id="1" data-category="account">
+                                <div class="drag-handle mr-2">
+                                    <i class="fas fa-grip-vertical"></i>
+                                </div>
+                                <div class="faq-content">
+                                    <h5 class="mb-1">كيف يمكنني إنشاء حساب جديد؟</h5>
+                                    <div class="d-flex align-items-center">
+                                        <span class="category-badge account">الحساب والتسجيل</span>
+                                        <span class="badge badge-success mr-2">منشور</span>
+                                        <span class="faq-meta mr-2"><i class="fas fa-eye"></i> 245 مشاهدة</span>
+                                        <span class="faq-meta"><i class="fas fa-thumbs-up"></i> 95%</span>
+                                    </div>
+                                </div>
+                                <div class="faq-actions">
+                                    <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editFaqModal" data-faq-id="1">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button aria-label="زر" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#deleteFaqModal" data-faq-id="1">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 2 -->
+                            <div class="faq-item-row" data-id="2" data-category="invitations">
+                                <div class="drag-handle mr-2">
+                                    <i class="fas fa-grip-vertical"></i>
+                                </div>
+                                <div class="faq-content">
+                                    <h5 class="mb-1">كيف يمكنني إنشاء دعوة جديدة؟</h5>
+                                    <div class="d-flex align-items-center">
+                                        <span class="category-badge invitations">الدعوات</span>
+                                        <span class="badge badge-success mr-2">منشور</span>
+                                        <span class="faq-meta mr-2"><i class="fas fa-eye"></i> 320 مشاهدة</span>
+                                        <span class="faq-meta"><i class="fas fa-thumbs-up"></i> 98%</span>
+                                    </div>
+                                </div>
+                                <div class="faq-actions">
+                                    <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editFaqModal" data-faq-id="2">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button aria-label="زر" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#deleteFaqModal" data-faq-id="2">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 3 -->
+                            <div class="faq-item-row" data-id="3" data-category="guests">
+                                <div class="drag-handle mr-2">
+                                    <i class="fas fa-grip-vertical"></i>
+                                </div>
+                                <div class="faq-content">
+                                    <h5 class="mb-1">كيف يمكنني تتبع ردود الضيوف؟</h5>
+                                    <div class="d-flex align-items-center">
+                                        <span class="category-badge guests">إدارة الضيوف</span>
+                                        <span class="badge badge-success mr-2">منشور</span>
+                                        <span class="faq-meta mr-2"><i class="fas fa-eye"></i> 180 مشاهدة</span>
+                                        <span class="faq-meta"><i class="fas fa-thumbs-up"></i> 90%</span>
+                                    </div>
+                                </div>
+                                <div class="faq-actions">
+                                    <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editFaqModal" data-faq-id="3">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button aria-label="زر" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#deleteFaqModal" data-faq-id="3">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 4 -->
+                            <div class="faq-item-row" data-id="4" data-category="billing">
+                                <div class="drag-handle mr-2">
+                                    <i class="fas fa-grip-vertical"></i>
+                                </div>
+                                <div class="faq-content">
+                                    <h5 class="mb-1">ما هي الباقات المتاحة وما الفرق بينها؟</h5>
+                                    <div class="d-flex align-items-center">
+                                        <span class="category-badge billing">الفواتير والاشتراكات</span>
+                                        <span class="badge badge-secondary mr-2">مسودة</span>
+                                        <span class="faq-meta mr-2"><i class="fas fa-eye"></i> 0 مشاهدة</span>
+                                        <span class="faq-meta"><i class="fas fa-thumbs-up"></i> 0%</span>
+                                    </div>
+                                </div>
+                                <div class="faq-actions">
+                                    <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editFaqModal" data-faq-id="4">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button aria-label="زر" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#deleteFaqModal" data-faq-id="4">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 5 -->
+                            <div class="faq-item-row" data-id="5" data-category="technical">
+                                <div class="drag-handle mr-2">
+                                    <i class="fas fa-grip-vertical"></i>
+                                </div>
+                                <div class="faq-content">
+                                    <h5 class="mb-1">كيف يمكنني حل مشكلة عدم ظهور الصور في الدعوة؟</h5>
+                                    <div class="d-flex align-items-center">
+                                        <span class="category-badge technical">مشاكل تقنية</span>
+                                        <span class="badge badge-success mr-2">منشور</span>
+                                        <span class="faq-meta mr-2"><i class="fas fa-eye"></i> 150 مشاهدة</span>
+                                        <span class="faq-meta"><i class="fas fa-thumbs-up"></i> 85%</span>
+                                    </div>
+                                </div>
+                                <div class="faq-actions">
+                                    <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editFaqModal" data-faq-id="5">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button aria-label="زر" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#deleteFaqModal" data-faq-id="5">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 6 -->
+                            <div class="faq-item-row" data-id="6" data-category="general">
+                                <div class="drag-handle mr-2">
+                                    <i class="fas fa-grip-vertical"></i>
+                                </div>
+                                <div class="faq-content">
+                                    <h5 class="mb-1">كيف يمكنني الاتصال بالدعم الفني؟</h5>
+                                    <div class="d-flex align-items-center">
+                                        <span class="category-badge general">عام</span>
+                                        <span class="badge badge-success mr-2">منشور</span>
+                                        <span class="faq-meta mr-2"><i class="fas fa-eye"></i> 350 مشاهدة</span>
+                                        <span class="faq-meta"><i class="fas fa-thumbs-up"></i> 97%</span>
+                                    </div>
+                                </div>
+                                <div class="faq-actions">
+                                    <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editFaqModal" data-faq-id="6">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button aria-label="زر" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#deleteFaqModal" data-faq-id="6">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Pagination -->
+                            <nav aria-label="Page navigation" class="mt-4">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">السابق</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">التالي</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- Categories Tab -->
+                    <div class="tab-pane fade" id="categories" role="tabpanel" aria-labelledby="categories-tab">
+                        <div class="row">
+                            <!-- Category 1 -->
+                            <div class="col-md-6">
+                                <div class="category-card">
+                                    <div class="card-title">
+                                        <h5><span class="category-color" style="background-color: #e3f2fd;"></span> عام</h5>
+                                        <span class="badge badge-primary">8 أسئلة</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-muted">أسئلة عامة حول النظام والخدمات المقدمة</p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editCategoryModal" data-category-id="general">
+                                                <i class="fas fa-edit"></i> تعديل
+                                            </button>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" data-target="#generalFaqList">
+                                                <i class="fas fa-chevron-down"></i> عرض الأسئلة
+                                            </button>
+                                        </div>
+                                        <div class="collapse mt-3" id="generalFaqList">
+                                            <ul class="list-group">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    كيف يمكنني الاتصال بالدعم الفني؟
+                                                    <button aria-label="زر" class="btn btn-sm btn-link" data-toggle="modal" data-target="#editFaqModal" data-faq-id="6">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    ما هي ساعات عمل خدمة العملاء؟
+                                                    <button aria-label="زر" class="btn btn-sm btn-link" data-toggle="modal" data-target="#editFaqModal" data-faq-id="7">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Category 2 -->
+                            <div class="col-md-6">
+                                <div class="category-card">
+                                    <div class="card-title">
+                                        <h5><span class="category-color" style="background-color: #fff3cd;"></span> الحساب والتسجيل</h5>
+                                        <span class="badge badge-primary">10 أسئلة</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-muted">أسئلة حول إنشاء الحساب وتسجيل الدخول وإدارة الملف الشخصي</p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editCategoryModal" data-category-id="account">
+                                                <i class="fas fa-edit"></i> تعديل
+                                            </button>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" data-target="#accountFaqList">
+                                                <i class="fas fa-chevron-down"></i> عرض الأسئلة
+                                            </button>
+                                        </div>
+                                        <div class="collapse mt-3" id="accountFaqList">
+                                            <ul class="list-group">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    كيف يمكنني إنشاء حساب جديد؟
+                                                    <button aria-label="زر" class="btn btn-sm btn-link" data-toggle="modal" data-target="#editFaqModal" data-faq-id="1">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    كيف يمكنني تغيير كلمة المرور الخاصة بي؟
+                                                    <button aria-label="زر" class="btn btn-sm btn-link" data-toggle="modal" data-target="#editFaqModal" data-faq-id="8">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Category 3 -->
+                            <div class="col-md-6">
+                                <div class="category-card">
+                                    <div class="card-title">
+                                        <h5><span class="category-color" style="background-color: #d1e7dd;"></span> الدعوات</h5>
+                                        <span class="badge badge-primary">12 أسئلة</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-muted">أسئلة حول إنشاء وإرسال وتخصيص الدعوات</p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editCategoryModal" data-category-id="invitations">
+                                                <i class="fas fa-edit"></i> تعديل
+                                            </button>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" data-target="#invitationsFaqList">
+                                                <i class="fas fa-chevron-down"></i> عرض الأسئلة
+                                            </button>
+                                        </div>
+                                        <div class="collapse mt-3" id="invitationsFaqList">
+                                            <ul class="list-group">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    كيف يمكنني إنشاء دعوة جديدة؟
+                                                    <button aria-label="زر" class="btn btn-sm btn-link" data-toggle="modal" data-target="#editFaqModal" data-faq-id="2">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    هل يمكنني تخصيص تصميم الدعوة؟
+                                                    <button aria-label="زر" class="btn btn-sm btn-link" data-toggle="modal" data-target="#editFaqModal" data-faq-id="9">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Category 4 -->
+                            <div class="col-md-6">
+                                <div class="category-card">
+                                    <div class="card-title">
+                                        <h5><span class="category-color" style="background-color: #f8d7da;"></span> إدارة الضيوف</h5>
+                                        <span class="badge badge-primary">8 أسئلة</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-muted">أسئلة حول إدارة قوائم الضيوف وتتبع الردود</p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editCategoryModal" data-category-id="guests">
+                                                <i class="fas fa-edit"></i> تعديل
+                                            </button>
+                                            <button aria-label="زر" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" data-target="#guestsFaqList">
+                                                <i class="fas fa-chevron-down"></i> عرض الأسئلة
+                                            </button>
+                                        </div>
+                                        <div class="collapse mt-3" id="guestsFaqList">
+                                            <ul class="list-group">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    كيف يمكنني تتبع ردود الضيوف؟
+                                                    <button aria-label="زر" class="btn btn-sm btn-link" data-toggle="modal" data-target="#editFaqModal" data-faq-id="3">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    هل يمكنني استيراد قائمة الضيوف من ملف Excel؟
+                                                    <button aria-label="زر" class="btn btn-sm btn-link" data-toggle="modal" data-target="#editFaqModal" data-faq-id="10">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Add New Category Button -->
+                            <div class="col-md-6">
+                                <div class="category-card text-center">
+                                    <button aria-label="زر" class="btn btn-outline-primary btn-lg w-100 h-100 py-4" data-toggle="modal" data-target="#addCategoryModal">
+                                        <i class="fas fa-plus-circle fa-2x mb-2"></i>
+                                        <div>إضافة فئة جديدة</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Tab -->
+                    <div class="tab-pane fade" id="analytics" role="tabpanel" aria-labelledby="analytics-tab">
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title mb-0">تحليلات الأسئلة الشائعة</h5>
+                                        <div class="btn-group">
+                                            <button aria-label="زر" type="button" class="btn btn-sm btn-outline-secondary active" data-range="week">أسبوع</button>
+                                            <button aria-label="زر" type="button" class="btn btn-sm btn-outline-secondary" data-range="month">شهر</button>
+                                            <button aria-label="زر" type="button" class="btn btn-sm btn-outline-secondary" data-range="year">سنة</button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="chart-container" style="position: relative; height:300px;">
+                                                    <canvas id="viewsChart"></canvas>
+                                                </div>
+                                                <h6 class="text-center mt-3">مشاهدات الأسئلة الشائعة</h6>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="chart-container" style="position: relative; height:300px;">
+                                                    <canvas id="categoryDistributionChart"></canvas>
+                                                </div>
+                                                <h6 class="text-center mt-3">توزيع الأسئلة حسب الفئة</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">أكثر الأسئلة مشاهدة</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>السؤال</th>
+                                                        <th>الفئة</th>
+                                                        <th>المشاهدات</th>
+                                                        <th>نسبة الفائدة</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>كيف يمكنني الاتصال بالدعم الفني؟</td>
+                                                        <td><span class="category-badge general">عام</span></td>
+                                                        <td>350</td>
+                                                        <td>97%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>كيف يمكنني إنشاء دعوة جديدة؟</td>
+                                                        <td><span class="category-badge invitations">الدعوات</span></td>
+                                                        <td>320</td>
+                                                        <td>98%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>كيف يمكنني إنشاء حساب جديد؟</td>
+                                                        <td><span class="category-badge account">الحساب والتسجيل</span></td>
+                                                        <td>245</td>
+                                                        <td>95%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>كيف يمكنني تتبع ردود الضيوف؟</td>
+                                                        <td><span class="category-badge guests">إدارة الضيوف</span></td>
+                                                        <td>180</td>
+                                                        <td>90%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>كيف يمكنني حل مشكلة عدم ظهور الصور في الدعوة؟</td>
+                                                        <td><span class="category-badge technical">مشاكل تقنية</span></td>
+                                                        <td>150</td>
+                                                        <td>85%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab -->
+                    <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">إعدادات عرض الأسئلة الشائعة</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="faqDisplaySettings">
+                                            <div class="form-group">
+                                                <label for="faqsPerPage">عدد الأسئلة في الصفحة الواحدة</label>
+                                                <select class="form-control" id="faqsPerPage">
+                                                    <option value="5">5</option>
+                                                    <option value="10" selected>10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="20">20</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="defaultSort">الترتيب الافتراضي</label>
+                                                <select class="form-control" id="defaultSort">
+                                                    <option value="newest" selected>الأحدث</option>
+                                                    <option value="oldest">الأقدم</option>
+                                                    <option value="popular">الأكثر مشاهدة</option>
+                                                    <option value="helpful">الأكثر فائدة</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="defaultView">طريقة العرض الافتراضية</label>
+                                                <select class="form-control" id="defaultView">
+                                                    <option value="list" selected>قائمة</option>
+                                                    <option value="categories">حسب الفئة</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="showHelpfulRating" checked>
+                                                    <label class="custom-control-label" for="showHelpfulRating">عرض نسبة الفائدة</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="showViewCount" checked>
+                                                    <label class="custom-control-label" for="showViewCount">عرض عدد المشاهدات</label>
+                                                </div>
+                                            </div>
+                                            <button aria-label="زر" type="submit" class="btn btn-primary">حفظ الإعدادات</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">إعدادات التفاعل</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="faqInteractionSettings">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="enableFeedback" checked>
+                                                    <label class="custom-control-label" for="enableFeedback">تمكين تقييم الفائدة</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="enableComments">
+                                                    <label class="custom-control-label" for="enableComments">تمكين التعليقات</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="enableSearch" checked>
+                                                    <label class="custom-control-label" for="enableSearch">تمكين البحث</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="enableRelatedFaqs" checked>
+                                                    <label class="custom-control-label" for="enableRelatedFaqs">عرض الأسئلة ذات الصلة</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="enableNotFoundForm" checked>
+                                                    <label class="custom-control-label" for="enableNotFoundForm">تمكين نموذج "لم تجد ما تبحث عنه؟"</label>
+                                                </div>
+                                            </div>
+                                            <button aria-label="زر" type="submit" class="btn btn-primary">حفظ الإعدادات</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">إعدادات متقدمة</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="faqAdvancedSettings">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="enableAutoPublish">
+                                                    <label class="custom-control-label" for="enableAutoPublish">نشر الأسئلة الجديدة تلقائياً</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="enableNotifications" checked>
+                                                    <label class="custom-control-label" for="enableNotifications">تمكين الإشعارات</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="enableAnalytics" checked>
+                                                    <label class="custom-control-label" for="enableAnalytics">تمكين التحليلات</label>
+                                                </div>
+                                            </div>
+                                            <button aria-label="زر" type="submit" class="btn btn-primary">حفظ الإعدادات</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Add FAQ Modal -->
+    <div class="modal fade" id="addFaqModal" tabindex="-1" aria-labelledby="addFaqModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addFaqModalLabel">إضافة سؤال شائع جديد</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addFaqForm">
+                        <div class="form-group">
+                            <label for="faqQuestion">السؤال</label>
+                            <input type="text" class="form-control" id="faqQuestion" placeholder="أدخل السؤال" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="faqAnswer">الإجابة</label>
+                            <textarea class="form-control rich-editor" id="faqAnswer" rows="5" placeholder="أدخل الإجابة" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="faqCategory">الفئة</label>
+                                <select class="form-control" id="faqCategory" required>
+                                    <option value="">-- اختر الفئة --</option>
+                                    <option value="general">عام</option>
+                                    <option value="account">الحساب والتسجيل</option>
+                                    <option value="invitations">الدعوات</option>
+                                    <option value="guests">إدارة الضيوف</option>
+                                    <option value="billing">الفواتير والاشتراكات</option>
+                                    <option value="technical">مشاكل تقنية</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="faqStatus">الحالة</label>
+                                <select class="form-control" id="faqStatus" required>
+                                    <option value="published">منشور</option>
+                                    <option value="draft">مسودة</option>
+                                    <option value="archived">مؤرشف</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="faqTags">الكلمات المفتاحية</label>
+                            <input type="text" class="form-control" id="faqTags" placeholder="أدخل الكلمات المفتاحية مفصولة بفواصل">
+                            <small class="form-text text-muted">مثال: حساب، تسجيل، كلمة المرور</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="faqRelated">الأسئلة ذات الصلة</label>
+                            <select class="form-control select2" id="faqRelated" multiple>
+                                <option value="1">كيف يمكنني إنشاء حساب جديد؟</option>
+                                <option value="2">كيف يمكنني إنشاء دعوة جديدة؟</option>
+                                <option value="3">كيف يمكنني تتبع ردود الضيوف؟</option>
+                                <option value="4">ما هي الباقات المتاحة وما الفرق بينها؟</option>
+                                <option value="5">كيف يمكنني حل مشكلة عدم ظهور الصور في الدعوة؟</option>
+                                <option value="6">كيف يمكنني الاتصال بالدعم الفني؟</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="faqFeatured">
+                                <label class="custom-control-label" for="faqFeatured">سؤال مميز</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-primary" id="saveFaqBtn">حفظ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit FAQ Modal -->
+    <div class="modal fade" id="editFaqModal" tabindex="-1" aria-labelledby="editFaqModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editFaqModalLabel">تعديل السؤال الشائع</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editFaqForm">
+                        <input type="hidden" id="editFaqId">
+                        <div class="form-group">
+                            <label for="editFaqQuestion">السؤال</label>
+                            <input type="text" class="form-control" id="editFaqQuestion" placeholder="أدخل السؤال" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editFaqAnswer">الإجابة</label>
+                            <textarea class="form-control rich-editor" id="editFaqAnswer" rows="5" placeholder="أدخل الإجابة" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="editFaqCategory">الفئة</label>
+                                <select class="form-control" id="editFaqCategory" required>
+                                    <option value="">-- اختر الفئة --</option>
+                                    <option value="general">عام</option>
+                                    <option value="account">الحساب والتسجيل</option>
+                                    <option value="invitations">الدعوات</option>
+                                    <option value="guests">إدارة الضيوف</option>
+                                    <option value="billing">الفواتير والاشتراكات</option>
+                                    <option value="technical">مشاكل تقنية</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="editFaqStatus">الحالة</label>
+                                <select class="form-control" id="editFaqStatus" required>
+                                    <option value="published">منشور</option>
+                                    <option value="draft">مسودة</option>
+                                    <option value="archived">مؤرشف</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="editFaqTags">الكلمات المفتاحية</label>
+                            <input type="text" class="form-control" id="editFaqTags" placeholder="أدخل الكلمات المفتاحية مفصولة بفواصل">
+                            <small class="form-text text-muted">مثال: حساب، تسجيل، كلمة المرور</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="editFaqRelated">الأسئلة ذات الصلة</label>
+                            <select class="form-control select2" id="editFaqRelated" multiple>
+                                <option value="1">كيف يمكنني إنشاء حساب جديد؟</option>
+                                <option value="2">كيف يمكنني إنشاء دعوة جديدة؟</option>
+                                <option value="3">كيف يمكنني تتبع ردود الضيوف؟</option>
+                                <option value="4">ما هي الباقات المتاحة وما الفرق بينها؟</option>
+                                <option value="5">كيف يمكنني حل مشكلة عدم ظهور الصور في الدعوة؟</option>
+                                <option value="6">كيف يمكنني الاتصال بالدعم الفني؟</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="editFaqFeatured">
+                                <label class="custom-control-label" for="editFaqFeatured">سؤال مميز</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>إحصائيات</label>
+                                <div class="d-flex">
+                                    <div class="mr-3">
+                                        <span class="faq-meta"><i class="fas fa-eye"></i> 245 مشاهدة</span>
+                                    </div>
+                                    <div>
+                                        <span class="faq-meta"><i class="fas fa-thumbs-up"></i> 95% مفيد</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>آخر تحديث</label>
+                                <div>
+                                    <span class="faq-meta">15/05/2025 10:30 ص</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-primary" id="updateFaqBtn">حفظ التغييرات</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete FAQ Modal -->
+    <div class="modal fade" id="deleteFaqModal" tabindex="-1" aria-labelledby="deleteFaqModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteFaqModalLabel">حذف السؤال الشائع</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>هل أنت متأكد من رغبتك في حذف هذا السؤال الشائع؟</p>
+                    <p class="text-danger">هذا الإجراء لا يمكن التراجع عنه.</p>
+                    <input type="hidden" id="deleteFaqId">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteFaqBtn">حذف</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCategoryModalLabel">إضافة فئة جديدة</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addCategoryForm">
+                        <div class="form-group">
+                            <label for="categoryName">اسم الفئة</label>
+                            <input type="text" class="form-control" id="categoryName" placeholder="أدخل اسم الفئة" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryDescription">وصف الفئة</label>
+                            <textarea class="form-control" id="categoryDescription" rows="3" placeholder="أدخل وصف الفئة"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryColor">لون الفئة</label>
+                            <input type="color" class="form-control" id="categoryColor" value="#e3f2fd">
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryIcon">أيقونة الفئة</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i id="iconPreview" class="fas fa-question-circle"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="categoryIcon" placeholder="fa-question-circle" value="fa-question-circle">
+                            </div>
+                            <small class="form-text text-muted">أدخل اسم الأيقونة من Font Awesome (مثال: fa-question-circle)</small>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="categoryVisible" checked>
+                                <label class="custom-control-label" for="categoryVisible">ظاهرة للمستخدمين</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-primary" id="saveCategoryBtn">حفظ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Category Modal -->
+    <div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editCategoryModalLabel">تعديل الفئة</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editCategoryForm">
+                        <input type="hidden" id="editCategoryId">
+                        <div class="form-group">
+                            <label for="editCategoryName">اسم الفئة</label>
+                            <input type="text" class="form-control" id="editCategoryName" placeholder="أدخل اسم الفئة" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editCategoryDescription">وصف الفئة</label>
+                            <textarea class="form-control" id="editCategoryDescription" rows="3" placeholder="أدخل وصف الفئة"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editCategoryColor">لون الفئة</label>
+                            <input type="color" class="form-control" id="editCategoryColor">
+                        </div>
+                        <div class="form-group">
+                            <label for="editCategoryIcon">أيقونة الفئة</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i id="editIconPreview" class="fas fa-question-circle"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="editCategoryIcon" placeholder="fa-question-circle">
+                            </div>
+                            <small class="form-text text-muted">أدخل اسم الأيقونة من Font Awesome (مثال: fa-question-circle)</small>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="editCategoryVisible">
+                                <label class="custom-control-label" for="editCategoryVisible">ظاهرة للمستخدمين</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>إحصائيات</label>
+                            <div class="d-flex">
+                                <div class="mr-3">
+                                    <span class="faq-meta"><i class="fas fa-question-circle"></i> 10 أسئلة</span>
+                                </div>
+                                <div>
+                                    <span class="faq-meta"><i class="fas fa-eye"></i> 245 مشاهدة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-danger mr-auto" id="deleteCategoryBtn">حذف الفئة</button>
+                    <button type="button" class="btn btn-primary" id="updateCategoryBtn">حفظ التغييرات</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Manage Categories Modal -->
+    <div class="modal fade" id="manageCategoriesModal" tabindex="-1" aria-labelledby="manageCategoriesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="manageCategoriesModalLabel">إدارة الفئات</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted">اسحب وأفلت لإعادة ترتيب الفئات. انقر على زر التعديل لتغيير تفاصيل الفئة.</p>
+                    <div class="categories-list">
+                        <!-- Category Item 1 -->
+                        <div class="faq-item-row" data-id="general">
+                            <div class="drag-handle mr-2">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                            <div class="faq-content">
+                                <h5 class="mb-1"><span class="category-color" style="background-color: #e3f2fd;"></span> عام</h5>
+                                <div class="d-flex align-items-center">
+                                    <span class="faq-meta mr-2"><i class="fas fa-question-circle"></i> 8 أسئلة</span>
+                                    <span class="faq-meta"><i class="fas fa-eye"></i> 350 مشاهدة</span>
+                                </div>
+                            </div>
+                            <div class="faq-actions">
+                                <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editCategoryModal" data-category-id="general">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Category Item 2 -->
+                        <div class="faq-item-row" data-id="account">
+                            <div class="drag-handle mr-2">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                            <div class="faq-content">
+                                <h5 class="mb-1"><span class="category-color" style="background-color: #fff3cd;"></span> الحساب والتسجيل</h5>
+                                <div class="d-flex align-items-center">
+                                    <span class="faq-meta mr-2"><i class="fas fa-question-circle"></i> 10 أسئلة</span>
+                                    <span class="faq-meta"><i class="fas fa-eye"></i> 245 مشاهدة</span>
+                                </div>
+                            </div>
+                            <div class="faq-actions">
+                                <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editCategoryModal" data-category-id="account">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Category Item 3 -->
+                        <div class="faq-item-row" data-id="invitations">
+                            <div class="drag-handle mr-2">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                            <div class="faq-content">
+                                <h5 class="mb-1"><span class="category-color" style="background-color: #d1e7dd;"></span> الدعوات</h5>
+                                <div class="d-flex align-items-center">
+                                    <span class="faq-meta mr-2"><i class="fas fa-question-circle"></i> 12 أسئلة</span>
+                                    <span class="faq-meta"><i class="fas fa-eye"></i> 320 مشاهدة</span>
+                                </div>
+                            </div>
+                            <div class="faq-actions">
+                                <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editCategoryModal" data-category-id="invitations">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Category Item 4 -->
+                        <div class="faq-item-row" data-id="guests">
+                            <div class="drag-handle mr-2">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                            <div class="faq-content">
+                                <h5 class="mb-1"><span class="category-color" style="background-color: #f8d7da;"></span> إدارة الضيوف</h5>
+                                <div class="d-flex align-items-center">
+                                    <span class="faq-meta mr-2"><i class="fas fa-question-circle"></i> 8 أسئلة</span>
+                                    <span class="faq-meta"><i class="fas fa-eye"></i> 180 مشاهدة</span>
+                                </div>
+                            </div>
+                            <div class="faq-actions">
+                                <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editCategoryModal" data-category-id="guests">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Category Item 5 -->
+                        <div class="faq-item-row" data-id="billing">
+                            <div class="drag-handle mr-2">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                            <div class="faq-content">
+                                <h5 class="mb-1"><span class="category-color" style="background-color: #d4edda;"></span> الفواتير والاشتراكات</h5>
+                                <div class="d-flex align-items-center">
+                                    <span class="faq-meta mr-2"><i class="fas fa-question-circle"></i> 6 أسئلة</span>
+                                    <span class="faq-meta"><i class="fas fa-eye"></i> 150 مشاهدة</span>
+                                </div>
+                            </div>
+                            <div class="faq-actions">
+                                <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editCategoryModal" data-category-id="billing">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Category Item 6 -->
+                        <div class="faq-item-row" data-id="technical">
+                            <div class="drag-handle mr-2">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                            <div class="faq-content">
+                                <h5 class="mb-1"><span class="category-color" style="background-color: #e2e3e5;"></span> مشاكل تقنية</h5>
+                                <div class="d-flex align-items-center">
+                                    <span class="faq-meta mr-2"><i class="fas fa-question-circle"></i> 4 أسئلة</span>
+                                    <span class="faq-meta"><i class="fas fa-eye"></i> 150 مشاهدة</span>
+                                </div>
+                            </div>
+                            <div class="faq-actions">
+                                <button aria-label="زر" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editCategoryModal" data-category-id="technical">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
+                    <button type="button" class="btn btn-primary" id="addCategoryBtn" data-toggle="modal" data-target="#addCategoryModal">
+                        <i class="fas fa-plus-circle"></i> إضافة فئة جديدة
+                    </button>
+                    <button type="button" class="btn btn-success" id="saveCategoriesOrderBtn">
+                        <i class="fas fa-save"></i> حفظ الترتيب
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI (for drag and drop) -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Summernote -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="../assets/js/scripts.js"></script>
+    <script src="../assets/js/dropdown.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Initialize Select2
+            $('.select2').select2({
+                dir: "rtl",
+                language: "ar"
+            });
+            
+            // Initialize Summernote
+            $('.rich-editor').summernote({
+                height: 150,
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough']],
+                    ['para', ['ul', 'ol']],
+                    ['insert', ['link']]
+                ],
+                placeholder: 'اكتب هنا...',
+                lang: 'ar-AR'
+            });
+            
+            // Initialize tooltips
+            $('[data-toggle="tooltip"]').tooltip();
+            
+            // Make FAQ items sortable
+            $(".faq-list").sortable({
+                handle: ".drag-handle",
+                update: function(event, ui) {
+                    // Here you would update the order in the database
+                    showSuccessMessage('تم تحديث ترتيب الأسئلة بنجاح');
+                }
+            });
+            
+            // Make categories sortable
+            $(".categories-list").sortable({
+                handle: ".drag-handle",
+                update: function(event, ui) {
+                    // Here you would update the order in the database
+                }
+            });
+            
+            // Handle category icon preview
+            $('#categoryIcon').on('input', function() {
+                var iconClass = $(this).val();
+                $('#iconPreview').attr('class', 'fas ' + iconClass);
+            });
+            
+            $('#editCategoryIcon').on('input', function() {
+                var iconClass = $(this).val();
+                $('#editIconPreview').attr('class', 'fas ' + iconClass);
+            });
+            
+            // Handle edit FAQ modal
+            $('#editFaqModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var faqId = button.data('faq-id');
+                var modal = $(this);
+                
+                // Here you would typically load FAQ details via AJAX
+                // For demo purposes, we'll use static data
+                
+                modal.find('#editFaqId').val(faqId);
+                
+                if (faqId == 1) {
+                    modal.find('#editFaqQuestion').val('كيف يمكنني إنشاء حساب جديد؟');
+                    modal.find('#editFaqAnswer').summernote('code', '<p>لإنشاء حساب جديد، اتبع الخطوات التالية:</p><ol><li>انقر على "تسجيل" في الصفحة الرئيسية</li><li>أدخل بريدك الإلكتروني واسمك وكلمة المرور</li><li>اقرأ وافق على شروط الاستخدام</li><li>انقر على "إنشاء حساب"</li><li>تحقق من بريدك الإلكتروني للتأكيد</li></ol>');
+                    modal.find('#editFaqCategory').val('account');
+                    modal.find('#editFaqStatus').val('published');
+                    modal.find('#editFaqTags').val('حساب، تسجيل، إنشاء حساب، كلمة المرور');
+                    modal.find('#editFaqFeatured').prop('checked', true);
+                } else if (faqId == 2) {
+                    modal.find('#editFaqQuestion').val('كيف يمكنني إنشاء دعوة جديدة؟');
+                    modal.find('#editFaqAnswer').summernote('code', '<p>لإنشاء دعوة جديدة، اتبع الخطوات التالية:</p><ol><li>انتقل إلى لوحة التحكم الخاصة بك</li><li>اضغط على "إنشاء دعوة" من القائمة الجانبية</li><li>اختر قالب الدعوة المناسب</li><li>أدخل تفاصيل المناسبة (العنوان، التاريخ، الوقت، المكان)</li><li>قم بتخصيص الدعوة حسب رغبتك</li><li>أضف قائمة الضيوف</li><li>اضغط على "حفظ وإرسال" لإرسال الدعوات</li></ol>');
+                    modal.find('#editFaqCategory').val('invitations');
+                    modal.find('#editFaqStatus').val('published');
+                    modal.find('#editFaqTags').val('دعوة، إنشاء دعوة، قالب، مناسبة');
+                    modal.find('#editFaqFeatured').prop('checked', true);
+                }
+                
+                // Initialize Select2 for related FAQs
+                modal.find('#editFaqRelated').val(['3', '4']).trigger('change');
+            });
+            
+            // Handle edit category modal
+            $('#editCategoryModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var categoryId = button.data('category-id');
+                var modal = $(this);
+                
+                // Here you would typically load category details via AJAX
+                // For demo purposes, we'll use static data
+                
+                modal.find('#editCategoryId').val(categoryId);
+                
+                if (categoryId == 'general') {
+                    modal.find('#editCategoryName').val('عام');
+                    modal.find('#editCategoryDescription').val('أسئلة عامة حول النظام والخدمات المقدمة');
+                    modal.find('#editCategoryColor').val('#e3f2fd');
+                    modal.find('#editCategoryIcon').val('fa-question-circle');
+                    modal.find('#editIconPreview').attr('class', 'fas fa-question-circle');
+                    modal.find('#editCategoryVisible').prop('checked', true);
+                } else if (categoryId == 'account') {
+                    modal.find('#editCategoryName').val('الحساب والتسجيل');
+                    modal.find('#editCategoryDescription').val('أسئلة حول إنشاء الحساب وتسجيل الدخول وإدارة الملف الشخصي');
+                    modal.find('#editCategoryColor').val('#fff3cd');
+                    modal.find('#editCategoryIcon').val('fa-user-circle');
+                    modal.find('#editIconPreview').attr('class', 'fas fa-user-circle');
+                    modal.find('#editCategoryVisible').prop('checked', true);
+                }
+            });
+            
+            // Handle save FAQ button
+            $('#saveFaqBtn').on('click', function() {
+                // Here you would handle the submission via AJAX
+                $('#addFaqModal').modal('hide');
+                showSuccessMessage('تم إضافة السؤال الشائع بنجاح!');
+                // Optionally refresh the FAQs list
+            });
+            
+            // Handle update FAQ button
+            $('#updateFaqBtn').on('click', function() {
+                // Here you would handle the update via AJAX
+                $('#editFaqModal').modal('hide');
+                showSuccessMessage('تم تحديث السؤال الشائع بنجاح!');
+                // Optionally refresh the FAQs list
+            });
+            
+            // Handle delete FAQ button
+            $('#confirmDeleteFaqBtn').on('click', function() {
+                // Here you would handle the deletion via AJAX
+                $('#deleteFaqModal').modal('hide');
+                showSuccessMessage('تم حذف السؤال الشائع بنجاح!');
+                // Optionally refresh the FAQs list
+            });
+            
+            // Handle save category button
+            $('#saveCategoryBtn').on('click', function() {
+                // Here you would handle the submission via AJAX
+                $('#addCategoryModal').modal('hide');
+                showSuccessMessage('تم إضافة الفئة بنجاح!');
+                // Optionally refresh the categories list
+            });
+            
+            // Handle update category button
+            $('#updateCategoryBtn').on('click', function() {
+                // Here you would handle the update via AJAX
+                $('#editCategoryModal').modal('hide');
+                showSuccessMessage('تم تحديث الفئة بنجاح!');
+                // Optionally refresh the categories list
+            });
+            
+            // Handle delete category button
+            $('#deleteCategoryBtn').on('click', function() {
+                if (confirm('هل أنت متأكد من رغبتك في حذف هذه الفئة؟ سيتم نقل جميع الأسئلة الشائعة المرتبطة بها إلى الفئة العامة.')) {
+                    // Here you would handle the deletion via AJAX
+                    $('#editCategoryModal').modal('hide');
+                    showSuccessMessage('تم حذف الفئة بنجاح!');
+                    // Optionally refresh the categories list
+                }
+            });
+            
+            // Handle save categories order button
+            $('#saveCategoriesOrderBtn').on('click', function() {
+                // Here you would handle saving the order via AJAX
+                $('#manageCategoriesModal').modal('hide');
+                showSuccessMessage('تم حفظ ترتيب الفئات بنجاح!');
+            });
+            
+            // Handle search button
+            $('#searchBtn').on('click', function() {
+                var searchTerm = $('#faqSearch').val();
+                var categoryFilter = $('#categoryFilter').val();
+                var statusFilter = $('#statusFilter').val();
+                var sortFilter = $('#sortFilter').val();
+                
+                // Here you would handle the search via AJAX
+                showSuccessMessage('جاري البحث...');
+                // Optionally refresh the FAQs list with search results
+            });
+            
+            // Handle export buttons
+            $('#exportPDF').on('click', function(e) {
+                e.preventDefault();
+                showSuccessMessage('جاري تصدير الأسئلة الشائعة بصيغة PDF...');
+                // Here you would handle the export via AJAX
+            });
+            
+            $('#exportExcel').on('click', function(e) {
+                e.preventDefault();
+                showSuccessMessage('جاري تصدير الأسئلة الشائعة بصيغة Excel...');
+                // Here you would handle the export via AJAX
+            });
+            
+            $('#exportJSON').on('click', function(e) {
+                e.preventDefault();
+                showSuccessMessage('جاري تصدير الأسئلة الشائعة بصيغة JSON...');
+                // Here you would handle the export via AJAX
+            });
+            
+            // Handle settings forms
+            $('#faqDisplaySettings, #faqInteractionSettings, #faqAdvancedSettings').on('submit', function(e) {
+                e.preventDefault();
+                showSuccessMessage('تم حفظ الإعدادات بنجاح!');
+            });
+            
+            // Initialize charts
+            initializeCharts();
+        });
+        
+        // Initialize charts
+        function initializeCharts() {
+            // Views Chart
+            var viewsCtx = document.getElementById('viewsChart').getContext('2d');
+            var viewsChart = new Chart(viewsCtx, {
+                type: 'line',
+                data: {
+                    labels: ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة'],
+                    datasets: [{
+                        label: 'عدد المشاهدات',
+                        data: [65, 59, 80, 81, 56, 55, 40],
+                        fill: true,
+                        backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                        borderColor: 'rgba(0, 123, 255, 1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            
+            // Category Distribution Chart
+            var categoryCtx = document.getElementById('categoryDistributionChart').getContext('2d');
+            var categoryChart = new Chart(categoryCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['عام', 'الحساب والتسجيل', 'الدعوات', 'إدارة الضيوف', 'الفواتير والاشتراكات', 'مشاكل تقنية'],
+                    datasets: [{
+                        data: [8, 10, 12, 8, 6, 4],
+                        backgroundColor: [
+                            '#e3f2fd',
+                            '#fff3cd',
+                            '#d1e7dd',
+                            '#f8d7da',
+                            '#d4edda',
+                            '#e2e3e5'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+        
+        // Show success message
+        function showSuccessMessage(message) {
+            var alert = $('<div class="alert alert-success alert-dismissible fade show" role="alert">' +
+                         message +
+                         '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                         '<span aria-hidden="true">&times;</span>' +
+                         '</button>' +
+                         '</div>');
+            
+            $('.container-fluid').prepend(alert);
+            
+            // Auto dismiss after 3 seconds
+            setTimeout(function() {
+                alert.alert('close');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

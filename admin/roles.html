@@ -1,0 +1,432 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_إدارة_الأد" data-translate-key-titlebase="pageTitleSuffixAdmin">لوحة تحكم المدير | إدارة الأدوار والصلاحيات</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="users.html"><i class="nav-icon fas fa-users"></i><p>إدارة المستخدمين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="supervisors.html"><i class="nav-icon fas fa-user-shield"></i><p>إدارة المشرفين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>إدارة المناسبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>إدارة الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guests.html"><i class="nav-icon fas fa-user-friends"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="orders.html"><i class="nav-icon fas fa-file-invoice-dollar"></i><p>إدارة الطلبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="packages.html"><i class="nav-icon fas fa-box-open"></i><p>إدارة الباقات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="reports.html"><i class="nav-icon fas fa-chart-line"></i><p>التقارير والإحصائيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="content_management.html"><i class="nav-icon fas fa-file-alt"></i><p>إدارة المحتوى</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="customers.html"><i class="nav-icon fas fa-user-tie"></i><p>إدارة العملاء</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="support.html"><i class="nav-icon fas fa-life-ring"></i><p>الدعم الفني</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="roles.html"><i class="nav-icon fas fa-user-tag"></i><p>إدارة الأدوار والصلاحيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="files.html"><i class="nav-icon fas fa-folder-open"></i><p>إدارة الملفات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="integrations.html"><i class="nav-icon fas fa-cogs"></i><p>التكاملات الخارجية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="backup.html"><i class="nav-icon fas fa-database"></i><p>النسخ الاحتياطي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="tasks.html"><i class="nav-icon fas fa-tasks"></i><p>جدولة المهام</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="settings.html"><i class="nav-icon fas fa-cog"></i><p>الإعدادات العامة</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="roles.html"><i class="nav-icon fas fa-user-lock"></i>إدارة الأدوار والصلاحيات</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1>إدارة الأدوار والصلاحيات</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="card">
+<div class="card-header">
+<div class="d-flex justify-content-between align-items-center">
+<h3 class="card-title mb-0">قائمة الأدوار</h3>
+<button aria-label="زر" class="btn btn-primary btn-sm" data-target="#createRoleModal" data-toggle="modal" type="button">
+<i class="fas fa-plus mr-1"></i> إضافة دور جديد
+                </button>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-10">
+<div class="form-group">
+<input class="form-control form-control-sm" placeholder="بحث باسم الدور..." type="text">
+</div>
+</div>
+<div class="col-md-2">
+<button aria-label="زر" class="btn btn-sm btn-default btn-block" type="button">بحث</button>
+</div>
+</div>
+</div>
+<div class="card-body">
+<table class="table table-bordered table-striped" id="rolesTable">
+<thead>
+<tr>
+<th><input id="selectAllRoles" type="checkbox"></th>
+<th>اسم الدور</th>
+<th>الوصف</th>
+<th>عدد المستخدمين</th>
+<th>الصلاحيات الرئيسية</th>
+<th>إجراءات</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><input type="checkbox"></td>
+<td>مدير النظام</td>
+<td>صلاحيات كاملة على النظام</td>
+<td>1</td>
+<td><span class="badge badge-danger">الكل</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-warning" data-target="#editRoleModal" data-toggle="modal" title="تعديل الصلاحيات"><i class="fas fa-edit"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-secondary disabled" disabled="" title="لا يمكن حذف هذا الدور"><i class="fas fa-trash"></i></button>
+</td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>مشرف دخول</td>
+<td>مسؤول عن تسجيل حضور الضيوف في المناسبات</td>
+<td>5</td>
+<td><span class="badge badge-info">محدودة</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-warning" data-target="#editRoleModal" data-toggle="modal" title="تعديل الصلاحيات"><i class="fas fa-edit"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-danger" title="حذف الدور"><i class="fas fa-trash"></i></button>
+</td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>مستخدم داعي</td>
+<td>يمكنه إنشاء وإدارة مناسباته ودعواته</td>
+<td>150</td>
+<td><span class="badge badge-primary">أساسية</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-warning" data-target="#editRoleModal" data-toggle="modal" title="تعديل الصلاحيات"><i class="fas fa-edit"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-danger" title="حذف الدور"><i class="fas fa-trash"></i></button>
+</td>
+</tr>
+<!-- Add more role rows here -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Create/Edit Role Modal -->
+<div aria-hidden="true" aria-labelledby="createRoleModalLabel" class="modal fade" id="createRoleModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="createRoleModalLabel">إضافة دور جديد</h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<form id="createRoleForm">
+<div class="modal-body">
+<div class="form-group">
+<label for="roleName">اسم الدور</label>
+<input class="form-control" id="roleName" placeholder="مثال: محرر محتوى" required="" type="text">
+</div>
+<div class="form-group">
+<label for="roleDescription">وصف الدور</label>
+<textarea class="form-control" id="roleDescription" placeholder="وصف موجز لمسؤوليات هذا الدور" rows="2"></textarea>
+</div>
+<hr>
+<h5>الصلاحيات:</h5>
+<ul class="permissions-list">
+<li>
+<div class="module-name">إدارة المستخدمين</div>
+<div class="permission-item custom-control custom-checkbox">
+<input class="custom-control-input" id="perm_users_view" type="checkbox">
+<label class="custom-control-label" for="perm_users_view">عرض المستخدمين</label>
+</div>
+<div class="permission-item custom-control custom-checkbox">
+<input class="custom-control-input" id="perm_users_create" type="checkbox">
+<label class="custom-control-label" for="perm_users_create">إنشاء مستخدمين</label>
+</div>
+<div class="permission-item custom-control custom-checkbox">
+<input class="custom-control-input" id="perm_users_edit" type="checkbox">
+<label class="custom-control-label" for="perm_users_edit">تعديل المستخدمين</label>
+</div>
+<div class="permission-item custom-control custom-checkbox">
+<input class="custom-control-input" id="perm_users_delete" type="checkbox">
+<label class="custom-control-label" for="perm_users_delete">حذف المستخدمين</label>
+</div>
+</li>
+<li>
+<div class="module-name">إدارة المناسبات</div>
+<div class="permission-item custom-control custom-checkbox">
+<input class="custom-control-input" id="perm_events_view" type="checkbox">
+<label class="custom-control-label" for="perm_events_view">عرض المناسبات</label>
+</div>
+<div class="permission-item custom-control custom-checkbox">
+<input class="custom-control-input" id="perm_events_manage_own" type="checkbox">
+<label class="custom-control-label" for="perm_events_manage_own">إدارة مناسباته الخاصة</label>
+</div>
+<div class="permission-item custom-control custom-checkbox">
+<input class="custom-control-input" id="perm_events_manage_all" type="checkbox">
+<label class="custom-control-label" for="perm_events_manage_all">إدارة جميع المناسبات</label>
+</div>
+</li>
+<!-- Add more modules and permissions here -->
+<li>
+<div class="module-name">إدارة المحتوى</div>
+<div class="permission-item custom-control custom-checkbox">
+<input class="custom-control-input" id="perm_content_manage" type="checkbox">
+<label class="custom-control-label" for="perm_content_manage">إدارة صفحات المحتوى</label>
+</div>
+</li>
+</ul>
+</div>
+<div class="modal-footer">
+<button aria-label="زر" class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+<button aria-label="زر" class="btn btn-primary" type="submit">حفظ الدور</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Edit Role Modal (Similar to Create, pre-filled) -->
+<div aria-hidden="true" aria-labelledby="editRoleModalLabel" class="modal fade" id="editRoleModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="editRoleModalLabel">تعديل صلاحيات الدور</h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<form id="editRoleForm">
+<div class="modal-body">
+<input id="editRoleId" type="hidden">
+<div class="form-group">
+<label for="editRoleNameDisplay">اسم الدور</label>
+<input class="form-control" id="editRoleNameDisplay" readonly="" type="text">
+</div>
+<div class="form-group">
+<label for="editRoleDescription">وصف الدور</label>
+<textarea class="form-control" id="editRoleDescription" rows="2"></textarea>
+</div>
+<hr>
+<h5>الصلاحيات:</h5>
+<ul class="permissions-list">
+<li>
+<div class="module-name">إدارة المستخدمين</div>
+<div class="permission-item custom-control custom-checkbox">
+<input class="custom-control-input" id="edit_perm_users_view" type="checkbox">
+<label class="custom-control-label" for="edit_perm_users_view">عرض المستخدمين</label>
+</div>
+<div class="permission-item custom-control custom-checkbox">
+<input class="custom-control-input" id="edit_perm_users_create" type="checkbox">
+<label class="custom-control-label" for="edit_perm_users_create">إنشاء مستخدمين</label>
+</div>
+</li>
+<!-- ... (Repeat for all permissions as in create modal, but with different IDs) ... -->
+</ul>
+</div>
+<div class="modal-footer">
+<button aria-label="زر" class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+<button aria-label="زر" class="btn btn-primary" type="submit">حفظ التعديلات</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Main Footer -->
+<footer class="main-footer">
+<div class="float-right d-none d-sm-inline">كل الحقوق محفوظة.</div>
+<strong>حقوق النشر © 2024-2025 <a aria-label="رابط" href="#">اسم الشركة</a>.</strong>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- Select2 -->
+<script src="../assets/js/scripts.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/js/scripts.js"></script>
+<!-- Custom JS -->
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2({
+      theme: "bootstrap4",
+      dropdownParent: $(".modal") // Fix for select2 search in modal
+    });
+
+    $("#rolesTable").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": [
+        { extend: "copy", text: "نسخ" },
+        { extend: "csv", text: "CSV" },
+        { extend: "excel", text: "إكسل" },
+        { extend: "pdf", text: "PDF" },
+        { extend: "print", text: "طباعة" },
+        { extend: "colvis", text: "إظهار الأعمدة" }
+      ],
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json"
+      }
+    }).buttons().container().appendTo("#rolesTable_wrapper .col-md-6:eq(0)");
+
+    // Select all checkbox
+    $("#selectAllRoles").on("click", function(){
+      var rows = $("#rolesTable").DataTable().rows({ "search": "applied" }).nodes();
+      $("input[type=\"checkbox\"]", rows).prop("checked", this.checked);
+    });
+
+    $("#rolesTable tbody").on("change", "input[type=\"checkbox\"]", function(){
+      if(!this.checked){
+        var el = $("#selectAllRoles").get(0);
+        if(el && el.checked && ("indeterminate" in el)){
+          el.indeterminate = true;
+        }
+      }
+    });
+
+    // Populate edit modal (example - replace with actual data retrieval and population)
+    $("#editRoleModal").on("show.bs.modal", function (event) {
+      var button = $(event.relatedTarget); 
+      var roleName = button.closest("tr").find("td:eq(1)").text(); // Example: Get role name from table
+      var roleDescription = button.closest("tr").find("td:eq(2)").text(); // Example
+      var modal = $(this);
+      modal.find("#editRoleId").val("someRoleId"); // Replace with actual ID
+      modal.find("#editRoleNameDisplay").val(roleName);
+      modal.find("#editRoleDescription").val(roleDescription);
+      // TODO: Populate checkboxes based on actual permissions for this role
+      // For example: modal.find("#edit_perm_users_view").prop("checked", true);
+    });
+
+  });
+
+  // Language switcher logic
+  document.addEventListener("DOMContentLoaded", function() {
+    const langSwitcherBtn = document.getElementById("lang-switcher-btn");
+    const htmlEl = document.documentElement;
+    if (langSwitcherBtn) {
+      langSwitcherBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        const currentLang = htmlEl.getAttribute("lang") || "ar";
+        const newLang = currentLang === "ar" ? "en" : "ar";
+        htmlEl.setAttribute("lang", newLang);
+        htmlEl.setAttribute("dir", newLang === "ar" ? "rtl" : "ltr");
+        langSwitcherBtn.textContent = newLang === "ar" ? "EN" : "ع";
+        if (newLang === "ar") {
+            document.title = "لوحة تحكم المدير | إدارة الأدوار والصلاحيات";
+            document.querySelector(".content-header h1").textContent = "إدارة الأدوار والصلاحيات";
+        } else {
+            document.title = "Admin Dashboard | Roles & Permissions Management";
+            document.querySelector(".content-header h1").textContent = "Roles & Permissions Management";
+        }
+      });
+    }
+  });
+</script>
+</main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

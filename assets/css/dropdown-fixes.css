@@ -1,0 +1,270 @@
+/* 
+ * Dropdown Menu Fixes
+ * ملف CSS لتوحيد وتصحيح القوائم المنسدلة في جميع الصفحات
+ */
+
+/* إصلاح عام للقوائم المنسدلة */
+.dropdown-menu {
+    position: absolute;
+    right: 0 !important;
+    left: auto !important;
+    text-align: right !important;
+    min-width: 200px;
+    padding: 10px 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    z-index: 1000;
+}
+
+/* إصلاح عناصر القوائم المنسدلة */
+.dropdown-item, 
+.dropdown-menu a,
+.profile-dropdown__item {
+    display: block;
+    width: 100%;
+    padding: 8px 15px;
+    clear: both;
+    font-weight: 400;
+    color: #333;
+    text-align: right;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-item:hover, 
+.dropdown-menu a:hover,
+.profile-dropdown__item:hover {
+    background-color: #f8f9fa;
+    color: #16181b;
+    text-decoration: none;
+}
+
+/* إصلاح أيقونات القوائم المنسدلة */
+.dropdown-item i, 
+.dropdown-menu a i,
+.profile-dropdown__item i {
+    margin-left: 10px !important;
+    margin-right: 0 !important;
+}
+
+/* إصلاح رأس القوائم المنسدلة */
+.dropdown-header,
+.profile-dropdown__header {
+    display: block;
+    padding: 8px 15px;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    color: #6c757d;
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* إصلاح فواصل القوائم المنسدلة */
+.dropdown-divider {
+    height: 0;
+    margin: 8px 0;
+    overflow: hidden;
+    border-top: 1px solid #e9ecef;
+}
+
+/* إصلاح قائمة الملف الشخصي */
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-dropdown__toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-dropdown__toggle img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-dropdown__menu {
+    position: absolute;
+    left: 0 !important;
+    right: auto !important;
+    top: 100%;
+    z-index: 1000;
+    display: none;
+    min-width: 240px;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+
+.profile-dropdown__menu.show {
+    display: block;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.user-profile img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.user-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.user-email {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+/* إصلاح القوائم المنسدلة في الشريط الجانبي */
+.sidebar__nav-item .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    padding-right: 15px;
+}
+
+.sidebar__nav-item .dropdown-item {
+    padding: 8px 30px 8px 15px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.sidebar__nav-item .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* إصلاح القوائم المنسدلة في الهيدر */
+.header__actions .dropdown-menu {
+    left: 0 !important;
+    right: auto !important;
+}
+
+/* إصلاح القوائم المنسدلة للأجهزة المحمولة */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+    
+    .profile-dropdown__menu {
+        width: 100%;
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0 !important;
+        right: 0 !important;
+        border-radius: 10px 10px 0 0;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+}
+
+/* إصلاح القوائم المنسدلة متعددة المستويات */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    right: 100% !important;
+    left: auto !important;
+    margin-top: -6px;
+    margin-right: -1px;
+    border-radius: 4px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu > a:after {
+    display: block;
+    content: " ";
+    float: left;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 5px 5px 0;
+    border-right-color: #333;
+    margin-top: 5px;
+    margin-left: -10px;
+}
+
+.dropdown-submenu:hover > a:after {
+    border-right-color: #555;
+}
+
+/* إصلاح القوائم المنسدلة في الجداول */
+.table-actions .dropdown-menu {
+    min-width: 150px;
+}
+
+.table-actions .dropdown-item {
+    font-size: 0.875rem;
+    padding: 5px 15px;
+}
+
+/* إصلاح القوائم المنسدلة في النماذج */
+.form-group .dropdown-menu {
+    width: 100%;
+}
+
+/* إصلاح القوائم المنسدلة في أزرار الإجراءات */
+.action-buttons .dropdown-menu {
+    min-width: 180px;
+}
+
+/* إصلاح القوائم المنسدلة في الفلاتر */
+.filter-dropdown .dropdown-menu {
+    padding: 15px;
+    min-width: 250px;
+}
+
+.filter-dropdown .form-group {
+    margin-bottom: 10px;
+}
+
+/* إصلاح القوائم المنسدلة في البحث */
+.search-dropdown .dropdown-menu {
+    width: 300px;
+    padding: 15px;
+}
+
+.search-dropdown .form-group {
+    margin-bottom: 0;
+}

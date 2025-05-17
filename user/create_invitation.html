@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title data-translate-key-suffix="pageTitleSuffix_إنشاء_دعوة" data-translate-key-titlebase="pageTitleBase_لوحة_تحكم_">لوحة تحكم المستخدم | إنشاء دعوة جديدة</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/responsive.css" rel="stylesheet"/>
+    <link href="../assets/css/accessibility.css" rel="stylesheet"/>
+    <link href="../assets/css/bem.css" rel="stylesheet"/>
+    <link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+    <link href="../assets/css/unified-design.css" rel="stylesheet"/>
+    <link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+    <style>
+        .event-type-selection {
+            margin-bottom: 30px;
+        }
+        .event-type-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .event-type-card {
+            flex: 1 0 200px;
+            max-width: 250px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .event-type-card:hover {
+            border-color: #007bff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .event-type-card.selected {
+            border-color: #28a745;
+            background-color: rgba(40, 167, 69, 0.1);
+        }
+        .event-type-card.selected:after {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #28a745;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        .event-type-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .event-type-card.selected .event-type-icon {
+            color: #28a745;
+        }
+        .event-type-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .event-type-description {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        .form-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .form-steps:before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e9ecef;
+            z-index: 1;
+        }
+        .step {
+            position: relative;
+            z-index: 2;
+            background: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .step.active {
+            border-color: #007bff;
+            background-color: #007bff;
+            color: white;
+        }
+        .step.completed {
+            border-color: #28a745;
+            background-color: #28a745;
+            color: white;
+        }
+        .step-label {
+            position: absolute;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-size: 0.85rem;
+        }
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+        .hidden {
+            display: none;
+        }
+        .form-section {
+            display: none;
+        }
+        .form-section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/logo.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-home"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="create_invitation.html"><i class="nav-icon fas fa-plus-circle"></i><p>إنشاء دعوة جديدة</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="my_events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>مناسباتي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="my_invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>دعواتي المرسلة</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guest_management.html"><i class="nav-icon fas fa-users-cog"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="templates.html"><i class="nav-icon fas fa-palette"></i><p>قوالب الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="responses.html"><i class="nav-icon fas fa-reply-all"></i><p>تتبع الردود</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="profile.html"><i class="nav-icon fas fa-user-edit"></i><p>الملف الشخصي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="subscription.html"><i class="nav-icon fas fa-credit-card"></i><p>الباقة والاشتراك</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="create_invitation.html"><i class="nav-icon fas fa-plus-circle"></i>إنشاء دعوة</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1><i class="fas fa-calendar-plus mr-2"></i>إنشاء دعوة / مناسبة جديدة</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="card card-primary card-outline">
+<div class="card-header">
+<h3 class="card-title"><i class="fas fa-info-circle mr-1"></i> تفاصيل المناسبة والدعوة</h3>
+</div>
+<div class="card-body">
+    <!-- Form Steps Indicator -->
+    <div class="form-steps">
+        <div class="step active" id="step1">
+            1
+            <div class="step-label">اختيار نوع المناسبة</div>
+        </div>
+        <div class="step" id="step2">
+            2
+            <div class="step-label">تفاصيل المناسبة</div>
+        </div>
+        <div class="step" id="step3">
+            3
+            <div class="step-label">تفاصيل الدعوة</div>
+        </div>
+        <div class="step" id="step4">
+            4
+            <div class="step-label">خيارات إضافية</div>
+        </div>
+    </div>
+
+    <form id="create-event-form">
+        <!-- Step 1: Event Type Selection -->
+        <div class="form-section active" id="section1">
+            <h5 class="mt-2 mb-3 text-primary">اختيار نوع المناسبة</h5>
+            <p class="text-muted">الرجاء اختيار نوع المناسبة التي ترغب في إنشاء دعوة لها. سيتم تخصيص النموذج بناءً على اختيارك.</p>
+            
+            <div class="event-type-selection">
+                <div class="event-type-cards">
+                    <div class="event-type-card" data-event-type="wedding-women">
+                        <div class="event-type-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <div class="event-type-title">حفل زفاف نساء</div>
+                        <div class="event-type-description">دعوة لحفل زفاف خاص بالنساء</div>
+                    </div>
+                    
+                    <div class="event-type-card" data-event-type="wedding-men">
+                        <div class="event-type-icon">
+                            <i class="fas fa-male"></i>
+                        </div>
+                        <div class="event-type-title">حفل زفاف رجال</div>
+                        <div class="event-type-description">دعوة لحفل زفاف خاص بالرجال</div>
+                    </div>
+                    
+                    <div class="event-type-card" data-event-type="graduation">
+                        <div class="event-type-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="event-type-title">حفل تخرج</div>
+                        <div class="event-type-description">دعوة لحفل تخرج أو تكريم</div>
+                    </div>
+                    
+                    <div class="event-type-card" data-event-type="launch">
+                        <div class="event-type-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="event-type-title">حفل إطلاق منتج</div>
+                        <div class="event-type-description">دعوة لحفل إطلاق منتج أو خدمة</div>
+                    </div>
+                    
+                    <div class="event-type-card" data-event-type="meeting">
+                        <div class="event-type-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="event-type-title">اجتماعات</div>
+                        <div class="event-type-description">دعوة لاجتماع عمل أو مناقشة</div>
+                    </div>
+                    
+                    <div class="event-type-card" data-event-type="seminar">
+                        <div class="event-type-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="event-type-title">الندوات</div>
+                        <div class="event-type-description">دعوة لندوة أو ورشة عمل</div>
+                    </div>
+                    
+                    <div class="event-type-card" data-event-type="opening">
+                        <div class="event-type-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="event-type-title">افتتاح مقر</div>
+                        <div class="event-type-description">دعوة لافتتاح مقر أو فرع جديد</div>
+                    </div>
+                </div>
+                <input type="hidden" id="selected-event-type" name="event_type" required>
+            </div>
+        </div>
+
+        <!-- Step 2: Event Details (Dynamic based on selection) -->
+        <div class="form-section" id="section2">
+            <h5 class="mt-2 mb-3 text-primary">تفاصيل المناسبة</h5>
+            <div id="event-details-container">
+                <!-- Dynamic content will be loaded here based on event type selection -->
+            </div>
+        </div>
+
+        <!-- Step 3: Invitation Details -->
+        <div class="form-section" id="section3">
+            <h5 class="mt-2 mb-3 text-primary">تفاصيل الدعوة</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="invitationTemplate">اختيار قالب الدعوة</label>
+                        <select class="form-control" id="invitationTemplate" name="invitation_template">
+                            <option value="formal">رسمي</option>
+                            <option value="modern">عصري</option>
+                            <option value="simple">بسيط</option>
+                            <option value="custom">تصميم مخصص (قد يتطلب ترقية)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="invitationColor">لون الدعوة الرئيسي</label>
+                        <input type="color" class="form-control" id="invitationColor" name="invitation_color" value="#4CAF50">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="invitationMessage">نص رسالة الدعوة</label>
+                <textarea class="form-control" id="invitationMessage" name="invitation_message" placeholder="اكتب نص دعوتك هنا..." rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="invitationImage">صورة الدعوة (اختياري)</label>
+                <input type="file" class="form-control-file" id="invitationImage" name="invitation_image">
+                <small class="form-text text-muted">يمكنك إضافة صورة خاصة للدعوة. الحد الأقصى للحجم: 5 ميجابايت.</small>
+            </div>
+        </div>
+
+        <!-- Step 4: Additional Options -->
+        <div class="form-section" id="section4">
+            <h5 class="mt-2 mb-3 text-primary">خيارات إضافية</h5>
+            <div class="form-group">
+                <div class="custom-control custom-switch">
+                    <input checked="" class="custom-control-input" id="enableRsvp" name="enable_rsvp" type="checkbox">
+                    <label class="custom-control-label" for="enableRsvp">السماح للضيوف بتأكيد الحضور (RSVP)</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-switch">
+                    <input class="custom-control-input" id="enableGuestbook" name="enable_guestbook" type="checkbox">
+                    <label class="custom-control-label" for="enableGuestbook">تفعيل صفحة التهنئة/سجل الزوار</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-switch">
+                    <input class="custom-control-input" id="enableLocationMap" name="enable_location_map" type="checkbox">
+                    <label class="custom-control-label" for="enableLocationMap">عرض خريطة الموقع في الدعوة</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-switch">
+                    <input class="custom-control-input" id="enableCountdown" name="enable_countdown" type="checkbox">
+                    <label class="custom-control-label" for="enableCountdown">عرض عداد تنازلي للمناسبة</label>
+                </div>
+            </div>
+            
+            <h5 class="mt-4 mb-3 text-primary">إعدادات التذكيرات والإشعارات</h5>
+            <div class="form-group">
+                <label for="scheduleReminder">جدولة تذكير للمدعوين</label>
+                <input class="form-control" id="scheduleReminder" name="schedule_reminder" type="datetime-local">
+                <div class="form-check mt-1">
+                    <input class="form-check-input" id="enableReminder" name="enable_reminder" type="checkbox">
+                    <label class="form-check-label" for="enableReminder">تفعيل التذكير</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="thankYouMessageTime">إرسال رسالة شكر بعد الحدث</label>
+                <input class="form-control" id="thankYouMessageTime" name="thank_you_message_time" type="datetime-local">
+                <div class="form-check mt-1">
+                    <input class="form-check-input" id="enableThankYou" name="enable_thank_you" type="checkbox">
+                    <label class="form-check-label" for="enableThankYou">تفعيل رسالة الشكر</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Navigation -->
+        <div class="form-navigation">
+            <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">
+                <i class="fas fa-arrow-right mr-1"></i> السابق
+            </button>
+            <button type="button" class="btn btn-primary" id="nextBtn">
+                التالي <i class="fas fa-arrow-left ml-1"></i>
+            </button>
+            <button type="button" class="btn btn-success" id="submitBtn" style="display: none;">
+                <i class="fas fa-save mr-1"></i> حفظ والانتقال لإضافة الضيوف
+            </button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Logout Modal -->
+</div></main>
+</div>
+
+<!-- Templates for dynamic form fields -->
+<div id="templates" style="display: none;">
+    <!-- Wedding Women Template -->
+    <div id="template-wedding-women">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="event_title">عنوان المناسبة (أسماء عائلات العروسين)</label>
+                    <input type="text" class="form-control" id="event_title" name="event_title" placeholder="مثال: حفل زفاف آل ... وآل ..." required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="event_date">تاريخ المناسبة</label>
+                    <input type="date" class="form-control" id="event_date" name="event_date" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="event_time">وقت المناسبة</label>
+                    <input type="time" class="form-control" id="event_time" name="event_time" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="groom_name">اسم العريس</label>
+                    <input type="text" class="form-control" id="groom_name" name="groom_name" placeholder="اسم العريس" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="bride_name">اسم العروسة</label>
+                    <input type="text" class="form-control" id="bride_name" name="bride_name" placeholder="اسم العروسة" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="inviter_1">الداعي الأول</label>
+                    <input type="text" class="form-control" id="inviter_1" name="inviter_1" placeholder="اسم الداعي الأول" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="inviter_2">الداعي الإضافي</label>
+                    <input type="text" class="form-control" id="inviter_2" name="inviter_2" placeholder="اسم الداعي الإضافي (اختياري)">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="event_location">موقع الحفل</label>
+            <input type="text" class="form-control" id="event_location" name="event_location" placeholder="مثال: قاعة المملكة للاحتفالات" required>
+        </div>
+        <div class="form-group">
+            <label for="custom_message">إضافة رسالة مخصصة للدعوة</label>
+            <textarea class="form-control" id="custom_message" name="custom_message" rows="3" placeholder="أضف رسالة مخصصة للدعوة (اختياري)"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="notes">ملاحظات</label>
+            <textarea class="form-control" id="notes" name="notes" rows="2" placeholder="أي ملاحظات إضافية (اختياري)"></textarea>
+        </div>
+    </div>
+
+    <!-- Wedding Men Template -->
+    <div id="template-wedding-men">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="host_name">اسم صاحب/صاحبة الحفل</label>
+                    <input type="text" class="form-control" id="host_name" name="host_name" placeholder="اسم صاحب/صاحبة الحفل" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="event_date">تاريخ المناسبة</label>
+                    <input type="date" class="form-control" id="event_date" name="event_date" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="event_time">وقت المناسبة</label>
+                    <input type="time" class="form-control" id="event_time" name="event_time" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="event_location">موقع الحفل</label>
+            <input type="text" class="form-control" id="event_location" name="event_location" placeholder="مثال: قاعة المملكة للاحتفالات" required>
+        </div>
+        <div class="form-group">
+            <label for="custom_message">إضافة رسالة مخصصة للدعوة</label>
+            <textarea class="form-control" id="custom_message" name="custom_message" rows="3" placeholder="أضف رسالة مخصصة للدعوة (اختياري)"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="notes">ملاحظات</label>
+            <textarea class="form-control" id="notes" name="notes" rows="2" placeholder="أي ملاحظات إضافية (اختياري)"></textarea>
+        </div>
+    </div>
+
+    <!-- Graduation Template -->
+    <div id="template-graduation">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="graduate_name">اسم الخريج/الخريجة</label>
+                    <input type="text" class="form-control" id="graduate_name" name="graduate_name" placeholder="اسم الخريج/الخريجة" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="inviter_1">الداعي الأول</label>
+                    <input type="text" class="form-control" id="inviter_1" name="inviter_1" placeholder="اسم الداعي الأول" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="event_date">تاريخ المناسبة</label>
+                    <input type="date" class="form-control" id="event_date" name="event_date" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="event_time">وقت المناسبة</label>
+                    <input type="time" class="form-control" id="event_time" name="event_time" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="event_location">موقع المناسبة</label>
+                    <input type="text" class="form-control" id="event_location" name="event_location" placeholder="مكان حفل التخرج" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="custom_message">إضافة رسالة مخصصة للدعوة</label>
+            <textarea class="form-control" id="custom_message" name="custom_message" rows="3" placeholder="أضف رسالة مخصصة للدعوة (اختياري)"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="notes">ملاحظات</label>
+            <textarea class="form-control" id="notes" name="notes" rows="2" placeholder="أي ملاحظات إضافية (اختياري)"></textarea>
+        </div>
+    </div>
+
+    <!-- Launch Template -->
+    <div id="template-launch">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="launch_name">اسم الحفل/المنتج</label>
+                    <input type="text" class="form-control" id="launch_name" name="launch_name" placeholder="اسم المنتج أو الخدمة" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="inviter_1">الداعي الأول</label>
+                    <input type="text" class="form-control" id="inviter_1" name="inviter_1" placeholder="اسم الداعي الأول" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="launch_description">وصف إطلاق المنتج</label>
+            <textarea class="form-control" id="launch_description" name="launch_description" rows="3" placeholder="وصف مختصر للمنتج أو الخدمة" required></textarea>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="event_date">تاريخ الحفل</label>
+                    <input type="date" class="form-control" id="event_date" name="event_date" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="event_time">توقيت الحفل</label>
+                    <input type="time" class="form-control" id="event_time" name="event_time" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="event_location">موقع الحفل</label>
+                    <input type="text" class="form-control" id="event_location" name="event_location" placeholder="مكان إطلاق المنتج" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="personal_image">تحميل صورة شخصية للمدعو (اختياري)</label>
+            <input type="file" class="form-control-file" id="personal_image" name="personal_image">
+        </div>
+        <div class="form-group">
+            <label for="notes">ملاحظات</label>
+            <textarea class="form-control" id="notes" name="notes" rows="2" placeholder="أي ملاحظات إضافية (اختياري)"></textarea>
+        </div>
+    </div>
+
+    <!-- Meeting Template -->
+    <div id="template-meeting">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="meeting_name">اسم الاجتماع</label>
+                    <input type="text" class="form-control" id="meeting_name" name="meeting_name" placeholder="عنوان الاجتماع" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="inviter_1">الداعي الأول</label>
+                    <input type="text" class="form-control" id="inviter_1" name="inviter_1" placeholder="اسم الداعي الأول" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="meeting_purpose">الغرض من الاجتماع</label>
+            <textarea class="form-control" id="meeting_purpose" name="meeting_purpose" rows="2" placeholder="وصف الغرض من الاجتماع" required></textarea>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="meeting_location">موقع الاجتماع</label>
+                    <input type="text" class="form-control" id="meeting_location" name="meeting_location" placeholder="مكان انعقاد الاجتماع" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="virtual_meeting_link">رابط البث المباشر (اختياري)</label>
+                    <input type="url" class="form-control" id="virtual_meeting_link" name="virtual_meeting_link" placeholder="رابط الاجتماع الافتراضي">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="event_date">تاريخ المناسبة</label>
+                    <input type="date" class="form-control" id="event_date" name="event_date" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="event_time">وقت المناسبة</label>
+                    <input type="time" class="form-control" id="event_time" name="event_time" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="meeting_goal">نوع الاجتماع</label>
+                    <select class="form-control" id="meeting_goal" name="meeting_goal" required>
+                        <option value="">-- اختر نوع الاجتماع --</option>
+                        <option value="board">اجتماع مجلس إدارة</option>
+                        <option value="team">اجتماع فريق عمل</option>
+                        <option value="client">اجتماع مع عملاء</option>
+                        <option value="strategy">اجتماع استراتيجي</option>
+                        <option value="other">أخرى</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="personal_image">تحميل صورة شخصية (اختياري)</label>
+            <input type="file" class="form-control-file" id="personal_image" name="personal_image">
+        </div>
+        <div class="form-group">
+            <label for="notes">ملاحظات</label>
+            <textarea class="form-control" id="notes" name="notes" rows="2" placeholder="أي ملاحظات إضافية (اختياري)"></textarea>
+        </div>
+    </div>
+
+    <!-- Seminar Template -->
+    <div id="template-seminar">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="seminar_title">عنوان الندوة</label>
+                    <input type="text" class="form-control" id="seminar_title" name="seminar_title" placeholder="عنوان الندوة" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="speakers">اسم المتحدث/المتحدثين</label>
+                    <input type="text" class="form-control" id="speakers" name="speakers" placeholder="أسماء المتحدثين" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="seminar_description">وصف مختصر</label>
+            <textarea class="form-control" id="seminar_description" name="seminar_description" rows="2" placeholder="وصف مختصر للندوة" required></textarea>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="event_date">تاريخ المناسبة</label>
+                    <input type="date" class="form-control" id="event_date" name="event_date" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="event_time">وقت المناسبة</label>
+                    <input type="time" class="form-control" id="event_time" name="event_time" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="seminar_duration">مدة الندوة</label>
+                    <input type="text" class="form-control" id="seminar_duration" name="seminar_duration" placeholder="مثال: ساعتان" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="seminar_location">موقع الندوة</label>
+                    <input type="text" class="form-control" id="seminar_location" name="seminar_location" placeholder="مكان انعقاد الندوة" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="live_stream_link">رابط البث المباشر (اختياري)</label>
+                    <input type="url" class="form-control" id="live_stream_link" name="live_stream_link" placeholder="رابط البث المباشر">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inviter_1">الداعي</label>
+            <input type="text" class="form-control" id="inviter_1" name="inviter_1" placeholder="اسم الجهة المنظمة أو الداعي" required>
+        </div>
+        <div class="form-group">
+            <label for="notes">ملاحظات</label>
+            <textarea class="form-control" id="notes" name="notes" rows="2" placeholder="أي ملاحظات إضافية (اختياري)"></textarea>
+        </div>
+    </div>
+
+    <!-- Opening Template -->
+    <div id="template-opening">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="place_name">اسم المقر/الشركة</label>
+                    <input type="text" class="form-control" id="place_name" name="place_name" placeholder="اسم المقر أو الشركة" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="inviter_1">الداعي الأول</label>
+                    <input type="text" class="form-control" id="inviter_1" name="inviter_1" placeholder="اسم الداعي الأول" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="event_description">وصف الفعالية</label>
+            <textarea class="form-control" id="event_description" name="event_description" rows="2" placeholder="وصف مختصر لفعالية الافتتاح" required></textarea>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="event_date">تاريخ الافتتاح</label>
+                    <input type="date" class="form-control" id="event_date" name="event_date" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="opening_time">توقيت الافتتاح</label>
+                    <input type="time" class="form-control" id="opening_time" name="opening_time" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="event_location">موقع المقر</label>
+                    <input type="text" class="form-control" id="event_location" name="event_location" placeholder="عنوان المقر" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="welcome_message">رسالة ترحيبية مخصصة</label>
+            <textarea class="form-control" id="welcome_message" name="welcome_message" rows="3" placeholder="رسالة ترحيبية للمدعوين" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="personal_image">تحميل صورة شخصية (اختياري)</label>
+            <input type="file" class="form-control-file" id="personal_image" name="personal_image">
+        </div>
+        <div class="form-group">
+            <label for="notes">ملاحظات</label>
+            <textarea class="form-control" id="notes" name="notes" rows="2" placeholder="أي ملاحظات إضافية (اختياري)"></textarea>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/dropdown.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Variables
+        let currentStep = 1;
+        const totalSteps = 4;
+        const eventTypeCards = document.querySelectorAll('.event-type-card');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const selectedEventTypeInput = document.getElementById('selected-event-type');
+        const eventDetailsContainer = document.getElementById('event-details-container');
+        
+        // Event Type Selection
+        eventTypeCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove selected class from all cards
+                eventTypeCards.forEach(c => c.classList.remove('selected'));
+                
+                // Add selected class to clicked card
+                this.classList.add('selected');
+                
+                // Update hidden input with selected event type
+                selectedEventTypeInput.value = this.dataset.eventType;
+            });
+        });
+        
+        // Navigation Buttons
+        prevBtn.addEventListener('click', function() {
+            if (currentStep > 1) {
+                navigateToStep(currentStep - 1);
+            }
+        });
+        
+        nextBtn.addEventListener('click', function() {
+            if (currentStep < totalSteps) {
+                // Validate current step before proceeding
+                if (validateCurrentStep()) {
+                    if (currentStep === 1) {
+                        // Load event-specific form fields before moving to step 2
+                        loadEventTypeFields();
+                    }
+                    navigateToStep(currentStep + 1);
+                }
+            }
+        });
+        
+        submitBtn.addEventListener('click', function() {
+            if (validateCurrentStep()) {
+                // Submit the form
+                document.getElementById('create-event-form').submit();
+            }
+        });
+        
+        // Step Navigation
+        function navigateToStep(step) {
+            // Hide all sections
+            document.querySelectorAll('.form-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show current section
+            document.getElementById(`section${step}`).classList.add('active');
+            
+            // Update step indicators
+            document.querySelectorAll('.step').forEach((stepEl, index) => {
+                if (index + 1 < step) {
+                    stepEl.classList.remove('active');
+                    stepEl.classList.add('completed');
+                } else if (index + 1 === step) {
+                    stepEl.classList.add('active');
+                    stepEl.classList.remove('completed');
+                } else {
+                    stepEl.classList.remove('active');
+                    stepEl.classList.remove('completed');
+                }
+            });
+            
+            // Update buttons
+            if (step === 1) {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            } else if (step === totalSteps) {
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'block';
+            } else {
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            }
+            
+            // Update current step
+            currentStep = step;
+        }
+        
+        // Validate Current Step
+        function validateCurrentStep() {
+            if (currentStep === 1) {
+                // Validate event type selection
+                if (!selectedEventTypeInput.value) {
+                    alert('الرجاء اختيار نوع المناسبة');
+                    return false;
+                }
+                return true;
+            } else if (currentStep === 2) {
+                // Validate event details
+                const requiredFields = document.querySelectorAll('#section2 [required]');
+                let valid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value) {
+                        field.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        field.classList.remove('is-invalid');
+                    }
+                });
+                
+                if (!valid) {
+                    alert('الرجاء ملء جميع الحقول المطلوبة');
+                }
+                
+                return valid;
+            } else if (currentStep === 3) {
+                // Validate invitation details
+                const invitationMessage = document.getElementById('invitationMessage');
+                if (!invitationMessage.value) {
+                    invitationMessage.classList.add('is-invalid');
+                    alert('الرجاء إدخال نص رسالة الدعوة');
+                    return false;
+                } else {
+                    invitationMessage.classList.remove('is-invalid');
+                    return true;
+                }
+            }
+            
+            return true;
+        }
+        
+        // Load Event Type Fields
+        function loadEventTypeFields() {
+            const eventType = selectedEventTypeInput.value;
+            const templateContent = document.getElementById(`template-${eventType}`).innerHTML;
+            
+            eventDetailsContainer.innerHTML = templateContent;
+        }
+    });
+</script>
+</body>
+</html>

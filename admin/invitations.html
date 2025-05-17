@@ -1,0 +1,420 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_إدارة_الدع" data-translate-key-titlebase="pageTitleSuffixAdmin">لوحة تحكم المدير | إدارة الدعوات</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="users.html"><i class="nav-icon fas fa-users"></i><p>إدارة المستخدمين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="supervisors.html"><i class="nav-icon fas fa-user-shield"></i><p>إدارة المشرفين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>إدارة المناسبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>إدارة الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guests.html"><i class="nav-icon fas fa-user-friends"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="orders.html"><i class="nav-icon fas fa-file-invoice-dollar"></i><p>إدارة الطلبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="packages.html"><i class="nav-icon fas fa-box-open"></i><p>إدارة الباقات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="reports.html"><i class="nav-icon fas fa-chart-line"></i><p>التقارير والإحصائيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="content_management.html"><i class="nav-icon fas fa-file-alt"></i><p>إدارة المحتوى</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="customers.html"><i class="nav-icon fas fa-user-tie"></i><p>إدارة العملاء</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="support.html"><i class="nav-icon fas fa-life-ring"></i><p>الدعم الفني</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="roles.html"><i class="nav-icon fas fa-user-tag"></i><p>إدارة الأدوار والصلاحيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="files.html"><i class="nav-icon fas fa-folder-open"></i><p>إدارة الملفات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="integrations.html"><i class="nav-icon fas fa-cogs"></i><p>التكاملات الخارجية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="backup.html"><i class="nav-icon fas fa-database"></i><p>النسخ الاحتياطي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="tasks.html"><i class="nav-icon fas fa-tasks"></i><p>جدولة المهام</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="settings.html"><i class="nav-icon fas fa-cog"></i><p>الإعدادات العامة</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i>إدارة الدعوات</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1>إدارة الدعوات</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="card">
+<div class="card-header">
+<div class="d-flex justify-content-between align-items-center">
+<h3 class="card-title mb-0">قائمة جميع الدعوات</h3>
+<button aria-label="زر" class="btn btn-primary btn-sm" data-target="#createInvitationModal" data-toggle="modal" type="button">
+<i class="fas fa-plus mr-1"></i> إنشاء دعوة جديدة (باسم مستخدم)
+                </button>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-4">
+<div class="form-group">
+<input class="form-control form-control-sm" placeholder="بحث (رقم دعوة، مناسبة، مستخدم)..." type="text">
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<select class="form-control form-control-sm select2" id="invitationStatusFilter">
+<option selected="selected" value="all">كل الحالات</option>
+<option value="sent">مرسلة</option>
+<option value="scheduled">مجدولة</option>
+<option value="draft">مسودة</option>
+<option value="cancelled">ملغاة</option>
+</select>
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<select class="form-control form-control-sm select2" id="invitationUserFilter">
+<option selected="selected" value="all">كل المستخدمين</option>
+<option value="user1">أحمد محمد</option>
+<option value="user2">فاطمة علي</option>
+<!-- Populate with actual users -->
+</select>
+</div>
+</div>
+<div class="col-md-2">
+<button aria-label="زر" class="btn btn-sm btn-default btn-block" type="button">تطبيق الفلاتر</button>
+</div>
+</div>
+</div>
+<div class="card-body">
+<table class="table table-bordered table-striped" id="invitationsTable">
+<thead>
+<tr>
+<th><input id="selectAllInvitations" type="checkbox"></th>
+<th>رقم الدعوة</th>
+<th>اسم المناسبة</th>
+<th>المستخدم الداعي</th>
+<th>تاريخ الإنشاء</th>
+<th>تاريخ الإرسال</th>
+<th>عدد المدعوين</th>
+<th>الحالة</th>
+<th>إجراءات</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><input type="checkbox"></td>
+<td>INV-001</td>
+<td><a aria-label="رابط" href="events.html?id=1">حفل زفاف خالد وليلى</a></td>
+<td><a aria-label="رابط" href="users.html?id=101">أحمد محمد</a></td>
+<td>2024-05-01</td>
+<td>2024-05-15</td>
+<td>150</td>
+<td><span class="badge badge-info">مجدولة</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-primary" data-target="#viewInvitationModal" data-toggle="modal" title="عرض التفاصيل"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-warning" data-target="#editInvitationModal" data-toggle="modal" title="تعديل الدعوة"><i class="fas fa-edit"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-success" title="إرسال الآن"><i class="fas fa-paper-plane"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-danger" title="إلغاء الإرسال المجدول"><i class="fas fa-times-circle"></i></button>
+</td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>INV-002</td>
+<td><a aria-label="رابط" href="events.html?id=2">مؤتمر التكنولوجيا السنوي</a></td>
+<td><a aria-label="رابط" href="users.html?id=102">فاطمة علي</a></td>
+<td>2024-04-20</td>
+<td>2024-04-25</td>
+<td>50</td>
+<td><span class="badge badge-success">مرسلة</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-primary" data-target="#viewInvitationModal" data-toggle="modal" title="عرض التفاصيل"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-danger" title="إلغاء الدعوة"><i class="fas fa-ban"></i></button>
+</td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>INV-003</td>
+<td><a aria-label="رابط" href="events.html?id=3">افتتاح فرع جديد</a></td>
+<td><a aria-label="رابط" href="users.html?id=101">أحمد محمد</a></td>
+<td>2024-05-10</td>
+<td>-</td>
+<td>75</td>
+<td><span class="badge badge-secondary">مسودة</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-primary" data-target="#viewInvitationModal" data-toggle="modal" title="عرض التفاصيل"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-warning" data-target="#editInvitationModal" data-toggle="modal" title="تعديل الدعوة"><i class="fas fa-edit"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-info" title="إرسال/جدولة"><i class="fas fa-calendar-check"></i></button>
+</td>
+</tr>
+<!-- Add more invitation rows here -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Create Invitation Modal -->
+<div aria-hidden="true" aria-labelledby="createInvitationModalLabel" class="modal fade" id="createInvitationModal" tabindex="-1">
+<div class="modal-dialog modal-xl">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="createInvitationModalLabel">إنشاء دعوة جديدة (باسم مستخدم)</h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<form id="createInvitationForm">
+<div class="modal-body">
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label for="invitationUser">المستخدم الداعي:</label>
+<select class="form-control select2" id="invitationUser" required="" style="width: 100%;">
+<option value="">اختر المستخدم...</option>
+<option value="user1">أحمد محمد (user1@example.com)</option>
+<option value="user2">فاطمة علي (user2@example.com)</option>
+<!-- Populate with actual users -->
+</select>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label for="invitationEvent">المناسبة:</label>
+<select class="form-control select2" id="invitationEvent" required="" style="width: 100%;">
+<option value="">اختر المناسبة...</option>
+<option value="event1">حفل زفاف خالد وليلى</option>
+<option value="event2">مؤتمر التكنولوجيا السنوي</option>
+<!-- Populate with actual events for the selected user -->
+</select>
+</div>
+</div>
+</div>
+<div class="form-group">
+<label for="invitationTemplate">قالب الدعوة:</label>
+<select class="form-control select2" id="invitationTemplate" required="" style="width: 100%;">
+<option value="">اختر قالب...</option>
+<option value="template1">قالب رسمي</option>
+<option value="template2">قالب عصري</option>
+<!-- Populate with available templates -->
+</select>
+</div>
+<div class="form-group">
+<label>المدعوون:</label>
+<textarea class="form-control" placeholder="أدخل قائمة المدعوين (اسم, بريد إلكتروني/رقم هاتف) كل مدعو في سطر جديد, أو ارفع ملف CSV/Excel" rows="3"></textarea>
+<small class="form-text text-muted">مثال: جون دو, john.doe@example.com</small>
+<div class="mt-2">
+<label for="guestListFile">أو ارفع ملف:</label>
+<div class="custom-file">
+<input accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" class="custom-file-input" id="guestListFile" type="file">
+<label class="custom-file-label" for="guestListFile">اختر ملف...</label>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label for="scheduleSendDate">تاريخ الإرسال المجدول (اختياري):</label>
+<input class="form-control" id="scheduleSendDate" type="datetime-local">
+</div>
+</div>
+</div>
+</div>
+<div class="modal-footer justify-content-between">
+<button aria-label="زر" class="btn btn-default" data-dismiss="modal" type="button">إغلاق</button>
+<div>
+<button aria-label="زر" class="btn btn-secondary" type="submit">حفظ كمسودة</button>
+<button aria-label="زر" class="btn btn-primary" type="submit">إنشاء وإرسال/جدولة</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- View Invitation Modal (Placeholder) -->
+<div aria-hidden="true" class="modal fade" id="viewInvitationModal" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">تفاصيل الدعوة INV-001</h5><button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button></div><div class="modal-body"><p>تفاصيل الدعوة هنا...</p></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button></div></div></div></div>
+<!-- Edit Invitation Modal (Placeholder) -->
+<div aria-hidden="true" class="modal fade" id="editInvitationModal" tabindex="-1"><div class="modal-dialog modal-xl"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">تعديل الدعوة INV-001</h5><button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button></div><div class="modal-body"><p>نموذج تعديل الدعوة هنا (مشابه لنموذج الإنشاء مع ملء البيانات الحالية)...</p></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button><button class="btn btn-primary" type="button">حفظ التعديلات</button></div></div></div></div>
+<!-- Main Footer -->
+<footer class="main-footer">
+<div class="float-right d-none d-sm-inline">كل الحقوق محفوظة.</div>
+<strong>حقوق النشر © 2024-2025 <a aria-label="رابط" href="#">اسم الشركة</a>.</strong>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- Select2 -->
+<script src="../assets/js/scripts.js"></script>
+<!-- bs-custom-file-input -->
+<script src="../assets/js/scripts.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/js/scripts.js"></script>
+<!-- Custom JS -->
+<script>
+  $(function () {
+    bsCustomFileInput.init();
+    //Initialize Select2 Elements
+    $('.select2').select2({
+      theme: 'bootstrap4'
+    });
+
+    $("#invitationsTable").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": [
+        { extend: 'copy', text: 'نسخ' },
+        { extend: 'csv', text: 'CSV' },
+        { extend: 'excel', text: 'إكسل' },
+        { extend: 'pdf', text: 'PDF' },
+        { extend: 'print', text: 'طباعة' },
+        { extend: 'colvis', text: 'إظهار الأعمدة' }
+      ],
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json"
+      }
+    }).buttons().container().appendTo("#invitationsTable_wrapper .col-md-6:eq(0)");
+
+    // Select all checkbox
+    $('#selectAllInvitations').on('click', function(){
+      var rows = $("#invitationsTable").DataTable().rows({ 'search': 'applied' }).nodes();
+      $('input[type="checkbox"]', rows).prop('checked', this.checked);
+    });
+
+    $("#invitationsTable tbody").on('change', 'input[type="checkbox"]', function(){
+      if(!this.checked){
+        var el = $('#selectAllInvitations').get(0);
+        if(el && el.checked && ('indeterminate' in el)){
+          el.indeterminate = true;
+        }
+      }
+    });
+  });
+
+  // Language switcher logic
+  document.addEventListener("DOMContentLoaded", function() {
+    const langSwitcherBtn = document.getElementById("lang-switcher-btn");
+    const htmlEl = document.documentElement;
+    if (langSwitcherBtn) {
+      langSwitcherBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        const currentLang = htmlEl.getAttribute("lang") || "ar";
+        const newLang = currentLang === "ar" ? "en" : "ar";
+        htmlEl.setAttribute("lang", newLang);
+        htmlEl.setAttribute("dir", newLang === "ar" ? "rtl" : "ltr");
+        langSwitcherBtn.textContent = newLang === "ar" ? "EN" : "ع";
+        if (newLang === 'ar') {
+            document.title = "لوحة تحكم المدير | إدارة الدعوات";
+            document.querySelector('.content-header h1').textContent = "إدارة الدعوات";
+            $('.custom-file-label').text('اختر ملف...');
+        } else {
+            document.title = "Admin Dashboard | Invitation Management";
+            document.querySelector('.content-header h1').textContent = "Invitation Management";
+            $('.custom-file-label').text('Choose file...');
+        }
+      });
+    }
+  });
+</script>
+</main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

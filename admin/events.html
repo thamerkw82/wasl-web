@@ -1,0 +1,387 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title data-translate-key-suffix="pageTitleSuffix_إدارة_المن" data-translate-key-titlebase="pageTitleSuffixAdmin">لوحة تحكم المدير | إدارة المناسبات</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+<!-- Custom Styles -->
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header">
+<div class="header__brand">
+<img alt="شعار الموقع" src="../assets/img/.png"><span data-translate-key="headerBrandText">لوحة المستخدم</span></div>
+<div class="header__actions">
+
+<button aria-label="زر" id="langSwitcher" title="تبديل اللغة">EN</button>
+<!-- User profile dropdown -->
+<div class="profile-dropdown">
+<div class="profile-dropdown__toggle" id="profileToggle">
+<span>اسم المستخدم</span>
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+</div>
+<div class="profile-dropdown__menu" id="profileMenu">
+<div class="user-profile">
+<img alt="صورة الملف الشخصي للمستخدم" src="../assets/img/user-avatar.jpg">
+<div class="user-info">
+<div class="user-name">اسم المستخدم</div>
+<div class="user-email">user@example.com</div>
+</div>
+</div>
+<div class="profile-dropdown__header" data-translate-key="accountDropdownHeader">الحساب</div>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="profileLinkText" href="#"><i class="fas fa-user-circle ml-1"></i> الملف الشخصي</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="settingsLinkText" href="#"><i class="fas fa-cog ml-1"></i> الإعدادات</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="activityLogLinkText" href="#"><i class="fas fa-history ml-1"></i> سجل النشاط</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="helpSupportLinkText" href="#"><i class="fas fa-question-circle ml-1"></i> المساعدة والدعم</a>
+<a aria-label="رابط" class="profile-dropdown__item" data-translate-key="logoutLinkText" href="#" id="logoutLink"><i class="fas fa-sign-out-alt ml-1"></i> تسجيل الخروج</a>
+</div>
+</div>
+</div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i><p>الرئيسية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="users.html"><i class="nav-icon fas fa-users"></i><p>إدارة المستخدمين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="supervisors.html"><i class="nav-icon fas fa-user-shield"></i><p>إدارة المشرفين</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" href="events.html"><i class="nav-icon fas fa-calendar-alt"></i><p>إدارة المناسبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="invitations.html"><i class="nav-icon fas fa-envelope-open-text"></i><p>إدارة الدعوات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="guests.html"><i class="nav-icon fas fa-user-friends"></i><p>إدارة الضيوف</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="orders.html"><i class="nav-icon fas fa-file-invoice-dollar"></i><p>إدارة الطلبات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="packages.html"><i class="nav-icon fas fa-box-open"></i><p>إدارة الباقات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="reports.html"><i class="nav-icon fas fa-chart-line"></i><p>التقارير والإحصائيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="content_management.html"><i class="nav-icon fas fa-file-alt"></i><p>إدارة المحتوى</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="customers.html"><i class="nav-icon fas fa-user-tie"></i><p>إدارة العملاء</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="support.html"><i class="nav-icon fas fa-life-ring"></i><p>الدعم الفني</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="roles.html"><i class="nav-icon fas fa-user-tag"></i><p>إدارة الأدوار والصلاحيات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="files.html"><i class="nav-icon fas fa-folder-open"></i><p>إدارة الملفات</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="integrations.html"><i class="nav-icon fas fa-cogs"></i><p>التكاملات الخارجية</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="backup.html"><i class="nav-icon fas fa-database"></i><p>النسخ الاحتياطي</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="tasks.html"><i class="nav-icon fas fa-tasks"></i><p>جدولة المهام</p></a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" href="settings.html"><i class="nav-icon fas fa-cog"></i><p>الإعدادات العامة</p></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</aside>
+<main class="main">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a aria-label="رابط" class="nav-link active" href="events.html"><i class="nav-icon fas fa-calendar-alt"></i>إدارة المناسبات</a>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+</ul>
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1>إدارة المناسبات</h1>
+</div>
+</div>
+</div>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">قائمة جميع المناسبات</h3>
+<div class="card-tools">
+<button aria-label="زر" class="btn btn-primary btn-sm" data-target="#createEventModal" data-toggle="modal" type="button">
+<i class="fas fa-plus mr-1"></i> إنشاء مناسبة جديدة
+              </button>
+</div>
+</div>
+<div class="card-body">
+<table class="table table-bordered table-striped" id="eventsTable">
+<thead>
+<tr>
+<th><input id="selectAllEvents" type="checkbox"></th>
+<th>اسم المناسبة</th>
+<th>المستخدم الداعي</th>
+<th>التاريخ</th>
+<th>الوقت</th>
+<th>الموقع</th>
+<th>عدد الضيوف</th>
+<th>الحالة</th>
+<th>إجراءات</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><input type="checkbox"></td>
+<td>حفل زفاف خالد وليلى</td>
+<td><a aria-label="رابط" href="#">أحمد محمود</a></td>
+<td>2024-07-15</td>
+<td>08:00 م</td>
+<td>قاعة ألف ليلة وليلة</td>
+<td>300</td>
+<td><span class="badge badge-success">مؤكدة</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-primary" title="عرض"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-info" data-target="#editEventModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+<a aria-label="رابط" class="btn btn-xs btn-secondary" href="guests.html?event_id=1" title="إدارة الحضور"><i class="fas fa-users-cog"></i></a>
+<button aria-label="زر" class="btn btn-xs btn-danger" title="إلغاء"><i class="fas fa-ban"></i></button>
+</td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>مؤتمر التكنولوجيا السنوي</td>
+<td><a aria-label="رابط" href="#">شركة تكنو سوفت</a></td>
+<td>2024-09-01</td>
+<td>09:00 ص</td>
+<td>مركز المؤتمرات الدولي</td>
+<td>500</td>
+<td><span class="badge badge-warning">مخطط لها</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-primary" title="عرض"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-info" data-target="#editEventModal" data-toggle="modal" title="تعديل"><i class="fas fa-edit"></i></button>
+<a aria-label="رابط" class="btn btn-xs btn-secondary" href="guests.html?event_id=2" title="إدارة الحضور"><i class="fas fa-users-cog"></i></a>
+<button aria-label="زر" class="btn btn-xs btn-danger" title="إلغاء"><i class="fas fa-ban"></i></button>
+</td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>عيد ميلاد سارة</td>
+<td><a aria-label="رابط" href="#">فاطمة علي</a></td>
+<td>2024-05-20</td>
+<td>06:00 م</td>
+<td>المنزل</td>
+<td>50</td>
+<td><span class="badge badge-info">مكتملة</span></td>
+<td>
+<button aria-label="زر" class="btn btn-xs btn-primary" title="عرض"><i class="fas fa-eye"></i></button>
+<button aria-label="زر" class="btn btn-xs btn-success" title="عرض التقرير"><i class="fas fa-chart-pie"></i></button>
+</td>
+</tr>
+<!-- Add more event rows here -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Create Event Modal -->
+<div aria-hidden="true" aria-labelledby="createEventModalLabel" class="modal fade" id="createEventModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="createEventModalLabel">إنشاء مناسبة جديدة</h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<form id="createEventForm">
+<div class="modal-body">
+<div class="form-group">
+<label for="eventName">اسم المناسبة</label>
+<input class="form-control" id="eventName" required="" type="text">
+</div>
+<div class="form-group">
+<label for="eventUser">المستخدم الداعي (صاحب المناسبة)</label>
+<select class="form-control" id="eventUser" required="">
+<option value="">اختر المستخدم...</option>
+<option value="1">أحمد محمود</option>
+<option value="2">شركة تكنو سوفت</option>
+<option value="3">فاطمة علي</option>
+</select>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label for="eventDate">التاريخ</label>
+<div class="input-group date" data-target-input="nearest" id="eventDatePicker">
+<input class="form-control datetimepicker-input" data-target="#eventDatePicker" id="eventDateInput" required="" type="text">
+<div class="input-group-append" data-target="#eventDatePicker" data-toggle="datetimepicker">
+<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label for="eventTime">الوقت</label>
+<div class="input-group date" data-target-input="nearest" id="eventTimePicker">
+<input class="form-control datetimepicker-input" data-target="#eventTimePicker" id="eventTimeInput" required="" type="text">
+<div class="input-group-append" data-target="#eventTimePicker" data-toggle="datetimepicker">
+<div class="input-group-text"><i class="fa fa-clock"></i></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="form-group">
+<label for="eventLocation">الموقع</label>
+<input class="form-control" id="eventLocation" required="" type="text">
+</div>
+<div class="form-group">
+<label for="eventDescription">وصف المناسبة</label>
+<textarea class="form-control" id="eventDescription" rows="3"></textarea>
+</div>
+<div class="form-group">
+<label for="eventType">نوع المناسبة</label>
+<select class="form-control" id="eventType">
+<option value="wedding">حفل زفاف</option>
+<option value="conference">مؤتمر</option>
+<option value="birthday">عيد ميلاد</option>
+<option value="other">أخرى</option>
+</select>
+</div>
+</div>
+<div class="modal-footer">
+<button aria-label="زر" class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+<button aria-label="زر" class="btn btn-primary" type="submit">حفظ المناسبة</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- /.modal -->
+<!-- Edit Event Modal (Placeholder - Similar to Create) -->
+<div aria-hidden="true" aria-labelledby="editEventModalLabel" class="modal fade" id="editEventModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="editEventModalLabel">تعديل المناسبة</h5>
+<button aria-label="زر" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<form id="editEventForm">
+<div class="modal-body">
+<!-- Fields similar to createEventForm, pre-filled with event data -->
+<p>نموذج تعديل المناسبة هنا...</p>
+</div>
+<div class="modal-footer">
+<button aria-label="زر" class="btn btn-secondary" data-dismiss="modal" type="button">إغلاق</button>
+<button aria-label="زر" class="btn btn-primary" type="submit">حفظ التعديلات</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Main Footer -->
+<footer class="main-footer">
+<div class="float-right d-none d-sm-inline">كل الحقوق محفوظة.</div>
+<strong>حقوق النشر © 2024-2025 <a aria-label="رابط" href="#">اسم الشركة</a>.</strong>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- Moment.js -->
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script> <!-- Arabic locale for moment -->
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="../assets/js/scripts.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/js/scripts.js"></script>
+<!-- Custom JS -->
+<script>
+  $(function () {
+    $("#eventsTable").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json"
+      }
+    }).buttons().container().appendTo("#eventsTable_wrapper .col-md-6:eq(0)");
+
+    //Initialize DateTimePickers
+    $('#eventDatePicker').datetimepicker({ format: 'L', locale: 'ar' });
+    $('#eventTimePicker').datetimepicker({ format: 'LT', locale: 'ar' });
+  });
+
+  // Language switcher logic
+  document.addEventListener("DOMContentLoaded", function() {
+    const langSwitcherBtn = document.getElementById("lang-switcher-btn");
+    const htmlEl = document.documentElement;
+    if (langSwitcherBtn) {
+      langSwitcherBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        const currentLang = htmlEl.getAttribute("lang") || "ar";
+        const newLang = currentLang === "ar" ? "en" : "ar";
+        htmlEl.setAttribute("lang", newLang);
+        htmlEl.setAttribute("dir", newLang === "ar" ? "rtl" : "ltr");
+        langSwitcherBtn.textContent = newLang === "ar" ? "EN" : "ع";
+        // Update texts based on language
+        if (newLang === 'ar') {
+            document.title = "لوحة تحكم المدير | إدارة المناسبات";
+            document.querySelector('.content-header h1').textContent = "إدارة المناسبات";
+            $('#eventDatePicker').datetimepicker('locale', 'ar');
+            $('#eventTimePicker').datetimepicker('locale', 'ar');
+        } else {
+            document.title = "Admin Dashboard | Event Management";
+            document.querySelector('.content-header h1').textContent = "Event Management";
+            $('#eventDatePicker').datetimepicker('locale', 'en');
+            $('#eventTimePicker').datetimepicker('locale', 'en');
+        }
+      });
+    }
+  });
+</script>
+</main>
+</div>
+<script src="../assets/js/scripts.js"></script><script src="../assets/js/scripts.js"></script>
+
+
+<script src="../assets/js/dropdown.js"></script></body></html>

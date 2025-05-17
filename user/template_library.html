@@ -1,0 +1,85 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title data-translate="template_library_page_title">مكتبة القوالب</title>
+<link href="../assets/css/style.css" rel="stylesheet">
+<!-- Add any other common head elements here -->
+<link href="../assets/css/responsive.css" rel="stylesheet"/>
+<link href="../assets/css/accessibility.css" rel="stylesheet"/>
+<link href="../assets/css/bem.css" rel="stylesheet"/>
+<link href="../assets/css/rtl-fixes.css" rel="stylesheet"/>
+<link href="../assets/css/unified-design.css" rel="stylesheet"/>
+<link href="../assets/css/dropdown-fixes.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"><!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+
+
+<!-- 
+    تضمين ملفات CSS الموحدة وملفات JavaScript المتكاملة
+    هذا الملف يحتوي على الروابط التي يجب إضافتها إلى جميع صفحات HTML
+-->
+
+<!-- ملفات CSS الموحدة -->
+<link rel="stylesheet" href="../assets/css/design-system.css">
+<link rel="stylesheet" href="../assets/css/unified-styles.css">
+<link rel="stylesheet" href="../assets/css/css-override.css">
+
+<!-- ملفات JavaScript المتكاملة -->
+<script src="../assets/js/main-integration.js"></script>
+
+</head>
+<body>
+<header class="header sticky-top">
+<nav class="navbar navbar-expand-lg">
+<div class="container-fluid">
+<a aria-label="رابط" class="navbar-brand" data-translate="dashboard_title" href="index.html">لوحة التحكم</a>
+<button aria-label="زر" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<!-- Navigation items will be dynamically updated or can be static if simple -->
+<li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="nav_home" href="index.html"><i class="nav-icon fas fa-tachometer-alt"></i>الرئيسية</a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" data-translate="template_library_page_title" href="template_library.html"><i class="nav-icon fas fa-copy"></i>مكتبة القوالب</a></li>
+</ul>
+<div class="d-flex align-items-center">
+<button aria-label="زر" class="btn btn-outline-secondary" data-translate="toggle_language_button" id="language-toggle">E</button>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="container-fluid">
+<div class="row">
+<nav class="col-md-3 col-lg-2 d-md-block sidebar collapse" id="sidebar">
+<div class="position-sticky pt-3">
+<ul class="nav flex-column">
+<li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_dashboard" href="index.html"><i class="nav-icon fas fa-circle"></i>لوحة التحكم</a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_my_events" href="my_events.html"><i class="nav-icon fas fa-calendar"></i>مناسباتي</a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_create_invitation" href="create_invitation.html"><i class="nav-icon fas fa-plus-circle"></i>إنشاء دعوة</a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link active" data-translate="sidebar_template_library" href="template_library.html"><i class="nav-icon fas fa-copy"></i>مكتبة القوالب</a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_guest_management" href="guest_management.html"><i class="nav-icon fas fa-user-friends"></i>إدارة الضيوف</a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_my_invitations" href="my_invitations.html"><i class="nav-icon fas fa-envelope"></i>دعواتي المرسلة</a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_responses" href="responses.html"><i class="nav-icon fas fa-circle"></i>الردود</a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_profile" href="profile.html"><i class="nav-icon fas fa-user"></i>الملف الشخصي</a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_subscription" href="subscription.html"><i class="nav-icon fas fa-credit-card"></i>الاشتراك</a></li>
+<li class="nav-item"><a aria-label="رابط" class="nav-link" data-translate="sidebar_logout" href="../login.html"><i class="nav-icon fas fa-circle"></i>تسجيل الخروج</a></li>
+</ul>
+</div>
+</nav>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<h1 class="h2" data-translate="template_library_page_title">مكتبة القوالب</h1>
+</div>
+<!-- Page-specific content will be injected here -->
+<p class="lead" data-translate="template_library_description">اختر من بين مجموعة متنوعة من القوالب الجاهزة لمناسباتك المختلفة. يمكنك معاينة كل قالب وتخصيصه ليناسب ذوقك.</p><div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"><div class="col"><div class="card h-100"><img alt="قالب زفاف كلاسيكي" class="card-img-top" src="https://via.placeholder.com/300x200.png?text=Classic+Wedding"><div class="card-body"><h5 class="card-title" data-translate="tpl_wedding_classic_name">قالب زفاف كلاسيكي</h5><a aria-label="رابط" class="btn btn-outline-primary btn-sm me-2" data-translate="template_preview_button" href="#">معاينة</a><a class="btn btn-primary btn-sm" data-translate="template_select_button" href="create_invitation.html?template=template1">اختيار</a></div></div></div><div class="col"><div class="card h-100"><img alt="قالب عيد ميلاد ممتع" class="card-img-top" src="https://via.placeholder.com/300x200.png?text=Fun+Birthday"><div class="card-body"><h5 class="card-title" data-translate="tpl_birthday_fun_name">قالب عيد ميلاد ممتع</h5><a class="btn btn-outline-primary btn-sm me-2" data-translate="template_preview_button" href="#">معاينة</a><a class="btn btn-primary btn-sm" data-translate="template_select_button" href="create_invitation.html?template=template2">اختيار</a></div></div></div><div class="col"><div class="card h-100"><img alt="قالب شركة عصري" class="card-img-top" src="https://via.placeholder.com/300x200.png?text=Modern+Corporate"><div class="card-body"><h5 class="card-title" data-translate="tpl_corporate_modern_name">قالب شركة عصري</h5><a class="btn btn-outline-primary btn-sm me-2" data-translate="template_preview_button" href="#">معاينة</a><a class="btn btn-primary btn-sm" data-translate="template_select_button" href="create_invitation.html?template=template3">اختيار</a></div></div></div><div class="col"><div class="card h-100"><img alt="قالب عشاء أنيق" class="card-img-top" src="https://via.placeholder.com/300x200.png?text=Elegant+Dinner"><div class="card-body"><h5 class="card-title" data-translate="tpl_dinner_elegant_name">قالب عشاء أنيق</h5><a class="btn btn-outline-primary btn-sm me-2" data-translate="template_preview_button" href="#">معاينة</a><a class="btn btn-primary btn-sm" data-translate="template_select_button" href="create_invitation.html?template=template4">اختيار</a></div></div></div><div class="col"><div class="card h-100"><img alt="قالب افتتاح فخم" class="card-img-top" src="https://via.placeholder.com/300x200.png?text=Grand+Opening"><div class="card-body"><h5 class="card-title" data-translate="tpl_opening_grand_name">قالب افتتاح فخم</h5><a class="btn btn-outline-primary btn-sm me-2" data-translate="template_preview_button" href="#">معاينة</a><a class="btn btn-primary btn-sm" data-translate="template_select_button" href="create_invitation.html?template=template5">اختيار</a></div></div></div><div class="col"><div class="card h-100"><img alt="قالب استقبال مولود لطيف" class="card-img-top" src="https://via.placeholder.com/300x200.png?text=Cute+Baby+Shower"><div class="card-body"><h5 class="card-title" data-translate="tpl_baby_cute_name">قالب استقبال مولود لطيف</h5><a class="btn btn-outline-primary btn-sm me-2" data-translate="template_preview_button" href="#">معاينة</a><a class="btn btn-primary btn-sm" data-translate="template_select_button" href="create_invitation.html?template=template6">اختيار</a></div></div></div></div></main>
+</div>
+</div>
+<script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
+<!-- Add any other common body script elements here -->
+
+<script src="../assets/js/dropdown.js"></script></body></html>
